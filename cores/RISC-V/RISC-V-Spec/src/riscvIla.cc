@@ -56,6 +56,7 @@ riscvILA_user::riscvILA_user(int pc_init_val)
               << std::endl;
 
   model.AddInit(pc == BvConst(pc_init_val, XLEN));
+
 }
 
 ExprRef riscvILA_user::getSlice(const ExprRef& word, const ExprRef& lowBits,
@@ -120,6 +121,7 @@ ExprRef riscvILA_user::CombineSlices(const ExprRef& word,
 #define UPDATE_R(r, exp) UpdateGPR(instr, (r), (exp))
 
 void riscvILA_user::addInstructions() {
+  model.SetValid(BoolConst(true));
 
   // ------------------------- Instruction: BRANCH
   // ------------------------------ //
@@ -137,6 +139,7 @@ void riscvILA_user::addInstructions() {
 
       instr.SetUpdate(pc, Ite(rs1_val == rs2_val, BTarget, NC));
       RECORD_INST("BEQ");
+
     }
     // ------------------------- Instruction: BNE ------------------------------
     // //
@@ -208,7 +211,9 @@ void riscvILA_user::addInstructions() {
       auto decode = (opcode == JALR);
       instr.SetDecode(decode);
 
+  std::cout << "alive" << std::endl;
       instr.SetUpdate(pc, (rs1_val + immI) & bv(0xFFFFFFFE));
+
       UPDATE_R(rd, NC);
       RECORD_INST("JALR");
     }
@@ -217,6 +222,7 @@ void riscvILA_user::addInstructions() {
   // ------------------------- Instruction: LOAD ------------------------------
   // //
   {
+
     auto rs1_val = indexIntoGPR(rs1);
     auto addr = rs1_val + immI;
     auto lw_val = LoadFromMem(mem, addr(31, 2));
@@ -231,6 +237,7 @@ void riscvILA_user::addInstructions() {
       auto decode = (opcode == LOAD) & (funct3 == WORD);
       instr.SetDecode(decode);
 
+  std::cout << "alive" << std::endl;
       instr.SetUpdate(pc, nxt_pc);
       UPDATE_R(rd, getSlice(lw_val, addr(1, 0), CWORD, 0));
       RECORD_INST("LW");
