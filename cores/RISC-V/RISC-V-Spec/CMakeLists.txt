@@ -11,6 +11,7 @@ project(RiscV_RV32I VERSION 1.0 LANGUAGES CXX)
 # alias and configurations
 # ---------------------------------------------------------------------------- #
 set(RISCV_RV32I_TARGET ${PROJECT_NAME})
+set(CMAKE_BUILD_TYPE Debug) 
 
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
@@ -32,7 +33,7 @@ add_library(${RISCV_RV32I_TARGET}
   src/riscvIla.cc
 )
 
-target_include_directories(${RISCV_RV32I_TARGET} PRIVATE include)
+target_include_directories(${RISCV_RV32I_TARGET} PRIVATE include /home/yuex/include/)
 
 target_link_libraries(${RISCV_RV32I_TARGET} PUBLIC ilang::ilang)
 
@@ -45,7 +46,7 @@ add_executable(${RISCV_RV32I_TARGET}Exe
   app/main.cc
 )
 
-target_include_directories(${RISCV_RV32I_TARGET}Exe PRIVATE include)
+target_include_directories(${RISCV_RV32I_TARGET}Exe PRIVATE include /home/yuex/include/)
 
 target_link_libraries(${RISCV_RV32I_TARGET}Exe ${RISCV_RV32I_TARGET})
 
