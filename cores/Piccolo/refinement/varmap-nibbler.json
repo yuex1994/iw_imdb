@@ -1,7 +1,7 @@
 {
   "models": { "ILA":"m0" , "VERILOG": "m1" },
   "state mapping": { 
-    "pc"  : [["__START__","m1.near_mem__DOLLAR__imem_pc"],["__IEND__", "#pc_after#"]],
+    "pc"  : [["__START__","m1.near_mem$imem_pc"],["__IEND__", "#pc_after#"]],
 
     "x0"  : "m0.x0 == 0"  ,
     "x1"  : [["__START__" , "#regPull1#"]  , ["__IEND__" , "m1.gpr_regfile.regfile.arr[1]"]]  ,
@@ -138,9 +138,6 @@
          "RDY_set_verbosity"                      : "**KEEP**"
   },
 
-  "mapping control" : [ "(~__START__) ||  (__IMEM_mem_0_rdata == m1.near_mem__DOLLAR__imem_instr)"
-  ],
-
   "verilog-inline-monitors" : {
     "stage_tracker" : {
       "verilog": 
@@ -152,8 +149,8 @@
           "    else if (monitor_s1 && monitor_s2_nxt)",
           "        monitor_s1_already <= 1;",
           "end",
-          "always @(*) begin monitor_s2_nxt = ",
-          "  m1.stage1_rg_full__DOLLAR__D_IN & m1.stage1_rg_full__DOLLAR__EN ? monitor_s1 : monitor_s2; end",
+          "always @(*) begin monitor_s2_nxt = (monitor_s2 == 0) ? ( m1.s1_to_s2$D_IN & m1.s1_to_s2$EN & monitor_s1 ?  1'b1 : 1'b0) : ",
+          "  ( m1.s2_to_s3$D_IN & m1.s2_to_s3$EN  ?  1'b0 : 1'b1); end",
           "always @(posedge clk) begin",
           "    if(rst) begin",
           "        monitor_s2 <= 0;",
@@ -165,8 +162,8 @@
           "            monitor_s2_already <= 1;",
           "    end",
           "end",
-          "always @(*) begin monitor_s3_nxt = ",
-          "  m1.stage2_rg_full__DOLLAR__D_IN & m1.stage2_rg_full__DOLLAR__EN ? monitor_s2 : monitor_s3; end ",
+          "always @(*) begin monitor_s3_nxt = (monitor_s3 == 0) ? ( m1.s2_to_s3$D_IN & m1.s2_to_s3$EN & monitor_s2 ?  1'b1 : 1'b0) : ",
+          "  (m1.s3_deq$EN & m1.s3_deq$D_IN ? 1'b0 : 1'b1) ; end ",
           "always @(posedge clk) begin",
           "    if(rst) begin",
           "        monitor_s3 <= 0;",
@@ -179,7 +176,7 @@
           "    end",
           "end",
           "always @(*) begin monitor_s4_nxt = ",
-          "  monitor_s3 && m1.rg_retiring__DOLLAR__EN ? 1'b1 : monitor_s4; end",
+          "  monitor_s3 && m1.rg_retiring$EN ? 1'b1 : monitor_s4; end",
           "always @(posedge clk) begin",
           "    if(rst) begin",
           "        monitor_s4 <= 0;",
@@ -191,11 +188,10 @@
           "            monitor_s4_delay <= 1'b1; // enough",
           "    end",
           "end",
-          "// monitor_correctness_1 : assert property (! (monitor_s1_already && monitor_s1));",
-          "// monitor_correctness_2 : assert property (! (monitor_s2_already && monitor_s2));",
-          "// monitor_correctness_3 : assert property ( (monitor_s3_delay && !monitor_s3) |=>  (!monitor_s3) );",
-          "// monitor_correctness_4 : assert property ( (monitor_s4_delay && !monitor_s4) |=>  (!monitor_s4) );",
-          "always @(*) begin end_of_pipeline = monitor_s4 && ~monitor_s4_delay ; end // just check one cycle"
+          "always @(*) begin end_of_pipeline = monitor_s4 && ~monitor_s4_delay ; end // just check one cycle",
+          "// m1_m2 : assert property (~(monitor_s1 && monitor_s2)); // NOTE: cosa/cosa2/yosys-targets ... will try to prove w. these",
+          "// m2_m3 : assert property (~(monitor_s2 && monitor_s3)); // NOTE: cosa/cosa2/yosys-targets ... will try to prove w. these",
+          "// m3_m4 : assert property (~(monitor_s3 && monitor_s4)); // NOTE: cosa/cosa2/yosys-targets ... will try to prove w. these"
         ],
       "defs" :
           [
@@ -216,52 +212,54 @@
 
       "refs" :[
         "m1.stage1_rg_full", 
-        "m1.stage1_rg_full__DOLLAR__D_IN",
-        "m1.stage1_rg_full__DOLLAR__EN",
-        "m1.stage2_rg_full__DOLLAR__D_IN",
-        "m1.stage2_rg_full__DOLLAR__EN",
-        "m1.rg_retiring__DOLLAR__EN" ]
+        "m1.s1_to_s2$D_IN",
+        "m1.s1_to_s2$EN",
+        "m1.s2_to_s3$D_IN",
+        "m1.s2_to_s3$EN",
+        "m1.s3_deq$D_IN",
+        "m1.s3_deq$EN",
+        "m1.rg_retiring$EN" ]
     }// stage tracker
   },
 
   "value-holder" : {
     "pc_after" : {
         "cond":"#monitor_s2#",
-        "val":"m1.near_mem__DOLLAR__imem_pc",
+        "val":"m1.near_mem$imem_pc",
         "width":"auto"
     },
-    "regPull0"  : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[0]"  , "width" : "auto"} ,
-    "regPull1"  : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[1]"  , "width" : "auto"} ,
-    "regPull2"  : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[2]"  , "width" : "auto"} ,
-    "regPull3"  : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[3]"  , "width" : "auto"} ,
-    "regPull4"  : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[4]"  , "width" : "auto"} ,
-    "regPull5"  : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[5]"  , "width" : "auto"} ,
-    "regPull6"  : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[6]"  , "width" : "auto"} ,
-    "regPull7"  : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[7]"  , "width" : "auto"} ,
-    "regPull8"  : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[8]"  , "width" : "auto"} ,
-    "regPull9"  : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[9]"  , "width" : "auto"} ,
-    "regPull10" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[10]" , "width" : "auto"} ,
-    "regPull11" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[11]" , "width" : "auto"} ,
-    "regPull12" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[12]" , "width" : "auto"} ,
-    "regPull13" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[13]" , "width" : "auto"} ,
-    "regPull14" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[14]" , "width" : "auto"} ,
-    "regPull15" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[15]" , "width" : "auto"} ,
-    "regPull16" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[16]" , "width" : "auto"} ,
-    "regPull17" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[17]" , "width" : "auto"} ,
-    "regPull18" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[18]" , "width" : "auto"} ,
-    "regPull19" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[19]" , "width" : "auto"} ,
-    "regPull20" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[20]" , "width" : "auto"} ,
-    "regPull21" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[21]" , "width" : "auto"} ,
-    "regPull22" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[22]" , "width" : "auto"} ,
-    "regPull23" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[23]" , "width" : "auto"} ,
-    "regPull24" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[24]" , "width" : "auto"} ,
-    "regPull25" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[25]" , "width" : "auto"} ,
-    "regPull26" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[26]" , "width" : "auto"} ,
-    "regPull27" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[27]" , "width" : "auto"} ,
-    "regPull28" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[28]" , "width" : "auto"} ,
-    "regPull29" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[29]" , "width" : "auto"} ,
-    "regPull30" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[30]" , "width" : "auto"} ,
-    "regPull31" : {"cond" : "#monitor_s2#" , "val" : "m1.gpr_regfile.regfile.arr[31]" , "width" : "auto"} 
+    "regPull0"  : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[0]"  , "width" : "auto"} ,
+    "regPull1"  : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[1]"  , "width" : "auto"} ,
+    "regPull2"  : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[2]"  , "width" : "auto"} ,
+    "regPull3"  : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[3]"  , "width" : "auto"} ,
+    "regPull4"  : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[4]"  , "width" : "auto"} ,
+    "regPull5"  : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[5]"  , "width" : "auto"} ,
+    "regPull6"  : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[6]"  , "width" : "auto"} ,
+    "regPull7"  : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[7]"  , "width" : "auto"} ,
+    "regPull8"  : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[8]"  , "width" : "auto"} ,
+    "regPull9"  : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[9]"  , "width" : "auto"} ,
+    "regPull10" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[10]" , "width" : "auto"} ,
+    "regPull11" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[11]" , "width" : "auto"} ,
+    "regPull12" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[12]" , "width" : "auto"} ,
+    "regPull13" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[13]" , "width" : "auto"} ,
+    "regPull14" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[14]" , "width" : "auto"} ,
+    "regPull15" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[15]" , "width" : "auto"} ,
+    "regPull16" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[16]" , "width" : "auto"} ,
+    "regPull17" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[17]" , "width" : "auto"} ,
+    "regPull18" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[18]" , "width" : "auto"} ,
+    "regPull19" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[19]" , "width" : "auto"} ,
+    "regPull20" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[20]" , "width" : "auto"} ,
+    "regPull21" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[21]" , "width" : "auto"} ,
+    "regPull22" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[22]" , "width" : "auto"} ,
+    "regPull23" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[23]" , "width" : "auto"} ,
+    "regPull24" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[24]" , "width" : "auto"} ,
+    "regPull25" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[25]" , "width" : "auto"} ,
+    "regPull26" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[26]" , "width" : "auto"} ,
+    "regPull27" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[27]" , "width" : "auto"} ,
+    "regPull28" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[28]" , "width" : "auto"} ,
+    "regPull29" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[29]" , "width" : "auto"} ,
+    "regPull30" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[30]" , "width" : "auto"} ,
+    "regPull31" : {"cond" : "#monitor_s3#" , "val" : "m1.gpr_regfile.regfile.arr[31]" , "width" : "auto"} 
   },
 
   "assumptions" : [
@@ -269,14 +267,28 @@
     "__VLG_I_s_external_interrupt_req_set_not_clear == 0",
     "__VLG_I_software_interrupt_req_set_not_clear == 0",
     "__VLG_I_timer_interrupt_req_set_not_clear == 0",
-    "__VLG_I_nmi_req_set_not_clear == 0"
+    "__VLG_I_nmi_req_set_not_clear == 0",
+    "m0.pc[1:0] == 2'b00",
+    "m1.near_mem$imem_pc[1:0] == 2'b00"
+  ],
+
+  "mapping control" : [ "(~__START__) ||  (__IMEM_mem_0_rdata == m1.near_mem$imem_instr)",
+    "__pc_after_init__[1:0] == 2'b00",
+    "pc_after[1:0] == 2'b00"
   ],
 
   "annotation" : {
     "reset" : {
         "cycle": 1,
         "no-reset-after": true
+    },
+    "memory-ports" : {
+      "ren"   : "#monitor_s2# & m1.near_mem$dmem_valid",
+      "raddr" : "m1.near_mem$dmem_req_addr", // this is word address
+      "rdata" : "m1.near_mem$dmem_word64[31:0]",
+      "wen"   : "#monitor_s2# & m1.near_mem$dmem_req_op != 0",
+      "waddr" : "m1.near_mem$dmem_req_addr",
+      "wdata" : ""
     }
   }
 }
-
