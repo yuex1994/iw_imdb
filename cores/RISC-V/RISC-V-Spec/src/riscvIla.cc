@@ -3,7 +3,6 @@
 #include <string>
 
 #include <ilang/ila/instr_lvl_abs.h>
-#include <ilang/ilang++.h>
 
 #include "helpers.hpp"
 
@@ -35,7 +34,9 @@ riscvILA_user::riscvILA_user(int pc_init_val)
     : model(InstrLvlAbs::New("riscv")), // define ila
       pc(model.NewBvState("pc", XLEN)),
       mem(model.NewMemState("mem", MEM_WORD_ADDR_LEN, MEM_WORD)),
-      inst(FetchFromMem(mem, pc(31, 2))),
+      // inst(FetchFromMem(mem, pc(31, 2))),
+      //inst(FetchFromMem(mem, pc(15, 2))),
+      inst(model.NewBvInput("inst", MEM_WORD)),
 
       opcode(inst(6, 0)), rd(inst(11, 7)), rs1(inst(19, 15)), rs2(inst(24, 20)),
       funct3(inst(14, 12)), funct7(inst(31, 25)), funct12(inst(31, 20)),
@@ -225,7 +226,8 @@ void riscvILA_user::addInstructions() {
 
     auto rs1_val = indexIntoGPR(rs1);
     auto addr = rs1_val + immI;
-    auto lw_val = LoadFromMem(mem, addr(31, 2));
+    // auto lw_val = LoadFromMem(mem, addr(31, 2));
+    auto lw_val = LoadFromMem(mem, addr(15, 2));
     auto nxt_pc = pc + bv(4);
 
     // we assume a hardware-level misalign resolution
@@ -297,7 +299,8 @@ void riscvILA_user::addInstructions() {
     auto rs1_val = indexIntoGPR(rs1);
     auto rs2_val = indexIntoGPR(rs2);
     auto addr = rs1_val + immS;
-    auto word_addr = addr(31, 2);
+    // auto word_addr = addr(31, 2);
+    auto word_addr = addr(15, 2);
     auto old_val = LoadFromMem(mem, word_addr);
     auto nxt_pc = pc + bv(4);
 
