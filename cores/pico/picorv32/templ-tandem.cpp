@@ -11,20 +11,24 @@
 class Ilated;
 class Verilated;
 // Decl
-bool end_of_instr(Verilated* i);
-bool v_ready(Verilated* v);
-void v_input(Verilated* v, uint32_t test_input);
+bool end_of_instr(RTLVerilated* i);
+bool v_ready(RTLVerilated* v);
+void v_input(RTLVerilated* v, uint32_t test_input);
 void i_input(Ilated* i, uint32_t test_input);
-void next_cycle(Verilated* v);
+void next_cycle(RTLVerilated* v);
 void next_instr(Ilated* i);
-void check_state(Ilated* i, Verilated* v);
+void check_state(Ilated* i, RTLVerilated* v);
 
 int main(int argc, char **argv) {
   // Instantiate Model -- i
   Ilated* i;
+  // Initialize Model -- i
 
   // Instantiate Implementation -- v
   Verilated* v;
+  // Initialize Implementation -- v
+
+  // tmps
   
   // TODO(yuex): see if we want to use csv for tv.
   if (argc < 2) 
@@ -54,6 +58,8 @@ int main(int argc, char **argv) {
       next_instr(i);
       check_state(i, v);
     }
+    // Auxiliary code from ref-map
+
     next_cycle(v);
   }
 }  

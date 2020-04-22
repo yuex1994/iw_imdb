@@ -1,0 +1,3 @@
+AUX_SOURCE_DIRECTORY(./ SRC_FILES) 
+
+add_library(src ${SRC_FILES})
