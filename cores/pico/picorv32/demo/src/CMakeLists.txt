@@ -1,3 +1,4 @@
-AUX_SOURCE_DIRECTORY(./ SRC_FILES) 
+AUX_SOURCE_DIRECTORY(./ SIM_FILES)
 
-add_library(src ${SRC_FILES})
+set(CMAKE_CXX_FLAGS_DEBUG -O3)
+add_library(src ${SIM_FILES})

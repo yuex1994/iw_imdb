@@ -159,7 +159,11 @@ void riscv::decode_riscv_SH_update() {
   c_2420 = (c_2418 | c_2409);
   c_2425 = (c_2423) ? c_2420 : c_2371;
   c_2439 = (c_2437) ? c_2434 : c_2425;
-  mem_update_map[c_2369] = c_2439;
+  riscv_mem_type c_2440;
+  c_2440.original_map = riscv_mem;
+  c_2440.update_map[c_2369] = c_2439;
+  riscv_mem_next.original_map = c_2440.original_map;
+  riscv_mem_next.update_map = c_2440.update_map;
   c_2375 = (riscv_pc + 4);
   riscv_pc_next = c_2375;
 };

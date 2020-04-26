@@ -22,7 +22,11 @@ public:
   uint32_t riscv_pc;
   uint32_t riscv_pc_next;
   uint32_t riscv_mem[16384];
-  std::map<uint14_t, uint32_t> mem_update_map;
+  typedef struct {
+    std::map<uint14_t, uint32_t> update_map;
+    uint32_t* original_map;
+  } riscv_mem_type;
+  riscv_mem_type riscv_mem_next;
   uint32_t riscv_x0;
   uint32_t riscv_x0_next;
   uint32_t riscv_x1;
