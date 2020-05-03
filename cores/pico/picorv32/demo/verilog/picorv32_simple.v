@@ -91,7 +91,7 @@ module picorv32_simple #(
 	output reg trap,
 
 	output reg        mem_valid,
-	output reg        mem_instr,
+	output reg        mem_instr /*verilator public*/,
 	input             mem_ready /*verilator public*/,
 
 	output reg [31:0] mem_addr,

@@ -87,7 +87,7 @@ void check_state(Ilated* i, RTLVerilated* v, std::map<uint32_t, uint32_t>& sm) {
   } 
   if ((i->i_top->riscv_mem_next.original_map != i->i_top->riscv_mem)
       && (!sm.empty()))
-    std::cout << "Error original map" << std::endl
+    std::cout << "Error original map" << std::endl;
   return;
 }
 

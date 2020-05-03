@@ -10,7 +10,7 @@ endif()
 
 add_subdirectory(src)
 
-add_executable(tandem-pico-exe app/tandem-pico.cc)
+add_executable(tandem-pico-exe app/tandem-pico-v-instrmem.cc)
 target_link_libraries(tandem-pico-exe PUBLIC src)
 target_include_directories(tandem-pico-exe PUBLIC
                            "${PROJECT_SOURCE_DIR}/include"

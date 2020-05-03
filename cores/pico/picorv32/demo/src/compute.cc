@@ -277,7 +277,6 @@ void riscv::compute() {
     riscv_x9 = riscv_x9_next;
   }
   if (decode_riscv_SW()) {
-    // std::cout << "SW" << std::endl;
     decode_riscv_SW_update();
     for (std::map<uint14_t, uint32_t>::iterator it = riscv_mem_next.update_map.begin(); it != riscv_mem_next.update_map.end(); it++) {
       riscv_mem[static_cast<uint32_t> (it->first)] = it->second;
@@ -285,7 +284,6 @@ void riscv::compute() {
     riscv_pc = riscv_pc_next;
   }
   if (decode_riscv_SH()) {
-    // std::cout << "SH" << std::endl;
     decode_riscv_SH_update();
     for (std::map<uint14_t, uint32_t>::iterator it = riscv_mem_next.update_map.begin(); it != riscv_mem_next.update_map.end(); it++) {
       riscv_mem[static_cast<uint32_t> (it->first)] = it->second;
@@ -293,7 +291,6 @@ void riscv::compute() {
     riscv_pc = riscv_pc_next;
   }
   if (decode_riscv_SB()) {
-    // std::cout << "SB" << std::endl;
     decode_riscv_SB_update();
     for (std::map<uint14_t, uint32_t>::iterator it = riscv_mem_next.update_map.begin(); it != riscv_mem_next.update_map.end(); it++) {
       riscv_mem[static_cast<uint32_t> (it->first)] = it->second;
