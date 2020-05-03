@@ -17,9 +17,10 @@
 TEST_FUNC_NAME:				\
 	lui	a0,%hi(.test_name);	\
 	addi	a0,a0,%lo(.test_name);	\
-	lui	a2,0x10000000>>12;	\
+	lui	a2,0x1000>>12;	\
 .prname_next:				\
 	lb	a1,0(a0);		\
+        addi    a1, x0, 0;              \
 	beq	a1,zero,.prname_done;	\
 	sw	a1,0(a2);		\
 	addi	a0,a0,1;		\
@@ -41,7 +42,11 @@ TEST_FUNC_NAME:				\
 	sw	a1,0(a0);		\
 	sw	a2,0(a0);		\
 	sw	a3,0(a0);		\
-	jal	zero,TEST_FUNC_RET;
+        nop;                            \
+        nop;                            \
+        addi a0, x0, 0;                            \
+        nop;
+//	jal	zero,TEST_FUNC_RET;
 
 #define RVTEST_FAIL			\
 	lui	a0,0x10000000>>12;	\
