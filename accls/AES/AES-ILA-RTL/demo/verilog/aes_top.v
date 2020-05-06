@@ -366,7 +366,7 @@ always @(posedge clk) begin
     data_out_reg <= data_out;
 end
 
-reg xram_ack_delay_1;
+reg xram_ack_delay_1 /*verilator public*/;
 always @(posedge clk) begin
     xram_ack_delay_1 <= xram_ack;
 end

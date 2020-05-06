@@ -15,7 +15,7 @@ module reg16byte(clk, rst, en, wr, addr, data_in, data_out, reg_out);
     output  [7:0]   data_out;
     output  [127:0] reg_out;
 
-    reg     [127:0] reg_out;
+    reg     [127:0] reg_out/*verilator public*/;
 
     wire wr0  = en && wr && addr == 0;
     wire wr1  = en && wr && addr == 1;

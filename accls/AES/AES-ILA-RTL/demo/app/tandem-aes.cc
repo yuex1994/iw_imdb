@@ -12,18 +12,35 @@
 
 class Ilated;
 class RTLVerilated;
+
+#define AES_START 0xff00
+#define AES_STATE 0xff01
+#define AES_ADDR 0xff02
+#define AES_LENGTH 0xff04
+#define AES_KEY 0xff10
+#define AES_CNT 0xff20
+
+#define CMD_NOP 0
+#define CMD_READ 1
+#define CMD_WRITE 2
+
+#define AES_STATE_IDLE 0
+#define AES_STATE_READ_DATA 1
+#define AES_STATE_OPERATE 2
+#define AES_STATE_WRITE_DATA 3
 // Decl
 
 bool end_of_instr(RTLVerilated* v, std::vector<uint32_t>& fq);
-/*
-bool end_of_instr(RTLVerilated* v, std::vector<uint32_t>& fq) {
-  if (v->v_top->picorv32_simple->reg_pc != v->prev_pc) {
-    fq.push_back(v->mem[v->prev_pc / 4]);
-    return 1;
-  } else
-    return 0;
+
+bool end_of_instr(RTLVerilated* v, std::vector<mnt_instr*>& fq) {
+  for (int i = 0; i < fq.size(); i++) {
+    // std::cout << "yxdbg" << fq[i]->remaining_cycles << fq[i]->instr_done(v) << std::endl;
+    if (fq[i]->instr_done(v)) {
+      return true;
+    }
+  }
+  return false;
 }
-*/
 
 bool v_ready(RTLVerilated* v);
 
@@ -92,7 +109,105 @@ void v_xram_reset(RTLVerilated* v) {
   return;
 }
 
-void i_input(Ilated* i, uint32_t test_input);
+void i_input(RTLVerilated* v, std::vector<mnt_instr*>& fq);
+
+void i_input(RTLVerilated* v, std::vector<mnt_instr*>& fq) {
+  uint32_t addr = v->v_top->addr;
+  uint32_t data = v->v_top->data_in;
+  if ((v->v_top->wr == 1) && (addr >= AES_ADDR) && 
+      (addr < (AES_ADDR + 2))) {
+    auto instr_p = new mnt_instr_WRITE_ADDRESS;
+    instr_p->cmd = 2;
+    instr_p->cmdaddr = addr;
+    instr_p->cmddata = data;
+    fq.push_back(instr_p);
+  }
+  if ((v->v_top->wr == 1) && (addr >= AES_LENGTH) && 
+      (addr < (AES_LENGTH + 2))) {
+    auto instr_p = new mnt_instr_WRITE_LENGTH;
+    instr_p->cmd = 2;
+    instr_p->cmdaddr = addr;
+    instr_p->cmddata = data;
+    fq.push_back(instr_p);
+  }
+  if ((v->v_top->wr == 1) && (addr >= AES_KEY) && 
+      (addr < (AES_KEY + 16))) {
+    auto instr_p = new mnt_instr_WRITE_KEY;
+    instr_p->cmd = 2;
+    instr_p->cmdaddr = addr;
+    instr_p->cmddata = data;
+    fq.push_back(instr_p);
+  }
+  if ((v->v_top->wr == 1) && (addr >= AES_CNT) && 
+      (addr < (AES_CNT + 16))) {
+    auto instr_p = new mnt_instr_WRITE_COUNTER;
+    instr_p->cmd = 2;
+    instr_p->cmdaddr = addr;
+    instr_p->cmddata = data;
+    fq.push_back(instr_p);
+  }
+  if ((v->v_top->wr == 1) && (addr == AES_START) && 
+      (data == 1 )) {
+    auto instr_p = new mnt_instr_START_ENCRYPTION;
+    instr_p->cmd = 2;
+    instr_p->cmdaddr = addr;
+    instr_p->cmddata = data;
+    fq.push_back(instr_p);
+  }
+  if ((v->v_top->wr == 0) && (addr >= AES_ADDR) && 
+      (addr < (AES_ADDR + 2))) {
+    auto instr_p = new mnt_instr_READ_ADDRESS;
+    instr_p->cmd = 1;
+    instr_p->cmdaddr = addr;
+    instr_p->cmddata = data;
+    fq.push_back(instr_p);
+  }
+  if ((v->v_top->wr == 0) && (addr >= AES_LENGTH) && 
+      (addr < (AES_LENGTH + 2))) {
+    auto instr_p = new mnt_instr_READ_LENGTH;
+    instr_p->cmd = 1;
+    instr_p->cmdaddr = addr;
+    instr_p->cmddata = data;
+    fq.push_back(instr_p);
+  }
+  if ((v->v_top->wr == 0) && (addr >= AES_KEY) && 
+      (addr < (AES_KEY + 16))) {
+    auto instr_p = new mnt_instr_READ_KEY;
+    instr_p->cmd = 1;
+    instr_p->cmdaddr = addr;
+    instr_p->cmddata = data;
+    fq.push_back(instr_p);
+  }
+  if ((v->v_top->wr == 0) && (addr >= AES_CNT) && 
+      (addr < (AES_CNT + 16))) {
+    auto instr_p = new mnt_instr_READ_COUNTER;
+    instr_p->cmd = 1;
+    instr_p->cmdaddr = addr;
+    instr_p->cmddata = data;
+    fq.push_back(instr_p);
+  }
+  if (v->v_top->aes_top->aes_reg_state == AES_STATE_READ_DATA) {
+    auto instr_p = new mnt_child_instr_LOAD;
+    instr_p->cmd = 0;
+    instr_p->cmdaddr = addr;
+    instr_p->cmddata = data;
+    fq.push_back(instr_p);
+  }
+  if (v->v_top->aes_top->aes_reg_state == AES_STATE_OPERATE) {
+    auto instr_p = new mnt_child_instr_OPERATE;
+    instr_p->cmd = 0;
+    instr_p->cmdaddr = addr;
+    instr_p->cmddata = data;
+    fq.push_back(instr_p);
+  }
+  if (v->v_top->aes_top->aes_reg_state == AES_STATE_WRITE_DATA) {
+    auto instr_p = new mnt_child_instr_STORE;
+    instr_p->cmd = 0;
+    instr_p->cmdaddr = addr;
+    instr_p->cmddata = data;
+    fq.push_back(instr_p);
+  }
+}
 /*
 void i_input(Ilated* i, uint32_t test_input) {
   i->i_top->riscv_inst = test_input;
@@ -100,9 +215,16 @@ void i_input(Ilated* i, uint32_t test_input) {
 }
 */
 
-void next_cycle(RTLVerilated* v);
+void next_cycle(RTLVerilated* v, std::vector<mnt_instr*>& fq);
 
-void next_cycle(RTLVerilated* v) {
+void next_cycle(RTLVerilated* v, std::vector<mnt_instr*>& fq) {
+  auto it = fq.begin();
+  while (it != fq.end()) {
+    if ((*it)->remaining_cycles > 0) {
+      (*it)->remaining_cycles = (*it)->remaining_cycles - 1;
+    }
+    it++;
+  }
   v->v_top->clk = 0;
   v->v_top->eval();
   v->v_top->clk = 1;
@@ -115,103 +237,52 @@ void next_cycle(RTLVerilated* v) {
 
 
 void next_instr(Ilated* i);
-/* 
+ 
 void next_instr(Ilated* i) {
   i->i_top->compute(); 
 }
-*/
+
 
 void check_state(Ilated* i, RTLVerilated* v, std::map<uint32_t, uint32_t>& store_trace);
-/*
-void check_state(Ilated* i, RTLVerilated* v, std::map<uint32_t, uint32_t>& store_trace) {
-  // Incomplete
-  if (v->v_top->picorv32_simple->dbg_reg_x0 != i->i_top->riscv_x0)
-    std::cout << "Error x0" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x1 != i->i_top->riscv_x1)
-    std::cout << "Error x1" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x2 != i->i_top->riscv_x2)
-    std::cout << "Error x2" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x3 != i->i_top->riscv_x3)
-    std::cout << "Error x3" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x4 != i->i_top->riscv_x4)
-    std::cout << "Error x4" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x5 != i->i_top->riscv_x5)
-    std::cout << "Error x5" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x6 != i->i_top->riscv_x6)
-    std::cout << "Error x6" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x7 != i->i_top->riscv_x7)
-    std::cout << "Error x7" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x8 != i->i_top->riscv_x8)
-    std::cout << "Error x8" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x9 != i->i_top->riscv_x9)
-    std::cout << "Error x9" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x10 != i->i_top->riscv_x10)
-    std::cout << "Error x10" << v->v_top->picorv32_simple->dbg_reg_x10 << ":"
-              << i->i_top->riscv_x10 << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x11 != i->i_top->riscv_x11)
-    std::cout << "Error x11" << v->v_top->picorv32_simple->dbg_reg_x11 << ":"
-              << i->i_top->riscv_x11 << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x12 != i->i_top->riscv_x12)
-    std::cout << "Error x12" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x13 != i->i_top->riscv_x13)
-    std::cout << "Error x13" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x14 != i->i_top->riscv_x14)
-    std::cout << "Error x14" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x15 != i->i_top->riscv_x15)
-    std::cout << "Error x15" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x16 != i->i_top->riscv_x16)
-    std::cout << "Error x16" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x17 != i->i_top->riscv_x17)
-    std::cout << "Error x17" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x18 != i->i_top->riscv_x18)
-    std::cout << "Error x18" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x19 != i->i_top->riscv_x19)
-    std::cout << "Error x19" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x20 != i->i_top->riscv_x20)
-    std::cout << "Error x20" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x21 != i->i_top->riscv_x21)
-    std::cout << "Error x21" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x22 != i->i_top->riscv_x22)
-    std::cout << "Error x22" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x23 != i->i_top->riscv_x23)
-    std::cout << "Error x23" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x24 != i->i_top->riscv_x24)
-    std::cout << "Error x24" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x25 != i->i_top->riscv_x25)
-    std::cout << "Error x25" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x26 != i->i_top->riscv_x26)
-    std::cout << "Error x26" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x27 != i->i_top->riscv_x27)
-    std::cout << "Error x27" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x28 != i->i_top->riscv_x28)
-    std::cout << "Error x28" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x29 != i->i_top->riscv_x29)
-    std::cout << "Error x29" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x30 != i->i_top->riscv_x30)
-    std::cout << "Error x30" << std::endl;
-  if (v->v_top->picorv32_simple->dbg_reg_x31 != i->i_top->riscv_x31)
-    std::cout << "Error x31" << std::endl;
-  if (v->v_top->picorv32_simple->reg_pc != i->i_top->riscv_pc)
-    std::cout << "Error pc" << v->v_top->picorv32_simple->reg_pc <<
-                 ":" << i->i_top->riscv_pc << std::endl;
 
+
+void check_state(Ilated* i, RTLVerilated* v, std::map<uint32_t, uint32_t>& store_trace) {
+// Architectural Level
+  if (v->v_top->aes_top->aes_reg_opaddr_i->reg_out != i->i_top->AES_aes_address)
+    std::cout << "Error address" << std::endl;
+  if (v->v_top->aes_top->aes_reg_oplen_i->reg_out != i->i_top->AES_aes_length)
+    std::cout << "Error length" << std::endl;
+  if (v->v_top->aes_top->aes_reg_key0_i->reg_out[0] != ((uint32_t) i->i_top->AES_aes_key))
+    std::cout << "Error key" << std::endl;
+
+  if (v->v_top->aes_top->aes_reg_ctr_i->reg_out[0] != ((uint32_t) i->i_top->AES_aes_counter))
+    std::cout << "Error counter" << std::endl;
+  if (v->v_top->aes_top->aes_reg_state != (i->i_top->AES_aes_status))
+    std::cout << "Error status" 
+              << "v " << ((uint32_t) v->v_top->aes_top->aes_reg_state) 
+              << "i " << i->i_top->AES_aes_status << std::endl;
+  if (v->v_top->aes_top->data_out_reg != i->i_top->AES_outdata)
+    std::cout << "Error data_out" << std::endl;
   for (auto it : store_trace) {
-    if (i->i_top->riscv_mem_next.update_map.find(it.first) == 
-        i->i_top->riscv_mem_next.update_map.end()) 
-      std::cout << "Error st addr" << it.first << std::endl; 
+    if (i->i_top->AES_XRAM_next.update_map.find(it.first) == 
+        i->i_top->AES_XRAM_next.update_map.end()) 
+      std::cout << "Error st addr" << it.first << 
+                   "update_map size" << i->i_top->AES_XRAM_next.update_map.size() << std::endl; 
     else {
-      if (i->i_top->riscv_mem_next.update_map[it.first] !=
-          it.second) 
-        std::cout << "Error st data" << it.first << " " << it.second 
-                  << std::endl;
+      std::cout << "Correct st addr" << std::endl;
+      // if (i->i_top->riscv_mem_next.update_map[it.first] !=
+      //     it.second) 
+      //   std::cout << "Error st data" << it.first << " " << it.second 
+      //             << std::endl;
     }
   } 
+/*
   if ((i->i_top->riscv_mem_next.original_map != i->i_top->riscv_mem)
       && (!store_trace.empty()))
     std::cout << "Error original map" << std::endl;
+*/
   return;
 }
-*/
 
 int main(int argc, char **argv) {
   // Instantiate Model -- i
@@ -220,11 +291,16 @@ int main(int argc, char **argv) {
 
   // Instantiate Implementation -- v
   RTLVerilated* v = new RTLVerilated;
+
+  std::string tv_input;
+  std::vector<uint32_t> tv;
+  std::vector<mnt_instr*> fq;
+
   // Initialize Implementation -- v
   v->v_top->rst = 1;
-  next_cycle(v);
+  next_cycle(v, fq);
   v->v_top->rst = 0;
-  next_cycle(v);
+  next_cycle(v, fq);
   // tmps
   
   // TODO(yuex): see if we want to use csv for tv.
@@ -238,15 +314,11 @@ int main(int argc, char **argv) {
   // (option2) Stream Test Vector
   // std::vector<uint32_t> tv;
   
-  std::string tv_input;
-  std::vector<uint32_t> tv;
-  uint32_t tv_end = 80;
   int j = 0;
   while (getline(tv_file, tv_input)) {
     uint32_t tmp = (std::stoul(tv_input, 0, 16));
     tv.push_back(tmp);
   }
-  std::vector<uint32_t> fq;
   std::map<uint32_t, uint32_t> store_trace;
   while((v->finish == 0) || !fq.empty()) {
     // std::cout << a << "valid" << std::endl;
@@ -263,41 +335,56 @@ int main(int argc, char **argv) {
         auto data = tv.front();
         tv.erase(tv.begin());
         v_input(v, stb, wr, addr, data);
-        std::cout << "stb: " << stb << "\nwr: " << wr << "\naddr: " << addr
-                  << "\ndata: " << data << std::endl; 
+        // std::cout << "tv: stb-" << stb << " wr-" << wr << " addr-" << addr
+        //           << " data-" << data << std::endl; 
         // std::cout << "tv_fetched:" << test_input << std::endl;
         // std::cout << "tv_fetched addr:" << v->v_top->picorv32_simple->mem_addr << std::endl;
         // tv.erase(tv.begin());
         // fq.push_back(test_input);
-      } else if (v_read(v)) {
+      } else {
+        v_input(v, 0, 0, 0, 0);
+      } 
+      if (v_read(v)) {
         auto data_input = v->xram[v->v_top->xram_addr];
-        std::cout << "data_fetched:" << data_input << std::endl;
+        // std::cout << "data_fetched:" << data_input << std::endl;
         v_input_xram(v, data_input);
       }
     }
+    i_input(v, fq);
     v_store_xram(v, store_trace);
     // v->prev_pc = v->v_top->picorv32_simple->reg_pc;
-    sleep(1);
-    next_cycle(v);
-    std::cout << "aes_reg addr:" << v->v_top->aes_top->aes_reg_opaddr_i->reg_out << std::endl;
+    next_cycle(v, fq);
+    // std::cout << "fq_size: " << fq.size() << std::endl;
+    // std::cout << "aes_reg addr:" << v->v_top->aes_top->aes_reg_opaddr_i->reg_out << std::endl;
     uint32_t tmp = v->v_top->aes_top->data_out_reg;
-    std::cout << "aes_reg data_out:" << tmp << std::endl;
+    // std::cout << "aes_reg data_out:" << tmp << std::endl;
+    if (end_of_instr(v, fq)) {
+      auto it = fq.begin();
+      while (it != fq.end()) {
+        if ((*it)->instr_done(v))
+          break;
+        it++;
+      }
+      
+      // std::cout << "ila fetched: cmd-" << (*it)->cmd 
+      //           << "cmddata-" << (*it)->cmddata
+      //           << "cmdaddr-" << (*it)->cmdaddr << std::endl;
+      i->i_top->AES_cmd = (*it)->cmd;
+      i->i_top->AES_cmdaddr = (*it)->cmdaddr;
+      i->i_top->AES_cmddata = (*it)->cmddata;
+      next_instr(i);
+      check_state(i, v, store_trace);
+      // std::cout << "yxdbg byte_cnt" << i->i_top->AES_BLOCK_byte_cnt << std::endl;
+      std::cout << "check done" << std::endl;
+      store_trace.clear();
+      fq.erase(it);
+    }
+    
     if (!store_trace.empty())
       std::cout << "store_trace_clear" << std::endl;
     store_trace.clear();
-    /*
-    if (end_of_instr(v, fq)) {
-      auto test_input = fq.front();
-      std::cout << "fq fetched:" << test_input << std::endl;
-      fq.erase(fq.begin());
-      i_input(i, test_input);
-      next_instr(i);
-      check_state(i, v, store_trace);
-      std::cout << "check done" << std::endl;
-      store_trace.clear();
-    }
-    */
     // Auxiliary code from ref-map
+    sleep(1);
   }
 }  
   
