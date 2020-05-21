@@ -1,0 +1,4 @@
+mat = zeros(9, 9)
+for i in range(3913):
+  j = i % 488
+  if ((j >= 0) 

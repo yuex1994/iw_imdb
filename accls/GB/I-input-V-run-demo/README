@@ -1,0 +1,3 @@
+there's one cycle delay between ILA and RTL...
+That means, starting from reset, the first ILA output should not be recognized.
+
