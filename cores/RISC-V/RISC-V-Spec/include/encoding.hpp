@@ -9,7 +9,7 @@
 
 #define XLEN                32
 #define INSTR_SIZE          XLEN
-#define MEM_WORD_ADDR_LEN   (XLEN-2)
+#define MEM_WORD_ADDR_LEN   (XLEN-16-2)
 #define MEM_WORD            XLEN
 
 
