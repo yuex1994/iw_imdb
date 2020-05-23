@@ -826,6 +826,8 @@ module mkCPU(CLK,
 		near_mem$imem_pc,
 		near_mem$imem_req_satp,
 		near_mem$imem_tval;
+  wire [31 : 0] yxdbg_pc/*verilator public*/;
+  assign yxdbg_pc = near_mem$imem_pc;
   assign near_mem$imem_instr = prob_imem_instr;
   wire [7 : 0] near_mem$dmem_master_arlen,
 	       near_mem$dmem_master_awlen,
@@ -929,8 +931,8 @@ module mkCPU(CLK,
        near_mem$imem_req_mstatus_MXR,
        near_mem$imem_req_sstatus_SUM,
        near_mem$imem_valid;
-
-  
+  wire yxdbg_dmem_valid /*verilator public*/;
+  assign yxdbg_dmem_valid = near_mem$dmem_valid;  
   // ports of submodule soc_map
   wire [63 : 0] soc_map$m_is_IO_addr_addr,
 		soc_map$m_is_mem_addr_addr,
@@ -1601,6 +1603,10 @@ module mkCPU(CLK,
   // submodule near_mem
   assign near_mem$imem_valid = 1;
   wire near_mem$imem_valid_yxdbg;
+  output [31:0] near_mem$dmem_req_addr_yxdbg /*verilator public*/;
+  assign near_mem$dmem_req_addr_yxdbg = near_mem$dmem_req_addr;
+  
+  
   mkNear_Mem near_mem(.CLK(CLK),
 		      .RST_N(RST_N),
 		      .dmem_master_arready(near_mem$dmem_master_arready),
@@ -2334,7 +2340,7 @@ module mkCPU(CLK,
 	     WILL_FIRE_RL_rl_stage1_interrupt ;
 
   // register s1_to_s2
-  assign s1_to_s2$D_IN = WILL_FIRE_RL_rl_pipe && MUX_s1_to_s2$write_1__VAL_1 ; //yxdbg
+  assign s1_to_s2$D_IN = WILL_FIRE_RL_rl_pipe && MUX_s1_to_s2$write_1__VAL_1 ;
   assign s1_to_s2$EN = WILL_FIRE_RL_rl_pipe || WILL_FIRE_RL_rl_reset_start ;
 
   // register s2_to_s3

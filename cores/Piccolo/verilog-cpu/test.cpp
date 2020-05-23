@@ -122,16 +122,20 @@ int main(int argc, char **argv) {
    
     next_time_frame(tb, time, tfp);
     tb->EN_hart0_server_reset_request_put = 0;
+    
     next_time_frame(tb, time, tfp);
-    for (int i = 0; i < 1000; i++) {
+    for (int i = 0; i < 130; i++) {
       next_time_frame(tb, time, tfp);
     }
+
+    print_out(tb);
     tb->prob_imem_instr = 0x00100113;
 
     next_time_frame(tb, time, tfp);
     for (int i = 0; i < 100; i++) {
       next_time_frame(tb, time, tfp);
     }
+
     print_out(tb);
     tfp->close();
 }
