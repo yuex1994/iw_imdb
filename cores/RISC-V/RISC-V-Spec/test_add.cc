@@ -1,7 +1,7 @@
 #include "riscv.h"
 
 int main() {
-  riscv ila_;
+  riscv ila_;  /* riscv is a struct of the riscv ila model */
   ila_.riscv_pc = 0;
   ila_.riscv_x0 = 0;
   ila_.riscv_x1 = 1;
