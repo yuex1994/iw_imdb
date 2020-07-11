@@ -3,7 +3,6 @@
 #include <string>
 
 #include <ilang/ila/instr_lvl_abs.h>
-#include <ilang/ilang++.h>
 
 #include "helpers.hpp"
 
@@ -35,7 +34,9 @@ riscvILA_user::riscvILA_user(int pc_init_val)
     : model(InstrLvlAbs::New("riscv")), // define ila
       pc(model.NewBvState("pc", XLEN)),
       mem(model.NewMemState("mem", MEM_WORD_ADDR_LEN, MEM_WORD)),
-      inst(FetchFromMem(mem, pc(31, 2))),
+      // inst(FetchFromMem(mem, pc(31, 2))),
+      //inst(FetchFromMem(mem, pc(15, 2))),
+      inst(model.NewBvInput("inst", MEM_WORD)),
 
       opcode(inst(6, 0)), rd(inst(11, 7)), rs1(inst(19, 15)), rs2(inst(24, 20)),
       funct3(inst(14, 12)), funct7(inst(31, 25)), funct12(inst(31, 20)),
@@ -56,6 +57,7 @@ riscvILA_user::riscvILA_user(int pc_init_val)
               << std::endl;
 
   model.AddInit(pc == BvConst(pc_init_val, XLEN));
+
 }
 
 ExprRef riscvILA_user::getSlice(const ExprRef& word, const ExprRef& lowBits,
@@ -120,6 +122,7 @@ ExprRef riscvILA_user::CombineSlices(const ExprRef& word,
 #define UPDATE_R(r, exp) UpdateGPR(instr, (r), (exp))
 
 void riscvILA_user::addInstructions() {
+  model.SetValid(BoolConst(true));
 
   // ------------------------- Instruction: BRANCH
   // ------------------------------ //
@@ -137,6 +140,7 @@ void riscvILA_user::addInstructions() {
 
       instr.SetUpdate(pc, Ite(rs1_val == rs2_val, BTarget, NC));
       RECORD_INST("BEQ");
+
     }
     // ------------------------- Instruction: BNE ------------------------------
     // //
@@ -208,7 +212,9 @@ void riscvILA_user::addInstructions() {
       auto decode = (opcode == JALR);
       instr.SetDecode(decode);
 
+  std::cout << "alive" << std::endl;
       instr.SetUpdate(pc, (rs1_val + immI) & bv(0xFFFFFFFE));
+
       UPDATE_R(rd, NC);
       RECORD_INST("JALR");
     }
@@ -217,9 +223,11 @@ void riscvILA_user::addInstructions() {
   // ------------------------- Instruction: LOAD ------------------------------
   // //
   {
+
     auto rs1_val = indexIntoGPR(rs1);
     auto addr = rs1_val + immI;
-    auto lw_val = LoadFromMem(mem, addr(31, 2));
+    // auto lw_val = LoadFromMem(mem, addr(31, 2));
+    auto lw_val = LoadFromMem(mem, addr(15, 2));
     auto nxt_pc = pc + bv(4);
 
     // we assume a hardware-level misalign resolution
@@ -231,6 +239,7 @@ void riscvILA_user::addInstructions() {
       auto decode = (opcode == LOAD) & (funct3 == WORD);
       instr.SetDecode(decode);
 
+  std::cout << "alive" << std::endl;
       instr.SetUpdate(pc, nxt_pc);
       UPDATE_R(rd, getSlice(lw_val, addr(1, 0), CWORD, 0));
       RECORD_INST("LW");
@@ -263,7 +272,7 @@ void riscvILA_user::addInstructions() {
     // //
     {
       auto instr = model.NewInstr("LHU");
-      auto decode = (opcode == LOAD) & (funct3 == HALF);
+      auto decode = (opcode == LOAD) & (funct3 == HU);
       instr.SetDecode(decode);
 
       instr.SetUpdate(pc, nxt_pc);
@@ -275,7 +284,7 @@ void riscvILA_user::addInstructions() {
     // //
     {
       auto instr = model.NewInstr("LBU");
-      auto decode = (opcode == LOAD) & (funct3 == BYTE);
+      auto decode = (opcode == LOAD) & (funct3 == BU);
       instr.SetDecode(decode);
 
       instr.SetUpdate(pc, nxt_pc);
@@ -290,7 +299,8 @@ void riscvILA_user::addInstructions() {
     auto rs1_val = indexIntoGPR(rs1);
     auto rs2_val = indexIntoGPR(rs2);
     auto addr = rs1_val + immS;
-    auto word_addr = addr(31, 2);
+    // auto word_addr = addr(31, 2);
+    auto word_addr = addr(15, 2);
     auto old_val = LoadFromMem(mem, word_addr);
     auto nxt_pc = pc + bv(4);
 
@@ -313,7 +323,7 @@ void riscvILA_user::addInstructions() {
     // //
     {
       auto instr = model.NewInstr("SH");
-      auto decode = (opcode == STORE) & (funct3 == WORD);
+      auto decode = (opcode == STORE) & (funct3 == HALF);
       instr.SetDecode(decode);
 
       instr.SetUpdate(pc, nxt_pc);
@@ -328,7 +338,7 @@ void riscvILA_user::addInstructions() {
     // //
     {
       auto instr = model.NewInstr("SB");
-      auto decode = (opcode == STORE) & (funct3 == WORD);
+      auto decode = (opcode == STORE) & (funct3 == BYTE);
       instr.SetDecode(decode);
 
       instr.SetUpdate(pc, nxt_pc);

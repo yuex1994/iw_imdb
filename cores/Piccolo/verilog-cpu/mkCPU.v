@@ -930,6 +930,7 @@ module mkCPU(CLK,
        near_mem$imem_req_sstatus_SUM,
        near_mem$imem_valid;
 
+  
   // ports of submodule soc_map
   wire [63 : 0] soc_map$m_is_IO_addr_addr,
 		soc_map$m_is_mem_addr_addr,
@@ -1598,6 +1599,8 @@ module mkCPU(CLK,
 			    .read_rs2(gpr_regfile$read_rs2));
 
   // submodule near_mem
+  assign near_mem$imem_valid = 1;
+  wire near_mem$imem_valid_yxdbg;
   mkNear_Mem near_mem(.CLK(CLK),
 		      .RST_N(RST_N),
 		      .dmem_master_arready(near_mem$dmem_master_arready),
@@ -1648,7 +1651,7 @@ module mkCPU(CLK,
 		      .EN_sfence_vma(near_mem$EN_sfence_vma),
 		      .RDY_server_reset_request_put(near_mem$RDY_server_reset_request_put),
 		      .RDY_server_reset_response_get(near_mem$RDY_server_reset_response_get),
-		      .imem_valid(near_mem$imem_valid),
+		      .imem_valid(near_mem$imem_valid_yxdbg),
 		      .imem_is_i32_not_i16(near_mem$imem_is_i32_not_i16),
 		      .imem_pc(near_mem$imem_pc),
 		      .imem_instr(near_mem$imem_instr_yxdbg),
@@ -2331,7 +2334,7 @@ module mkCPU(CLK,
 	     WILL_FIRE_RL_rl_stage1_interrupt ;
 
   // register s1_to_s2
-  assign s1_to_s2$D_IN = WILL_FIRE_RL_rl_pipe && MUX_s1_to_s2$write_1__VAL_1 ;
+  assign s1_to_s2$D_IN = WILL_FIRE_RL_rl_pipe && MUX_s1_to_s2$write_1__VAL_1 ; //yxdbg
   assign s1_to_s2$EN = WILL_FIRE_RL_rl_pipe || WILL_FIRE_RL_rl_reset_start ;
 
   // register s2_to_s3
