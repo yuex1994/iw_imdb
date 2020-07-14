@@ -1,7 +1,7 @@
 module RVCExpander(
   input   clock,
   input   reset,
-  input  [31:0] io_in,
+  input  [31:0] io_in /*verilator public*/,
   output [31:0] io_out_bits,
   output [4:0] io_out_rd,
   output [4:0] io_out_rs1,

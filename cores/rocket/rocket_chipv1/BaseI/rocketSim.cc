@@ -19,38 +19,38 @@ double sc_time_stamp () {       // Called by $time in Verilog
 }
 
 void print_out(VRocket* cpu) {
-    printf ("pc: %ud \n", cpu->riscv->pc);
-    printf ("r1: %ud \n", cpu->riscv->x1);
-    printf ("r2: %ud \n", cpu->riscv->x2);
-    printf ("r3: %ud \n", cpu->riscv->x3);
-    printf ("r4: %ud \n", cpu->riscv->x4);
-    printf ("r5: %ud \n", cpu->riscv->x5);
-    printf ("r6: %ud \n", cpu->riscv->x6);
-    printf ("r7: %ud \n", cpu->riscv->x7);
-    printf ("r8: %ud \n", cpu->riscv->x8);
-    printf ("r9: %ud \n", cpu->riscv->x9);
-    printf ("r10: %ud \n", cpu->riscv->x10);
-    printf ("r11: %ud \n", cpu->riscv->x11);
-    printf ("r12: %ud \n", cpu->riscv->x12);
-    printf ("r13: %ud \n", cpu->riscv->x13);
-    printf ("r14: %ud \n", cpu->riscv->x14);
-    printf ("r15: %ud \n", cpu->riscv->x15);
-    printf ("r16: %ud \n", cpu->riscv->x16);
-    printf ("r17: %ud \n", cpu->riscv->x17);
-    printf ("r18: %ud \n", cpu->riscv->x18);
-    printf ("r19: %ud \n", cpu->riscv->x19);
-    printf ("r20: %ud \n", cpu->riscv->x20);
-    printf ("r21: %ud \n", cpu->riscv->x21);
-    printf ("r22: %ud \n", cpu->riscv->x22);
-    printf ("r23: %ud \n", cpu->riscv->x23);
-    printf ("r24: %ud \n", cpu->riscv->x24);
-    printf ("r25: %ud \n", cpu->riscv->x25);
-    printf ("r26: %ud \n", cpu->riscv->x26);
-    printf ("r27: %ud \n", cpu->riscv->x27);
-    printf ("r28: %ud \n", cpu->riscv->x28);
-    printf ("r29: %ud \n", cpu->riscv->x29);
-    printf ("r30: %ud \n", cpu->riscv->x30);
-    printf ("r31: %ud \n", cpu->riscv->x31);
+    printf ("pc: %ud \n", cpu->Rocket->ibuf_io_pc_o);
+    printf ("r1: %ud \n", cpu->Rocket->x1);
+    printf ("r2: %ud \n", cpu->Rocket->x2);
+    printf ("r3: %ud \n", cpu->Rocket->x3);
+    printf ("r4: %ud \n", cpu->Rocket->x4);
+    printf ("r5: %ud \n", cpu->Rocket->x5);
+    printf ("r6: %ud \n", cpu->Rocket->x6);
+    printf ("r7: %ud \n", cpu->Rocket->x7);
+    printf ("r8: %ud \n", cpu->Rocket->x8);
+    printf ("r9: %ud \n", cpu->Rocket->x9);
+    printf ("r10: %ud \n", cpu->Rocket->x10);
+    printf ("r11: %ud \n", cpu->Rocket->x11);
+    printf ("r12: %ud \n", cpu->Rocket->x12);
+    printf ("r13: %ud \n", cpu->Rocket->x13);
+    printf ("r14: %ud \n", cpu->Rocket->x14);
+    printf ("r15: %ud \n", cpu->Rocket->x15);
+    printf ("r16: %ud \n", cpu->Rocket->x16);
+    printf ("r17: %ud \n", cpu->Rocket->x17);
+    printf ("r18: %ud \n", cpu->Rocket->x18);
+    printf ("r19: %ud \n", cpu->Rocket->x19);
+    printf ("r20: %ud \n", cpu->Rocket->x20);
+    printf ("r21: %ud \n", cpu->Rocket->x21);
+    printf ("r22: %ud \n", cpu->Rocket->x22);
+    printf ("r23: %ud \n", cpu->Rocket->x23);
+    printf ("r24: %ud \n", cpu->Rocket->x24);
+    printf ("r25: %ud \n", cpu->Rocket->x25);
+    printf ("r26: %ud \n", cpu->Rocket->x26);
+    printf ("r27: %ud \n", cpu->Rocket->x27);
+    printf ("r28: %ud \n", cpu->Rocket->x28);
+    printf ("r29: %ud \n", cpu->Rocket->x29);
+    printf ("r30: %ud \n", cpu->Rocket->x30);
+    printf ("r31: %ud \n", cpu->Rocket->x31);
 }
 
 void next_time_frame(VRocket* cpu, int &time, VerilatedVcdC* tfp) {
@@ -112,22 +112,22 @@ int main(int argc, char **argv) {
         /*---------------------------------------------------------*/
 
         /* wires declared WITHIN rocket.v */
-        tb->csr_io_hartid = 0;
-        tb->ibuf_io_imem_bits_mask = 3;
-        tb->io_imem_bits_xcpt_if = 0;
-        tb->csr_io_rocc_fpu_resp_ready = 0;
-        tb->csr_io_rocc_fpu_req_valid = 0;
-        tb->csr_io_rocc_autl_grant_ready = 1;
-        tb->csr_io_rocc_autl_acquire_bits_is_builtin_type = 1;
-        tb->csr_io_rocc_autl_acquire_bits_client_xact_id = 0;
-        tb->csr_io_rocc_autl_acquire_valid = 0;
-        tb->csr_io_rocc_busy = 0;
-        tb->csr_io_rocc_interrupt = 0;
-        tb->csr_io_rocc_mem_invalidate_lr = 1;
-        tb->csr_io_rocc_mem_s1_kill = 0;
-        tb->csr_io_rocc_mem_req_valid = 0;
-        tb->csr_io_rocc_resp_valid = 0;
-        tb->csr_io_rocc_cmd_ready = 0;
+        tb->io_hartid = 0;
+        tb->io_imem_resp_bits_mask = 3;
+        tb->io_imem_resp_bits_xcpt_if = 0;
+        tb->io_rocc_fpu_resp_ready = 0;
+        tb->io_rocc_fpu_req_valid = 0;
+        tb->io_rocc_autl_grant_ready = 1;
+        tb->io_rocc_autl_acquire_bits_is_builtin_type = 1;
+        tb->io_rocc_autl_acquire_bits_client_xact_id = 0;
+        tb->io_rocc_autl_acquire_valid = 0;
+        tb->io_rocc_busy = 0;
+        tb->io_rocc_interrupt = 0;
+        tb->io_rocc_mem_invalidate_lr = 1;
+        tb->io_rocc_mem_s1_kill = 0;
+        tb->io_rocc_mem_req_valid = 0;
+        tb->io_rocc_resp_valid = 0;
+        tb->io_rocc_cmd_ready = 0;
 
         /* wires declared WITHIN the module declaration of Rocket */
         tb->io_dmem_xcpt_ma_ld = 0;
@@ -143,7 +143,7 @@ int main(int argc, char **argv) {
         tb->io_fpu_fcsr_flags_bits = 0;
         tb->io_fpu_toint_data = 0;
 
-        tb->riscv->mem_rdata_0 = 0x00110113;
+        tb->ibuf->RVCExpander_1->io_in = 0x00100113;
         for (int i = 0; i < 100; i++) {
             next_time_frame(tb, time, tfp);
         }

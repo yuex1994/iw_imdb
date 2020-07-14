@@ -12,12 +12,15 @@
 
 class VRocket__Syms;
 class VRocket_VerilatedVcd;
+class VRocket_IBuf;
 
 
 //----------
 
 VL_MODULE(VRocket_Rocket) {
   public:
+    // CELLS
+    VRocket_IBuf* ibuf;
     
     // PORTS
     VL_IN8(clock,0,0);
@@ -729,65 +732,6 @@ VL_MODULE(VRocket_Rocket) {
         CData/*1:0*/ __PVT__GEN_267;
         CData/*0:0*/ __PVT__GEN_271;
         CData/*0:0*/ __PVT__error;
-        CData/*0:0*/ __PVT__ibuf__DOT__nBufValid;
-        CData/*0:0*/ __PVT__ibuf__DOT__buf_btb_valid;
-        CData/*0:0*/ __PVT__ibuf__DOT__buf_btb_bits_taken;
-        CData/*1:0*/ __PVT__ibuf__DOT__buf_btb_bits_mask;
-        CData/*0:0*/ __PVT__ibuf__DOT__buf_btb_bits_bridx;
-        CData/*0:0*/ __PVT__ibuf__DOT__buf_btb_bits_entry;
-        CData/*0:0*/ __PVT__ibuf__DOT__buf_btb_bits_bht_history;
-        CData/*1:0*/ __PVT__ibuf__DOT__buf_btb_bits_bht_value;
-        CData/*1:0*/ __PVT__ibuf__DOT__buf_mask;
-        CData/*0:0*/ __PVT__ibuf__DOT__buf_xcpt_if;
-        CData/*0:0*/ __PVT__ibuf__DOT__buf_replay;
-        CData/*0:0*/ __PVT__ibuf__DOT__ibufBTBHit;
-        CData/*0:0*/ __PVT__ibuf__DOT__ibufBTBResp_taken;
-        CData/*1:0*/ __PVT__ibuf__DOT__ibufBTBResp_mask;
-        CData/*0:0*/ __PVT__ibuf__DOT__ibufBTBResp_bridx;
-        CData/*0:0*/ __PVT__ibuf__DOT__ibufBTBResp_entry;
-        CData/*0:0*/ __PVT__ibuf__DOT__ibufBTBResp_bht_history;
-        CData/*1:0*/ __PVT__ibuf__DOT__ibufBTBResp_bht_value;
-        CData/*2:0*/ __PVT__ibuf__DOT__T_373;
-        CData/*2:0*/ __PVT__ibuf__DOT__T_374;
-        CData/*2:0*/ __PVT__ibuf__DOT__T_377;
-        CData/*0:0*/ __PVT__ibuf__DOT__T_378;
-        CData/*2:0*/ __PVT__ibuf__DOT__T_381;
-        CData/*0:0*/ __PVT__ibuf__DOT__T_399;
-        CData/*1:0*/ __PVT__ibuf__DOT__GEN_24;
-        CData/*1:0*/ __PVT__ibuf__DOT__GEN_29;
-        CData/*1:0*/ __PVT__ibuf__DOT__xcpt_if;
-        CData/*1:0*/ __PVT__ibuf__DOT__ic_replay;
-        CData/*1:0*/ __PVT__ibuf__DOT__T_471;
-        CData/*3:0*/ __PVT__ibuf__DOT__btbHitMask;
-        CData/*0:0*/ __PVT__ibuf__DOT__T_503;
-        CData/*0:0*/ __PVT__ibuf__DOT__T_519;
-        CData/*0:0*/ __PVT__ibuf__DOT__T_529;
-        CData/*0:0*/ __PVT__ibuf__DOT__T_540;
-        CData/*1:0*/ __PVT__ibuf__DOT__GEN_30;
-        CData/*4:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_62;
-        CData/*6:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_104;
-        CData/*0:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_608;
-        CData/*5:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_669;
-        CData/*2:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_728;
-        CData/*7:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1197;
-        CData/*5:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1397;
-        CData/*5:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1434;
-        CData/*7:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1449;
-        CData/*4:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635;
-        CData/*4:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1778_rs2;
-        CData/*4:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1778_rs3;
-        CData/*4:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1784_rd;
-        CData/*4:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1784_rs1;
-    };
-    struct {
-        CData/*4:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rd;
-        CData/*4:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rs1;
-        CData/*4:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rs2;
-        CData/*4:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rs3;
-        CData/*4:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rd;
-        CData/*4:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1;
-        CData/*4:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2;
-        CData/*4:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs3;
         CData/*0:0*/ __PVT__csr__DOT__reg_mstatus_debug;
         CData/*1:0*/ __PVT__csr__DOT__reg_mstatus_prv;
         CData/*0:0*/ __PVT__csr__DOT__reg_mstatus_sd;
@@ -837,6 +781,8 @@ VL_MODULE(VRocket_Rocket) {
         CData/*7:0*/ __PVT__csr__DOT__reg_bp_1_control_reserved;
         CData/*0:0*/ __PVT__csr__DOT__reg_bp_1_control_action;
         CData/*0:0*/ __PVT__csr__DOT__reg_bp_1_control_chain;
+    };
+    struct {
         CData/*1:0*/ __PVT__csr__DOT__reg_bp_1_control_zero;
         CData/*1:0*/ __PVT__csr__DOT__reg_bp_1_control_tmatch;
         CData/*0:0*/ __PVT__csr__DOT__reg_bp_1_control_m;
@@ -844,8 +790,6 @@ VL_MODULE(VRocket_Rocket) {
         CData/*0:0*/ __PVT__csr__DOT__reg_bp_1_control_s;
         CData/*0:0*/ __PVT__csr__DOT__reg_bp_1_control_u;
         CData/*0:0*/ __PVT__csr__DOT__reg_bp_1_control_x;
-    };
-    struct {
         CData/*0:0*/ __PVT__csr__DOT__reg_bp_1_control_w;
         CData/*0:0*/ __PVT__csr__DOT__reg_bp_1_control_r;
         CData/*0:0*/ __PVT__csr__DOT__reg_mip_rocc;
@@ -903,6 +847,8 @@ VL_MODULE(VRocket_Rocket) {
         CData/*1:0*/ __PVT__csr__DOT__GEN_82;
         CData/*1:0*/ __PVT__csr__DOT__GEN_87;
         CData/*1:0*/ __PVT__csr__DOT__GEN_89;
+    };
+    struct {
         CData/*0:0*/ __PVT__csr__DOT__GEN_93;
         CData/*1:0*/ __PVT__csr__DOT__GEN_94;
         CData/*0:0*/ __PVT__csr__DOT__GEN_95;
@@ -910,8 +856,6 @@ VL_MODULE(VRocket_Rocket) {
         CData/*0:0*/ __PVT__csr__DOT__GEN_116;
         CData/*1:0*/ __PVT__csr__DOT__GEN_117;
         CData/*4:0*/ __PVT__csr__DOT__T_6036;
-    };
-    struct {
         CData/*0:0*/ __PVT__csr__DOT__T_6341;
         CData/*0:0*/ __PVT__csr__DOT__T_6405;
         CData/*0:0*/ __PVT__csr__DOT__T_6406;
@@ -969,6 +913,8 @@ VL_MODULE(VRocket_Rocket) {
         CData/*1:0*/ __PVT__csr__DOT__GEN_194;
         CData/*0:0*/ __PVT__csr__DOT__GEN_196;
         CData/*3:0*/ __PVT__csr__DOT__GEN_198;
+    };
+    struct {
         CData/*0:0*/ __PVT__csr__DOT__GEN_200;
         CData/*0:0*/ __PVT__csr__DOT__GEN_201;
         CData/*4:0*/ __PVT__csr__DOT__GEN_204;
@@ -976,8 +922,6 @@ VL_MODULE(VRocket_Rocket) {
         CData/*0:0*/ __PVT__bpu__DOT__T_176;
         CData/*0:0*/ __PVT__bpu__DOT__T_186;
         CData/*0:0*/ __PVT__bpu__DOT__T_188;
-    };
-    struct {
         CData/*3:0*/ __PVT__bpu__DOT__T_193;
         CData/*0:0*/ __PVT__bpu__DOT__T_208;
         CData/*0:0*/ __PVT__bpu__DOT__T_278;
@@ -1016,12 +960,6 @@ VL_MODULE(VRocket_Rocket) {
         CData/*0:0*/ __PVT__div__DOT__T_485;
         SData/*11:0*/ __PVT__T_7173;
         SData/*9:0*/ __PVT__GEN_245;
-        SData/*11:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_114;
-        SData/*11:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_207;
-        SData/*11:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_386;
-        SData/*11:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_506;
-        SData/*12:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_955;
-        SData/*9:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1284;
         SData/*11:0*/ __PVT__csr__DOT__reg_dcsr_zero3;
         SData/*12:0*/ __PVT__csr__DOT__T_4839;
         IData/*31:0*/ __PVT__GEN_272;
@@ -1041,9 +979,9 @@ VL_MODULE(VRocket_Rocket) {
         IData/*31:0*/ __PVT__GEN_286;
         IData/*31:0*/ __PVT__GEN_287;
         IData/*31:0*/ __PVT__GEN_288;
-        IData/*31:0*/ __PVT__GEN_289;
     };
     struct {
+        IData/*31:0*/ __PVT__GEN_289;
         IData/*31:0*/ __PVT__GEN_290;
         IData/*31:0*/ __PVT__GEN_291;
         IData/*31:0*/ __PVT__GEN_292;
@@ -1107,9 +1045,9 @@ VL_MODULE(VRocket_Rocket) {
         IData/*31:0*/ __PVT__GEN_350;
         IData/*31:0*/ __PVT__GEN_351;
         IData/*31:0*/ __PVT__GEN_352;
-        IData/*31:0*/ __PVT__GEN_353;
     };
     struct {
+        IData/*31:0*/ __PVT__GEN_353;
         IData/*31:0*/ __PVT__GEN_354;
         IData/*31:0*/ __PVT__GEN_355;
         IData/*31:0*/ __PVT__GEN_356;
@@ -1172,10 +1110,11 @@ VL_MODULE(VRocket_Rocket) {
         IData/*31:0*/ __PVT__GEN_399;
         IData/*31:0*/ __PVT__wb_reg_rs2;
         IData/*31:0*/ __PVT__GEN_400;
-        IData/*31:0*/ __PVT__GEN_401;
-        IData/*31:0*/ __PVT__GEN_402;
+        IData/*31:0*/ ibuf_io_inst_0_bits_inst_bits;
     };
     struct {
+        IData/*31:0*/ __PVT__GEN_401;
+        IData/*31:0*/ __PVT__GEN_402;
         IData/*31:0*/ __PVT__T_6545_T_6554_data;
         IData/*31:0*/ __PVT__GEN_403;
         IData/*31:0*/ __PVT__T_6545_T_6564_data;
@@ -1238,10 +1177,10 @@ VL_MODULE(VRocket_Rocket) {
         IData/*31:0*/ __PVT__GEN_434;
         IData/*31:0*/ __PVT__GEN_435;
         IData/*31:0*/ __PVT__GEN_436;
-        IData/*31:0*/ __PVT__GEN_437;
-        IData/*31:0*/ __PVT__GEN_438;
     };
     struct {
+        IData/*31:0*/ __PVT__GEN_437;
+        IData/*31:0*/ __PVT__GEN_438;
         IData/*31:0*/ __PVT__GEN_439;
         IData/*31:0*/ __PVT__GEN_440;
         IData/*31:0*/ __PVT__GEN_444;
@@ -1304,10 +1243,10 @@ VL_MODULE(VRocket_Rocket) {
         IData/*31:0*/ __PVT__GEN_492;
         IData/*31:0*/ __PVT__GEN_493;
         IData/*31:0*/ __PVT__GEN_494;
-        IData/*31:0*/ __PVT__GEN_495;
-        IData/*31:0*/ __PVT__GEN_496;
     };
     struct {
+        IData/*31:0*/ __PVT__GEN_495;
+        IData/*31:0*/ __PVT__GEN_496;
         IData/*31:0*/ __PVT__GEN_497;
         IData/*31:0*/ __PVT__GEN_246;
         IData/*31:0*/ __PVT__GEN_498;
@@ -1333,47 +1272,6 @@ VL_MODULE(VRocket_Rocket) {
         IData/*31:0*/ __PVT__GEN_518;
         IData/*31:0*/ __PVT__GEN_519;
         IData/*31:0*/ __PVT__GEN_523;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_33;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_34;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_35;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_36;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_37;
-        IData/*31:0*/ __PVT__ibuf__DOT__buf_btb_bits_target;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_38;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_43;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_44;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_48;
-        IData/*31:0*/ __PVT__ibuf__DOT__buf_pc;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_51;
-        IData/*31:0*/ __PVT__ibuf__DOT__buf_data;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_52;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_53;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_54;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_55;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_56;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_57;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_58;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_59;
-        IData/*31:0*/ __PVT__ibuf__DOT__ibufBTBResp_target;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_60;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_61;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_62;
-        IData/*31:0*/ __PVT__ibuf__DOT__GEN_63;
-        IData/*31:0*/ __PVT__ibuf__DOT__T_416;
-        IData/*31:0*/ __PVT__ibuf__DOT__inst;
-        IData/*31:0*/ __PVT__ibuf__DOT__T_488;
-        IData/*20:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_433;
-        IData/*25:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_681;
-        IData/*31:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_797;
-        IData/*16:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1016;
-        IData/*31:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1736_bits;
-        IData/*31:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1778_bits;
-        IData/*31:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1852_bits;
-        IData/*31:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1922_bits;
-        IData/*31:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_bits;
-        IData/*31:0*/ __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits;
-    };
-    struct {
         IData/*31:0*/ __PVT__csr__DOT__GEN_208;
         IData/*31:0*/ __PVT__csr__DOT__reg_mstatus_isa;
         IData/*31:0*/ __PVT__csr__DOT__GEN_210;
@@ -1411,6 +1309,8 @@ VL_MODULE(VRocket_Rocket) {
         IData/*31:0*/ __PVT__csr__DOT__GEN_276;
         IData/*31:0*/ __PVT__csr__DOT__GEN_277;
         IData/*31:0*/ __PVT__csr__DOT__GEN_278;
+    };
+    struct {
         IData/*31:0*/ __PVT__csr__DOT__GEN_280;
         IData/*31:0*/ __PVT__csr__DOT__GEN_281;
         IData/*31:0*/ __PVT__csr__DOT__GEN_282;
@@ -1438,8 +1338,6 @@ VL_MODULE(VRocket_Rocket) {
         IData/*31:0*/ __PVT__csr__DOT__GEN_330;
         IData/*31:0*/ __PVT__csr__DOT__GEN_331;
         IData/*31:0*/ __PVT__csr__DOT__GEN_332;
-    };
-    struct {
         IData/*31:0*/ __PVT__csr__DOT__GEN_333;
         IData/*31:0*/ __PVT__csr__DOT__GEN_334;
         IData/*31:0*/ __PVT__csr__DOT__reg_bp_0_address;
@@ -1477,6 +1375,8 @@ VL_MODULE(VRocket_Rocket) {
         IData/*31:0*/ __PVT__csr__DOT__GEN_363;
         IData/*31:0*/ __PVT__csr__DOT__GEN_364;
         IData/*31:0*/ __PVT__csr__DOT__GEN_365;
+    };
+    struct {
         IData/*31:0*/ __PVT__csr__DOT__GEN_366;
         IData/*31:0*/ __PVT__csr__DOT__GEN_367;
         IData/*31:0*/ __PVT__csr__DOT__reg_mepc;
@@ -1504,8 +1404,6 @@ VL_MODULE(VRocket_Rocket) {
         IData/*31:0*/ __PVT__csr__DOT__reg_stvec;
         IData/*31:0*/ __PVT__csr__DOT__GEN_379;
         IData/*31:0*/ __PVT__csr__DOT__GEN_380;
-    };
-    struct {
         IData/*21:0*/ __PVT__csr__DOT__reg_sptbr_ppn;
         IData/*31:0*/ __PVT__csr__DOT__GEN_381;
         IData/*31:0*/ __PVT__csr__DOT__GEN_382;
@@ -1543,6 +1441,8 @@ VL_MODULE(VRocket_Rocket) {
         IData/*31:0*/ __PVT__csr__DOT__GEN_85;
         IData/*31:0*/ __PVT__csr__DOT__GEN_400;
         IData/*31:0*/ __PVT__csr__DOT__GEN_401;
+    };
+    struct {
         IData/*31:0*/ __PVT__csr__DOT__GEN_88;
         IData/*31:0*/ __PVT__csr__DOT__GEN_402;
         IData/*31:0*/ __PVT__csr__DOT__GEN_403;
@@ -1570,8 +1470,6 @@ VL_MODULE(VRocket_Rocket) {
         IData/*31:0*/ __PVT__csr__DOT__GEN_424;
         IData/*31:0*/ __PVT__csr__DOT__GEN_425;
         IData/*31:0*/ __PVT__csr__DOT__GEN_426;
-    };
-    struct {
         IData/*31:0*/ __PVT__csr__DOT__GEN_427;
         IData/*31:0*/ __PVT__csr__DOT__GEN_428;
         IData/*31:0*/ __PVT__csr__DOT__GEN_429;
@@ -1609,6 +1507,8 @@ VL_MODULE(VRocket_Rocket) {
         IData/*31:0*/ __PVT__csr__DOT__GEN_457;
         IData/*31:0*/ __PVT__bpu__DOT__T_206;
         IData/*31:0*/ __PVT__alu__DOT__in2_inv;
+    };
+    struct {
         IData/*31:0*/ __PVT__alu__DOT__in1_xor_in2;
         IData/*31:0*/ __PVT__alu__DOT__T_52;
         IData/*31:0*/ __PVT__alu__DOT__T_62;
@@ -1636,8 +1536,6 @@ VL_MODULE(VRocket_Rocket) {
         WData/*95:0*/ __PVT__div__DOT__GEN_45[3];
         IData/*31:0*/ __PVT__div__DOT__negated_remainder;
         IData/*31:0*/ __PVT__div__DOT__T_147;
-    };
-    struct {
         WData/*64:0*/ __PVT__div__DOT__T_153[3];
         WData/*64:0*/ __PVT__div__DOT__T_165[3];
         WData/*65:0*/ __PVT__div__DOT__T_202[3];
@@ -1658,8 +1556,6 @@ VL_MODULE(VRocket_Rocket) {
         QData/*63:0*/ __PVT__GEN_521;
         QData/*32:0*/ __PVT__GEN_270;
         QData/*63:0*/ __PVT__GEN_522;
-        QData/*63:0*/ __PVT__ibuf__DOT__T_408;
-        QData/*63:0*/ __PVT__ibuf__DOT__T_427;
         QData/*57:0*/ __PVT__csr__DOT__T_4800;
         QData/*63:0*/ __PVT__csr__DOT__GEN_386;
         QData/*58:0*/ __PVT__csr__DOT__GEN_37;
@@ -1677,6 +1573,8 @@ VL_MODULE(VRocket_Rocket) {
         QData/*63:0*/ __PVT__csr__DOT__T_6238;
         QData/*63:0*/ __PVT__csr__DOT__GEN_258;
         QData/*32:0*/ __PVT__csr__DOT__GEN_202;
+    };
+    struct {
         QData/*63:0*/ __PVT__csr__DOT__GEN_455;
         QData/*32:0*/ __PVT__alu__DOT__T_20;
         QData/*32:0*/ __PVT__alu__DOT__T_98;
@@ -1704,13 +1602,16 @@ VL_MODULE(VRocket_Rocket) {
     
     // INTERNAL METHODS
     void __Vconfigure(VRocket__Syms* symsp, bool first);
-    static void _combo__TOP__Rocket__2(VRocket__Syms* __restrict vlSymsp);
     static void _combo__TOP__Rocket__4(VRocket__Syms* __restrict vlSymsp);
+    static void _combo__TOP__Rocket__6(VRocket__Syms* __restrict vlSymsp);
+    static void _combo__TOP__Rocket__7(VRocket__Syms* __restrict vlSymsp);
   private:
     void _ctor_var_reset() VL_ATTR_COLD;
   public:
-    static void _sequent__TOP__Rocket__3(VRocket__Syms* __restrict vlSymsp);
+    static void _sequent__TOP__Rocket__5(VRocket__Syms* __restrict vlSymsp);
     static void _settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) VL_ATTR_COLD;
+    static void _settle__TOP__Rocket__2(VRocket__Syms* __restrict vlSymsp) VL_ATTR_COLD;
+    static void _settle__TOP__Rocket__3(VRocket__Syms* __restrict vlSymsp) VL_ATTR_COLD;
     static void traceInit(VerilatedVcd* vcdp, void* userthis, uint32_t code);
     static void traceFull(VerilatedVcd* vcdp, void* userthis, uint32_t code);
     static void traceChg(VerilatedVcd* vcdp, void* userthis, uint32_t code);

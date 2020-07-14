@@ -4,7 +4,7 @@
 # Execute this makefile from the object directory:
 #    make -f VRocket.mk
 
-default: VRocket__ALL.a
+default: VRocket
 
 ### Constants...
 # Perl executable (from $PERL)
@@ -51,5 +51,16 @@ VM_USER_DIR = \
 include VRocket_classes.mk
 # Include global rules
 include $(VERILATOR_ROOT)/include/verilated.mk
+
+### Executable rules... (from --exe)
+VPATH += $(VM_USER_DIR)
+
+rocketSim.o: rocketSim.cc
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+
+### Link rules... (from --exe)
+VRocket: $(VK_USER_OBJS) $(VK_GLOBAL_OBJS) $(VM_PREFIX)__ALL.a
+	$(LINK) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@ $(LIBS) $(SC_LIBS)
+
 
 # Verilated -*- Makefile -*-

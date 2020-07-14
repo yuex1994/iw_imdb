@@ -12,6 +12,8 @@
 // INCLUDE MODULE CLASSES
 #include "VRocket.h"
 #include "VRocket_Rocket.h"
+#include "VRocket_IBuf.h"
+#include "VRocket_RVCExpander.h"
 
 // DPI TYPES for DPI Export callbacks (Internal use)
 
@@ -27,10 +29,13 @@ class VRocket__Syms : public VerilatedSyms {
     // SUBCELL STATE
     VRocket*                       TOPp;
     VRocket_Rocket                 TOP__Rocket;
+    VRocket_IBuf                   TOP__Rocket__ibuf;
+    VRocket_RVCExpander            TOP__Rocket__ibuf__RVCExpander_1;
     
     // SCOPE NAMES
     VerilatedScope __Vscope_Rocket;
     VerilatedScope __Vscope_Rocket__csr;
+    VerilatedScope __Vscope_Rocket__ibuf__RVCExpander_1;
     VerilatedScope __Vscope_TOP;
     
     // CREATORS

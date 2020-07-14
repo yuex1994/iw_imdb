@@ -10,6 +10,7 @@
 //==========
 
 VL_CTOR_IMP(VRocket_Rocket) {
+    VL_CELL(ibuf, VRocket_IBuf);
     // Reset internal values
     // Reset structure values
     _ctor_var_reset();
@@ -27,12 +28,9 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
     VL_DEBUG_IF(VL_DBG_MSGF("+      VRocket_Rocket::_settle__TOP__Rocket__1\n"); );
     VRocket* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Variables
-    WData/*127:0*/ __Vtemp4[4];
-    WData/*191:0*/ __Vtemp5[6];
-    WData/*191:0*/ __Vtemp6[6];
-    WData/*95:0*/ __Vtemp9[3];
-    WData/*95:0*/ __Vtemp11[3];
-    WData/*127:0*/ __Vtemp12[4];
+    WData/*95:0*/ __Vtemp4[3];
+    WData/*95:0*/ __Vtemp6[3];
+    WData/*127:0*/ __Vtemp7[4];
     // Body
     vlSymsp->TOP__Rocket.csr_io_rocc_cmd_ready = vlSymsp->TOP__Rocket.__PVT__GEN_224;
     vlSymsp->TOP__Rocket.csr_io_rocc_resp_valid = vlSymsp->TOP__Rocket.__PVT__GEN_225;
@@ -58,18 +56,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
     vlSymsp->TOP__Rocket.__PVT__dmem_resp_valid = ((IData)(vlTOPp->io_dmem_resp_valid) 
                                                    & (IData)(vlTOPp->io_dmem_resp_bits_has_data));
     vlSymsp->TOP__Rocket.csr_io_rocc_interrupt = vlTOPp->io_rocc_interrupt;
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_373 = 
-        (7U & ((((IData)(vlTOPp->io_imem_resp_bits_btb_valid) 
-                 & (IData)(vlTOPp->io_imem_resp_bits_btb_bits_taken))
-                 ? (3U & ((IData)(1U) + (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx)))
-                 : 2U) - (1U & (vlTOPp->io_imem_resp_bits_pc 
-                                >> 1U))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 = 
-        (((QData)((IData)(vlTOPp->io_imem_resp_bits_data)) 
-          << 0x20U) | (QData)((IData)(((0xffff0000U 
-                                        & (vlTOPp->io_imem_resp_bits_data 
-                                           << 0x10U)) 
-                                       | (0xffffU & vlTOPp->io_imem_resp_bits_data)))));
     vlSymsp->TOP__Rocket.ibuf_io_imem_bits_mask = vlTOPp->io_imem_resp_bits_mask;
     vlSymsp->TOP__Rocket.ibuf_io_imem_bits_xcpt_if 
         = vlTOPp->io_imem_resp_bits_xcpt_if;
@@ -307,11 +293,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
                                           | (5U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)));
     vlSymsp->TOP__Rocket.__PVT__T_7615 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid) 
                                           & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_471 = 
-        (3U & (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBHit)
-                 ? ((IData)(1U) << (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_bridx))
-                 : 0U) & (((IData)(1U) << (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)) 
-                          - (IData)(1U))));
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__priv_sufficient 
         = ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug) 
            | ((0x90U != (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -358,10 +339,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
     vlSymsp->TOP__Rocket.__PVT__ex_pc_valid = (((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid) 
                                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_replay)) 
                                                | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_xcpt_interrupt));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_488 = 
-        ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)
-          ? vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_pc
-          : vlTOPp->io_imem_resp_bits_pc);
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4970 = 
         ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_debugint) 
          & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)));
@@ -416,82 +393,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
                                                    | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_ssip) 
                                                        << 1U) 
                                                       | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_usip)))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_377 = 
-        (7U & (((IData)(vlTOPp->io_imem_resp_valid)
-                 ? (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_373))
-                 : 0U) + (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)));
-    __Vtemp4[0U] = (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427);
-    __Vtemp4[1U] = (IData)((vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 
-                            >> 0x20U));
-    __Vtemp4[2U] = (IData)((((QData)((IData)((0xffffU 
-                                              & (IData)(
-                                                        (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 
-                                                         >> 0x30U))))) 
-                             << 0x30U) | (((QData)((IData)(
-                                                           (0xffffU 
-                                                            & (IData)(
-                                                                      (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 
-                                                                       >> 0x30U))))) 
-                                           << 0x20U) 
-                                          | (((QData)((IData)(
-                                                              (0xffffU 
-                                                               & (IData)(
-                                                                         (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 
-                                                                          >> 0x30U))))) 
-                                              << 0x10U) 
-                                             | (QData)((IData)(
-                                                               (0xffffU 
-                                                                & (IData)(
-                                                                          (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 
-                                                                           >> 0x30U)))))))));
-    __Vtemp4[3U] = (IData)(((((QData)((IData)((0xffffU 
-                                               & (IData)(
-                                                         (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 
-                                                          >> 0x30U))))) 
-                              << 0x30U) | (((QData)((IData)(
-                                                            (0xffffU 
-                                                             & (IData)(
-                                                                       (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 
-                                                                        >> 0x30U))))) 
-                                            << 0x20U) 
-                                           | (((QData)((IData)(
-                                                               (0xffffU 
-                                                                & (IData)(
-                                                                          (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 
-                                                                           >> 0x30U))))) 
-                                               << 0x10U) 
-                                              | (QData)((IData)(
-                                                                (0xffffU 
-                                                                 & (IData)(
-                                                                           (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 
-                                                                            >> 0x30U)))))))) 
-                            >> 0x20U));
-    VL_EXTEND_WW(191,128, __Vtemp5, __Vtemp4);
-    VL_SHIFTL_WWI(191,191,6, __Vtemp6, __Vtemp5, (0x30U 
-                                                  & ((((IData)(2U) 
-                                                       + (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)) 
-                                                      - 
-                                                      (1U 
-                                                       & (vlTOPp->io_imem_resp_bits_pc 
-                                                          >> 1U))) 
-                                                     << 4U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst = (
-                                                   (__Vtemp6[2U] 
-                                                    & (IData)(
-                                                              (VL_ULL(0x7fffffffffffffff) 
-                                                               & (VL_ULL(0xffffffff) 
-                                                                  << 
-                                                                  (0x1fU 
-                                                                   & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid) 
-                                                                      << 4U)))))) 
-                                                   | (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_data 
-                                                      & (~ (IData)(
-                                                                   (VL_ULL(0x7fffffffffffffff) 
-                                                                    & (VL_ULL(0xffffffff) 
-                                                                       << 
-                                                                       (0x1fU 
-                                                                        & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid) 
-                                                                           << 4U))))))));
     vlSymsp->TOP__Rocket.__PVT__div__DOT__T_228[0U] 
         = ((0xfffffffeU & ((IData)((((QData)((IData)(
                                                      ((1U 
@@ -544,7 +445,7 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
                                                                  (vlSymsp->TOP__Rocket.__PVT__div__DOT__T_136 
                                                                   >> 0x20U)))) 
                                                    & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__isHi)));
-    __Vtemp9[1U] = ((0x7fffffffU & ((IData)((VL_ULL(0x3ffffffff) 
+    __Vtemp4[1U] = ((0x7fffffffU & ((IData)((VL_ULL(0x3ffffffff) 
                                              & ((VL_ULL(0x7ffffffff) 
                                                  & VL_EXTENDS_QQ(35,34, 
                                                                  (VL_ULL(0x3ffffffff) 
@@ -619,7 +520,7 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
                                             | (vlSymsp->TOP__Rocket.__PVT__div__DOT__T_153[0U] 
                                                >> 1U))));
     vlSymsp->TOP__Rocket.__PVT__div__DOT__T_165[1U] 
-        = __Vtemp9[1U];
+        = __Vtemp4[1U];
     vlSymsp->TOP__Rocket.__PVT__div__DOT__T_165[2U] 
         = (0x7fffffffU & ((IData)(((VL_ULL(0x3ffffffff) 
                                     & ((VL_ULL(0x7ffffffff) 
@@ -648,110 +549,109 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
     vlSymsp->TOP__Rocket.__PVT__replay_wb = ((IData)(vlSymsp->TOP__Rocket.__PVT__replay_wb_common) 
                                              | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6842) 
                                                 & (~ (IData)(vlTOPp->io_rocc_cmd_ready))));
-    __Vtemp11[1U] = ((0x3fffU & ((IData)((((QData)((IData)(
-                                                           ((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero3 
-                                                             << 1U) 
-                                                            | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573)))) 
-                                           << 2U) | (QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)))) 
-                                 >> 0x12U)) | (0xffffc000U 
-                                               & ((0xffff0000U 
-                                                   & ((IData)(
-                                                              ((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)) 
-                                                                 << 0x23U) 
-                                                                | ((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa)) 
-                                                                   << 3U)) 
-                                                               | (QData)((IData)(
+    __Vtemp6[1U] = ((0x3fffU & ((IData)((((QData)((IData)(
+                                                          ((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero3 
+                                                            << 1U) 
+                                                           | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573)))) 
+                                          << 2U) | (QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)))) 
+                                >> 0x12U)) | (0xffffc000U 
+                                              & ((0xffff0000U 
+                                                  & ((IData)(
+                                                             ((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)) 
+                                                                << 0x23U) 
+                                                               | ((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa)) 
+                                                                  << 3U)) 
+                                                              | (QData)((IData)(
                                                                                 (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv) 
                                                                                 << 1U) 
                                                                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573)))))) 
-                                                      << 0x10U)) 
-                                                  | ((IData)(
-                                                             ((((QData)((IData)(
-                                                                                ((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero3 
+                                                     << 0x10U)) 
+                                                 | ((IData)(
+                                                            ((((QData)((IData)(
+                                                                               ((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero3 
                                                                                 << 1U) 
                                                                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573)))) 
-                                                                << 2U) 
-                                                               | (QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs))) 
-                                                              >> 0x20U)) 
-                                                     << 0xeU))));
-    __Vtemp11[2U] = ((0x3fffU & ((0x3fffU & ((IData)(
-                                                     ((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)) 
-                                                        << 0x23U) 
-                                                       | ((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa)) 
-                                                          << 3U)) 
-                                                      | (QData)((IData)(
-                                                                        (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv) 
-                                                                          << 1U) 
-                                                                         | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573)))))) 
-                                             >> 0x10U)) 
-                                 | ((IData)(((((QData)((IData)(
-                                                               ((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero3 
-                                                                 << 1U) 
-                                                                | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573)))) 
-                                               << 2U) 
-                                              | (QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs))) 
-                                             >> 0x20U)) 
-                                    >> 0x12U))) | (0xffffc000U 
-                                                   & ((0xc000U 
-                                                       & ((IData)(
-                                                                  ((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)) 
-                                                                     << 0x23U) 
-                                                                    | ((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa)) 
-                                                                       << 3U)) 
-                                                                   | (QData)((IData)(
+                                                               << 2U) 
+                                                              | (QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs))) 
+                                                             >> 0x20U)) 
+                                                    << 0xeU))));
+    __Vtemp6[2U] = ((0x3fffU & ((0x3fffU & ((IData)(
+                                                    ((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)) 
+                                                       << 0x23U) 
+                                                      | ((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa)) 
+                                                         << 3U)) 
+                                                     | (QData)((IData)(
+                                                                       (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv) 
+                                                                         << 1U) 
+                                                                        | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573)))))) 
+                                            >> 0x10U)) 
+                                | ((IData)(((((QData)((IData)(
+                                                              ((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero3 
+                                                                << 1U) 
+                                                               | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573)))) 
+                                              << 2U) 
+                                             | (QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs))) 
+                                            >> 0x20U)) 
+                                   >> 0x12U))) | (0xffffc000U 
+                                                  & ((0xc000U 
+                                                      & ((IData)(
+                                                                 ((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)) 
+                                                                    << 0x23U) 
+                                                                   | ((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa)) 
+                                                                      << 3U)) 
+                                                                  | (QData)((IData)(
                                                                                 (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv) 
                                                                                 << 1U) 
                                                                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573)))))) 
-                                                          >> 0x10U)) 
-                                                      | (0xffff0000U 
-                                                         & ((IData)(
-                                                                    (((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)) 
-                                                                        << 0x23U) 
-                                                                       | ((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa)) 
-                                                                          << 3U)) 
-                                                                      | (QData)((IData)(
+                                                         >> 0x10U)) 
+                                                     | (0xffff0000U 
+                                                        & ((IData)(
+                                                                   (((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)) 
+                                                                       << 0x23U) 
+                                                                      | ((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa)) 
+                                                                         << 3U)) 
+                                                                     | (QData)((IData)(
                                                                                 (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv) 
                                                                                 << 1U) 
                                                                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573))))) 
-                                                                     >> 0x20U)) 
-                                                            << 0x10U)))));
-    __Vtemp12[0U] = ((0xffff8000U & ((0xe0000000U & 
-                                      ((IData)((((QData)((IData)(
-                                                                 ((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero3 
-                                                                   << 1U) 
-                                                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573)))) 
-                                                 << 2U) 
-                                                | (QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)))) 
-                                       << 0x1dU)) | 
-                                     ((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_vm) 
-                                        << 0x18U) | 
-                                       (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero1) 
-                                         << 0x14U) 
-                                        | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
-                                           << 0x13U))) 
-                                      | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
-                                          << 0x12U) 
-                                         | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mprv) 
-                                             << 0x11U) 
-                                            | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs) 
-                                               << 0xfU)))))) 
-                     | (((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs) 
-                           << 0xdU) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpp) 
-                                        << 0xbU) | 
-                                       ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs) 
-                                        << 9U))) | 
-                         (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_spp) 
-                           << 8U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpie) 
-                                      << 7U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
-                                                << 6U)))) 
-                        | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
-                            << 5U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
-                                       << 4U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mie) 
-                                                  << 3U) 
-                                                 | (7U 
-                                                    & VL_NEGATE_I((IData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh)))))))));
+                                                                    >> 0x20U)) 
+                                                           << 0x10U)))));
+    __Vtemp7[0U] = ((0xffff8000U & ((0xe0000000U & 
+                                     ((IData)((((QData)((IData)(
+                                                                ((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero3 
+                                                                  << 1U) 
+                                                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573)))) 
+                                                << 2U) 
+                                               | (QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)))) 
+                                      << 0x1dU)) | 
+                                    ((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_vm) 
+                                       << 0x18U) | 
+                                      (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero1) 
+                                        << 0x14U) | 
+                                       ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
+                                        << 0x13U))) 
+                                     | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
+                                         << 0x12U) 
+                                        | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mprv) 
+                                            << 0x11U) 
+                                           | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs) 
+                                              << 0xfU)))))) 
+                    | (((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs) 
+                          << 0xdU) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpp) 
+                                       << 0xbU) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs) 
+                                                   << 9U))) 
+                        | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_spp) 
+                            << 8U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpie) 
+                                       << 7U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
+                                                 << 6U)))) 
+                       | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
+                           << 5U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
+                                      << 4U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mie) 
+                                                 << 3U) 
+                                                | (7U 
+                                                   & VL_NEGATE_I((IData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh)))))))));
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5004[0U] 
-        = __Vtemp12[0U];
+        = __Vtemp7[0U];
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5004[1U] 
         = ((0x7fffU & ((0x7fffU & ((IData)((((QData)((IData)(
                                                              ((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero3 
@@ -774,13 +674,13 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
                                                         >> 0xfU)) 
                                                     | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs) 
                                                        >> 0x11U)))))) 
-           | (0xffff8000U & (__Vtemp11[1U] << 0xfU)));
+           | (0xffff8000U & (__Vtemp6[1U] << 0xfU)));
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5004[2U] 
-        = ((0x7fffU & (__Vtemp11[1U] >> 0x11U)) | (0xffff8000U 
-                                                   & (__Vtemp11[2U] 
-                                                      << 0xfU)));
+        = ((0x7fffU & (__Vtemp6[1U] >> 0x11U)) | (0xffff8000U 
+                                                  & (__Vtemp6[2U] 
+                                                     << 0xfU)));
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5004[3U] 
-        = (0x7fffU & (__Vtemp11[2U] >> 0x11U));
+        = (0x7fffU & (__Vtemp6[2U] >> 0x11U));
     vlSymsp->TOP__Rocket.__PVT__wb_set_sboard = (((IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_div) 
                                                   | (IData)(vlSymsp->TOP__Rocket.__PVT__wb_dcache_miss)) 
                                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rocc));
@@ -915,16 +815,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
     vlSymsp->TOP__Rocket.__PVT__id_mem_busy = (1U & 
                                                ((~ (IData)(vlTOPp->io_dmem_ordered)) 
                                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__T_7615)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__btbHitMask 
-        = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_471) 
-           | (3U & (((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
-                      ? ((IData)(1U) << (3U & (((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
-                                                + (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)) 
-                                               - (1U 
-                                                  & (vlTOPp->io_imem_resp_bits_pc 
-                                                     >> 1U)))))
-                      : 0U) & (~ (((IData)(1U) << (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)) 
-                                  - (IData)(1U))))));
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__do_system_insn 
         = ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__priv_sufficient) 
            & (4U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399)));
@@ -1103,104 +993,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__pending_interrupts 
         = (0x888U & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4839) 
                      & vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mie));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__xcpt_if 
-        = (3U & (((0xfU & ((IData)(1U) << (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_377)))) 
-                  - (IData)(1U)) & (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_xcpt_if)
-                                      ? (((IData)(1U) 
-                                          << (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)) 
-                                         - (IData)(1U))
-                                      : 0U) | ((IData)(vlSymsp->TOP__Rocket.ibuf_io_imem_bits_xcpt_if)
-                                                ? (~ 
-                                                   (((IData)(1U) 
-                                                     << (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)) 
-                                                    - (IData)(1U)))
-                                                : 0U))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ic_replay 
-        = (3U & (((0xfU & ((IData)(1U) << (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_377)))) 
-                  - (IData)(1U)) & (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_replay)
-                                      ? (((IData)(1U) 
-                                          << (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)) 
-                                         - (IData)(1U))
-                                      : 0U) | ((IData)(vlTOPp->io_imem_resp_bits_replay)
-                                                ? (~ 
-                                                   (((IData)(1U) 
-                                                     << (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)) 
-                                                    - (IData)(1U)))
-                                                : 0U))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1197 
-        = (((0xc0U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                      << 4U)) | (0x20U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                          >> 7U))) 
-           | (0x1cU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                       >> 2U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1284 
-        = ((0x3e0U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                      << 3U)) | (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                          >> 7U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1397 
-        = ((0x38U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                     >> 4U)) | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                      >> 0xaU)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_728 
-        = ((4U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                  >> 0xaU)) | (3U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                     >> 5U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1434 
-        = ((0x30U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                     >> 3U)) | (0xfU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 9U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_669 
-        = ((0x20U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                     >> 7U)) | (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                         >> 2U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_955 
-        = (((((0x1000U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-               ? 0x1fU : 0U) << 8U) | ((0xc0U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 << 1U)) 
-                                       | (0x20U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   << 3U)))) 
-           | ((0x18U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                        >> 7U)) | (6U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                         >> 2U))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_62 
-        = ((0x18U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                     >> 2U)) | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                      >> 0xaU)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_608 
-        = ((0U == (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                            >> 7U))) | (2U == (0x1fU 
-                                               & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                  >> 7U))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_386 
-        = ((((0x1000U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-              ? 0x7fU : 0U) << 5U) | (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                               >> 2U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_104 
-        = (((0x40U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                      << 1U)) | (0x38U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                          >> 7U))) 
-           | (4U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                    >> 4U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_433 
-        = ((((((0x1000U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-                ? 0x3ffU : 0U) << 0xbU) | ((0x400U 
-                                            & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                               << 2U)) 
-                                           | (0x300U 
-                                              & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 >> 1U)))) 
-            | ((0x80U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                         << 1U)) | (0x40U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             >> 1U)))) 
-           | (((0x20U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                         << 3U)) | (0x10U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             >> 7U))) 
-              | (0xeU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                         >> 2U))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635 
-        = ((0x18U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                     << 3U)) | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                      >> 0xdU)));
     vlSymsp->TOP__Rocket.__PVT__div__DOT__T_202[0U] 
         = (IData)((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_165[0U])));
     vlSymsp->TOP__Rocket.__PVT__div__DOT__T_202[1U] 
@@ -1314,11 +1106,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
                                            : ((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu1))
                                                ? vlSymsp->TOP__Rocket.__PVT__ex_reg_pc
                                                : 0U));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_540 = 
-        (1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__btbHitMask) 
-               | (0xfU & ((3U == (3U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)) 
-                          & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__btbHitMask) 
-                             >> 1U)))));
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_wfi 
         = (7U & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__do_system_insn) 
                  & (((IData)(1U) << (7U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -1411,516 +1198,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
                        ? (vlSymsp->TOP__Rocket.__PVT__csr__DOT__pending_interrupts 
                           & vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mscounteren)
                        : 0U));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_529 = 
-        (3U & ((3U == (3U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)) 
-               & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__xcpt_if) 
-                  >> 1U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_503 = 
-        (1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ic_replay) 
-               | ((3U == (3U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)) 
-                  & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__btbHitMask) 
-                     | (3U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ic_replay) 
-                              >> 1U))))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1449 
-        = ((0xe0U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1434) 
-                     << 2U)) | (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                         >> 2U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_681 
-        = (0x45413U | ((((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_669) 
-                         << 0x14U) | (0x38000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                  << 8U))) 
-                       | (0x380U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1016 
-        = (8U | ((0x10000U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_955) 
-                              << 4U)) | ((0xfc00U & 
-                                          ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_955) 
-                                           << 5U)) 
-                                         | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                  >> 7U)))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_797 
-        = ((1U <= (1U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                         >> 0xaU))) ? (0x840400U | 
-                                       ((((0x700000U 
-                                           & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              << 0x12U)) 
-                                          | ((0x38000U 
-                                              & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 << 8U)) 
-                                             | (((4U 
-                                                  <= (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_728))
-                                                  ? 
-                                                 ((2U 
-                                                   <= 
-                                                   (3U 
-                                                    & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_728)))
-                                                   ? 
-                                                  ((1U 
-                                                    <= 
-                                                    (1U 
-                                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_728)))
-                                                    ? 3U
-                                                    : 2U)
-                                                   : 0U)
-                                                  : 
-                                                 ((2U 
-                                                   <= 
-                                                   (3U 
-                                                    & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_728)))
-                                                   ? 
-                                                  ((1U 
-                                                    <= 
-                                                    (1U 
-                                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_728)))
-                                                    ? 7U
-                                                    : 6U)
-                                                   : 
-                                                  ((1U 
-                                                    <= 
-                                                    (1U 
-                                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_728)))
-                                                    ? 4U
-                                                    : 0U))) 
-                                                << 0xcU))) 
-                                         | ((0x380U 
-                                             & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst) 
-                                            | ((0x1000U 
-                                                & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-                                                ? 0x3bU
-                                                : 0x33U))) 
-                                        | ((0U == (3U 
-                                                   & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                      >> 5U)))
-                                            ? 0x40000000U
-                                            : 0U)))
-            : (0x47413U | ((((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_386) 
-                             << 0x14U) | (0x38000U 
-                                          & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             << 8U))) 
-                           | (0x380U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_207 
-        = (0x108U | (((0xc00U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_104) 
-                                 << 5U)) | (0xe0U & 
-                                            (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             << 3U))) 
-                     | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                              >> 7U))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_114 
-        = (8U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_104) 
-                  << 5U) | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                  >> 7U))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_506 
-        = ((0x800U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_433 
-                      >> 9U)) | ((0x7feU & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_433) 
-                                 | (1U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_433 
-                                          >> 0xbU))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1778_rs3 
-        = (0x1fU & ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                     ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             >> 0x1bU))
-                         : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                >> 0x1bU) : ((0x1000U 
-                                              & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-                                              ? ((0U 
-                                                  != 
-                                                  (0x1fU 
-                                                   & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                      >> 2U)))
-                                                  ? 
-                                                 (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                  >> 0x1bU)
-                                                  : 
-                                                 (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                  >> 0x1bU))
-                                              : ((0U 
-                                                  != 
-                                                  (0x1fU 
-                                                   & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                      >> 2U)))
-                                                  ? 
-                                                 (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                  >> 0x1bU)
-                                                  : 
-                                                 (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                  >> 0x1bU)))))
-                     : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             >> 0x1bU))
-                         : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             >> 0x1bU)))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rs3 
-        = (0x1fU & ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                     ? ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 >> 0x1bU))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 >> 0x1bU)))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_608)
-                                     ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 0x1bU) : 
-                                    (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                     >> 0x1bU)) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   >> 0x1bU))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 >> 0x1bU))))
-                     : ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 >> 0x1bU))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 >> 0x1bU)))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 >> 0x1bU))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 >> 0x1bU))))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1784_rd 
-        = (0x1fU & ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                     ? ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 7U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 7U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U)))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 7U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 7U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U))))
-                     : ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 7U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 7U) : ((0x1000U 
-                                               & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-                                               ? ((0U 
-                                                   != 
-                                                   (0x1fU 
-                                                    & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                       >> 2U)))
-                                                   ? 
-                                                  (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   >> 7U)
-                                                   : 1U)
-                                               : ((0U 
-                                                   != 
-                                                   (0x1fU 
-                                                    & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                       >> 2U)))
-                                                   ? 
-                                                  (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   >> 7U)
-                                                   : 0U))))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 7U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 7U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U))))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rd 
-        = (0x1fU & ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                     ? ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? 0U : (8U | (7U & 
-                                               (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U))))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? 0U : (8U | (7U & 
-                                               (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U)))))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_608)
-                                     ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 7U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                  >> 7U))
-                                 : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 7U)) : ((1U 
-                                                <= 
-                                                (1U 
-                                                 & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                                ? 1U
-                                                : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   >> 7U))))
-                     : ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 2U)))
-                                 : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 2U))))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 2U)))
-                                 : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 2U)))))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 2U)))
-                                 : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 2U))))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 2U)))
-                                 : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 2U))))))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1778_rs2 
-        = (0x1fU & ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                     ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                >> 2U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                          >> 2U)) : 
-                        ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                          ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                             >> 2U) : ((0x1000U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-                                        ? ((0U != (0x1fU 
-                                                   & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                      >> 2U)))
-                                            ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                               >> 2U)
-                                            : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                               >> 2U))
-                                        : ((0U != (0x1fU 
-                                                   & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                      >> 2U)))
-                                            ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                               >> 2U)
-                                            : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                               >> 2U)))))
-                     : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                >> 2U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                          >> 2U)) : 
-                        ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                          ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                             >> 2U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                       >> 2U)))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rs2 
-        = ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-            ? ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                    ? 0U : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                            >> 2U)))
-                             : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                            >> 2U)))))
-                : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                    ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                        ? ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_608)
-                            ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                           >> 2U)))
-                            : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                           >> 2U))))
-                        : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                       >> 2U)))) : 
-                   ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                     ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 2U))) : (8U 
-                                                | (7U 
-                                                   & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                      >> 2U))))))
-            : ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                    ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                        ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                       >> 2U))) : (8U 
-                                                   | (7U 
-                                                      & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                         >> 2U))))
-                    : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                        ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                       >> 2U))) : (8U 
-                                                   | (7U 
-                                                      & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                         >> 2U)))))
-                : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                    ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                        ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                       >> 2U))) : (8U 
-                                                   | (7U 
-                                                      & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                         >> 2U))))
-                    : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                        ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                       >> 2U))) : (8U 
-                                                   | (7U 
-                                                      & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                         >> 2U)))))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1784_rs1 
-        = (0x1fU & ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                     ? ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0xfU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 0xfU))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0xfU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 0xfU)))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0xfU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 0xfU))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0xfU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 0xfU))))
-                     : ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? 2U : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                      ? 2U : ((0x1000U 
-                                               & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-                                               ? ((0U 
-                                                   != 
-                                                   (0x1fU 
-                                                    & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                       >> 2U)))
-                                                   ? 
-                                                  (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   >> 7U)
-                                                   : 
-                                                  (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   >> 7U))
-                                               : ((0U 
-                                                   != 
-                                                   (0x1fU 
-                                                    & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                       >> 2U)))
-                                                   ? 0U
-                                                   : 
-                                                  (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   >> 7U)))))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? 2U : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                      ? 2U : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U))))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rs1 
-        = (0x1fU & ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                     ? ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U)))
-                                 : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U))))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U)))
-                                 : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U)))))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_608)
-                                     ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 7U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                  >> 7U))
-                                 : 0U) : ((1U <= (1U 
-                                                  & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                           ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U)
-                                           : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U))))
-                     : ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U)))
-                                 : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U))))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U)))
-                                 : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U)))))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U)))
-                                 : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U))))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U)))
-                                 : 2U)))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1736_bits 
-        = ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-            ? (0x13027U | (((0x1e000000U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1397) 
-                                            << 0x17U)) 
-                            | (0x1f00000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             << 0x12U))) 
-                           | (0xc00U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1397) 
-                                        << 0xaU))))
-            : ((0x1000U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-                ? ((0U != (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 2U))) ? (0x33U 
-                                                | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1284) 
-                                                    << 0xfU) 
-                                                   | (0xf80U 
-                                                      & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)))
-                    : ((0U != (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 7U))) ? 
-                       (0xe7U | ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1284) 
-                                 << 0xfU)) : (0x100073U 
-                                              | ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1284) 
-                                                 << 0xfU))))
-                : ((0U != (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 2U))) ? (0x33U 
-                                                | ((0x1f00000U 
-                                                    & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                       << 0x12U)) 
-                                                   | (0xf80U 
-                                                      & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)))
-                    : ((0U != (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 7U))) ? 
-                       (0x67U | ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1284) 
-                                 << 0xfU)) : (0x1fU 
-                                              | ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1284) 
-                                                 << 0xfU))))));
     vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_206 = (
                                                    (~ vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address) 
                                                    | (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_193));
@@ -2150,214 +1427,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
          | (((0U != vlSymsp->TOP__Rocket.__PVT__csr__DOT__all_interrupts) 
              & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5566))) 
             | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_singleStepped)));
-    vlSymsp->TOP__Rocket.__PVT__id_xcpt_if = (1U & 
-                                              ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__xcpt_if) 
-                                               | (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_529)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_519 = 
-        (1U & (((0xfU & ((IData)(1U) << (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_377)))) 
-                - (IData)(1U)) & ((((3U != (3U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)) 
-                                    | (1U & (((0xfU 
-                                               & ((IData)(1U) 
-                                                  << 
-                                                  (3U 
-                                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_377)))) 
-                                              - (IData)(1U)) 
-                                             >> 1U))) 
-                                   | (3U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__xcpt_if) 
-                                            >> 1U))) 
-                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_503))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1922_bits 
-        = ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-            ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? (0x2407U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_114) 
-                               << 0xfU) | (0x380U & 
-                                           (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                            << 5U))))
-                : (0x2403U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_114) 
-                               << 0xfU) | (0x380U & 
-                                           (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                            << 5U)))))
-            : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? (0x43407U | ((((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_62) 
-                                 << 0x17U) | (0x38000U 
-                                              & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 << 8U))) 
-                               | (0x380U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                            << 5U))))
-                : (0x10400U | ((((0x3c000000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 << 0x13U)) 
-                                 | ((0x3000000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   << 0xdU)) 
-                                    | (0x800000U & 
-                                       (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        << 0x12U)))) 
-                                | (0x400000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                << 0x10U))) 
-                               | ((0x380U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             << 5U)) 
-                                  | ((0U != (0xffU 
-                                             & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 5U)))
-                                      ? 0x13U : 0x1fU))))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1852_bits 
-        = ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-            ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_608)
-                    ? (((((0x1000U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-                           ? 7U : 0U) << 0x1dU) | (
-                                                   (0x18000000U 
-                                                    & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                       << 0x18U)) 
-                                                   | (0x4000000U 
-                                                      & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                         << 0x15U)))) 
-                       | ((0x2000000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                         << 0x17U)) 
-                          | ((0x1000000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                            << 0x12U)) 
-                             | ((0xf8000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             << 8U)) 
-                                | ((0xf80U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst) 
-                                   | ((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_386))
-                                       ? 0x13U : 0x1fU))))))
-                    : ((((0x1000U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-                          ? 0x7fffU : 0U) << 0x11U) 
-                       | ((0x1f000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                       << 0xaU)) | 
-                          ((0xf80U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst) 
-                           | ((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_386))
-                               ? 0x37U : 0x3fU)))))
-                : (0x13U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_386) 
-                             << 0x14U) | (0xf80U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst))))
-            : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? (0xefU | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_506) 
-                             << 0x14U) | (0xff000U 
-                                          & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_433)))
-                : (0x13U | ((((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_386) 
-                              << 0x14U) | (0xf8000U 
-                                           & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              << 8U))) 
-                            | (0xf80U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs3 
-        = (0x1fU & ((0x10U <= (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635))
-                     ? ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                     ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 0x1bU) : 
-                                    (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                     >> 0x1bU)) : (
-                                                   (1U 
-                                                    <= 
-                                                    (1U 
-                                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                                    ? 
-                                                   (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                    >> 0x1bU)
-                                                    : 
-                                                   (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                    >> 0x1bU)))
-                             : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                     ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 0x1bU) : 
-                                    (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                     >> 0x1bU)) : (
-                                                   (1U 
-                                                    <= 
-                                                    (1U 
-                                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                                    ? 
-                                                   (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                    >> 0x1bU)
-                                                    : 
-                                                   (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                    >> 0x1bU))))
-                         : (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1778_rs3))
-                     : (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rs3)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rd 
-        = ((0x10U <= (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635))
-            ? (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1784_rd)
-            : (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rd));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2 
-        = (0x1fU & ((0x10U <= (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635))
-                     ? ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                     ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 0x14U) : 
-                                    (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                     >> 0x14U)) : (
-                                                   (1U 
-                                                    <= 
-                                                    (1U 
-                                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                                    ? 
-                                                   (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                    >> 0x14U)
-                                                    : 
-                                                   (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                    >> 0x14U)))
-                             : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                     ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 0x14U) : 
-                                    (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                     >> 0x14U)) : (
-                                                   (1U 
-                                                    <= 
-                                                    (1U 
-                                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                                    ? 
-                                                   (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                    >> 0x14U)
-                                                    : 
-                                                   (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                    >> 0x14U))))
-                         : (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1778_rs2))
-                     : (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rs2)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1 
-        = ((0x10U <= (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635))
-            ? (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1784_rs1)
-            : (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rs1));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1778_bits 
-        = ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-            ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                    ? (0x12027U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1449) 
-                                    << 0x14U) | (0xe00U 
-                                                 & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1434) 
-                                                    << 9U))))
-                    : (0x12023U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1449) 
-                                    << 0x14U) | (0xe00U 
-                                                 & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1434) 
-                                                    << 9U)))))
-                : vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1736_bits)
-            : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                    ? (0x12007U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1197) 
-                                    << 0x14U) | (0xf80U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)))
-                    : (0x12003U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1197) 
-                                    << 0x14U) | (0xf80U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst))))
-                : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                    ? (0x13007U | ((((0x1c000000U & 
-                                      (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                       << 0x18U)) | 
-                                     (0x2000000U & 
-                                      (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                       << 0xdU))) | 
-                                    (0x1800000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   << 0x12U))) 
-                                   | (0xf80U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)))
-                    : (0x1013U | ((((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_669) 
-                                    << 0x14U) | (0xf8000U 
-                                                 & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                    << 8U))) 
-                                  | (0xf80U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst))))));
     vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_208 = (1U 
                                                    & ((2U 
                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch))
@@ -2369,20 +1438,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
                                                       (((~ vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata) 
                                                         | (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_193)) 
                                                        == vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_206)));
-    vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_284 = (
-                                                   (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)) 
-                                                   & (((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_176) 
-                                                       & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_x)) 
-                                                      & ((2U 
-                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch))
-                                                          ? 
-                                                         ((vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_488 
-                                                           >= vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address) 
-                                                          ^ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch))
-                                                          : 
-                                                         (((~ vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_488) 
-                                                           | (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_193)) 
-                                                          == vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_206))));
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_6034 = 
         ((((((((vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5939 
                 | (QData)((IData)(((0x7b2U == (0xfffU 
@@ -2489,140 +1544,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
                                                                        (1U 
                                                                         & ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn) 
                                                                            >> 3U))))));
-    vlSymsp->TOP__Rocket.__PVT__mem_wrong_npc = (1U 
-                                                 & ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
-                                                     ? 
-                                                    ((0xfffffffeU 
-                                                      & vlSymsp->TOP__Rocket.__PVT__T_7257) 
-                                                     != vlSymsp->TOP__Rocket.__PVT__ex_reg_pc)
-                                                     : 
-                                                    ((~ (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_519)) 
-                                                     | ((0xfffffffeU 
-                                                         & vlSymsp->TOP__Rocket.__PVT__T_7257) 
-                                                        != vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_488))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_bits 
-        = ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-            ? ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                    ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                        ? (0x1063U | ((vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1016 
-                                       << 0xfU) | (
-                                                   (0xf00U 
-                                                    & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_955) 
-                                                       << 7U)) 
-                                                   | (0x80U 
-                                                      & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_955) 
-                                                         >> 4U)))))
-                        : (0x63U | ((vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1016 
-                                     << 0xfU) | ((0xf00U 
-                                                  & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_955) 
-                                                     << 7U)) 
-                                                 | (0x80U 
-                                                    & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_955) 
-                                                       >> 4U))))))
-                    : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                        ? (0x6fU | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_506) 
-                                     << 0x14U) | (0xff000U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_433)))
-                        : ((2U <= (3U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                         >> 0xaU)))
-                            ? vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_797
-                            : ((1U <= (1U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             >> 0xaU)))
-                                ? (0x40000000U | vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_681)
-                                : vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_681))))
-                : vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1852_bits)
-            : ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                    ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                        ? (0x2027U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_207) 
-                                       << 0xfU) | (0xf80U 
-                                                   & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_104) 
-                                                      << 7U))))
-                        : (0x2023U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_207) 
-                                       << 0xfU) | (0xf80U 
-                                                   & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_104) 
-                                                      << 7U)))))
-                    : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                        ? (0x843027U | ((((0xe000000U 
-                                           & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_62) 
-                                              << 0x17U)) 
-                                          | (0x700000U 
-                                             & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                << 0x12U))) 
-                                         | (0x38000U 
-                                            & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                               << 8U))) 
-                                        | (0xc00U & 
-                                           ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_62) 
-                                            << 0xaU))))
-                        : (0x202fU | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_207) 
-                                       << 0xfU) | (0xf80U 
-                                                   & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_104) 
-                                                      << 7U))))))
-                : vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1922_bits));
-    vlSymsp->TOP__Rocket.__PVT__T_7497 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rd) 
-                                          == (0x1fU 
-                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                 >> 7U)));
-    vlSymsp->TOP__Rocket.__PVT__T_7474 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rd) 
-                                          == (0x1fU 
-                                              & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
-                                                 >> 7U)));
-    vlSymsp->TOP__Rocket.__PVT__T_7447 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rd) 
-                                          == (0x1fU 
-                                              & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
-                                                 >> 7U)));
-    vlSymsp->TOP__Rocket.__PVT__T_6545_T_6564_data 
-        = ((0x1eU >= (0x1fU & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2))))
-            ? vlSymsp->TOP__Rocket.__PVT__T_6545[(0x1fU 
-                                                  & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2)))]
-            : 0U);
-    vlSymsp->TOP__Rocket.__PVT__T_6878 = ((0x1fU & 
-                                           (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
-                                            >> 7U)) 
-                                          == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2));
-    vlSymsp->TOP__Rocket.__PVT__T_7495 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2) 
-                                          == (0x1fU 
-                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                 >> 7U)));
-    vlSymsp->TOP__Rocket.__PVT__T_7472 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2) 
-                                          == (0x1fU 
-                                              & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
-                                                 >> 7U)));
-    vlSymsp->TOP__Rocket.__PVT__id_bypass_src_1_1 = 
-        ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6866) 
-         & ((0x1fU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
-                      >> 7U)) == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2)));
-    vlSymsp->TOP__Rocket.__PVT__T_7445 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2) 
-                                          == (0x1fU 
-                                              & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
-                                                 >> 7U)));
-    vlSymsp->TOP__Rocket.__PVT__T_6545_T_6554_data 
-        = ((0x1eU >= (0x1fU & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1))))
-            ? vlSymsp->TOP__Rocket.__PVT__T_6545[(0x1fU 
-                                                  & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1)))]
-            : 0U);
-    vlSymsp->TOP__Rocket.__PVT__T_6874 = ((0x1fU & 
-                                           (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
-                                            >> 7U)) 
-                                          == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1));
-    vlSymsp->TOP__Rocket.__PVT__T_7493 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1) 
-                                          == (0x1fU 
-                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                 >> 7U)));
-    vlSymsp->TOP__Rocket.__PVT__T_7470 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1) 
-                                          == (0x1fU 
-                                              & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
-                                                 >> 7U)));
-    vlSymsp->TOP__Rocket.__PVT__id_bypass_src_0_1 = 
-        ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6866) 
-         & ((0x1fU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
-                      >> 7U)) == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1)));
-    vlSymsp->TOP__Rocket.__PVT__T_7443 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1) 
-                                          == (0x1fU 
-                                              & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
-                                                 >> 7U)));
     vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_278 = (
                                                    (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)) 
                                                    & (((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_176) 
@@ -2633,10 +1554,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
                                                    & (((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_176) 
                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_w)) 
                                                       & (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_208)));
-    vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_5 = ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_284) 
-                                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action));
-    vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_4 = ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_284) 
-                                                   & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action)));
     vlSymsp->TOP__Rocket.__PVT__rf_wdata = (((IData)(vlSymsp->TOP__Rocket.__PVT__dmem_resp_valid) 
                                              & (~ (IData)(vlTOPp->io_dmem_resp_bits_tag)))
                                              ? vlTOPp->io_dmem_resp_bits_data
@@ -2706,18 +1623,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
                                                   (0xfffU 
                                                    & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                       >> 0x14U))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits 
-        = ((0x10U <= (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635))
-            ? ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst
-                : vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1778_bits)
-            : vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_bits);
-    vlSymsp->TOP__Rocket.__PVT__id_bypass_src_1_2 = 
-        ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6870) 
-         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6878));
-    vlSymsp->TOP__Rocket.__PVT__id_bypass_src_0_2 = 
-        ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6870) 
-         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6874));
     vlSymsp->TOP__Rocket.__PVT__mem_debug_breakpoint 
         = (((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_load) 
             & ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_278) 
@@ -2731,15 +1636,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
                                                   | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_store) 
                                                      & ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_281) 
                                                         & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action)))));
-    vlSymsp->TOP__Rocket.__PVT__T_6862 = ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_5)
-                                           ? 0xdU : 
-                                          ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_4)
-                                            ? 3U : 
-                                           ((IData)(vlSymsp->TOP__Rocket.__PVT__id_xcpt_if)
-                                             ? 1U : 2U)));
-    vlSymsp->TOP__Rocket.__PVT__T_7023 = (((~ (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_4)) 
-                                           & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__xcpt_if))) 
-                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_529));
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_6158 = 
         ((0x1005U & (~ ((~ vlSymsp->TOP__Rocket.__PVT__csr__DOT__wdata) 
                         | (8U & ((~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__wdata 
@@ -2806,381 +1702,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
                                                   (0xfffU 
                                                    & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                       >> 0x14U))));
-    vlSymsp->TOP__Rocket.__PVT__T_6228 = (((((0U == 
-                                              (0x48U 
-                                               & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                             | (0U 
-                                                == 
-                                                (0x18U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            | (0x4000U 
-                                               == (0x4008U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           << 1U) | 
-                                          (((((0U == 
-                                               (0x58U 
-                                                & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                              | (0U 
-                                                 == 
-                                                 (0x20U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                             | (4U 
-                                                == 
-                                                (0xcU 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            | (0x48U 
-                                               == (0x48U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           | (0x4050U 
-                                              == (0x4050U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))));
-    vlSymsp->TOP__Rocket.__PVT__T_6245 = ((((4U == 
-                                             (0x24U 
-                                              & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                            | (0x48U 
-                                               == (0x48U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           << 1U) | 
-                                          ((((0U == 
-                                              (0x4004U 
-                                               & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                             | (0U 
-                                                == 
-                                                (0x50U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            | (0U == 
-                                               (0x44U 
-                                                & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           | (0U == 
-                                              (0x18U 
-                                               & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))));
-    vlSymsp->TOP__Rocket.__PVT__T_6277 = (((((0U == 
-                                              (0x24U 
-                                               & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                             | (4U 
-                                                == 
-                                                (0x1cU 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            | (0x10U 
-                                               == (0x14U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           << 2U) | 
-                                          ((((4U == 
-                                              (0x44U 
-                                               & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                             | (8U 
-                                                == 
-                                                (8U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            << 1U) 
-                                           | ((8U == 
-                                               (8U 
-                                                & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                              | (0x40U 
-                                                 == 
-                                                 (0x44U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)))));
-    vlSymsp->TOP__Rocket.__PVT__T_6367 = (((((((0x2010U 
-                                                == 
-                                                (0x6054U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                               | (0x4040U 
-                                                  == 
-                                                  (0x4058U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                              | (0x40000030U 
-                                                 == 
-                                                 (0x40003034U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                             | (0x40001010U 
-                                                == 
-                                                (0x40003054U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            << 3U) 
-                                           | (((((0x2010U 
-                                                  == 
-                                                  (0x2054U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                 | (0x4010U 
-                                                    == 
-                                                    (0x40004054U 
-                                                     & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                | (0x4010U 
-                                                   == 
-                                                   (0x5054U 
-                                                    & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                               | (0x4040U 
-                                                  == 
-                                                  (0x4058U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                              << 2U)) 
-                                          | ((((((((0x40U 
-                                                    == 
-                                                    (0x4054U 
-                                                     & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                   | (0x3000U 
-                                                      == 
-                                                      (0x3044U 
-                                                       & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                  | (0x6000U 
-                                                     == 
-                                                     (0x6044U 
-                                                      & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                 | (0x6000U 
-                                                    == 
-                                                    (0x6018U 
-                                                     & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                | (0x40000030U 
-                                                   == 
-                                                   (0x40003034U 
-                                                    & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                               | (0x40001010U 
-                                                  == 
-                                                  (0x40001054U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                              << 1U) 
-                                             | (((0x1010U 
-                                                  == 
-                                                  (0x3054U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                 | (0x1040U 
-                                                    == 
-                                                    (0x1058U 
-                                                     & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                | (0x7000U 
-                                                   == 
-                                                   (0x7044U 
-                                                    & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)))));
-    vlSymsp->TOP__Rocket.__PVT__T_6443 = ((((8U == 
-                                             (0x18001008U 
-                                              & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                            << 3U) 
-                                           | (((((8U 
-                                                  == 
-                                                  (0x2008U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                 | (0x8000008U 
-                                                    == 
-                                                    (0x8000008U 
-                                                     & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                | (0x10000008U 
-                                                   == 
-                                                   (0x10000008U 
-                                                    & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                               | (0x80000008U 
-                                                  == 
-                                                  (0x80000008U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                              << 2U)) 
-                                          | ((((0x10000008U 
-                                                == 
-                                                (0x10001008U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                               | (0x40000008U 
-                                                  == 
-                                                  (0x40001008U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                              << 1U) 
-                                             | ((((8U 
-                                                   == 
-                                                   (0x2008U 
-                                                    & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                  | (0x20U 
-                                                     == 
-                                                     (0x28U 
-                                                      & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                 | (0x18000020U 
-                                                    == 
-                                                    (0x18000020U 
-                                                     & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                | (0x20000020U 
-                                                   == 
-                                                   (0x20000020U 
-                                                    & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)))));
-    vlSymsp->TOP__Rocket.__PVT__T_6463 = (((0x4000U 
-                                            == (0x4000U 
-                                                & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                           << 2U) | 
-                                          (((0x2000U 
-                                             == (0x2000U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                            << 1U) 
-                                           | (0x1000U 
-                                              == (0x1000U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))));
-    vlSymsp->TOP__Rocket.__PVT__T_7027 = ((4U == (0x1cU 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug));
-    vlSymsp->TOP__Rocket.__PVT__T_6845 = (((8U == (0x3048U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                           | ((0x2008U 
-                                               == (0x2048U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                              & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits 
-                                                 >> 0x19U))) 
-                                          | ((IData)(vlSymsp->TOP__Rocket.__PVT__id_reg_fence) 
-                                             & (IData)(vlSymsp->TOP__Rocket.__PVT__id_mem_busy)));
-    vlSymsp->TOP__Rocket.__PVT__T_6521 = (((0x50U == 
-                                            (0x3050U 
-                                             & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                           << 2U) | 
-                                          (((0x2050U 
-                                             == (0x2050U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                            << 1U) 
-                                           | (0x1050U 
-                                              == (0x1050U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))));
-    vlSymsp->TOP__Rocket.__PVT__T_6130 = ((((((((((
-                                                   ((((((((3U 
-                                                           == 
-                                                           (0x505fU 
-                                                            & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                          | (3U 
-                                                             == 
-                                                             (0x207fU 
-                                                              & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                         | (0xfU 
-                                                            == 
-                                                            (0x607fU 
-                                                             & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                        | (0x17U 
-                                                           == 
-                                                           (0x5fU 
-                                                            & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                       | (0x33U 
-                                                          == 
-                                                          (0xfc00007fU 
-                                                           & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                      | (0x33U 
-                                                         == 
-                                                         (0xbe00707fU 
-                                                          & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                     | (0x63U 
-                                                        == 
-                                                        (0x707bU 
-                                                         & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                    | (0x6fU 
-                                                       == 
-                                                       (0x7fU 
-                                                        & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                   | (0x73U 
-                                                      == 
-                                                      (0xffefffffU 
-                                                       & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                  | (0x1013U 
-                                                     == 
-                                                     (0xfc00305fU 
-                                                      & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                 | (0x2013U 
-                                                    == 
-                                                    (0x207fU 
-                                                     & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                | (0x202fU 
-                                                   == 
-                                                   (0x1800707fU 
-                                                    & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                               | (0x2073U 
-                                                  == 
-                                                  (0x207fU 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                              | (0x5013U 
-                                                 == 
-                                                 (0xbc00707fU 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                             | (0x5033U 
-                                                == 
-                                                (0xbe00707fU 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            | (0x800202fU 
-                                               == (0xe800707fU 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           | (0x1000202fU 
-                                              == (0xf9f0707fU 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                          | (0x10500073U 
-                                             == vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits));
-    vlSymsp->TOP__Rocket.__PVT__T_6383 = (((((((3U 
-                                                == 
-                                                (0x605fU 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                               | (3U 
-                                                  == 
-                                                  (0x505fU 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                              | (3U 
-                                                 == 
-                                                 (0x207fU 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                             | (0x100fU 
-                                                == 
-                                                (0x707fU 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            | (0x202fU 
-                                               == (0x1800707fU 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           | (0x800202fU 
-                                              == (0xe800707fU 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                          | (0x1000202fU 
-                                             == (0xf9f0707fU 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)));
-    vlSymsp->TOP__Rocket.__PVT__T_6501 = (((((((0U 
-                                                == 
-                                                (0x28U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                               | (4U 
-                                                  == 
-                                                  (0xcU 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                              | (0x10U 
-                                                 == 
-                                                 (0x50U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                             | (0x48U 
-                                                == 
-                                                (0x48U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            | (0x1010U 
-                                               == (0x1010U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           | (0x2008U 
-                                              == (0x2008U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                          | (0x2010U 
-                                             == (0x2010U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)));
-    vlSymsp->TOP__Rocket.__PVT__T_6172 = (((0x20U == 
-                                            (0x70U 
-                                             & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                           | (0x20U 
-                                              == (0x64U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                          | (0x20U 
-                                             == (0x34U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)));
-    vlSymsp->TOP__Rocket.__PVT__T_6193 = ((((0U == 
-                                             (0x4004U 
-                                              & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                            | (0U == 
-                                               (0x44U 
-                                                & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           | (0U == 
-                                              (0x18U 
-                                               & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                          | (0x2000U 
-                                             == (0x2050U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)));
-    vlSymsp->TOP__Rocket.__PVT__T_7047 = ((((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2)) 
-                                            | (IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_1_1)) 
-                                           | (IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_1_2)) 
-                                          | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6867) 
-                                             & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6878)));
-    vlSymsp->TOP__Rocket.__PVT__T_7032 = ((((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1)) 
-                                            | (IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_0_1)) 
-                                           | (IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_0_2)) 
-                                          | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6867) 
-                                             & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6874)));
     vlSymsp->TOP__Rocket.__PVT__mem_new_cause = ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_debug_breakpoint)
                                                   ? 0xdU
                                                   : 
@@ -3278,40 +1799,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
                            & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mucounteren 
                               >> (0x1fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))))))));
-    vlSymsp->TOP__Rocket.__PVT__id_csr_ren = (((2U 
-                                                == (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521)) 
-                                               | (3U 
-                                                  == (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521))) 
-                                              & (0U 
-                                                 == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1)));
-    vlSymsp->TOP__Rocket.__PVT__T_6136 = (((((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6130) 
-                                               | (0x30200073U 
-                                                  == vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                              | (0x7b200073U 
-                                                 == vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                             | (0x23U 
-                                                == 
-                                                (0x603fU 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            | (0x1063U 
-                                               == (0x306fU 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           | (0x4063U 
-                                              == (0x407fU 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                          | (3U == 
-                                             (0x306fU 
-                                              & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)));
-    vlSymsp->TOP__Rocket.__PVT__T_7408 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6501) 
-                                          & (0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rd)));
-    vlSymsp->TOP__Rocket.__PVT__T_7405 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6172) 
-                                          & (0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2)));
-    vlSymsp->TOP__Rocket.__PVT__T_7402 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6193) 
-                                          & (0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1)));
-    vlSymsp->TOP__Rocket.__PVT__T_7057 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6172) 
-                                          & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7047)));
-    vlSymsp->TOP__Rocket.__PVT__T_7042 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6193) 
-                                          & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7032)));
     vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_98 = (VL_ULL(0x1ffffffff) 
                                                   & VL_SHIFTRS_QQI(33,33,5, 
                                                                    (((QData)((IData)(
@@ -3333,57 +1820,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
               & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__priv_sufficient)))) 
           | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_call)) 
          | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_break));
-    vlSymsp->TOP__Rocket.__PVT__T_7026 = (((0x1008U 
-                                            == (0x1048U 
-                                                & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                           | ((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521)) 
-                                              | (((0U 
-                                                   != (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521)) 
-                                                  & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__id_csr_ren))) 
-                                                 & (~ 
-                                                    ((0x40U 
-                                                      == 
-                                                      (0x46U 
-                                                       & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits 
-                                                          >> 0x14U))) 
-                                                     | (0x240U 
-                                                        == 
-                                                        (0x244U 
-                                                         & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits 
-                                                            >> 0x14U)))))))) 
-                                          | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5566));
-    vlSymsp->TOP__Rocket.__PVT__id_xcpt = (1U & (((
-                                                   ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_39) 
-                                                    | (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_5)) 
-                                                   | (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_4)) 
-                                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__id_xcpt_if)) 
-                                                 | ((((~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_6136)) 
-                                                      | ((0x2000030U 
-                                                          == 
-                                                          (0x2000074U 
-                                                           & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                         & (~ 
-                                                            (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
-                                                             >> 0xcU)))) 
-                                                     | ((0x2008U 
-                                                         == 
-                                                         (0x2048U 
-                                                          & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                        & (~ vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa))) 
-                                                    | ((3U 
-                                                        != 
-                                                        (3U 
-                                                         & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)) 
-                                                       & (~ 
-                                                          (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
-                                                           >> 2U))))));
-    vlSymsp->TOP__Rocket.__PVT__data_hazard_mem = ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_wxd) 
-                                                   & ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
-                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7470)) 
-                                                       | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7405) 
-                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7472))) 
-                                                      | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7408) 
-                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7474))));
     vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_109 = (
                                                    (0xffffU 
                                                     & (IData)(
@@ -3397,78 +1833,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause = ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5508)
                                                     ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5521)
                                                     : vlSymsp->TOP__Rocket.__PVT__wb_reg_cause);
-    vlSymsp->TOP__Rocket.__PVT__T_7528 = ((((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid) 
-                                            & ((((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_wxd) 
-                                                 & ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
-                                                      & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7443)) 
-                                                     | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7405) 
-                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7445))) 
-                                                    | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7408) 
-                                                       & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7447)))) 
-                                                & ((((((0U 
-                                                        != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr)) 
-                                                       | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_jalr)) 
-                                                      | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem)) 
-                                                     | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_div)) 
-                                                    | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc)) 
-                                                   | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc))) 
-                                               | ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc) 
-                                                  & (((((IData)(vlTOPp->io_fpu_dec_ren1) 
-                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7443)) 
-                                                       | ((IData)(vlTOPp->io_fpu_dec_ren2) 
-                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7445))) 
-                                                      | ((IData)(vlTOPp->io_fpu_dec_ren3) 
-                                                         & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs3) 
-                                                            == 
-                                                            (0x1fU 
-                                                             & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
-                                                                >> 7U))))) 
-                                                     | ((IData)(vlTOPp->io_fpu_dec_wen) 
-                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7447)))))) 
-                                           | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_valid) 
-                                              & (((IData)(vlSymsp->TOP__Rocket.__PVT__data_hazard_mem) 
-                                                  & (((((0U 
-                                                         != (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr)) 
-                                                        | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem) 
-                                                           & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_slow_bypass))) 
-                                                       | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_div)) 
-                                                      | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc)) 
-                                                     | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc))) 
-                                                 | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc) 
-                                                    & (((((IData)(vlTOPp->io_fpu_dec_ren1) 
-                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7470)) 
-                                                         | ((IData)(vlTOPp->io_fpu_dec_ren2) 
-                                                            & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7472))) 
-                                                        | ((IData)(vlTOPp->io_fpu_dec_ren3) 
-                                                           & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs3) 
-                                                              == 
-                                                              (0x1fU 
-                                                               & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
-                                                                  >> 7U))))) 
-                                                       | ((IData)(vlTOPp->io_fpu_dec_wen) 
-                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7474))))))) 
-                                          | ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_valid) 
-                                             & ((((IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_wxd) 
-                                                  & ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
-                                                       & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7493)) 
-                                                      | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7405) 
-                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7495))) 
-                                                     | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7408) 
-                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7497)))) 
-                                                 & (IData)(vlSymsp->TOP__Rocket.__PVT__wb_set_sboard)) 
-                                                | ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_wfd) 
-                                                   & (((((IData)(vlTOPp->io_fpu_dec_ren1) 
-                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7493)) 
-                                                        | ((IData)(vlTOPp->io_fpu_dec_ren2) 
-                                                           & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7495))) 
-                                                       | ((IData)(vlTOPp->io_fpu_dec_ren3) 
-                                                          & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs3) 
-                                                             == 
-                                                             (0x1fU 
-                                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                                 >> 7U))))) 
-                                                      | ((IData)(vlTOPp->io_fpu_dec_wen) 
-                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7497)))))));
     vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_119 = (
                                                    (0xff00ffU 
                                                     & (vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_109 
@@ -3497,46 +1861,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__causeIsDebugTrigger 
         = ((~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause 
                >> 0x1fU)) & (0xdU == (0x1fU & vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)));
-    vlSymsp->TOP__Rocket.__PVT__ctrl_stalld = ((((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7528) 
-                                                   | ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
-                                                        & ((0xfffffffeU 
-                                                            & vlSymsp->TOP__Rocket.__PVT__T_7410) 
-                                                           >> (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1))) 
-                                                       | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7405) 
-                                                          & ((0xfffffffeU 
-                                                              & vlSymsp->TOP__Rocket.__PVT__T_7410) 
-                                                             >> (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2)))) 
-                                                      | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7408) 
-                                                         & ((0xfffffffeU 
-                                                             & vlSymsp->TOP__Rocket.__PVT__T_7410) 
-                                                            >> (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rd))))) 
-                                                  | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6383) 
-                                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__dcache_blocked))) 
-                                                 | ((0x2000030U 
-                                                     == 
-                                                     (0x2000074U 
-                                                      & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                    & ((~ 
-                                                        ((0U 
-                                                          == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
-                                                         | ((5U 
-                                                             == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
-                                                            & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_wxd))))) 
-                                                       | (IData)(vlSymsp->TOP__Rocket.__PVT__T_7002)))) 
-                                                | ((IData)(vlSymsp->TOP__Rocket.__PVT__id_mem_busy) 
-                                                   & ((((0x2008U 
-                                                         == 
-                                                         (0x2048U 
-                                                          & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                        & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits 
-                                                           >> 0x1aU)) 
-                                                       | (0x1008U 
-                                                          == 
-                                                          (0x1048U 
-                                                           & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                      | ((IData)(vlSymsp->TOP__Rocket.__PVT__id_reg_fence) 
-                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6383))))) 
-                                               | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_wfi));
     vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_129 = (
                                                    (0xf0f0f0fU 
                                                     & (vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_119 
@@ -3580,12 +1904,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
                                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreaku))) 
                         >> (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))))) 
          | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__GEN_30 = 
-        ((((~ (IData)(vlSymsp->TOP__Rocket.__PVT__ctrl_stalld)) 
-           | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_39)) 
-          & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_519))
-          ? ((3U != (3U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst))
-              ? 1U : 2U) : 0U);
     vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_139 = (
                                                    (0x33333333U 
                                                     & (vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_129 
@@ -3613,18 +1931,10 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
     vlSymsp->TOP__Rocket.__PVT__ctrl_killm = (((IData)(vlSymsp->TOP__Rocket.__PVT__killm_common) 
                                                | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_xcpt)) 
                                               | (IData)(vlSymsp->TOP__Rocket.__PVT__fpu_kill_mem));
-    vlSymsp->TOP__Rocket.__PVT__T_7007 = ((~ (IData)(vlSymsp->TOP__Rocket.__PVT__take_pc_mem_wb)) 
-                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_519));
     vlSymsp->TOP__Rocket.__PVT__ctrl_killx = (1U & 
                                               (((IData)(vlSymsp->TOP__Rocket.__PVT__take_pc_mem_wb) 
                                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__replay_ex)) 
                                                | (~ (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid))));
-    vlSymsp->TOP__Rocket.__PVT__T_7551 = (1U & ((((
-                                                   (~ (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_519)) 
-                                                   | (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_503)) 
-                                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__take_pc_mem_wb)) 
-                                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__ctrl_stalld)) 
-                                                | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_39)));
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_79 = 
         ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_xcpt)
           ? ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543) 
@@ -3704,12 +2014,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
                                                ? vlSymsp->TOP__Rocket.__PVT__wb_reg_pc
                                                : (0xfffffffeU 
                                                   & vlSymsp->TOP__Rocket.__PVT__T_7257)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_378 = 
-        ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__GEN_30) 
-         >= (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_374 = 
-        (7U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__GEN_30) 
-               - (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)));
     vlSymsp->TOP__Rocket.__PVT__alu__DOT__shift_logic 
         = ((((((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)) 
                | (3U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))) 
@@ -3761,29 +2065,6 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
                                               : 0U));
     vlSymsp->TOP__Rocket.__PVT__GEN_166 = ((IData)(vlSymsp->TOP__Rocket.__PVT__rf_wen) 
                                            & (0U != (IData)(vlSymsp->TOP__Rocket.__PVT__rf_waddr)));
-    vlSymsp->TOP__Rocket.__PVT__GEN_168 = ((IData)(vlSymsp->TOP__Rocket.__PVT__rf_wen)
-                                            ? ((0U 
-                                                != (IData)(vlSymsp->TOP__Rocket.__PVT__rf_waddr))
-                                                ? (
-                                                   ((IData)(vlSymsp->TOP__Rocket.__PVT__rf_waddr) 
-                                                    == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1))
-                                                    ? vlSymsp->TOP__Rocket.__PVT__rf_wdata
-                                                    : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6554_data)
-                                                : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6554_data)
-                                            : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6554_data);
-    vlSymsp->TOP__Rocket.__PVT__GEN_169 = ((IData)(vlSymsp->TOP__Rocket.__PVT__rf_wen)
-                                            ? ((0U 
-                                                != (IData)(vlSymsp->TOP__Rocket.__PVT__rf_waddr))
-                                                ? (
-                                                   ((IData)(vlSymsp->TOP__Rocket.__PVT__rf_waddr) 
-                                                    == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2))
-                                                    ? vlSymsp->TOP__Rocket.__PVT__rf_wdata
-                                                    : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6564_data)
-                                                : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6564_data)
-                                            : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6564_data);
-    vlSymsp->TOP__Rocket.__PVT__T_7063 = (1U & (((~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)) 
-                                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_39)) 
-                                                | (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_503)));
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_116 = 
         ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret)
           ? ((0x90U == (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -3803,89 +2084,771 @@ void VRocket_Rocket::_settle__TOP__Rocket__1(VRocket__Syms* __restrict vlSymsp) 
                                                  : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_95))
               : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_95))
           : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_95));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_416 = 
-        ((0xfffffffcU & vlTOPp->io_imem_resp_bits_pc) 
-         | (3U & (vlTOPp->io_imem_resp_bits_pc + (IData)((QData)((IData)(
-                                                                         (6U 
-                                                                          & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_374) 
-                                                                             << 1U))))))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_408 = 
-        ((((QData)((IData)(((0xffff0000U & vlTOPp->io_imem_resp_bits_data) 
-                            | (0xffffU & (vlTOPp->io_imem_resp_bits_data 
-                                          >> 0x10U))))) 
-           << 0x20U) | (QData)((IData)(vlTOPp->io_imem_resp_bits_data))) 
-         >> (0x30U & (((1U & (vlTOPp->io_imem_resp_bits_pc 
-                              >> 1U)) + (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_374)) 
-                      << 4U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_381 = 
-        (7U & ((3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_373)) 
-               - (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_374))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399 = 
-        ((((IData)(vlTOPp->io_imem_resp_valid) & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_378)) 
-          & ((3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_374)) 
-             < (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_373)))) 
-         & (1U >= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_381))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__GEN_24 = 
-        (3U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399)
-                ? ((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
-                    ? ((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
-                       + (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_374))
-                    : (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_bridx))
-                : (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_bridx)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__GEN_29 = 
-        ((IData)(vlSymsp->TOP__Rocket.__PVT__take_pc_mem_wb)
-          ? 0U : (3U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399)
-                         ? (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_381)
-                         : ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_378)
-                             ? 0U : ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid) 
-                                     - (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__GEN_30))))));
 }
 
-VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__2(VRocket__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+      VRocket_Rocket::_combo__TOP__Rocket__2\n"); );
+void VRocket_Rocket::_settle__TOP__Rocket__2(VRocket__Syms* __restrict vlSymsp) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+      VRocket_Rocket::_settle__TOP__Rocket__2\n"); );
+    VRocket* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
+    // Body
+    vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_284 = (
+                                                   (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)) 
+                                                   & (((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_176) 
+                                                       & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_x)) 
+                                                      & ((2U 
+                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch))
+                                                          ? 
+                                                         ((vlSymsp->TOP__Rocket__ibuf.__PVT__T_488 
+                                                           >= vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address) 
+                                                          ^ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch))
+                                                          : 
+                                                         (((~ vlSymsp->TOP__Rocket__ibuf.__PVT__T_488) 
+                                                           | (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_193)) 
+                                                          == vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_206))));
+    vlSymsp->TOP__Rocket.__PVT__id_xcpt_if = (1U & 
+                                              ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__xcpt_if) 
+                                               | (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_529)));
+    vlSymsp->TOP__Rocket.__PVT__mem_wrong_npc = (1U 
+                                                 & ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+                                                     ? 
+                                                    ((0xfffffffeU 
+                                                      & vlSymsp->TOP__Rocket.__PVT__T_7257) 
+                                                     != vlSymsp->TOP__Rocket.__PVT__ex_reg_pc)
+                                                     : 
+                                                    ((~ (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_519)) 
+                                                     | ((0xfffffffeU 
+                                                         & vlSymsp->TOP__Rocket.__PVT__T_7257) 
+                                                        != vlSymsp->TOP__Rocket__ibuf.__PVT__T_488))));
+    vlSymsp->TOP__Rocket.__PVT__T_7007 = ((~ (IData)(vlSymsp->TOP__Rocket.__PVT__take_pc_mem_wb)) 
+                                          & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_519));
+    vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_5 = ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_284) 
+                                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action));
+    vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_4 = ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_284) 
+                                                   & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action)));
+    vlSymsp->TOP__Rocket.__PVT__T_6862 = ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_5)
+                                           ? 0xdU : 
+                                          ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_4)
+                                            ? 3U : 
+                                           ((IData)(vlSymsp->TOP__Rocket.__PVT__id_xcpt_if)
+                                             ? 1U : 2U)));
+    vlSymsp->TOP__Rocket.__PVT__T_7023 = (((~ (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_4)) 
+                                           & (~ (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__xcpt_if))) 
+                                          & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_529));
+}
+
+void VRocket_Rocket::_settle__TOP__Rocket__3(VRocket__Syms* __restrict vlSymsp) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+      VRocket_Rocket::_settle__TOP__Rocket__3\n"); );
+    VRocket* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
+    // Body
+    vlSymsp->TOP__Rocket.__PVT__T_7497 = ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rd) 
+                                          == (0x1fU 
+                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                                 >> 7U)));
+    vlSymsp->TOP__Rocket.__PVT__T_7474 = ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rd) 
+                                          == (0x1fU 
+                                              & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+                                                 >> 7U)));
+    vlSymsp->TOP__Rocket.__PVT__T_7447 = ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rd) 
+                                          == (0x1fU 
+                                              & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+                                                 >> 7U)));
+    vlSymsp->TOP__Rocket.__PVT__T_6545_T_6564_data 
+        = ((0x1eU >= (0x1fU & (~ (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2))))
+            ? vlSymsp->TOP__Rocket.__PVT__T_6545[(0x1fU 
+                                                  & (~ (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2)))]
+            : 0U);
+    vlSymsp->TOP__Rocket.__PVT__T_6878 = ((0x1fU & 
+                                           (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+                                            >> 7U)) 
+                                          == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2));
+    vlSymsp->TOP__Rocket.__PVT__T_7495 = ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2) 
+                                          == (0x1fU 
+                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                                 >> 7U)));
+    vlSymsp->TOP__Rocket.__PVT__T_7472 = ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2) 
+                                          == (0x1fU 
+                                              & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+                                                 >> 7U)));
+    vlSymsp->TOP__Rocket.__PVT__id_bypass_src_1_1 = 
+        ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6866) 
+         & ((0x1fU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+                      >> 7U)) == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2)));
+    vlSymsp->TOP__Rocket.__PVT__T_7445 = ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2) 
+                                          == (0x1fU 
+                                              & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+                                                 >> 7U)));
+    vlSymsp->TOP__Rocket.__PVT__T_6545_T_6554_data 
+        = ((0x1eU >= (0x1fU & (~ (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1))))
+            ? vlSymsp->TOP__Rocket.__PVT__T_6545[(0x1fU 
+                                                  & (~ (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1)))]
+            : 0U);
+    vlSymsp->TOP__Rocket.__PVT__T_6874 = ((0x1fU & 
+                                           (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+                                            >> 7U)) 
+                                          == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1));
+    vlSymsp->TOP__Rocket.__PVT__T_7493 = ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1) 
+                                          == (0x1fU 
+                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                                 >> 7U)));
+    vlSymsp->TOP__Rocket.__PVT__T_7470 = ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1) 
+                                          == (0x1fU 
+                                              & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+                                                 >> 7U)));
+    vlSymsp->TOP__Rocket.__PVT__id_bypass_src_0_1 = 
+        ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6866) 
+         & ((0x1fU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+                      >> 7U)) == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1)));
+    vlSymsp->TOP__Rocket.__PVT__T_7443 = ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1) 
+                                          == (0x1fU 
+                                              & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+                                                 >> 7U)));
+    vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
+        = ((0x10U <= (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1635))
+            ? ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1635)))
+                ? vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.io_in
+                : vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1778_bits)
+            : vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1934_bits);
+    vlSymsp->TOP__Rocket.__PVT__GEN_169 = ((IData)(vlSymsp->TOP__Rocket.__PVT__rf_wen)
+                                            ? ((0U 
+                                                != (IData)(vlSymsp->TOP__Rocket.__PVT__rf_waddr))
+                                                ? (
+                                                   ((IData)(vlSymsp->TOP__Rocket.__PVT__rf_waddr) 
+                                                    == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2))
+                                                    ? vlSymsp->TOP__Rocket.__PVT__rf_wdata
+                                                    : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6564_data)
+                                                : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6564_data)
+                                            : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6564_data);
+    vlSymsp->TOP__Rocket.__PVT__id_bypass_src_1_2 = 
+        ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6870) 
+         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6878));
+    vlSymsp->TOP__Rocket.__PVT__GEN_168 = ((IData)(vlSymsp->TOP__Rocket.__PVT__rf_wen)
+                                            ? ((0U 
+                                                != (IData)(vlSymsp->TOP__Rocket.__PVT__rf_waddr))
+                                                ? (
+                                                   ((IData)(vlSymsp->TOP__Rocket.__PVT__rf_waddr) 
+                                                    == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1))
+                                                    ? vlSymsp->TOP__Rocket.__PVT__rf_wdata
+                                                    : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6554_data)
+                                                : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6554_data)
+                                            : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6554_data);
+    vlSymsp->TOP__Rocket.__PVT__id_bypass_src_0_2 = 
+        ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6870) 
+         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6874));
+    vlSymsp->TOP__Rocket.__PVT__T_6228 = (((((0U == 
+                                              (0x48U 
+                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                             | (0U 
+                                                == 
+                                                (0x18U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            | (0x4000U 
+                                               == (0x4008U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           << 1U) | 
+                                          (((((0U == 
+                                               (0x58U 
+                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                              | (0U 
+                                                 == 
+                                                 (0x20U 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                             | (4U 
+                                                == 
+                                                (0xcU 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            | (0x48U 
+                                               == (0x48U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           | (0x4050U 
+                                              == (0x4050U 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+    vlSymsp->TOP__Rocket.__PVT__T_6245 = ((((4U == 
+                                             (0x24U 
+                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                            | (0x48U 
+                                               == (0x48U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           << 1U) | 
+                                          ((((0U == 
+                                              (0x4004U 
+                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                             | (0U 
+                                                == 
+                                                (0x50U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            | (0U == 
+                                               (0x44U 
+                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           | (0U == 
+                                              (0x18U 
+                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+    vlSymsp->TOP__Rocket.__PVT__T_6277 = (((((0U == 
+                                              (0x24U 
+                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                             | (4U 
+                                                == 
+                                                (0x1cU 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            | (0x10U 
+                                               == (0x14U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           << 2U) | 
+                                          ((((4U == 
+                                              (0x44U 
+                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                             | (8U 
+                                                == 
+                                                (8U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            << 1U) 
+                                           | ((8U == 
+                                               (8U 
+                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                              | (0x40U 
+                                                 == 
+                                                 (0x44U 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
+    vlSymsp->TOP__Rocket.__PVT__T_6367 = (((((((0x2010U 
+                                                == 
+                                                (0x6054U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                               | (0x4040U 
+                                                  == 
+                                                  (0x4058U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                              | (0x40000030U 
+                                                 == 
+                                                 (0x40003034U 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                             | (0x40001010U 
+                                                == 
+                                                (0x40003054U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            << 3U) 
+                                           | (((((0x2010U 
+                                                  == 
+                                                  (0x2054U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                 | (0x4010U 
+                                                    == 
+                                                    (0x40004054U 
+                                                     & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                | (0x4010U 
+                                                   == 
+                                                   (0x5054U 
+                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                               | (0x4040U 
+                                                  == 
+                                                  (0x4058U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                              << 2U)) 
+                                          | ((((((((0x40U 
+                                                    == 
+                                                    (0x4054U 
+                                                     & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                   | (0x3000U 
+                                                      == 
+                                                      (0x3044U 
+                                                       & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                  | (0x6000U 
+                                                     == 
+                                                     (0x6044U 
+                                                      & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                 | (0x6000U 
+                                                    == 
+                                                    (0x6018U 
+                                                     & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                | (0x40000030U 
+                                                   == 
+                                                   (0x40003034U 
+                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                               | (0x40001010U 
+                                                  == 
+                                                  (0x40001054U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                              << 1U) 
+                                             | (((0x1010U 
+                                                  == 
+                                                  (0x3054U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                 | (0x1040U 
+                                                    == 
+                                                    (0x1058U 
+                                                     & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                | (0x7000U 
+                                                   == 
+                                                   (0x7044U 
+                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
+    vlSymsp->TOP__Rocket.__PVT__T_6443 = ((((8U == 
+                                             (0x18001008U 
+                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                            << 3U) 
+                                           | (((((8U 
+                                                  == 
+                                                  (0x2008U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                 | (0x8000008U 
+                                                    == 
+                                                    (0x8000008U 
+                                                     & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                | (0x10000008U 
+                                                   == 
+                                                   (0x10000008U 
+                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                               | (0x80000008U 
+                                                  == 
+                                                  (0x80000008U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                              << 2U)) 
+                                          | ((((0x10000008U 
+                                                == 
+                                                (0x10001008U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                               | (0x40000008U 
+                                                  == 
+                                                  (0x40001008U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                              << 1U) 
+                                             | ((((8U 
+                                                   == 
+                                                   (0x2008U 
+                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                  | (0x20U 
+                                                     == 
+                                                     (0x28U 
+                                                      & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                 | (0x18000020U 
+                                                    == 
+                                                    (0x18000020U 
+                                                     & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                | (0x20000020U 
+                                                   == 
+                                                   (0x20000020U 
+                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
+    vlSymsp->TOP__Rocket.__PVT__T_6463 = (((0x4000U 
+                                            == (0x4000U 
+                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                           << 2U) | 
+                                          (((0x2000U 
+                                             == (0x2000U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                            << 1U) 
+                                           | (0x1000U 
+                                              == (0x1000U 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+    vlSymsp->TOP__Rocket.__PVT__T_7027 = ((4U == (0x1cU 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug));
+    vlSymsp->TOP__Rocket.__PVT__T_6845 = (((8U == (0x3048U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                           | ((0x2008U 
+                                               == (0x2048U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                              & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
+                                                 >> 0x19U))) 
+                                          | ((IData)(vlSymsp->TOP__Rocket.__PVT__id_reg_fence) 
+                                             & (IData)(vlSymsp->TOP__Rocket.__PVT__id_mem_busy)));
+    vlSymsp->TOP__Rocket.__PVT__T_6521 = (((0x50U == 
+                                            (0x3050U 
+                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                           << 2U) | 
+                                          (((0x2050U 
+                                             == (0x2050U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                            << 1U) 
+                                           | (0x1050U 
+                                              == (0x1050U 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+    vlSymsp->TOP__Rocket.__PVT__T_6130 = ((((((((((
+                                                   ((((((((3U 
+                                                           == 
+                                                           (0x505fU 
+                                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                          | (3U 
+                                                             == 
+                                                             (0x207fU 
+                                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                         | (0xfU 
+                                                            == 
+                                                            (0x607fU 
+                                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                        | (0x17U 
+                                                           == 
+                                                           (0x5fU 
+                                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                       | (0x33U 
+                                                          == 
+                                                          (0xfc00007fU 
+                                                           & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                      | (0x33U 
+                                                         == 
+                                                         (0xbe00707fU 
+                                                          & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                     | (0x63U 
+                                                        == 
+                                                        (0x707bU 
+                                                         & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                    | (0x6fU 
+                                                       == 
+                                                       (0x7fU 
+                                                        & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                   | (0x73U 
+                                                      == 
+                                                      (0xffefffffU 
+                                                       & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                  | (0x1013U 
+                                                     == 
+                                                     (0xfc00305fU 
+                                                      & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                 | (0x2013U 
+                                                    == 
+                                                    (0x207fU 
+                                                     & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                | (0x202fU 
+                                                   == 
+                                                   (0x1800707fU 
+                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                               | (0x2073U 
+                                                  == 
+                                                  (0x207fU 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                              | (0x5013U 
+                                                 == 
+                                                 (0xbc00707fU 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                             | (0x5033U 
+                                                == 
+                                                (0xbe00707fU 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            | (0x800202fU 
+                                               == (0xe800707fU 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           | (0x1000202fU 
+                                              == (0xf9f0707fU 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                          | (0x10500073U 
+                                             == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits));
+    vlSymsp->TOP__Rocket.__PVT__T_6383 = (((((((3U 
+                                                == 
+                                                (0x605fU 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                               | (3U 
+                                                  == 
+                                                  (0x505fU 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                              | (3U 
+                                                 == 
+                                                 (0x207fU 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                             | (0x100fU 
+                                                == 
+                                                (0x707fU 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            | (0x202fU 
+                                               == (0x1800707fU 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           | (0x800202fU 
+                                              == (0xe800707fU 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                          | (0x1000202fU 
+                                             == (0xf9f0707fU 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)));
+    vlSymsp->TOP__Rocket.__PVT__T_6501 = (((((((0U 
+                                                == 
+                                                (0x28U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                               | (4U 
+                                                  == 
+                                                  (0xcU 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                              | (0x10U 
+                                                 == 
+                                                 (0x50U 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                             | (0x48U 
+                                                == 
+                                                (0x48U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            | (0x1010U 
+                                               == (0x1010U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           | (0x2008U 
+                                              == (0x2008U 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                          | (0x2010U 
+                                             == (0x2010U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)));
+    vlSymsp->TOP__Rocket.__PVT__T_6172 = (((0x20U == 
+                                            (0x70U 
+                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                           | (0x20U 
+                                              == (0x64U 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                          | (0x20U 
+                                             == (0x34U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)));
+    vlSymsp->TOP__Rocket.__PVT__T_6193 = ((((0U == 
+                                             (0x4004U 
+                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                            | (0U == 
+                                               (0x44U 
+                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           | (0U == 
+                                              (0x18U 
+                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                          | (0x2000U 
+                                             == (0x2050U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)));
+    vlSymsp->TOP__Rocket.__PVT__T_7047 = ((((0U == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2)) 
+                                            | (IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_1_1)) 
+                                           | (IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_1_2)) 
+                                          | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6867) 
+                                             & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6878)));
+    vlSymsp->TOP__Rocket.__PVT__T_7032 = ((((0U == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1)) 
+                                            | (IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_0_1)) 
+                                           | (IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_0_2)) 
+                                          | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6867) 
+                                             & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6874)));
+    vlSymsp->TOP__Rocket.__PVT__id_csr_ren = (((2U 
+                                                == (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521)) 
+                                               | (3U 
+                                                  == (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521))) 
+                                              & (0U 
+                                                 == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1)));
+    vlSymsp->TOP__Rocket.__PVT__T_6136 = (((((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6130) 
+                                               | (0x30200073U 
+                                                  == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                              | (0x7b200073U 
+                                                 == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                             | (0x23U 
+                                                == 
+                                                (0x603fU 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            | (0x1063U 
+                                               == (0x306fU 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           | (0x4063U 
+                                              == (0x407fU 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                          | (3U == 
+                                             (0x306fU 
+                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)));
+    vlSymsp->TOP__Rocket.__PVT__T_7408 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6501) 
+                                          & (0U != (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rd)));
+    vlSymsp->TOP__Rocket.__PVT__T_7405 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6172) 
+                                          & (0U != (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2)));
+    vlSymsp->TOP__Rocket.__PVT__T_7402 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6193) 
+                                          & (0U != (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1)));
+    vlSymsp->TOP__Rocket.__PVT__T_7057 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6172) 
+                                          & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7047)));
+    vlSymsp->TOP__Rocket.__PVT__T_7042 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6193) 
+                                          & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7032)));
+    vlSymsp->TOP__Rocket.__PVT__T_7026 = (((0x1008U 
+                                            == (0x1048U 
+                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                           | ((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521)) 
+                                              | (((0U 
+                                                   != (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521)) 
+                                                  & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__id_csr_ren))) 
+                                                 & (~ 
+                                                    ((0x40U 
+                                                      == 
+                                                      (0x46U 
+                                                       & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
+                                                          >> 0x14U))) 
+                                                     | (0x240U 
+                                                        == 
+                                                        (0x244U 
+                                                         & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
+                                                            >> 0x14U)))))))) 
+                                          | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5566));
+    vlSymsp->TOP__Rocket.__PVT__id_xcpt = (1U & (((
+                                                   ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_39) 
+                                                    | (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_5)) 
+                                                   | (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_4)) 
+                                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__id_xcpt_if)) 
+                                                 | ((((~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_6136)) 
+                                                      | ((0x2000030U 
+                                                          == 
+                                                          (0x2000074U 
+                                                           & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                         & (~ 
+                                                            (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
+                                                             >> 0xcU)))) 
+                                                     | ((0x2008U 
+                                                         == 
+                                                         (0x2048U 
+                                                          & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                        & (~ vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa))) 
+                                                    | ((3U 
+                                                        != 
+                                                        (3U 
+                                                         & vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.io_in)) 
+                                                       & (~ 
+                                                          (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
+                                                           >> 2U))))));
+    vlSymsp->TOP__Rocket.__PVT__data_hazard_mem = ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_wxd) 
+                                                   & ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
+                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7470)) 
+                                                       | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7405) 
+                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7472))) 
+                                                      | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7408) 
+                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7474))));
+    vlSymsp->TOP__Rocket.__PVT__T_7528 = ((((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid) 
+                                            & ((((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_wxd) 
+                                                 & ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
+                                                      & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7443)) 
+                                                     | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7405) 
+                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7445))) 
+                                                    | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7408) 
+                                                       & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7447)))) 
+                                                & ((((((0U 
+                                                        != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr)) 
+                                                       | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_jalr)) 
+                                                      | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem)) 
+                                                     | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_div)) 
+                                                    | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc)) 
+                                                   | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc))) 
+                                               | ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc) 
+                                                  & (((((IData)(vlTOPp->io_fpu_dec_ren1) 
+                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7443)) 
+                                                       | ((IData)(vlTOPp->io_fpu_dec_ren2) 
+                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7445))) 
+                                                      | ((IData)(vlTOPp->io_fpu_dec_ren3) 
+                                                         & ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs3) 
+                                                            == 
+                                                            (0x1fU 
+                                                             & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+                                                                >> 7U))))) 
+                                                     | ((IData)(vlTOPp->io_fpu_dec_wen) 
+                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7447)))))) 
+                                           | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_valid) 
+                                              & (((IData)(vlSymsp->TOP__Rocket.__PVT__data_hazard_mem) 
+                                                  & (((((0U 
+                                                         != (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr)) 
+                                                        | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem) 
+                                                           & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_slow_bypass))) 
+                                                       | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_div)) 
+                                                      | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc)) 
+                                                     | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc))) 
+                                                 | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc) 
+                                                    & (((((IData)(vlTOPp->io_fpu_dec_ren1) 
+                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7470)) 
+                                                         | ((IData)(vlTOPp->io_fpu_dec_ren2) 
+                                                            & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7472))) 
+                                                        | ((IData)(vlTOPp->io_fpu_dec_ren3) 
+                                                           & ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs3) 
+                                                              == 
+                                                              (0x1fU 
+                                                               & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+                                                                  >> 7U))))) 
+                                                       | ((IData)(vlTOPp->io_fpu_dec_wen) 
+                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7474))))))) 
+                                          | ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_valid) 
+                                             & ((((IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_wxd) 
+                                                  & ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
+                                                       & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7493)) 
+                                                      | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7405) 
+                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7495))) 
+                                                     | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7408) 
+                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7497)))) 
+                                                 & (IData)(vlSymsp->TOP__Rocket.__PVT__wb_set_sboard)) 
+                                                | ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_wfd) 
+                                                   & (((((IData)(vlTOPp->io_fpu_dec_ren1) 
+                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7493)) 
+                                                        | ((IData)(vlTOPp->io_fpu_dec_ren2) 
+                                                           & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7495))) 
+                                                       | ((IData)(vlTOPp->io_fpu_dec_ren3) 
+                                                          & ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs3) 
+                                                             == 
+                                                             (0x1fU 
+                                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                                                 >> 7U))))) 
+                                                      | ((IData)(vlTOPp->io_fpu_dec_wen) 
+                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7497)))))));
+    vlSymsp->TOP__Rocket.__PVT__ctrl_stalld = ((((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7528) 
+                                                   | ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
+                                                        & ((0xfffffffeU 
+                                                            & vlSymsp->TOP__Rocket.__PVT__T_7410) 
+                                                           >> (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1))) 
+                                                       | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7405) 
+                                                          & ((0xfffffffeU 
+                                                              & vlSymsp->TOP__Rocket.__PVT__T_7410) 
+                                                             >> (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2)))) 
+                                                      | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7408) 
+                                                         & ((0xfffffffeU 
+                                                             & vlSymsp->TOP__Rocket.__PVT__T_7410) 
+                                                            >> (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rd))))) 
+                                                  | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6383) 
+                                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__dcache_blocked))) 
+                                                 | ((0x2000030U 
+                                                     == 
+                                                     (0x2000074U 
+                                                      & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                    & ((~ 
+                                                        ((0U 
+                                                          == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
+                                                         | ((5U 
+                                                             == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
+                                                            & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_wxd))))) 
+                                                       | (IData)(vlSymsp->TOP__Rocket.__PVT__T_7002)))) 
+                                                | ((IData)(vlSymsp->TOP__Rocket.__PVT__id_mem_busy) 
+                                                   & ((((0x2008U 
+                                                         == 
+                                                         (0x2048U 
+                                                          & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                        & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
+                                                           >> 0x1aU)) 
+                                                       | (0x1008U 
+                                                          == 
+                                                          (0x1048U 
+                                                           & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                      | ((IData)(vlSymsp->TOP__Rocket.__PVT__id_reg_fence) 
+                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6383))))) 
+                                               | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_wfi));
+    vlSymsp->TOP__Rocket.__PVT__T_7551 = (1U & ((((
+                                                   (~ (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_519)) 
+                                                   | (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_503)) 
+                                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__take_pc_mem_wb)) 
+                                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__ctrl_stalld)) 
+                                                | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_39)));
+    vlSymsp->TOP__Rocket.__PVT__T_7063 = (1U & (((~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)) 
+                                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_39)) 
+                                                | (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_503)));
+}
+
+VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restrict vlSymsp) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+      VRocket_Rocket::_combo__TOP__Rocket__4\n"); );
     VRocket* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
     vlSymsp->TOP__Rocket.csr_io_hartid = vlTOPp->io_hartid;
     vlSymsp->TOP__Rocket.__PVT__dmem_resp_valid = ((IData)(vlTOPp->io_dmem_resp_valid) 
                                                    & (IData)(vlTOPp->io_dmem_resp_bits_has_data));
     vlSymsp->TOP__Rocket.csr_io_rocc_interrupt = vlTOPp->io_rocc_interrupt;
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_373 = 
-        (7U & ((((IData)(vlTOPp->io_imem_resp_bits_btb_valid) 
-                 & (IData)(vlTOPp->io_imem_resp_bits_btb_bits_taken))
-                 ? (3U & ((IData)(1U) + (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx)))
-                 : 2U) - (1U & (vlTOPp->io_imem_resp_bits_pc 
-                                >> 1U))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 = 
-        (((QData)((IData)(vlTOPp->io_imem_resp_bits_data)) 
-          << 0x20U) | (QData)((IData)(((0xffff0000U 
-                                        & (vlTOPp->io_imem_resp_bits_data 
-                                           << 0x10U)) 
-                                       | (0xffffU & vlTOPp->io_imem_resp_bits_data)))));
     vlSymsp->TOP__Rocket.__PVT__T_7379 = (((IData)(vlSymsp->TOP__Rocket.__PVT__dmem_resp_valid) 
                                            & (IData)(vlTOPp->io_dmem_resp_bits_replay)) 
                                           & (~ (IData)(vlTOPp->io_dmem_resp_bits_tag)));
 }
 
-VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+      VRocket_Rocket::_sequent__TOP__Rocket__3\n"); );
+VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__5(VRocket__Syms* __restrict vlSymsp) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+      VRocket_Rocket::_sequent__TOP__Rocket__5\n"); );
     VRocket* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Variables
     CData/*4:0*/ __Vdlyvdim0__T_6545__v0;
     CData/*0:0*/ __Vdlyvset__T_6545__v0;
     CData/*1:0*/ __Vdly__csr__DOT__reg_mstatus_prv;
     IData/*31:0*/ __Vdlyvval__T_6545__v0;
-    WData/*95:0*/ __Vtemp14[3];
-    WData/*95:0*/ __Vtemp15[3];
-    WData/*95:0*/ __Vtemp16[3];
-    WData/*95:0*/ __Vtemp17[3];
-    WData/*95:0*/ __Vtemp18[3];
-    WData/*127:0*/ __Vtemp19[4];
-    WData/*127:0*/ __Vtemp20[4];
-    WData/*127:0*/ __Vtemp22[4];
-    WData/*127:0*/ __Vtemp23[4];
-    WData/*95:0*/ __Vtemp25[3];
-    WData/*95:0*/ __Vtemp28[3];
-    WData/*127:0*/ __Vtemp29[4];
+    WData/*95:0*/ __Vtemp9[3];
+    WData/*95:0*/ __Vtemp10[3];
+    WData/*95:0*/ __Vtemp11[3];
+    WData/*95:0*/ __Vtemp12[3];
+    WData/*95:0*/ __Vtemp13[3];
+    WData/*127:0*/ __Vtemp14[4];
+    WData/*127:0*/ __Vtemp15[4];
+    WData/*127:0*/ __Vtemp17[4];
+    WData/*127:0*/ __Vtemp18[4];
+    WData/*95:0*/ __Vtemp20[3];
+    WData/*95:0*/ __Vtemp23[3];
+    WData/*127:0*/ __Vtemp24[4];
     // Body
     __Vdlyvset__T_6545__v0 = 0U;
     __Vdly__csr__DOT__reg_mstatus_prv = vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv;
@@ -3975,42 +2938,6 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
     if (vlSymsp->TOP__Rocket.reset) {
         vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_isa = 0U;
     }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_btb_bits_bridx 
-            = vlTOPp->io_imem_resp_bits_btb_bits_bridx;
-    }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_btb_bits_bht_history 
-            = vlTOPp->io_imem_resp_bits_btb_bits_bht_history;
-    }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_btb_bits_entry 
-            = vlTOPp->io_imem_resp_bits_btb_bits_entry;
-    }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_btb_bits_target 
-            = vlTOPp->io_imem_resp_bits_btb_bits_target;
-    }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_btb_bits_bht_value 
-            = vlTOPp->io_imem_resp_bits_btb_bits_bht_value;
-    }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_btb_bits_taken 
-            = vlTOPp->io_imem_resp_bits_btb_bits_taken;
-    }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_btb_bits_mask 
-            = vlTOPp->io_imem_resp_bits_btb_bits_mask;
-    }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_mask 
-            = vlSymsp->TOP__Rocket.ibuf_io_imem_bits_mask;
-    }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_btb_valid 
-            = vlTOPp->io_imem_resp_bits_btb_valid;
-    }
     if (vlSymsp->TOP__Rocket.__PVT__div__DOT__T_474) {
         vlSymsp->TOP__Rocket.__PVT__div__DOT__req_dw 
             = vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_dw;
@@ -4068,10 +2995,6 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
             __Vdlyvdim0__T_6545__v0 = (0x1fU & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__rf_waddr)));
         }
     }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_pc 
-            = vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_416;
-    }
     if (vlSymsp->TOP__Rocket.__PVT__div__DOT__T_474) {
         vlSymsp->TOP__Rocket.__PVT__div__DOT__req_in2 
             = vlSymsp->TOP__Rocket.__PVT__ex_rs_1;
@@ -4104,7 +3027,7 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
         = ((~ (IData)(vlSymsp->TOP__Rocket.__PVT__take_pc_mem_wb)) 
            & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_xcpt_interrupt));
     vlSymsp->TOP__Rocket.__PVT__ex_reg_replay = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7007) 
-                                                 & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_503));
+                                                 & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_503));
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_medeleg = 0U;
     vlSymsp->TOP__Rocket.__PVT__dcache_blocked = vlSymsp->TOP__Rocket.__PVT__T_7518;
     vlSymsp->TOP__Rocket.__PVT__id_reg_fence = ((~ (IData)(vlSymsp->TOP__Rocket.reset)) 
@@ -4221,16 +3144,8 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
         }
     }
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_dmode = 0U;
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_xcpt_if 
-            = vlSymsp->TOP__Rocket.ibuf_io_imem_bits_xcpt_if;
-    }
     if (vlSymsp->TOP__Rocket.__PVT__T_7360) {
         vlSymsp->TOP__Rocket.__PVT__wb_ctrl_fp = vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc;
-    }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_replay 
-            = vlTOPp->io_imem_resp_bits_replay;
     }
     if (vlSymsp->TOP__Rocket.reset) {
         vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh = 0U;
@@ -4248,10 +3163,6 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
     vlSymsp->TOP__Rocket.__PVT__ex_reg_valid = (1U 
                                                 & ((~ (IData)(vlSymsp->TOP__Rocket.reset)) 
                                                    & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7551))));
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBHit 
-            = vlTOPp->io_imem_resp_bits_btb_valid;
-    }
     if (vlSymsp->TOP__Rocket.__PVT__T_7360) {
         vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rxs1 = vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rxs1;
     }
@@ -4269,22 +3180,22 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
             = vlSymsp->TOP__Rocket.__PVT__ex_rs_0;
     }
     if (vlSymsp->TOP__Rocket.__PVT__div__DOT__T_474) {
-        VL_EXTEND_WI(66,32, __Vtemp14, vlSymsp->TOP__Rocket.__PVT__ex_rs_0);
+        VL_EXTEND_WI(66,32, __Vtemp9, vlSymsp->TOP__Rocket.__PVT__ex_rs_0);
         vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[0U] 
-            = __Vtemp14[0U];
+            = __Vtemp9[0U];
         vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[1U] 
-            = __Vtemp14[1U];
+            = __Vtemp9[1U];
         vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U] 
-            = __Vtemp14[2U];
+            = __Vtemp9[2U];
     } else {
         if (vlSymsp->TOP__Rocket.__PVT__div__DOT__T_213) {
-            VL_EXTEND_WW(66,65, __Vtemp15, vlSymsp->TOP__Rocket.__PVT__div__DOT__T_228);
+            VL_EXTEND_WW(66,65, __Vtemp10, vlSymsp->TOP__Rocket.__PVT__div__DOT__T_228);
             vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[0U] 
-                = __Vtemp15[0U];
+                = __Vtemp10[0U];
             vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[1U] 
-                = __Vtemp15[1U];
+                = __Vtemp10[1U];
             vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U] 
-                = __Vtemp15[2U];
+                = __Vtemp10[2U];
         } else {
             if (vlSymsp->TOP__Rocket.__PVT__div__DOT__T_150) {
                 vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[0U] 
@@ -4295,32 +3206,32 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
                     = vlSymsp->TOP__Rocket.__PVT__div__DOT__T_202[2U];
             } else {
                 if ((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))) {
-                    VL_EXTEND_WI(66,32, __Vtemp16, vlSymsp->TOP__Rocket.__PVT__div__DOT__T_147);
+                    VL_EXTEND_WI(66,32, __Vtemp11, vlSymsp->TOP__Rocket.__PVT__div__DOT__T_147);
                     vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[0U] 
-                        = __Vtemp16[0U];
+                        = __Vtemp11[0U];
                     vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[1U] 
-                        = __Vtemp16[1U];
+                        = __Vtemp11[1U];
                     vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U] 
-                        = __Vtemp16[2U];
+                        = __Vtemp11[2U];
                 } else {
                     if ((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))) {
-                        VL_EXTEND_WI(66,32, __Vtemp17, vlSymsp->TOP__Rocket.__PVT__div__DOT__negated_remainder);
+                        VL_EXTEND_WI(66,32, __Vtemp12, vlSymsp->TOP__Rocket.__PVT__div__DOT__negated_remainder);
                         vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[0U] 
-                            = __Vtemp17[0U];
+                            = __Vtemp12[0U];
                         vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[1U] 
-                            = __Vtemp17[1U];
+                            = __Vtemp12[1U];
                         vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U] 
-                            = __Vtemp17[2U];
+                            = __Vtemp12[2U];
                     } else {
                         if ((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))) {
                             if (vlSymsp->TOP__Rocket.__PVT__div__DOT__T_142) {
-                                VL_EXTEND_WI(66,32, __Vtemp18, vlSymsp->TOP__Rocket.__PVT__div__DOT__negated_remainder);
+                                VL_EXTEND_WI(66,32, __Vtemp13, vlSymsp->TOP__Rocket.__PVT__div__DOT__negated_remainder);
                                 vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[0U] 
-                                    = __Vtemp18[0U];
+                                    = __Vtemp13[0U];
                                 vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[1U] 
-                                    = __Vtemp18[1U];
+                                    = __Vtemp13[1U];
                                 vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U] 
-                                    = __Vtemp18[2U];
+                                    = __Vtemp13[2U];
                             }
                         }
                     }
@@ -4404,7 +3315,7 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
         vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_lsb_1 
             = (3U & ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7057)
                       ? vlSymsp->TOP__Rocket.__PVT__GEN_169
-                      : ((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2))
+                      : ((0U == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2))
                           ? 0U : ((IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_1_1)
                                    ? 1U : ((IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_1_2)
                                             ? 2U : 3U)))));
@@ -4455,7 +3366,7 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
         vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_lsb_0 
             = (3U & ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7042)
                       ? vlSymsp->TOP__Rocket.__PVT__GEN_168
-                      : ((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1))
+                      : ((0U == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1))
                           ? 0U : ((IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_0_1)
                                    ? 1U : ((IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_0_2)
                                             ? 2U : 3U)))));
@@ -4554,9 +3465,9 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
         if (vlSymsp->TOP__Rocket.__PVT__csr__DOT__wen) {
             if ((0x300U == (0xfffU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                       >> 0x14U)))) {
-                VL_EXTEND_WI(99,32, __Vtemp19, vlSymsp->TOP__Rocket.__PVT__csr__DOT__wdata);
+                VL_EXTEND_WI(99,32, __Vtemp14, vlSymsp->TOP__Rocket.__PVT__csr__DOT__wdata);
                 vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mprv 
-                    = (1U & (__Vtemp19[0U] >> 0x11U));
+                    = (1U & (__Vtemp14[0U] >> 0x11U));
             }
         }
     }
@@ -4887,9 +3798,9 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
         if (vlSymsp->TOP__Rocket.__PVT__csr__DOT__wen) {
             if ((0x300U == (0xfffU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                       >> 0x14U)))) {
-                VL_EXTEND_WI(99,32, __Vtemp20, vlSymsp->TOP__Rocket.__PVT__csr__DOT__wdata);
+                VL_EXTEND_WI(99,32, __Vtemp15, vlSymsp->TOP__Rocket.__PVT__csr__DOT__wdata);
                 vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mie 
-                    = (1U & (__Vtemp20[0U] >> 3U));
+                    = (1U & (__Vtemp15[0U] >> 3U));
             } else {
                 if (vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret) {
                     if ((0x90U != (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -4966,13 +3877,6 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
                                                    : 0U));
     vlSymsp->TOP__Rocket.__PVT__error = ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_rvc) 
                                          & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__ctrl_killm)));
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_data 
-            = (0xffffU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_408));
-    }
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid 
-        = (1U & ((~ (IData)(vlSymsp->TOP__Rocket.reset)) 
-                 & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__GEN_29)));
     if (__Vdlyvset__T_6545__v0) {
         vlSymsp->TOP__Rocket.__PVT__T_6545[__Vdlyvdim0__T_6545__v0] 
             = __Vdlyvval__T_6545__v0;
@@ -5199,47 +4103,47 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
     if (vlSymsp->TOP__Rocket.__PVT__ex_pc_valid) {
         vlSymsp->TOP__Rocket.__PVT__mem_ctrl_wxd = vlSymsp->TOP__Rocket.__PVT__ex_ctrl_wxd;
     }
-    vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit = vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_540;
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_540) {
+    vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit = vlSymsp->TOP__Rocket__ibuf.__PVT__T_540;
+    if (vlSymsp->TOP__Rocket__ibuf.__PVT__T_540) {
         vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_taken 
-            = ((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_471))
-                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_taken)
+            = ((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
+                ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_taken)
                 : (IData)(vlTOPp->io_imem_resp_bits_btb_bits_taken));
     }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_540) {
+    if (vlSymsp->TOP__Rocket__ibuf.__PVT__T_540) {
         vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_mask 
-            = ((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_471))
-                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_mask)
+            = ((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
+                ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_mask)
                 : (IData)(vlTOPp->io_imem_resp_bits_btb_bits_mask));
     }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_540) {
+    if (vlSymsp->TOP__Rocket__ibuf.__PVT__T_540) {
         vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_target 
-            = ((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_471))
-                ? vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_target
+            = ((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
+                ? vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_target
                 : vlTOPp->io_imem_resp_bits_btb_bits_target);
     }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_540) {
+    if (vlSymsp->TOP__Rocket__ibuf.__PVT__T_540) {
         vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_entry 
-            = ((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_471))
-                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_entry)
+            = ((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
+                ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_entry)
                 : (IData)(vlTOPp->io_imem_resp_bits_btb_bits_entry));
     }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_540) {
+    if (vlSymsp->TOP__Rocket__ibuf.__PVT__T_540) {
         vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_bht_history 
-            = ((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_471))
-                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_bht_history)
+            = ((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
+                ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bht_history)
                 : (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bht_history));
     }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_540) {
+    if (vlSymsp->TOP__Rocket__ibuf.__PVT__T_540) {
         vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_bht_value 
-            = ((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_471))
-                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_bht_value)
+            = ((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
+                ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bht_value)
                 : (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bht_value));
     }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_540) {
+    if (vlSymsp->TOP__Rocket__ibuf.__PVT__T_540) {
         vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_bridx 
-            = ((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_471))
-                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_bridx)
+            = ((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
+                ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bridx)
                 : (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx));
     }
     if (vlSymsp->TOP__Rocket.__PVT__ex_pc_valid) {
@@ -5313,9 +4217,9 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
         if (vlSymsp->TOP__Rocket.__PVT__csr__DOT__wen) {
             if ((0x300U == (0xfffU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                       >> 0x14U)))) {
-                VL_EXTEND_WI(99,32, __Vtemp22, vlSymsp->TOP__Rocket.__PVT__csr__DOT__wdata);
+                VL_EXTEND_WI(99,32, __Vtemp17, vlSymsp->TOP__Rocket.__PVT__csr__DOT__wdata);
                 vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpie 
-                    = (1U & (__Vtemp22[0U] >> 7U));
+                    = (1U & (__Vtemp17[0U] >> 7U));
             } else {
                 if (vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret) {
                     if ((0x90U != (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -5395,9 +4299,9 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
         if (vlSymsp->TOP__Rocket.__PVT__csr__DOT__wen) {
             if ((0x300U == (0xfffU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                       >> 0x14U)))) {
-                VL_EXTEND_WI(99,32, __Vtemp23, vlSymsp->TOP__Rocket.__PVT__csr__DOT__wdata);
+                VL_EXTEND_WI(99,32, __Vtemp18, vlSymsp->TOP__Rocket.__PVT__csr__DOT__wdata);
                 vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpp 
-                    = ((0x800U & __Vtemp23[0U]) ? 3U
+                    = ((0x800U & __Vtemp18[0U]) ? 3U
                         : 0U);
             } else {
                 if (vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret) {
@@ -5499,7 +4403,7 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
                             << 0x20U) | (QData)((IData)(
                                                         vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[0U]))) 
                           >> 0x20U)) >> 0x1fU));
-    __Vtemp25[1U] = ((0x7fffffffU & ((IData)((VL_ULL(0x3ffffffff) 
+    __Vtemp20[1U] = ((0x7fffffffU & ((IData)((VL_ULL(0x3ffffffff) 
                                               & ((VL_ULL(0x7ffffffff) 
                                                   & VL_EXTENDS_QQ(35,34, 
                                                                   (VL_ULL(0x3ffffffff) 
@@ -5575,7 +4479,7 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
                                             | (vlSymsp->TOP__Rocket.__PVT__div__DOT__T_153[0U] 
                                                >> 1U))));
     vlSymsp->TOP__Rocket.__PVT__div__DOT__T_165[1U] 
-        = __Vtemp25[1U];
+        = __Vtemp20[1U];
     vlSymsp->TOP__Rocket.__PVT__div__DOT__T_165[2U] 
         = (0x7fffffffU & ((IData)(((VL_ULL(0x3ffffffff) 
                                     & ((VL_ULL(0x7ffffffff) 
@@ -5748,70 +4652,32 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
     if ((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)))) {
         vlSymsp->TOP__Rocket.__PVT__ex_ctrl_wxd = vlSymsp->TOP__Rocket.__PVT__T_6501;
     }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        if (vlTOPp->io_imem_resp_bits_btb_valid) {
-            vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_taken 
-                = vlTOPp->io_imem_resp_bits_btb_bits_taken;
-        }
-    }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        if (vlTOPp->io_imem_resp_bits_btb_valid) {
-            vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_mask 
-                = vlTOPp->io_imem_resp_bits_btb_bits_mask;
-        }
-    }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        if (vlTOPp->io_imem_resp_bits_btb_valid) {
-            vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_target 
-                = vlTOPp->io_imem_resp_bits_btb_bits_target;
-        }
-    }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        if (vlTOPp->io_imem_resp_bits_btb_valid) {
-            vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_entry 
-                = vlTOPp->io_imem_resp_bits_btb_bits_entry;
-        }
-    }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        if (vlTOPp->io_imem_resp_bits_btb_valid) {
-            vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_bht_history 
-                = vlTOPp->io_imem_resp_bits_btb_bits_bht_history;
-        }
-    }
-    if (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399) {
-        if (vlTOPp->io_imem_resp_bits_btb_valid) {
-            vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_bht_value 
-                = vlTOPp->io_imem_resp_bits_btb_bits_bht_value;
-        }
-    }
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_bridx 
-        = (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__GEN_24));
     if ((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)))) {
         vlSymsp->TOP__Rocket.__PVT__ex_ctrl_amo = (0x2008U 
                                                    == 
                                                    (0x2048U 
-                                                    & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits));
+                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits));
     }
     if ((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)))) {
         vlSymsp->TOP__Rocket.__PVT__ex_ctrl_fence = 
-            (8U == (0x3048U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits));
+            (8U == (0x3048U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits));
     }
     if ((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)))) {
         vlSymsp->TOP__Rocket.__PVT__ex_ctrl_fence_i 
             = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7027) 
-               | (0x1008U == (0x1048U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)));
+               | (0x1008U == (0x1048U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)));
     }
     if ((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)))) {
         vlSymsp->TOP__Rocket.__PVT__ex_ctrl_jal = (0x48U 
                                                    == 
                                                    (0x48U 
-                                                    & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits));
+                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits));
     }
     vlSymsp->TOP__Rocket.__PVT__T_7106 = ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_branch) 
                                           & vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata);
     if ((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)))) {
         vlSymsp->TOP__Rocket.__PVT__ex_ctrl_branch 
-            = (0x40U == (0x54U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits));
+            = (0x40U == (0x54U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits));
     }
     vlSymsp->TOP__Rocket.__PVT__T_7586 = ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_jal) 
                                           | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_jalr));
@@ -5820,13 +4686,13 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
                                            | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_jal));
     if ((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)))) {
         vlSymsp->TOP__Rocket.__PVT__ex_ctrl_jalr = 
-            (4U == (0x1cU & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits));
+            (4U == (0x1cU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits));
     }
     if ((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)))) {
         vlSymsp->TOP__Rocket.__PVT__ex_ctrl_div = (0x2000030U 
                                                    == 
                                                    (0x2000074U 
-                                                    & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits));
+                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits));
     }
     if ((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)))) {
         vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr = ((IData)(vlSymsp->TOP__Rocket.__PVT__id_csr_ren)
@@ -5875,7 +4741,7 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
                                                               << 1U) 
                                                              | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_u))) 
                                                          >> (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))));
-    __Vtemp28[1U] = ((0x3fffU & ((IData)((((QData)((IData)(
+    __Vtemp23[1U] = ((0x3fffU & ((IData)((((QData)((IData)(
                                                            ((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero3 
                                                              << 1U) 
                                                             | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573)))) 
@@ -5901,7 +4767,7 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
                                                                | (QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs))) 
                                                               >> 0x20U)) 
                                                      << 0xeU))));
-    __Vtemp28[2U] = ((0x3fffU & ((0x3fffU & ((IData)(
+    __Vtemp23[2U] = ((0x3fffU & ((0x3fffU & ((IData)(
                                                      ((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)) 
                                                         << 0x23U) 
                                                        | ((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa)) 
@@ -5942,7 +4808,7 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
                                                                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573))))) 
                                                                      >> 0x20U)) 
                                                             << 0x10U)))));
-    __Vtemp29[0U] = ((0xffff8000U & ((0xe0000000U & 
+    __Vtemp24[0U] = ((0xffff8000U & ((0xe0000000U & 
                                       ((IData)((((QData)((IData)(
                                                                  ((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero3 
                                                                    << 1U) 
@@ -5978,7 +4844,7 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
                                                  | (7U 
                                                     & VL_NEGATE_I((IData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh)))))))));
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5004[0U] 
-        = __Vtemp29[0U];
+        = __Vtemp24[0U];
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5004[1U] 
         = ((0x7fffU & ((0x7fffU & ((IData)((((QData)((IData)(
                                                              ((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero3 
@@ -6001,13 +4867,13 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
                                                         >> 0xfU)) 
                                                     | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs) 
                                                        >> 0x11U)))))) 
-           | (0xffff8000U & (__Vtemp28[1U] << 0xfU)));
+           | (0xffff8000U & (__Vtemp23[1U] << 0xfU)));
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5004[2U] 
-        = ((0x7fffU & (__Vtemp28[1U] >> 0x11U)) | (0xffff8000U 
-                                                   & (__Vtemp28[2U] 
+        = ((0x7fffU & (__Vtemp23[1U] >> 0x11U)) | (0xffff8000U 
+                                                   & (__Vtemp23[2U] 
                                                       << 0xfU)));
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5004[3U] 
-        = (0x7fffU & (__Vtemp28[2U] >> 0x11U));
+        = (0x7fffU & (__Vtemp23[2U] >> 0x11U));
     if (vlSymsp->TOP__Rocket.__PVT__T_7360) {
         vlSymsp->TOP__Rocket.__PVT__wb_reg_inst = vlSymsp->TOP__Rocket.__PVT__mem_reg_inst;
     }
@@ -6018,12 +4884,12 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
                                                    | (3U 
                                                       != 
                                                       (3U 
-                                                       & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)))
+                                                       & vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.io_in)))
                                                    : 
                                                   (3U 
                                                    != 
                                                    (3U 
-                                                    & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)));
+                                                    & vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.io_in)));
     }
     vlSymsp->TOP__Rocket.__PVT__T_6914 = ((vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_msb_1 
                                            << 2U) | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_lsb_1));
@@ -6147,11 +5013,6 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
                                           & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem));
     vlSymsp->TOP__Rocket.__PVT__T_6866 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid) 
                                           & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_wxd));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_471 = 
-        (3U & (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBHit)
-                 ? ((IData)(1U) << (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_bridx))
-                 : 0U) & (((IData)(1U) << (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)) 
-                          - (IData)(1U))));
     vlSymsp->TOP__Rocket.__PVT__T_7002 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid) 
                                           & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_div));
     if (vlSymsp->TOP__Rocket.__PVT__id_xcpt) {
@@ -6225,7 +5086,7 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
                                                                  ? 0U
                                                                  : 2U)))));
     if (vlSymsp->TOP__Rocket.__PVT__T_7063) {
-        vlSymsp->TOP__Rocket.__PVT__ex_reg_pc = vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_488;
+        vlSymsp->TOP__Rocket.__PVT__ex_reg_pc = vlSymsp->TOP__Rocket__ibuf.__PVT__T_488;
     }
     vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_208 = (1U 
                                                    & ((2U 
@@ -6470,7 +5331,7 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
                                                                     & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                                                        >> 0x1fU))))));
     if (vlSymsp->TOP__Rocket.__PVT__T_7063) {
-        vlSymsp->TOP__Rocket.__PVT__ex_reg_inst = vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits;
+        vlSymsp->TOP__Rocket.__PVT__ex_reg_inst = vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits;
     }
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_wfi 
         = (7U & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__do_system_insn) 
@@ -6998,17 +5859,10 @@ VL_INLINE_OPT void VRocket_Rocket::_sequent__TOP__Rocket__3(VRocket__Syms* __res
           : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_95));
 }
 
-VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+      VRocket_Rocket::_combo__TOP__Rocket__4\n"); );
+VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__6(VRocket__Syms* __restrict vlSymsp) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+      VRocket_Rocket::_combo__TOP__Rocket__6\n"); );
     VRocket* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
-    // Variables
-    WData/*127:0*/ __Vtemp31[4];
-    WData/*191:0*/ __Vtemp32[6];
-    WData/*191:0*/ __Vtemp33[6];
     // Body
-    vlSymsp->TOP__Rocket.ibuf_io_imem_bits_mask = vlTOPp->io_imem_resp_bits_mask;
-    vlSymsp->TOP__Rocket.ibuf_io_imem_bits_xcpt_if 
-        = vlTOPp->io_imem_resp_bits_xcpt_if;
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_6036 = 
         ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_fflags) 
          | (IData)(vlSymsp->TOP__Rocket.io_fpu_fcsr_flags_bits));
@@ -7041,10 +5895,6 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
                                              ? ((IData)(vlTOPp->io_dmem_resp_bits_tag) 
                                                 >> 1U)
                                              : (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__req_tag)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_377 = 
-        (7U & (((IData)(vlTOPp->io_imem_resp_valid)
-                 ? (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_373))
-                 : 0U) + (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)));
     vlSymsp->TOP__Rocket.__PVT__GEN_153 = (1U & ((~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7379)) 
                                                  & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_wxd))));
     vlSymsp->TOP__Rocket.__PVT__fpu_kill_mem = (((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_valid) 
@@ -7068,74 +5918,6 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
                                                   : 0U)));
     vlSymsp->TOP__Rocket.__PVT__dcache_kill_mem = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6867) 
                                                    & (IData)(vlTOPp->io_dmem_replay_next));
-    __Vtemp31[0U] = (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427);
-    __Vtemp31[1U] = (IData)((vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 
-                             >> 0x20U));
-    __Vtemp31[2U] = (IData)((((QData)((IData)((0xffffU 
-                                               & (IData)(
-                                                         (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 
-                                                          >> 0x30U))))) 
-                              << 0x30U) | (((QData)((IData)(
-                                                            (0xffffU 
-                                                             & (IData)(
-                                                                       (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 
-                                                                        >> 0x30U))))) 
-                                            << 0x20U) 
-                                           | (((QData)((IData)(
-                                                               (0xffffU 
-                                                                & (IData)(
-                                                                          (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 
-                                                                           >> 0x30U))))) 
-                                               << 0x10U) 
-                                              | (QData)((IData)(
-                                                                (0xffffU 
-                                                                 & (IData)(
-                                                                           (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 
-                                                                            >> 0x30U)))))))));
-    __Vtemp31[3U] = (IData)(((((QData)((IData)((0xffffU 
-                                                & (IData)(
-                                                          (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 
-                                                           >> 0x30U))))) 
-                               << 0x30U) | (((QData)((IData)(
-                                                             (0xffffU 
-                                                              & (IData)(
-                                                                        (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 
-                                                                         >> 0x30U))))) 
-                                             << 0x20U) 
-                                            | (((QData)((IData)(
-                                                                (0xffffU 
-                                                                 & (IData)(
-                                                                           (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 
-                                                                            >> 0x30U))))) 
-                                                << 0x10U) 
-                                               | (QData)((IData)(
-                                                                 (0xffffU 
-                                                                  & (IData)(
-                                                                            (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_427 
-                                                                             >> 0x30U)))))))) 
-                             >> 0x20U));
-    VL_EXTEND_WW(191,128, __Vtemp32, __Vtemp31);
-    VL_SHIFTL_WWI(191,191,6, __Vtemp33, __Vtemp32, 
-                  (0x30U & ((((IData)(2U) + (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)) 
-                             - (1U & (vlTOPp->io_imem_resp_bits_pc 
-                                      >> 1U))) << 4U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst = (
-                                                   (__Vtemp33[2U] 
-                                                    & (IData)(
-                                                              (VL_ULL(0x7fffffffffffffff) 
-                                                               & (VL_ULL(0xffffffff) 
-                                                                  << 
-                                                                  (0x1fU 
-                                                                   & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid) 
-                                                                      << 4U)))))) 
-                                                   | (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_data 
-                                                      & (~ (IData)(
-                                                                   (VL_ULL(0x7fffffffffffffff) 
-                                                                    & (VL_ULL(0xffffffff) 
-                                                                       << 
-                                                                       (0x1fU 
-                                                                        & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid) 
-                                                                           << 4U))))))));
     vlSymsp->TOP__Rocket.__PVT__ex_xcpt = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7102) 
                                            | ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc) 
                                               & (IData)(vlSymsp->TOP__Rocket.io_fpu_illegal_rm)));
@@ -7145,20 +5927,9 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
     vlSymsp->TOP__Rocket.__PVT__id_mem_busy = (1U & 
                                                ((~ (IData)(vlTOPp->io_dmem_ordered)) 
                                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__T_7615)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__btbHitMask 
-        = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_471) 
-           | (3U & (((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
-                      ? ((IData)(1U) << (3U & (((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
-                                                + (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)) 
-                                               - (1U 
-                                                  & (vlTOPp->io_imem_resp_bits_pc 
-                                                     >> 1U)))))
-                      : 0U) & (~ (((IData)(1U) << (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)) 
-                                  - (IData)(1U))))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_488 = 
-        ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)
-          ? vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_pc
-          : vlTOPp->io_imem_resp_bits_pc);
+    vlSymsp->TOP__Rocket.ibuf_io_imem_bits_mask = vlTOPp->io_imem_resp_bits_mask;
+    vlSymsp->TOP__Rocket.ibuf_io_imem_bits_xcpt_if 
+        = vlTOPp->io_imem_resp_bits_xcpt_if;
     vlSymsp->TOP__Rocket.__PVT__T_7322 = ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem) 
                                           & (IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_ld));
     vlSymsp->TOP__Rocket.__PVT__T_7320 = ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem) 
@@ -7238,30 +6009,6 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
                                                           != (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)))) 
                                                    | ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_dcache_miss) 
                                                       & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_load_use)))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__xcpt_if 
-        = (3U & (((0xfU & ((IData)(1U) << (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_377)))) 
-                  - (IData)(1U)) & (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_xcpt_if)
-                                      ? (((IData)(1U) 
-                                          << (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)) 
-                                         - (IData)(1U))
-                                      : 0U) | ((IData)(vlSymsp->TOP__Rocket.ibuf_io_imem_bits_xcpt_if)
-                                                ? (~ 
-                                                   (((IData)(1U) 
-                                                     << (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)) 
-                                                    - (IData)(1U)))
-                                                : 0U))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ic_replay 
-        = (3U & (((0xfU & ((IData)(1U) << (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_377)))) 
-                  - (IData)(1U)) & (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__buf_replay)
-                                      ? (((IData)(1U) 
-                                          << (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)) 
-                                         - (IData)(1U))
-                                      : 0U) | ((IData)(vlTOPp->io_imem_resp_bits_replay)
-                                                ? (~ 
-                                                   (((IData)(1U) 
-                                                     << (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)) 
-                                                    - (IData)(1U)))
-                                                : 0U))));
     vlSymsp->TOP__Rocket.__PVT__GEN_155 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7379) 
                                            | ((IData)(vlSymsp->TOP__Rocket.__PVT__GEN_153) 
                                               & (5U 
@@ -7272,99 +6019,6 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
     vlSymsp->TOP__Rocket.__PVT__ex_rs_0 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_bypass_0)
                                             ? vlSymsp->TOP__Rocket.__PVT__GEN_4
                                             : vlSymsp->TOP__Rocket.__PVT__T_6909);
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1197 
-        = (((0xc0U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                      << 4U)) | (0x20U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                          >> 7U))) 
-           | (0x1cU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                       >> 2U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1284 
-        = ((0x3e0U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                      << 3U)) | (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                          >> 7U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1397 
-        = ((0x38U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                     >> 4U)) | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                      >> 0xaU)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_728 
-        = ((4U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                  >> 0xaU)) | (3U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                     >> 5U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1434 
-        = ((0x30U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                     >> 3U)) | (0xfU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 9U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_669 
-        = ((0x20U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                     >> 7U)) | (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                         >> 2U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_955 
-        = (((((0x1000U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-               ? 0x1fU : 0U) << 8U) | ((0xc0U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 << 1U)) 
-                                       | (0x20U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   << 3U)))) 
-           | ((0x18U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                        >> 7U)) | (6U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                         >> 2U))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_62 
-        = ((0x18U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                     >> 2U)) | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                      >> 0xaU)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_608 
-        = ((0U == (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                            >> 7U))) | (2U == (0x1fU 
-                                               & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                  >> 7U))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_386 
-        = ((((0x1000U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-              ? 0x7fU : 0U) << 5U) | (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                               >> 2U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_104 
-        = (((0x40U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                      << 1U)) | (0x38U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                          >> 7U))) 
-           | (4U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                    >> 4U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_433 
-        = ((((((0x1000U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-                ? 0x3ffU : 0U) << 0xbU) | ((0x400U 
-                                            & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                               << 2U)) 
-                                           | (0x300U 
-                                              & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 >> 1U)))) 
-            | ((0x80U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                         << 1U)) | (0x40U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             >> 1U)))) 
-           | (((0x20U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                         << 3U)) | (0x10U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             >> 7U))) 
-              | (0xeU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                         >> 2U))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635 
-        = ((0x18U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                     << 3U)) | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                      >> 0xdU)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_540 = 
-        (1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__btbHitMask) 
-               | (0xfU & ((3U == (3U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)) 
-                          & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__btbHitMask) 
-                             >> 1U)))));
-    vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_284 = (
-                                                   (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)) 
-                                                   & (((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_176) 
-                                                       & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_x)) 
-                                                      & ((2U 
-                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch))
-                                                          ? 
-                                                         ((vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_488 
-                                                           >= vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address) 
-                                                          ^ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch))
-                                                          : 
-                                                         (((~ vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_488) 
-                                                           | (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_193)) 
-                                                          == vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_206))));
     vlSymsp->TOP__Rocket.__PVT__mem_new_cause = ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_debug_breakpoint)
                                                   ? 0xdU
                                                   : 
@@ -7511,16 +6165,6 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
                                                   >> 0x14U)))
                              ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dpc
                              : 0U))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_529 = 
-        (3U & ((3U == (3U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)) 
-               & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__xcpt_if) 
-                  >> 1U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_503 = 
-        (1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ic_replay) 
-               | ((3U == (3U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)) 
-                  & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__btbHitMask) 
-                     | (3U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ic_replay) 
-                              >> 1U))))));
     vlSymsp->TOP__Rocket.__PVT__T_7419 = (0xfffffffeU 
                                           & (vlSymsp->TOP__Rocket.__PVT__T_7410 
                                              & (~ ((IData)(vlSymsp->TOP__Rocket.__PVT__GEN_155)
@@ -7556,510 +6200,6 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
                                            : ((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu1))
                                                ? vlSymsp->TOP__Rocket.__PVT__ex_reg_pc
                                                : 0U));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1449 
-        = ((0xe0U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1434) 
-                     << 2U)) | (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                         >> 2U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_681 
-        = (0x45413U | ((((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_669) 
-                         << 0x14U) | (0x38000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                  << 8U))) 
-                       | (0x380U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1016 
-        = (8U | ((0x10000U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_955) 
-                              << 4U)) | ((0xfc00U & 
-                                          ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_955) 
-                                           << 5U)) 
-                                         | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                  >> 7U)))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_797 
-        = ((1U <= (1U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                         >> 0xaU))) ? (0x840400U | 
-                                       ((((0x700000U 
-                                           & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              << 0x12U)) 
-                                          | ((0x38000U 
-                                              & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 << 8U)) 
-                                             | (((4U 
-                                                  <= (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_728))
-                                                  ? 
-                                                 ((2U 
-                                                   <= 
-                                                   (3U 
-                                                    & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_728)))
-                                                   ? 
-                                                  ((1U 
-                                                    <= 
-                                                    (1U 
-                                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_728)))
-                                                    ? 3U
-                                                    : 2U)
-                                                   : 0U)
-                                                  : 
-                                                 ((2U 
-                                                   <= 
-                                                   (3U 
-                                                    & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_728)))
-                                                   ? 
-                                                  ((1U 
-                                                    <= 
-                                                    (1U 
-                                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_728)))
-                                                    ? 7U
-                                                    : 6U)
-                                                   : 
-                                                  ((1U 
-                                                    <= 
-                                                    (1U 
-                                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_728)))
-                                                    ? 4U
-                                                    : 0U))) 
-                                                << 0xcU))) 
-                                         | ((0x380U 
-                                             & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst) 
-                                            | ((0x1000U 
-                                                & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-                                                ? 0x3bU
-                                                : 0x33U))) 
-                                        | ((0U == (3U 
-                                                   & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                      >> 5U)))
-                                            ? 0x40000000U
-                                            : 0U)))
-            : (0x47413U | ((((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_386) 
-                             << 0x14U) | (0x38000U 
-                                          & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             << 8U))) 
-                           | (0x380U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_207 
-        = (0x108U | (((0xc00U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_104) 
-                                 << 5U)) | (0xe0U & 
-                                            (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             << 3U))) 
-                     | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                              >> 7U))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_114 
-        = (8U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_104) 
-                  << 5U) | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                  >> 7U))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_506 
-        = ((0x800U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_433 
-                      >> 9U)) | ((0x7feU & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_433) 
-                                 | (1U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_433 
-                                          >> 0xbU))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1778_rs3 
-        = (0x1fU & ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                     ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             >> 0x1bU))
-                         : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                >> 0x1bU) : ((0x1000U 
-                                              & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-                                              ? ((0U 
-                                                  != 
-                                                  (0x1fU 
-                                                   & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                      >> 2U)))
-                                                  ? 
-                                                 (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                  >> 0x1bU)
-                                                  : 
-                                                 (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                  >> 0x1bU))
-                                              : ((0U 
-                                                  != 
-                                                  (0x1fU 
-                                                   & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                      >> 2U)))
-                                                  ? 
-                                                 (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                  >> 0x1bU)
-                                                  : 
-                                                 (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                  >> 0x1bU)))))
-                     : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             >> 0x1bU))
-                         : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             >> 0x1bU)))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rs3 
-        = (0x1fU & ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                     ? ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 >> 0x1bU))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 >> 0x1bU)))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_608)
-                                     ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 0x1bU) : 
-                                    (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                     >> 0x1bU)) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   >> 0x1bU))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 >> 0x1bU))))
-                     : ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 >> 0x1bU))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 >> 0x1bU)))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 >> 0x1bU))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0x1bU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 >> 0x1bU))))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1784_rd 
-        = (0x1fU & ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                     ? ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 7U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 7U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U)))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 7U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 7U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U))))
-                     : ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 7U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 7U) : ((0x1000U 
-                                               & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-                                               ? ((0U 
-                                                   != 
-                                                   (0x1fU 
-                                                    & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                       >> 2U)))
-                                                   ? 
-                                                  (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   >> 7U)
-                                                   : 1U)
-                                               : ((0U 
-                                                   != 
-                                                   (0x1fU 
-                                                    & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                       >> 2U)))
-                                                   ? 
-                                                  (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   >> 7U)
-                                                   : 0U))))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 7U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 7U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U))))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rd 
-        = (0x1fU & ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                     ? ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? 0U : (8U | (7U & 
-                                               (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U))))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? 0U : (8U | (7U & 
-                                               (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U)))))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_608)
-                                     ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 7U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                  >> 7U))
-                                 : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 7U)) : ((1U 
-                                                <= 
-                                                (1U 
-                                                 & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                                ? 1U
-                                                : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   >> 7U))))
-                     : ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 2U)))
-                                 : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 2U))))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 2U)))
-                                 : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 2U)))))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 2U)))
-                                 : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 2U))))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 2U)))
-                                 : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 2U))))))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1778_rs2 
-        = (0x1fU & ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                     ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                >> 2U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                          >> 2U)) : 
-                        ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                          ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                             >> 2U) : ((0x1000U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-                                        ? ((0U != (0x1fU 
-                                                   & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                      >> 2U)))
-                                            ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                               >> 2U)
-                                            : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                               >> 2U))
-                                        : ((0U != (0x1fU 
-                                                   & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                      >> 2U)))
-                                            ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                               >> 2U)
-                                            : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                               >> 2U)))))
-                     : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                >> 2U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                          >> 2U)) : 
-                        ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                          ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                             >> 2U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                       >> 2U)))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rs2 
-        = ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-            ? ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                    ? 0U : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                            >> 2U)))
-                             : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                            >> 2U)))))
-                : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                    ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                        ? ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_608)
-                            ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                           >> 2U)))
-                            : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                           >> 2U))))
-                        : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                       >> 2U)))) : 
-                   ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                     ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 2U))) : (8U 
-                                                | (7U 
-                                                   & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                      >> 2U))))))
-            : ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                    ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                        ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                       >> 2U))) : (8U 
-                                                   | (7U 
-                                                      & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                         >> 2U))))
-                    : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                        ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                       >> 2U))) : (8U 
-                                                   | (7U 
-                                                      & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                         >> 2U)))))
-                : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                    ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                        ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                       >> 2U))) : (8U 
-                                                   | (7U 
-                                                      & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                         >> 2U))))
-                    : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                        ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                       >> 2U))) : (8U 
-                                                   | (7U 
-                                                      & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                         >> 2U)))))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1784_rs1 
-        = (0x1fU & ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                     ? ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0xfU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 0xfU))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0xfU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 0xfU)))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0xfU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 0xfU))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 0xfU) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 0xfU))))
-                     : ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? 2U : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                      ? 2U : ((0x1000U 
-                                               & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-                                               ? ((0U 
-                                                   != 
-                                                   (0x1fU 
-                                                    & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                       >> 2U)))
-                                                   ? 
-                                                  (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   >> 7U)
-                                                   : 
-                                                  (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   >> 7U))
-                                               : ((0U 
-                                                   != 
-                                                   (0x1fU 
-                                                    & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                       >> 2U)))
-                                                   ? 0U
-                                                   : 
-                                                  (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   >> 7U)))))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? 2U : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                      ? 2U : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U))))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rs1 
-        = (0x1fU & ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                     ? ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U)))
-                                 : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U))))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U)))
-                                 : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U)))))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_608)
-                                     ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 7U) : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                  >> 7U))
-                                 : 0U) : ((1U <= (1U 
-                                                  & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                           ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U)
-                                           : (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              >> 7U))))
-                     : ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U)))
-                                 : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U))))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U)))
-                                 : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U)))))
-                         : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U)))
-                                 : (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U))))
-                             : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? (8U | (7U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 7U)))
-                                 : 2U)))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1736_bits 
-        = ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-            ? (0x13027U | (((0x1e000000U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1397) 
-                                            << 0x17U)) 
-                            | (0x1f00000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             << 0x12U))) 
-                           | (0xc00U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1397) 
-                                        << 0xaU))))
-            : ((0x1000U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-                ? ((0U != (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 2U))) ? (0x33U 
-                                                | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1284) 
-                                                    << 0xfU) 
-                                                   | (0xf80U 
-                                                      & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)))
-                    : ((0U != (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 7U))) ? 
-                       (0xe7U | ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1284) 
-                                 << 0xfU)) : (0x100073U 
-                                              | ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1284) 
-                                                 << 0xfU))))
-                : ((0U != (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                    >> 2U))) ? (0x33U 
-                                                | ((0x1f00000U 
-                                                    & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                       << 0x12U)) 
-                                                   | (0xf80U 
-                                                      & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)))
-                    : ((0U != (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 7U))) ? 
-                       (0x67U | ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1284) 
-                                 << 0xfU)) : (0x1fU 
-                                              | ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1284) 
-                                                 << 0xfU))))));
-    vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_5 = ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_284) 
-                                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action));
-    vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_4 = ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_284) 
-                                                   & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action)));
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4601 = 
         ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_valid) 
          | (IData)(vlSymsp->TOP__Rocket.__PVT__wb_xcpt));
@@ -8192,22 +6332,6 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
                                                   >> 0x14U)))
                              ? (IData)((vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4804 
                                         >> 0x20U)) : 0U))));
-    vlSymsp->TOP__Rocket.__PVT__id_xcpt_if = (1U & 
-                                              ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__xcpt_if) 
-                                               | (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_529)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_519 = 
-        (1U & (((0xfU & ((IData)(1U) << (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_377)))) 
-                - (IData)(1U)) & ((((3U != (3U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)) 
-                                    | (1U & (((0xfU 
-                                               & ((IData)(1U) 
-                                                  << 
-                                                  (3U 
-                                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_377)))) 
-                                              - (IData)(1U)) 
-                                             >> 1U))) 
-                                   | (3U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__xcpt_if) 
-                                            >> 1U))) 
-                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_503))));
     vlSymsp->TOP__Rocket.__PVT__div__DOT__T_486 = (
                                                    ((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__rhs_sign)) 
                                                     << 0x20U) 
@@ -8231,201 +6355,6 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
                                                   | (0xffff0000U 
                                                      & (vlSymsp->TOP__Rocket.__PVT__ex_op1 
                                                         << 0x10U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1922_bits 
-        = ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-            ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? (0x2407U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_114) 
-                               << 0xfU) | (0x380U & 
-                                           (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                            << 5U))))
-                : (0x2403U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_114) 
-                               << 0xfU) | (0x380U & 
-                                           (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                            << 5U)))))
-            : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? (0x43407U | ((((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_62) 
-                                 << 0x17U) | (0x38000U 
-                                              & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 << 8U))) 
-                               | (0x380U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                            << 5U))))
-                : (0x10400U | ((((0x3c000000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                 << 0x13U)) 
-                                 | ((0x3000000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   << 0xdU)) 
-                                    | (0x800000U & 
-                                       (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        << 0x12U)))) 
-                                | (0x400000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                << 0x10U))) 
-                               | ((0x380U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             << 5U)) 
-                                  | ((0U != (0xffU 
-                                             & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                >> 5U)))
-                                      ? 0x13U : 0x1fU))))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1852_bits 
-        = ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-            ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_608)
-                    ? (((((0x1000U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-                           ? 7U : 0U) << 0x1dU) | (
-                                                   (0x18000000U 
-                                                    & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                       << 0x18U)) 
-                                                   | (0x4000000U 
-                                                      & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                         << 0x15U)))) 
-                       | ((0x2000000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                         << 0x17U)) 
-                          | ((0x1000000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                            << 0x12U)) 
-                             | ((0xf8000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             << 8U)) 
-                                | ((0xf80U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst) 
-                                   | ((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_386))
-                                       ? 0x13U : 0x1fU))))))
-                    : ((((0x1000U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)
-                          ? 0x7fffU : 0U) << 0x11U) 
-                       | ((0x1f000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                       << 0xaU)) | 
-                          ((0xf80U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst) 
-                           | ((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_386))
-                               ? 0x37U : 0x3fU)))))
-                : (0x13U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_386) 
-                             << 0x14U) | (0xf80U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst))))
-            : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? (0xefU | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_506) 
-                             << 0x14U) | (0xff000U 
-                                          & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_433)))
-                : (0x13U | ((((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_386) 
-                              << 0x14U) | (0xf8000U 
-                                           & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                              << 8U))) 
-                            | (0xf80U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs3 
-        = (0x1fU & ((0x10U <= (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635))
-                     ? ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                     ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 0x1bU) : 
-                                    (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                     >> 0x1bU)) : (
-                                                   (1U 
-                                                    <= 
-                                                    (1U 
-                                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                                    ? 
-                                                   (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                    >> 0x1bU)
-                                                    : 
-                                                   (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                    >> 0x1bU)))
-                             : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                     ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 0x1bU) : 
-                                    (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                     >> 0x1bU)) : (
-                                                   (1U 
-                                                    <= 
-                                                    (1U 
-                                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                                    ? 
-                                                   (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                    >> 0x1bU)
-                                                    : 
-                                                   (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                    >> 0x1bU))))
-                         : (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1778_rs3))
-                     : (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rs3)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rd 
-        = ((0x10U <= (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635))
-            ? (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1784_rd)
-            : (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rd));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2 
-        = (0x1fU & ((0x10U <= (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635))
-                     ? ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                         ? ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                             ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                     ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 0x14U) : 
-                                    (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                     >> 0x14U)) : (
-                                                   (1U 
-                                                    <= 
-                                                    (1U 
-                                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                                    ? 
-                                                   (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                    >> 0x14U)
-                                                    : 
-                                                   (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                    >> 0x14U)))
-                             : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                 ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                     ? (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                        >> 0x14U) : 
-                                    (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                     >> 0x14U)) : (
-                                                   (1U 
-                                                    <= 
-                                                    (1U 
-                                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                                                    ? 
-                                                   (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                    >> 0x14U)
-                                                    : 
-                                                   (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                    >> 0x14U))))
-                         : (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1778_rs2))
-                     : (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rs2)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1 
-        = ((0x10U <= (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635))
-            ? (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1784_rs1)
-            : (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rs1));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1778_bits 
-        = ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-            ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                    ? (0x12027U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1449) 
-                                    << 0x14U) | (0xe00U 
-                                                 & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1434) 
-                                                    << 9U))))
-                    : (0x12023U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1449) 
-                                    << 0x14U) | (0xe00U 
-                                                 & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1434) 
-                                                    << 9U)))))
-                : vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1736_bits)
-            : ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                    ? (0x12007U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1197) 
-                                    << 0x14U) | (0xf80U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)))
-                    : (0x12003U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1197) 
-                                    << 0x14U) | (0xf80U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst))))
-                : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                    ? (0x13007U | ((((0x1c000000U & 
-                                      (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                       << 0x18U)) | 
-                                     (0x2000000U & 
-                                      (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                       << 0xdU))) | 
-                                    (0x1800000U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                   << 0x12U))) 
-                                   | (0xf80U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)))
-                    : (0x1013U | ((((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_669) 
-                                    << 0x14U) | (0xf8000U 
-                                                 & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                    << 8U))) 
-                                  | (0xf80U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst))))));
-    vlSymsp->TOP__Rocket.__PVT__T_7023 = (((~ (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_4)) 
-                                           & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__xcpt_if))) 
-                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_529));
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_37 = 
         (VL_ULL(0x7ffffffffffffff) & ((0x40U & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4798))
                                        ? (VL_ULL(1) 
@@ -8477,25 +6406,6 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
                                                         == (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))
                                                         ? vlSymsp->TOP__Rocket.__PVT__wb_reg_wdata
                                                         : 0U)));
-    vlSymsp->TOP__Rocket.__PVT__T_6862 = ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_5)
-                                           ? 0xdU : 
-                                          ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_4)
-                                            ? 3U : 
-                                           ((IData)(vlSymsp->TOP__Rocket.__PVT__id_xcpt_if)
-                                             ? 1U : 2U)));
-    vlSymsp->TOP__Rocket.__PVT__mem_wrong_npc = (1U 
-                                                 & ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
-                                                     ? 
-                                                    ((0xfffffffeU 
-                                                      & vlSymsp->TOP__Rocket.__PVT__T_7257) 
-                                                     != vlSymsp->TOP__Rocket.__PVT__ex_reg_pc)
-                                                     : 
-                                                    ((~ (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_519)) 
-                                                     | ((0xfffffffeU 
-                                                         & vlSymsp->TOP__Rocket.__PVT__T_7257) 
-                                                        != vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_488))));
-    vlSymsp->TOP__Rocket.__PVT__T_7007 = ((~ (IData)(vlSymsp->TOP__Rocket.__PVT__take_pc_mem_wb)) 
-                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_519));
     vlSymsp->TOP__Rocket.__PVT__alu__DOT__in1_xor_in2 
         = (vlSymsp->TOP__Rocket.__PVT__ex_op1 ^ vlSymsp->TOP__Rocket.__PVT__alu__DOT__in2_inv);
     vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_20 = (VL_ULL(0x1ffffffff) 
@@ -8512,129 +6422,6 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
                                                   | (0xff00ff00U 
                                                      & (vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_52 
                                                         << 8U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_bits 
-        = ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-            ? ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                    ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                        ? (0x1063U | ((vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1016 
-                                       << 0xfU) | (
-                                                   (0xf00U 
-                                                    & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_955) 
-                                                       << 7U)) 
-                                                   | (0x80U 
-                                                      & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_955) 
-                                                         >> 4U)))))
-                        : (0x63U | ((vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1016 
-                                     << 0xfU) | ((0xf00U 
-                                                  & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_955) 
-                                                     << 7U)) 
-                                                 | (0x80U 
-                                                    & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_955) 
-                                                       >> 4U))))))
-                    : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                        ? (0x6fU | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_506) 
-                                     << 0x14U) | (0xff000U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_433)))
-                        : ((2U <= (3U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                         >> 0xaU)))
-                            ? vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_797
-                            : ((1U <= (1U & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                             >> 0xaU)))
-                                ? (0x40000000U | vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_681)
-                                : vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_681))))
-                : vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1852_bits)
-            : ((4U <= (7U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? ((2U <= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                    ? ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                        ? (0x2027U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_207) 
-                                       << 0xfU) | (0xf80U 
-                                                   & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_104) 
-                                                      << 7U))))
-                        : (0x2023U | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_207) 
-                                       << 0xfU) | (0xf80U 
-                                                   & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_104) 
-                                                      << 7U)))))
-                    : ((1U <= (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                        ? (0x843027U | ((((0xe000000U 
-                                           & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_62) 
-                                              << 0x17U)) 
-                                          | (0x700000U 
-                                             & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                                << 0x12U))) 
-                                         | (0x38000U 
-                                            & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst 
-                                               << 8U))) 
-                                        | (0xc00U & 
-                                           ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_62) 
-                                            << 0xaU))))
-                        : (0x202fU | (((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_207) 
-                                       << 0xfU) | (0xf80U 
-                                                   & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_104) 
-                                                      << 7U))))))
-                : vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1922_bits));
-    vlSymsp->TOP__Rocket.__PVT__T_7497 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rd) 
-                                          == (0x1fU 
-                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                 >> 7U)));
-    vlSymsp->TOP__Rocket.__PVT__T_7474 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rd) 
-                                          == (0x1fU 
-                                              & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
-                                                 >> 7U)));
-    vlSymsp->TOP__Rocket.__PVT__T_7447 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rd) 
-                                          == (0x1fU 
-                                              & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
-                                                 >> 7U)));
-    vlSymsp->TOP__Rocket.__PVT__T_6545_T_6564_data 
-        = ((0x1eU >= (0x1fU & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2))))
-            ? vlSymsp->TOP__Rocket.__PVT__T_6545[(0x1fU 
-                                                  & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2)))]
-            : 0U);
-    vlSymsp->TOP__Rocket.__PVT__T_6878 = ((0x1fU & 
-                                           (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
-                                            >> 7U)) 
-                                          == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2));
-    vlSymsp->TOP__Rocket.__PVT__T_7495 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2) 
-                                          == (0x1fU 
-                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                 >> 7U)));
-    vlSymsp->TOP__Rocket.__PVT__T_7472 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2) 
-                                          == (0x1fU 
-                                              & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
-                                                 >> 7U)));
-    vlSymsp->TOP__Rocket.__PVT__id_bypass_src_1_1 = 
-        ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6866) 
-         & ((0x1fU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
-                      >> 7U)) == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2)));
-    vlSymsp->TOP__Rocket.__PVT__T_7445 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2) 
-                                          == (0x1fU 
-                                              & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
-                                                 >> 7U)));
-    vlSymsp->TOP__Rocket.__PVT__T_6545_T_6554_data 
-        = ((0x1eU >= (0x1fU & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1))))
-            ? vlSymsp->TOP__Rocket.__PVT__T_6545[(0x1fU 
-                                                  & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1)))]
-            : 0U);
-    vlSymsp->TOP__Rocket.__PVT__T_6874 = ((0x1fU & 
-                                           (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
-                                            >> 7U)) 
-                                          == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1));
-    vlSymsp->TOP__Rocket.__PVT__T_7493 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1) 
-                                          == (0x1fU 
-                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                 >> 7U)));
-    vlSymsp->TOP__Rocket.__PVT__T_7470 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1) 
-                                          == (0x1fU 
-                                              & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
-                                                 >> 7U)));
-    vlSymsp->TOP__Rocket.__PVT__id_bypass_src_0_1 = 
-        ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6866) 
-         & ((0x1fU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
-                      >> 7U)) == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1)));
-    vlSymsp->TOP__Rocket.__PVT__T_7443 = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1) 
-                                          == (0x1fU 
-                                              & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
-                                                 >> 7U)));
     vlSymsp->TOP__Rocket.__PVT__T_7437 = ((IData)(vlSymsp->TOP__Rocket.__PVT__GEN_155) 
                                           | (IData)(vlSymsp->TOP__Rocket.__PVT__T_7431));
     vlSymsp->TOP__Rocket.__PVT__T_7436 = (vlSymsp->TOP__Rocket.__PVT__T_7419 
@@ -8677,38 +6464,6 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
                                                   | (0xf0f0f0f0U 
                                                      & (vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_62 
                                                         << 4U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits 
-        = ((0x10U <= (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635))
-            ? ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635)))
-                ? vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst
-                : vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1778_bits)
-            : vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_bits);
-    vlSymsp->TOP__Rocket.__PVT__GEN_169 = ((IData)(vlSymsp->TOP__Rocket.__PVT__rf_wen)
-                                            ? ((0U 
-                                                != (IData)(vlSymsp->TOP__Rocket.__PVT__rf_waddr))
-                                                ? (
-                                                   ((IData)(vlSymsp->TOP__Rocket.__PVT__rf_waddr) 
-                                                    == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2))
-                                                    ? vlSymsp->TOP__Rocket.__PVT__rf_wdata
-                                                    : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6564_data)
-                                                : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6564_data)
-                                            : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6564_data);
-    vlSymsp->TOP__Rocket.__PVT__id_bypass_src_1_2 = 
-        ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6870) 
-         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6878));
-    vlSymsp->TOP__Rocket.__PVT__GEN_168 = ((IData)(vlSymsp->TOP__Rocket.__PVT__rf_wen)
-                                            ? ((0U 
-                                                != (IData)(vlSymsp->TOP__Rocket.__PVT__rf_waddr))
-                                                ? (
-                                                   ((IData)(vlSymsp->TOP__Rocket.__PVT__rf_waddr) 
-                                                    == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1))
-                                                    ? vlSymsp->TOP__Rocket.__PVT__rf_wdata
-                                                    : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6554_data)
-                                                : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6554_data)
-                                            : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6554_data);
-    vlSymsp->TOP__Rocket.__PVT__id_bypass_src_0_2 = 
-        ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6870) 
-         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6874));
     vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_6406 = 
         ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_6405) 
          & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__wdata 
@@ -8728,381 +6483,6 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
                                                   | (0xccccccccU 
                                                      & (vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_72 
                                                         << 2U)));
-    vlSymsp->TOP__Rocket.__PVT__T_6228 = (((((0U == 
-                                              (0x48U 
-                                               & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                             | (0U 
-                                                == 
-                                                (0x18U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            | (0x4000U 
-                                               == (0x4008U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           << 1U) | 
-                                          (((((0U == 
-                                               (0x58U 
-                                                & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                              | (0U 
-                                                 == 
-                                                 (0x20U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                             | (4U 
-                                                == 
-                                                (0xcU 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            | (0x48U 
-                                               == (0x48U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           | (0x4050U 
-                                              == (0x4050U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))));
-    vlSymsp->TOP__Rocket.__PVT__T_6245 = ((((4U == 
-                                             (0x24U 
-                                              & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                            | (0x48U 
-                                               == (0x48U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           << 1U) | 
-                                          ((((0U == 
-                                              (0x4004U 
-                                               & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                             | (0U 
-                                                == 
-                                                (0x50U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            | (0U == 
-                                               (0x44U 
-                                                & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           | (0U == 
-                                              (0x18U 
-                                               & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))));
-    vlSymsp->TOP__Rocket.__PVT__T_6277 = (((((0U == 
-                                              (0x24U 
-                                               & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                             | (4U 
-                                                == 
-                                                (0x1cU 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            | (0x10U 
-                                               == (0x14U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           << 2U) | 
-                                          ((((4U == 
-                                              (0x44U 
-                                               & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                             | (8U 
-                                                == 
-                                                (8U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            << 1U) 
-                                           | ((8U == 
-                                               (8U 
-                                                & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                              | (0x40U 
-                                                 == 
-                                                 (0x44U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)))));
-    vlSymsp->TOP__Rocket.__PVT__T_6367 = (((((((0x2010U 
-                                                == 
-                                                (0x6054U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                               | (0x4040U 
-                                                  == 
-                                                  (0x4058U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                              | (0x40000030U 
-                                                 == 
-                                                 (0x40003034U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                             | (0x40001010U 
-                                                == 
-                                                (0x40003054U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            << 3U) 
-                                           | (((((0x2010U 
-                                                  == 
-                                                  (0x2054U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                 | (0x4010U 
-                                                    == 
-                                                    (0x40004054U 
-                                                     & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                | (0x4010U 
-                                                   == 
-                                                   (0x5054U 
-                                                    & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                               | (0x4040U 
-                                                  == 
-                                                  (0x4058U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                              << 2U)) 
-                                          | ((((((((0x40U 
-                                                    == 
-                                                    (0x4054U 
-                                                     & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                   | (0x3000U 
-                                                      == 
-                                                      (0x3044U 
-                                                       & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                  | (0x6000U 
-                                                     == 
-                                                     (0x6044U 
-                                                      & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                 | (0x6000U 
-                                                    == 
-                                                    (0x6018U 
-                                                     & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                | (0x40000030U 
-                                                   == 
-                                                   (0x40003034U 
-                                                    & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                               | (0x40001010U 
-                                                  == 
-                                                  (0x40001054U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                              << 1U) 
-                                             | (((0x1010U 
-                                                  == 
-                                                  (0x3054U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                 | (0x1040U 
-                                                    == 
-                                                    (0x1058U 
-                                                     & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                | (0x7000U 
-                                                   == 
-                                                   (0x7044U 
-                                                    & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)))));
-    vlSymsp->TOP__Rocket.__PVT__T_6443 = ((((8U == 
-                                             (0x18001008U 
-                                              & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                            << 3U) 
-                                           | (((((8U 
-                                                  == 
-                                                  (0x2008U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                 | (0x8000008U 
-                                                    == 
-                                                    (0x8000008U 
-                                                     & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                | (0x10000008U 
-                                                   == 
-                                                   (0x10000008U 
-                                                    & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                               | (0x80000008U 
-                                                  == 
-                                                  (0x80000008U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                              << 2U)) 
-                                          | ((((0x10000008U 
-                                                == 
-                                                (0x10001008U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                               | (0x40000008U 
-                                                  == 
-                                                  (0x40001008U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                              << 1U) 
-                                             | ((((8U 
-                                                   == 
-                                                   (0x2008U 
-                                                    & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                  | (0x20U 
-                                                     == 
-                                                     (0x28U 
-                                                      & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                 | (0x18000020U 
-                                                    == 
-                                                    (0x18000020U 
-                                                     & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                | (0x20000020U 
-                                                   == 
-                                                   (0x20000020U 
-                                                    & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)))));
-    vlSymsp->TOP__Rocket.__PVT__T_6463 = (((0x4000U 
-                                            == (0x4000U 
-                                                & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                           << 2U) | 
-                                          (((0x2000U 
-                                             == (0x2000U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                            << 1U) 
-                                           | (0x1000U 
-                                              == (0x1000U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))));
-    vlSymsp->TOP__Rocket.__PVT__T_7027 = ((4U == (0x1cU 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug));
-    vlSymsp->TOP__Rocket.__PVT__T_6845 = (((8U == (0x3048U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                           | ((0x2008U 
-                                               == (0x2048U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                              & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits 
-                                                 >> 0x19U))) 
-                                          | ((IData)(vlSymsp->TOP__Rocket.__PVT__id_reg_fence) 
-                                             & (IData)(vlSymsp->TOP__Rocket.__PVT__id_mem_busy)));
-    vlSymsp->TOP__Rocket.__PVT__T_6521 = (((0x50U == 
-                                            (0x3050U 
-                                             & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                           << 2U) | 
-                                          (((0x2050U 
-                                             == (0x2050U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                            << 1U) 
-                                           | (0x1050U 
-                                              == (0x1050U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))));
-    vlSymsp->TOP__Rocket.__PVT__T_6130 = ((((((((((
-                                                   ((((((((3U 
-                                                           == 
-                                                           (0x505fU 
-                                                            & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                          | (3U 
-                                                             == 
-                                                             (0x207fU 
-                                                              & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                         | (0xfU 
-                                                            == 
-                                                            (0x607fU 
-                                                             & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                        | (0x17U 
-                                                           == 
-                                                           (0x5fU 
-                                                            & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                       | (0x33U 
-                                                          == 
-                                                          (0xfc00007fU 
-                                                           & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                      | (0x33U 
-                                                         == 
-                                                         (0xbe00707fU 
-                                                          & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                     | (0x63U 
-                                                        == 
-                                                        (0x707bU 
-                                                         & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                    | (0x6fU 
-                                                       == 
-                                                       (0x7fU 
-                                                        & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                   | (0x73U 
-                                                      == 
-                                                      (0xffefffffU 
-                                                       & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                  | (0x1013U 
-                                                     == 
-                                                     (0xfc00305fU 
-                                                      & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                 | (0x2013U 
-                                                    == 
-                                                    (0x207fU 
-                                                     & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                | (0x202fU 
-                                                   == 
-                                                   (0x1800707fU 
-                                                    & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                               | (0x2073U 
-                                                  == 
-                                                  (0x207fU 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                              | (0x5013U 
-                                                 == 
-                                                 (0xbc00707fU 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                             | (0x5033U 
-                                                == 
-                                                (0xbe00707fU 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            | (0x800202fU 
-                                               == (0xe800707fU 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           | (0x1000202fU 
-                                              == (0xf9f0707fU 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                          | (0x10500073U 
-                                             == vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits));
-    vlSymsp->TOP__Rocket.__PVT__T_6383 = (((((((3U 
-                                                == 
-                                                (0x605fU 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                               | (3U 
-                                                  == 
-                                                  (0x505fU 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                              | (3U 
-                                                 == 
-                                                 (0x207fU 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                             | (0x100fU 
-                                                == 
-                                                (0x707fU 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            | (0x202fU 
-                                               == (0x1800707fU 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           | (0x800202fU 
-                                              == (0xe800707fU 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                          | (0x1000202fU 
-                                             == (0xf9f0707fU 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)));
-    vlSymsp->TOP__Rocket.__PVT__T_6501 = (((((((0U 
-                                                == 
-                                                (0x28U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                               | (4U 
-                                                  == 
-                                                  (0xcU 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                              | (0x10U 
-                                                 == 
-                                                 (0x50U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                             | (0x48U 
-                                                == 
-                                                (0x48U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            | (0x1010U 
-                                               == (0x1010U 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           | (0x2008U 
-                                              == (0x2008U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                          | (0x2010U 
-                                             == (0x2010U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)));
-    vlSymsp->TOP__Rocket.__PVT__T_6172 = (((0x20U == 
-                                            (0x70U 
-                                             & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                           | (0x20U 
-                                              == (0x64U 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                          | (0x20U 
-                                             == (0x34U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)));
-    vlSymsp->TOP__Rocket.__PVT__T_6193 = ((((0U == 
-                                             (0x4004U 
-                                              & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                            | (0U == 
-                                               (0x44U 
-                                                & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           | (0U == 
-                                              (0x18U 
-                                               & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                          | (0x2000U 
-                                             == (0x2050U 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)));
-    vlSymsp->TOP__Rocket.__PVT__T_7047 = ((((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2)) 
-                                            | (IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_1_1)) 
-                                           | (IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_1_2)) 
-                                          | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6867) 
-                                             & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6878)));
-    vlSymsp->TOP__Rocket.__PVT__T_7032 = ((((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1)) 
-                                            | (IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_0_1)) 
-                                           | (IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_0_2)) 
-                                          | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6867) 
-                                             & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6874)));
     vlSymsp->TOP__Rocket.__PVT__alu__DOT__shin = ((IData)(vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_41)
                                                    ? vlSymsp->TOP__Rocket.__PVT__ex_op1
                                                    : 
@@ -9112,40 +6492,6 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
                                                    | (0xaaaaaaaaU 
                                                       & (vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_82 
                                                          << 1U))));
-    vlSymsp->TOP__Rocket.__PVT__id_csr_ren = (((2U 
-                                                == (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521)) 
-                                               | (3U 
-                                                  == (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521))) 
-                                              & (0U 
-                                                 == (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1)));
-    vlSymsp->TOP__Rocket.__PVT__T_6136 = (((((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6130) 
-                                               | (0x30200073U 
-                                                  == vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                              | (0x7b200073U 
-                                                 == vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                             | (0x23U 
-                                                == 
-                                                (0x603fU 
-                                                 & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                            | (0x1063U 
-                                               == (0x306fU 
-                                                   & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                           | (0x4063U 
-                                              == (0x407fU 
-                                                  & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                          | (3U == 
-                                             (0x306fU 
-                                              & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)));
-    vlSymsp->TOP__Rocket.__PVT__T_7408 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6501) 
-                                          & (0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rd)));
-    vlSymsp->TOP__Rocket.__PVT__T_7405 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6172) 
-                                          & (0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2)));
-    vlSymsp->TOP__Rocket.__PVT__T_7402 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6193) 
-                                          & (0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1)));
-    vlSymsp->TOP__Rocket.__PVT__T_7057 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6172) 
-                                          & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7047)));
-    vlSymsp->TOP__Rocket.__PVT__T_7042 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6193) 
-                                          & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7032)));
     vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_98 = (VL_ULL(0x1ffffffff) 
                                                   & VL_SHIFTRS_QQI(33,33,5, 
                                                                    (((QData)((IData)(
@@ -9158,57 +6504,6 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
                                                                     | (QData)((IData)(vlSymsp->TOP__Rocket.__PVT__alu__DOT__shin))), 
                                                                    (0x1fU 
                                                                     & vlSymsp->TOP__Rocket.__PVT__ex_op2)));
-    vlSymsp->TOP__Rocket.__PVT__T_7026 = (((0x1008U 
-                                            == (0x1048U 
-                                                & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                           | ((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521)) 
-                                              | (((0U 
-                                                   != (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521)) 
-                                                  & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__id_csr_ren))) 
-                                                 & (~ 
-                                                    ((0x40U 
-                                                      == 
-                                                      (0x46U 
-                                                       & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits 
-                                                          >> 0x14U))) 
-                                                     | (0x240U 
-                                                        == 
-                                                        (0x244U 
-                                                         & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits 
-                                                            >> 0x14U)))))))) 
-                                          | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5566));
-    vlSymsp->TOP__Rocket.__PVT__id_xcpt = (1U & (((
-                                                   ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_39) 
-                                                    | (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_5)) 
-                                                   | (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_4)) 
-                                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__id_xcpt_if)) 
-                                                 | ((((~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_6136)) 
-                                                      | ((0x2000030U 
-                                                          == 
-                                                          (0x2000074U 
-                                                           & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                         & (~ 
-                                                            (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
-                                                             >> 0xcU)))) 
-                                                     | ((0x2008U 
-                                                         == 
-                                                         (0x2048U 
-                                                          & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                        & (~ vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa))) 
-                                                    | ((3U 
-                                                        != 
-                                                        (3U 
-                                                         & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst)) 
-                                                       & (~ 
-                                                          (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
-                                                           >> 2U))))));
-    vlSymsp->TOP__Rocket.__PVT__data_hazard_mem = ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_wxd) 
-                                                   & ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
-                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7470)) 
-                                                       | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7405) 
-                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7472))) 
-                                                      | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7408) 
-                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7474))));
     vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_109 = (
                                                    (0xffffU 
                                                     & (IData)(
@@ -9217,78 +6512,6 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
                                                    | (0xffff0000U 
                                                       & ((IData)(vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_98) 
                                                          << 0x10U)));
-    vlSymsp->TOP__Rocket.__PVT__T_7528 = ((((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid) 
-                                            & ((((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_wxd) 
-                                                 & ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
-                                                      & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7443)) 
-                                                     | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7405) 
-                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7445))) 
-                                                    | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7408) 
-                                                       & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7447)))) 
-                                                & ((((((0U 
-                                                        != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr)) 
-                                                       | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_jalr)) 
-                                                      | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem)) 
-                                                     | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_div)) 
-                                                    | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc)) 
-                                                   | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc))) 
-                                               | ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc) 
-                                                  & (((((IData)(vlTOPp->io_fpu_dec_ren1) 
-                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7443)) 
-                                                       | ((IData)(vlTOPp->io_fpu_dec_ren2) 
-                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7445))) 
-                                                      | ((IData)(vlTOPp->io_fpu_dec_ren3) 
-                                                         & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs3) 
-                                                            == 
-                                                            (0x1fU 
-                                                             & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
-                                                                >> 7U))))) 
-                                                     | ((IData)(vlTOPp->io_fpu_dec_wen) 
-                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7447)))))) 
-                                           | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_valid) 
-                                              & (((IData)(vlSymsp->TOP__Rocket.__PVT__data_hazard_mem) 
-                                                  & (((((0U 
-                                                         != (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr)) 
-                                                        | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem) 
-                                                           & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_slow_bypass))) 
-                                                       | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_div)) 
-                                                      | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc)) 
-                                                     | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc))) 
-                                                 | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc) 
-                                                    & (((((IData)(vlTOPp->io_fpu_dec_ren1) 
-                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7470)) 
-                                                         | ((IData)(vlTOPp->io_fpu_dec_ren2) 
-                                                            & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7472))) 
-                                                        | ((IData)(vlTOPp->io_fpu_dec_ren3) 
-                                                           & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs3) 
-                                                              == 
-                                                              (0x1fU 
-                                                               & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
-                                                                  >> 7U))))) 
-                                                       | ((IData)(vlTOPp->io_fpu_dec_wen) 
-                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7474))))))) 
-                                          | ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_valid) 
-                                             & ((((IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_wxd) 
-                                                  & ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
-                                                       & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7493)) 
-                                                      | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7405) 
-                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7495))) 
-                                                     | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7408) 
-                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7497)))) 
-                                                 & (IData)(vlSymsp->TOP__Rocket.__PVT__wb_set_sboard)) 
-                                                | ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_wfd) 
-                                                   & (((((IData)(vlTOPp->io_fpu_dec_ren1) 
-                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7493)) 
-                                                        | ((IData)(vlTOPp->io_fpu_dec_ren2) 
-                                                           & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7495))) 
-                                                       | ((IData)(vlTOPp->io_fpu_dec_ren3) 
-                                                          & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs3) 
-                                                             == 
-                                                             (0x1fU 
-                                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                                 >> 7U))))) 
-                                                      | ((IData)(vlTOPp->io_fpu_dec_wen) 
-                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7497)))))));
     vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_119 = (
                                                    (0xff00ffU 
                                                     & (vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_109 
@@ -9296,46 +6519,6 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
                                                    | (0xff00ff00U 
                                                       & (vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_109 
                                                          << 8U)));
-    vlSymsp->TOP__Rocket.__PVT__ctrl_stalld = ((((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7528) 
-                                                   | ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
-                                                        & ((0xfffffffeU 
-                                                            & vlSymsp->TOP__Rocket.__PVT__T_7410) 
-                                                           >> (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1))) 
-                                                       | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7405) 
-                                                          & ((0xfffffffeU 
-                                                              & vlSymsp->TOP__Rocket.__PVT__T_7410) 
-                                                             >> (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2)))) 
-                                                      | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7408) 
-                                                         & ((0xfffffffeU 
-                                                             & vlSymsp->TOP__Rocket.__PVT__T_7410) 
-                                                            >> (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rd))))) 
-                                                  | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6383) 
-                                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__dcache_blocked))) 
-                                                 | ((0x2000030U 
-                                                     == 
-                                                     (0x2000074U 
-                                                      & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                    & ((~ 
-                                                        ((0U 
-                                                          == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
-                                                         | ((5U 
-                                                             == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
-                                                            & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_wxd))))) 
-                                                       | (IData)(vlSymsp->TOP__Rocket.__PVT__T_7002)))) 
-                                                | ((IData)(vlSymsp->TOP__Rocket.__PVT__id_mem_busy) 
-                                                   & ((((0x2008U 
-                                                         == 
-                                                         (0x2048U 
-                                                          & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits)) 
-                                                        & (vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits 
-                                                           >> 0x1aU)) 
-                                                       | (0x1008U 
-                                                          == 
-                                                          (0x1048U 
-                                                           & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits))) 
-                                                      | ((IData)(vlSymsp->TOP__Rocket.__PVT__id_reg_fence) 
-                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6383))))) 
-                                               | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_wfi));
     vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_129 = (
                                                    (0xf0f0f0fU 
                                                     & (vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_119 
@@ -9343,18 +6526,6 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
                                                    | (0xf0f0f0f0U 
                                                       & (vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_119 
                                                          << 4U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__GEN_30 = 
-        ((((~ (IData)(vlSymsp->TOP__Rocket.__PVT__ctrl_stalld)) 
-           | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_39)) 
-          & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_519))
-          ? ((3U != (3U & vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__inst))
-              ? 1U : 2U) : 0U);
-    vlSymsp->TOP__Rocket.__PVT__T_7551 = (1U & ((((
-                                                   (~ (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_519)) 
-                                                   | (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_503)) 
-                                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__take_pc_mem_wb)) 
-                                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__ctrl_stalld)) 
-                                                | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_39)));
     vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_139 = (
                                                    (0x33333333U 
                                                     & (vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_129 
@@ -9362,15 +6533,6 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
                                                    | (0xccccccccU 
                                                       & (vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_129 
                                                          << 2U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_378 = 
-        ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__GEN_30) 
-         >= (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_374 = 
-        (7U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__GEN_30) 
-               - (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid)));
-    vlSymsp->TOP__Rocket.__PVT__T_7063 = (1U & (((~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)) 
-                                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_39)) 
-                                                | (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_503)));
     vlSymsp->TOP__Rocket.__PVT__alu__DOT__shift_logic 
         = ((((((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)) 
                | (3U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))) 
@@ -9410,42 +6572,730 @@ VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__4(VRocket__Syms* __restr
                                                      & (vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_139 
                                                         << 1U)))
                                                   : 0U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_416 = 
-        ((0xfffffffcU & vlTOPp->io_imem_resp_bits_pc) 
-         | (3U & (vlTOPp->io_imem_resp_bits_pc + (IData)((QData)((IData)(
-                                                                         (6U 
-                                                                          & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_374) 
-                                                                             << 1U))))))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_408 = 
-        ((((QData)((IData)(((0xffff0000U & vlTOPp->io_imem_resp_bits_data) 
-                            | (0xffffU & (vlTOPp->io_imem_resp_bits_data 
-                                          >> 0x10U))))) 
-           << 0x20U) | (QData)((IData)(vlTOPp->io_imem_resp_bits_data))) 
-         >> (0x30U & (((1U & (vlTOPp->io_imem_resp_bits_pc 
-                              >> 1U)) + (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_374)) 
-                      << 4U)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_381 = 
-        (7U & ((3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_373)) 
-               - (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_374))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399 = 
-        ((((IData)(vlTOPp->io_imem_resp_valid) & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_378)) 
-          & ((3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_374)) 
-             < (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_373)))) 
-         & (1U >= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_381))));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__GEN_24 = 
-        (3U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399)
-                ? ((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
-                    ? ((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
-                       + (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_374))
-                    : (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_bridx))
-                : (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__ibufBTBResp_bridx)));
-    vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__GEN_29 = 
-        ((IData)(vlSymsp->TOP__Rocket.__PVT__take_pc_mem_wb)
-          ? 0U : (3U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_399)
-                         ? (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_381)
-                         : ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_378)
-                             ? 0U : ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__nBufValid) 
-                                     - (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__GEN_30))))));
+}
+
+VL_INLINE_OPT void VRocket_Rocket::_combo__TOP__Rocket__7(VRocket__Syms* __restrict vlSymsp) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+      VRocket_Rocket::_combo__TOP__Rocket__7\n"); );
+    VRocket* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
+    // Body
+    vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_284 = (
+                                                   (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)) 
+                                                   & (((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_176) 
+                                                       & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_x)) 
+                                                      & ((2U 
+                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch))
+                                                          ? 
+                                                         ((vlSymsp->TOP__Rocket__ibuf.__PVT__T_488 
+                                                           >= vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address) 
+                                                          ^ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch))
+                                                          : 
+                                                         (((~ vlSymsp->TOP__Rocket__ibuf.__PVT__T_488) 
+                                                           | (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_193)) 
+                                                          == vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_206))));
+    vlSymsp->TOP__Rocket.__PVT__id_xcpt_if = (1U & 
+                                              ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__xcpt_if) 
+                                               | (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_529)));
+    vlSymsp->TOP__Rocket.__PVT__mem_wrong_npc = (1U 
+                                                 & ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+                                                     ? 
+                                                    ((0xfffffffeU 
+                                                      & vlSymsp->TOP__Rocket.__PVT__T_7257) 
+                                                     != vlSymsp->TOP__Rocket.__PVT__ex_reg_pc)
+                                                     : 
+                                                    ((~ (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_519)) 
+                                                     | ((0xfffffffeU 
+                                                         & vlSymsp->TOP__Rocket.__PVT__T_7257) 
+                                                        != vlSymsp->TOP__Rocket__ibuf.__PVT__T_488))));
+    vlSymsp->TOP__Rocket.__PVT__T_7007 = ((~ (IData)(vlSymsp->TOP__Rocket.__PVT__take_pc_mem_wb)) 
+                                          & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_519));
+    vlSymsp->TOP__Rocket.__PVT__T_7497 = ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rd) 
+                                          == (0x1fU 
+                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                                 >> 7U)));
+    vlSymsp->TOP__Rocket.__PVT__T_7474 = ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rd) 
+                                          == (0x1fU 
+                                              & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+                                                 >> 7U)));
+    vlSymsp->TOP__Rocket.__PVT__T_7447 = ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rd) 
+                                          == (0x1fU 
+                                              & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+                                                 >> 7U)));
+    vlSymsp->TOP__Rocket.__PVT__T_6545_T_6564_data 
+        = ((0x1eU >= (0x1fU & (~ (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2))))
+            ? vlSymsp->TOP__Rocket.__PVT__T_6545[(0x1fU 
+                                                  & (~ (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2)))]
+            : 0U);
+    vlSymsp->TOP__Rocket.__PVT__T_6878 = ((0x1fU & 
+                                           (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+                                            >> 7U)) 
+                                          == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2));
+    vlSymsp->TOP__Rocket.__PVT__T_7495 = ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2) 
+                                          == (0x1fU 
+                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                                 >> 7U)));
+    vlSymsp->TOP__Rocket.__PVT__T_7472 = ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2) 
+                                          == (0x1fU 
+                                              & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+                                                 >> 7U)));
+    vlSymsp->TOP__Rocket.__PVT__id_bypass_src_1_1 = 
+        ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6866) 
+         & ((0x1fU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+                      >> 7U)) == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2)));
+    vlSymsp->TOP__Rocket.__PVT__T_7445 = ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2) 
+                                          == (0x1fU 
+                                              & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+                                                 >> 7U)));
+    vlSymsp->TOP__Rocket.__PVT__T_6545_T_6554_data 
+        = ((0x1eU >= (0x1fU & (~ (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1))))
+            ? vlSymsp->TOP__Rocket.__PVT__T_6545[(0x1fU 
+                                                  & (~ (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1)))]
+            : 0U);
+    vlSymsp->TOP__Rocket.__PVT__T_6874 = ((0x1fU & 
+                                           (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+                                            >> 7U)) 
+                                          == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1));
+    vlSymsp->TOP__Rocket.__PVT__T_7493 = ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1) 
+                                          == (0x1fU 
+                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                                 >> 7U)));
+    vlSymsp->TOP__Rocket.__PVT__T_7470 = ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1) 
+                                          == (0x1fU 
+                                              & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+                                                 >> 7U)));
+    vlSymsp->TOP__Rocket.__PVT__id_bypass_src_0_1 = 
+        ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6866) 
+         & ((0x1fU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+                      >> 7U)) == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1)));
+    vlSymsp->TOP__Rocket.__PVT__T_7443 = ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1) 
+                                          == (0x1fU 
+                                              & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+                                                 >> 7U)));
+    vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
+        = ((0x10U <= (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1635))
+            ? ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1635)))
+                ? vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.io_in
+                : vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1778_bits)
+            : vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1934_bits);
+    vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_5 = ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_284) 
+                                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action));
+    vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_4 = ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_284) 
+                                                   & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action)));
+    vlSymsp->TOP__Rocket.__PVT__GEN_169 = ((IData)(vlSymsp->TOP__Rocket.__PVT__rf_wen)
+                                            ? ((0U 
+                                                != (IData)(vlSymsp->TOP__Rocket.__PVT__rf_waddr))
+                                                ? (
+                                                   ((IData)(vlSymsp->TOP__Rocket.__PVT__rf_waddr) 
+                                                    == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2))
+                                                    ? vlSymsp->TOP__Rocket.__PVT__rf_wdata
+                                                    : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6564_data)
+                                                : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6564_data)
+                                            : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6564_data);
+    vlSymsp->TOP__Rocket.__PVT__id_bypass_src_1_2 = 
+        ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6870) 
+         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6878));
+    vlSymsp->TOP__Rocket.__PVT__GEN_168 = ((IData)(vlSymsp->TOP__Rocket.__PVT__rf_wen)
+                                            ? ((0U 
+                                                != (IData)(vlSymsp->TOP__Rocket.__PVT__rf_waddr))
+                                                ? (
+                                                   ((IData)(vlSymsp->TOP__Rocket.__PVT__rf_waddr) 
+                                                    == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1))
+                                                    ? vlSymsp->TOP__Rocket.__PVT__rf_wdata
+                                                    : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6554_data)
+                                                : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6554_data)
+                                            : vlSymsp->TOP__Rocket.__PVT__T_6545_T_6554_data);
+    vlSymsp->TOP__Rocket.__PVT__id_bypass_src_0_2 = 
+        ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6870) 
+         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6874));
+    vlSymsp->TOP__Rocket.__PVT__T_6228 = (((((0U == 
+                                              (0x48U 
+                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                             | (0U 
+                                                == 
+                                                (0x18U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            | (0x4000U 
+                                               == (0x4008U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           << 1U) | 
+                                          (((((0U == 
+                                               (0x58U 
+                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                              | (0U 
+                                                 == 
+                                                 (0x20U 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                             | (4U 
+                                                == 
+                                                (0xcU 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            | (0x48U 
+                                               == (0x48U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           | (0x4050U 
+                                              == (0x4050U 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+    vlSymsp->TOP__Rocket.__PVT__T_6245 = ((((4U == 
+                                             (0x24U 
+                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                            | (0x48U 
+                                               == (0x48U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           << 1U) | 
+                                          ((((0U == 
+                                              (0x4004U 
+                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                             | (0U 
+                                                == 
+                                                (0x50U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            | (0U == 
+                                               (0x44U 
+                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           | (0U == 
+                                              (0x18U 
+                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+    vlSymsp->TOP__Rocket.__PVT__T_6277 = (((((0U == 
+                                              (0x24U 
+                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                             | (4U 
+                                                == 
+                                                (0x1cU 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            | (0x10U 
+                                               == (0x14U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           << 2U) | 
+                                          ((((4U == 
+                                              (0x44U 
+                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                             | (8U 
+                                                == 
+                                                (8U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            << 1U) 
+                                           | ((8U == 
+                                               (8U 
+                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                              | (0x40U 
+                                                 == 
+                                                 (0x44U 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
+    vlSymsp->TOP__Rocket.__PVT__T_6367 = (((((((0x2010U 
+                                                == 
+                                                (0x6054U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                               | (0x4040U 
+                                                  == 
+                                                  (0x4058U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                              | (0x40000030U 
+                                                 == 
+                                                 (0x40003034U 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                             | (0x40001010U 
+                                                == 
+                                                (0x40003054U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            << 3U) 
+                                           | (((((0x2010U 
+                                                  == 
+                                                  (0x2054U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                 | (0x4010U 
+                                                    == 
+                                                    (0x40004054U 
+                                                     & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                | (0x4010U 
+                                                   == 
+                                                   (0x5054U 
+                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                               | (0x4040U 
+                                                  == 
+                                                  (0x4058U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                              << 2U)) 
+                                          | ((((((((0x40U 
+                                                    == 
+                                                    (0x4054U 
+                                                     & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                   | (0x3000U 
+                                                      == 
+                                                      (0x3044U 
+                                                       & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                  | (0x6000U 
+                                                     == 
+                                                     (0x6044U 
+                                                      & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                 | (0x6000U 
+                                                    == 
+                                                    (0x6018U 
+                                                     & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                | (0x40000030U 
+                                                   == 
+                                                   (0x40003034U 
+                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                               | (0x40001010U 
+                                                  == 
+                                                  (0x40001054U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                              << 1U) 
+                                             | (((0x1010U 
+                                                  == 
+                                                  (0x3054U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                 | (0x1040U 
+                                                    == 
+                                                    (0x1058U 
+                                                     & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                | (0x7000U 
+                                                   == 
+                                                   (0x7044U 
+                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
+    vlSymsp->TOP__Rocket.__PVT__T_6443 = ((((8U == 
+                                             (0x18001008U 
+                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                            << 3U) 
+                                           | (((((8U 
+                                                  == 
+                                                  (0x2008U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                 | (0x8000008U 
+                                                    == 
+                                                    (0x8000008U 
+                                                     & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                | (0x10000008U 
+                                                   == 
+                                                   (0x10000008U 
+                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                               | (0x80000008U 
+                                                  == 
+                                                  (0x80000008U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                              << 2U)) 
+                                          | ((((0x10000008U 
+                                                == 
+                                                (0x10001008U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                               | (0x40000008U 
+                                                  == 
+                                                  (0x40001008U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                              << 1U) 
+                                             | ((((8U 
+                                                   == 
+                                                   (0x2008U 
+                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                  | (0x20U 
+                                                     == 
+                                                     (0x28U 
+                                                      & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                 | (0x18000020U 
+                                                    == 
+                                                    (0x18000020U 
+                                                     & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                | (0x20000020U 
+                                                   == 
+                                                   (0x20000020U 
+                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
+    vlSymsp->TOP__Rocket.__PVT__T_6463 = (((0x4000U 
+                                            == (0x4000U 
+                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                           << 2U) | 
+                                          (((0x2000U 
+                                             == (0x2000U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                            << 1U) 
+                                           | (0x1000U 
+                                              == (0x1000U 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+    vlSymsp->TOP__Rocket.__PVT__T_7027 = ((4U == (0x1cU 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug));
+    vlSymsp->TOP__Rocket.__PVT__T_6845 = (((8U == (0x3048U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                           | ((0x2008U 
+                                               == (0x2048U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                              & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
+                                                 >> 0x19U))) 
+                                          | ((IData)(vlSymsp->TOP__Rocket.__PVT__id_reg_fence) 
+                                             & (IData)(vlSymsp->TOP__Rocket.__PVT__id_mem_busy)));
+    vlSymsp->TOP__Rocket.__PVT__T_6521 = (((0x50U == 
+                                            (0x3050U 
+                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                           << 2U) | 
+                                          (((0x2050U 
+                                             == (0x2050U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                            << 1U) 
+                                           | (0x1050U 
+                                              == (0x1050U 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+    vlSymsp->TOP__Rocket.__PVT__T_6130 = ((((((((((
+                                                   ((((((((3U 
+                                                           == 
+                                                           (0x505fU 
+                                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                          | (3U 
+                                                             == 
+                                                             (0x207fU 
+                                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                         | (0xfU 
+                                                            == 
+                                                            (0x607fU 
+                                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                        | (0x17U 
+                                                           == 
+                                                           (0x5fU 
+                                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                       | (0x33U 
+                                                          == 
+                                                          (0xfc00007fU 
+                                                           & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                      | (0x33U 
+                                                         == 
+                                                         (0xbe00707fU 
+                                                          & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                     | (0x63U 
+                                                        == 
+                                                        (0x707bU 
+                                                         & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                    | (0x6fU 
+                                                       == 
+                                                       (0x7fU 
+                                                        & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                   | (0x73U 
+                                                      == 
+                                                      (0xffefffffU 
+                                                       & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                  | (0x1013U 
+                                                     == 
+                                                     (0xfc00305fU 
+                                                      & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                 | (0x2013U 
+                                                    == 
+                                                    (0x207fU 
+                                                     & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                | (0x202fU 
+                                                   == 
+                                                   (0x1800707fU 
+                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                               | (0x2073U 
+                                                  == 
+                                                  (0x207fU 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                              | (0x5013U 
+                                                 == 
+                                                 (0xbc00707fU 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                             | (0x5033U 
+                                                == 
+                                                (0xbe00707fU 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            | (0x800202fU 
+                                               == (0xe800707fU 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           | (0x1000202fU 
+                                              == (0xf9f0707fU 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                          | (0x10500073U 
+                                             == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits));
+    vlSymsp->TOP__Rocket.__PVT__T_6383 = (((((((3U 
+                                                == 
+                                                (0x605fU 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                               | (3U 
+                                                  == 
+                                                  (0x505fU 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                              | (3U 
+                                                 == 
+                                                 (0x207fU 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                             | (0x100fU 
+                                                == 
+                                                (0x707fU 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            | (0x202fU 
+                                               == (0x1800707fU 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           | (0x800202fU 
+                                              == (0xe800707fU 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                          | (0x1000202fU 
+                                             == (0xf9f0707fU 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)));
+    vlSymsp->TOP__Rocket.__PVT__T_6501 = (((((((0U 
+                                                == 
+                                                (0x28U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                               | (4U 
+                                                  == 
+                                                  (0xcU 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                              | (0x10U 
+                                                 == 
+                                                 (0x50U 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                             | (0x48U 
+                                                == 
+                                                (0x48U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            | (0x1010U 
+                                               == (0x1010U 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           | (0x2008U 
+                                              == (0x2008U 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                          | (0x2010U 
+                                             == (0x2010U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)));
+    vlSymsp->TOP__Rocket.__PVT__T_6172 = (((0x20U == 
+                                            (0x70U 
+                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                           | (0x20U 
+                                              == (0x64U 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                          | (0x20U 
+                                             == (0x34U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)));
+    vlSymsp->TOP__Rocket.__PVT__T_6193 = ((((0U == 
+                                             (0x4004U 
+                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                            | (0U == 
+                                               (0x44U 
+                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           | (0U == 
+                                              (0x18U 
+                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                          | (0x2000U 
+                                             == (0x2050U 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)));
+    vlSymsp->TOP__Rocket.__PVT__T_6862 = ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_5)
+                                           ? 0xdU : 
+                                          ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_4)
+                                            ? 3U : 
+                                           ((IData)(vlSymsp->TOP__Rocket.__PVT__id_xcpt_if)
+                                             ? 1U : 2U)));
+    vlSymsp->TOP__Rocket.__PVT__T_7023 = (((~ (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_4)) 
+                                           & (~ (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__xcpt_if))) 
+                                          & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_529));
+    vlSymsp->TOP__Rocket.__PVT__T_7047 = ((((0U == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2)) 
+                                            | (IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_1_1)) 
+                                           | (IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_1_2)) 
+                                          | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6867) 
+                                             & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6878)));
+    vlSymsp->TOP__Rocket.__PVT__T_7032 = ((((0U == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1)) 
+                                            | (IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_0_1)) 
+                                           | (IData)(vlSymsp->TOP__Rocket.__PVT__id_bypass_src_0_2)) 
+                                          | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6867) 
+                                             & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6874)));
+    vlSymsp->TOP__Rocket.__PVT__id_csr_ren = (((2U 
+                                                == (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521)) 
+                                               | (3U 
+                                                  == (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521))) 
+                                              & (0U 
+                                                 == (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1)));
+    vlSymsp->TOP__Rocket.__PVT__T_6136 = (((((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6130) 
+                                               | (0x30200073U 
+                                                  == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                              | (0x7b200073U 
+                                                 == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                             | (0x23U 
+                                                == 
+                                                (0x603fU 
+                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                            | (0x1063U 
+                                               == (0x306fU 
+                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                           | (0x4063U 
+                                              == (0x407fU 
+                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                          | (3U == 
+                                             (0x306fU 
+                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)));
+    vlSymsp->TOP__Rocket.__PVT__T_7408 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6501) 
+                                          & (0U != (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rd)));
+    vlSymsp->TOP__Rocket.__PVT__T_7405 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6172) 
+                                          & (0U != (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2)));
+    vlSymsp->TOP__Rocket.__PVT__T_7402 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6193) 
+                                          & (0U != (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1)));
+    vlSymsp->TOP__Rocket.__PVT__T_7057 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6172) 
+                                          & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7047)));
+    vlSymsp->TOP__Rocket.__PVT__T_7042 = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6193) 
+                                          & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7032)));
+    vlSymsp->TOP__Rocket.__PVT__T_7026 = (((0x1008U 
+                                            == (0x1048U 
+                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                           | ((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521)) 
+                                              | (((0U 
+                                                   != (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521)) 
+                                                  & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__id_csr_ren))) 
+                                                 & (~ 
+                                                    ((0x40U 
+                                                      == 
+                                                      (0x46U 
+                                                       & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
+                                                          >> 0x14U))) 
+                                                     | (0x240U 
+                                                        == 
+                                                        (0x244U 
+                                                         & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
+                                                            >> 0x14U)))))))) 
+                                          | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5566));
+    vlSymsp->TOP__Rocket.__PVT__id_xcpt = (1U & (((
+                                                   ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_39) 
+                                                    | (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_5)) 
+                                                   | (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__GEN_4)) 
+                                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__id_xcpt_if)) 
+                                                 | ((((~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_6136)) 
+                                                      | ((0x2000030U 
+                                                          == 
+                                                          (0x2000074U 
+                                                           & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                         & (~ 
+                                                            (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
+                                                             >> 0xcU)))) 
+                                                     | ((0x2008U 
+                                                         == 
+                                                         (0x2048U 
+                                                          & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                        & (~ vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa))) 
+                                                    | ((3U 
+                                                        != 
+                                                        (3U 
+                                                         & vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.io_in)) 
+                                                       & (~ 
+                                                          (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
+                                                           >> 2U))))));
+    vlSymsp->TOP__Rocket.__PVT__data_hazard_mem = ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_wxd) 
+                                                   & ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
+                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7470)) 
+                                                       | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7405) 
+                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7472))) 
+                                                      | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7408) 
+                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7474))));
+    vlSymsp->TOP__Rocket.__PVT__T_7528 = ((((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid) 
+                                            & ((((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_wxd) 
+                                                 & ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
+                                                      & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7443)) 
+                                                     | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7405) 
+                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7445))) 
+                                                    | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7408) 
+                                                       & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7447)))) 
+                                                & ((((((0U 
+                                                        != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr)) 
+                                                       | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_jalr)) 
+                                                      | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem)) 
+                                                     | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_div)) 
+                                                    | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc)) 
+                                                   | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc))) 
+                                               | ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc) 
+                                                  & (((((IData)(vlTOPp->io_fpu_dec_ren1) 
+                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7443)) 
+                                                       | ((IData)(vlTOPp->io_fpu_dec_ren2) 
+                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7445))) 
+                                                      | ((IData)(vlTOPp->io_fpu_dec_ren3) 
+                                                         & ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs3) 
+                                                            == 
+                                                            (0x1fU 
+                                                             & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+                                                                >> 7U))))) 
+                                                     | ((IData)(vlTOPp->io_fpu_dec_wen) 
+                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7447)))))) 
+                                           | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_valid) 
+                                              & (((IData)(vlSymsp->TOP__Rocket.__PVT__data_hazard_mem) 
+                                                  & (((((0U 
+                                                         != (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr)) 
+                                                        | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem) 
+                                                           & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_slow_bypass))) 
+                                                       | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_div)) 
+                                                      | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc)) 
+                                                     | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc))) 
+                                                 | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc) 
+                                                    & (((((IData)(vlTOPp->io_fpu_dec_ren1) 
+                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7470)) 
+                                                         | ((IData)(vlTOPp->io_fpu_dec_ren2) 
+                                                            & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7472))) 
+                                                        | ((IData)(vlTOPp->io_fpu_dec_ren3) 
+                                                           & ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs3) 
+                                                              == 
+                                                              (0x1fU 
+                                                               & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+                                                                  >> 7U))))) 
+                                                       | ((IData)(vlTOPp->io_fpu_dec_wen) 
+                                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7474))))))) 
+                                          | ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_valid) 
+                                             & ((((IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_wxd) 
+                                                  & ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
+                                                       & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7493)) 
+                                                      | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7405) 
+                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7495))) 
+                                                     | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7408) 
+                                                        & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7497)))) 
+                                                 & (IData)(vlSymsp->TOP__Rocket.__PVT__wb_set_sboard)) 
+                                                | ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_wfd) 
+                                                   & (((((IData)(vlTOPp->io_fpu_dec_ren1) 
+                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7493)) 
+                                                        | ((IData)(vlTOPp->io_fpu_dec_ren2) 
+                                                           & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7495))) 
+                                                       | ((IData)(vlTOPp->io_fpu_dec_ren3) 
+                                                          & ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs3) 
+                                                             == 
+                                                             (0x1fU 
+                                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                                                 >> 7U))))) 
+                                                      | ((IData)(vlTOPp->io_fpu_dec_wen) 
+                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7497)))))));
+    vlSymsp->TOP__Rocket.__PVT__ctrl_stalld = ((((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7528) 
+                                                   | ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
+                                                        & ((0xfffffffeU 
+                                                            & vlSymsp->TOP__Rocket.__PVT__T_7410) 
+                                                           >> (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs1))) 
+                                                       | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7405) 
+                                                          & ((0xfffffffeU 
+                                                              & vlSymsp->TOP__Rocket.__PVT__T_7410) 
+                                                             >> (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs2)))) 
+                                                      | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7408) 
+                                                         & ((0xfffffffeU 
+                                                             & vlSymsp->TOP__Rocket.__PVT__T_7410) 
+                                                            >> (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rd))))) 
+                                                  | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_6383) 
+                                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__dcache_blocked))) 
+                                                 | ((0x2000030U 
+                                                     == 
+                                                     (0x2000074U 
+                                                      & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                    & ((~ 
+                                                        ((0U 
+                                                          == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
+                                                         | ((5U 
+                                                             == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
+                                                            & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_wxd))))) 
+                                                       | (IData)(vlSymsp->TOP__Rocket.__PVT__T_7002)))) 
+                                                | ((IData)(vlSymsp->TOP__Rocket.__PVT__id_mem_busy) 
+                                                   & ((((0x2008U 
+                                                         == 
+                                                         (0x2048U 
+                                                          & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+                                                        & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
+                                                           >> 0x1aU)) 
+                                                       | (0x1008U 
+                                                          == 
+                                                          (0x1048U 
+                                                           & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
+                                                      | ((IData)(vlSymsp->TOP__Rocket.__PVT__id_reg_fence) 
+                                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6383))))) 
+                                               | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_wfi));
+    vlSymsp->TOP__Rocket.__PVT__T_7551 = (1U & ((((
+                                                   (~ (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_519)) 
+                                                   | (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_503)) 
+                                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__take_pc_mem_wb)) 
+                                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__ctrl_stalld)) 
+                                                | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_39)));
+    vlSymsp->TOP__Rocket.__PVT__T_7063 = (1U & (((~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)) 
+                                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_39)) 
+                                                | (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_503)));
 }
 
 void VRocket_Rocket::_ctor_var_reset() {
@@ -10068,6 +7918,7 @@ void VRocket_Rocket::_ctor_var_reset() {
     __PVT__take_pc_mem_wb = VL_RAND_RESET_I(1);
     ibuf_io_imem_bits_mask = VL_RAND_RESET_I(2);
     ibuf_io_imem_bits_xcpt_if = VL_RAND_RESET_I(1);
+    ibuf_io_inst_0_bits_inst_bits = VL_RAND_RESET_I(32);
     __PVT__T_6130 = VL_RAND_RESET_I(1);
     __PVT__T_6136 = VL_RAND_RESET_I(1);
     __PVT__T_6172 = VL_RAND_RESET_I(1);
@@ -10467,110 +8318,6 @@ void VRocket_Rocket::_ctor_var_reset() {
     __PVT__GEN_523 = VL_RAND_RESET_I(32);
     __PVT__error = VL_RAND_RESET_I(1);
     __Vlvbound1 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__nBufValid = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__GEN_33 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__buf_btb_valid = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__GEN_34 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__buf_btb_bits_taken = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__GEN_35 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__buf_btb_bits_mask = VL_RAND_RESET_I(2);
-    __PVT__ibuf__DOT__GEN_36 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__buf_btb_bits_bridx = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__GEN_37 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__buf_btb_bits_target = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__GEN_38 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__buf_btb_bits_entry = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__GEN_43 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__buf_btb_bits_bht_history = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__GEN_44 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__buf_btb_bits_bht_value = VL_RAND_RESET_I(2);
-    __PVT__ibuf__DOT__GEN_48 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__buf_pc = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__GEN_51 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__buf_data = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__GEN_52 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__buf_mask = VL_RAND_RESET_I(2);
-    __PVT__ibuf__DOT__GEN_53 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__buf_xcpt_if = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__GEN_54 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__buf_replay = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__GEN_55 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__ibufBTBHit = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__GEN_56 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__ibufBTBResp_taken = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__GEN_57 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__ibufBTBResp_mask = VL_RAND_RESET_I(2);
-    __PVT__ibuf__DOT__GEN_58 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__ibufBTBResp_bridx = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__GEN_59 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__ibufBTBResp_target = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__GEN_60 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__ibufBTBResp_entry = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__GEN_61 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__ibufBTBResp_bht_history = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__GEN_62 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__ibufBTBResp_bht_value = VL_RAND_RESET_I(2);
-    __PVT__ibuf__DOT__GEN_63 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__T_373 = VL_RAND_RESET_I(3);
-    __PVT__ibuf__DOT__T_374 = VL_RAND_RESET_I(3);
-    __PVT__ibuf__DOT__T_377 = VL_RAND_RESET_I(3);
-    __PVT__ibuf__DOT__T_378 = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__T_381 = VL_RAND_RESET_I(3);
-    __PVT__ibuf__DOT__T_399 = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__T_408 = VL_RAND_RESET_Q(64);
-    __PVT__ibuf__DOT__T_416 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__GEN_24 = VL_RAND_RESET_I(2);
-    __PVT__ibuf__DOT__GEN_29 = VL_RAND_RESET_I(2);
-    __PVT__ibuf__DOT__T_427 = VL_RAND_RESET_Q(64);
-    __PVT__ibuf__DOT__inst = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__xcpt_if = VL_RAND_RESET_I(2);
-    __PVT__ibuf__DOT__ic_replay = VL_RAND_RESET_I(2);
-    __PVT__ibuf__DOT__T_471 = VL_RAND_RESET_I(2);
-    __PVT__ibuf__DOT__btbHitMask = VL_RAND_RESET_I(4);
-    __PVT__ibuf__DOT__T_488 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__T_503 = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__T_519 = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__T_529 = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__T_540 = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__GEN_30 = VL_RAND_RESET_I(2);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_62 = VL_RAND_RESET_I(5);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_104 = VL_RAND_RESET_I(7);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_114 = VL_RAND_RESET_I(12);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_207 = VL_RAND_RESET_I(12);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_386 = VL_RAND_RESET_I(12);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_433 = VL_RAND_RESET_I(21);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_506 = VL_RAND_RESET_I(12);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_608 = VL_RAND_RESET_I(1);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_669 = VL_RAND_RESET_I(6);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_681 = VL_RAND_RESET_I(26);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_728 = VL_RAND_RESET_I(3);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_797 = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_955 = VL_RAND_RESET_I(13);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1016 = VL_RAND_RESET_I(17);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1197 = VL_RAND_RESET_I(8);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1284 = VL_RAND_RESET_I(10);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1397 = VL_RAND_RESET_I(6);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1434 = VL_RAND_RESET_I(6);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1449 = VL_RAND_RESET_I(8);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1635 = VL_RAND_RESET_I(5);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1736_bits = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1778_bits = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1778_rs2 = VL_RAND_RESET_I(5);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1778_rs3 = VL_RAND_RESET_I(5);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1784_rd = VL_RAND_RESET_I(5);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1784_rs1 = VL_RAND_RESET_I(5);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1852_bits = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1922_bits = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_bits = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rd = VL_RAND_RESET_I(5);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rs1 = VL_RAND_RESET_I(5);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rs2 = VL_RAND_RESET_I(5);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1934_rs3 = VL_RAND_RESET_I(5);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits = VL_RAND_RESET_I(32);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rd = VL_RAND_RESET_I(5);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs1 = VL_RAND_RESET_I(5);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs2 = VL_RAND_RESET_I(5);
-    __PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_rs3 = VL_RAND_RESET_I(5);
     __PVT__csr__DOT__reg_mstatus_debug = VL_RAND_RESET_I(1);
     __PVT__csr__DOT__GEN_208 = VL_RAND_RESET_I(32);
     __PVT__csr__DOT__reg_mstatus_isa = VL_RAND_RESET_I(32);

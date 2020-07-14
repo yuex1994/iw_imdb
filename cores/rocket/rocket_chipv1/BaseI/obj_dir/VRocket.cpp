@@ -406,7 +406,6 @@ void VRocket::_settle__TOP__3(VRocket__Syms* __restrict vlSymsp) {
     vlTOPp->io_imem_btb_update_bits_br_pc = (IData)(vlSymsp->TOP__Rocket.__PVT__T_7596);
     vlTOPp->io_imem_btb_update_bits_pc = (~ (3U | (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7596))));
     vlTOPp->io_dmem_req_valid = vlSymsp->TOP__Rocket.__PVT__T_7615;
-    vlTOPp->ibuf_io_pc_o = vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_488;
     vlTOPp->io_imem_ras_update_bits_isReturn = vlSymsp->TOP__Rocket.__PVT__T_7592;
     vlTOPp->io_imem_btb_update_bits_isReturn = vlSymsp->TOP__Rocket.__PVT__T_7592;
     vlTOPp->io_rocc_cmd_valid = vlSymsp->TOP__Rocket.__PVT__T_7634;
@@ -415,14 +414,8 @@ void VRocket::_settle__TOP__3(VRocket__Syms* __restrict vlSymsp) {
     vlTOPp->io_fpu_fromint_data = vlSymsp->TOP__Rocket.__PVT__ex_rs_0;
     vlTOPp->io_ptw_invalidate = vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_sfence_vm;
     vlTOPp->io_imem_flush_tlb = vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_sfence_vm;
-    vlTOPp->ibuf_io_inst_0_valid_o = vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_519;
     vlTOPp->io_imem_ras_update_bits_returnAddr = vlSymsp->TOP__Rocket.__PVT__T_7274;
     vlTOPp->io_dmem_req_bits_addr = (IData)(vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_20);
-    vlTOPp->io_imem_bht_update_bits_mispredict = vlSymsp->TOP__Rocket.__PVT__mem_wrong_npc;
-    vlTOPp->ibuf_io_inst_0_bits_inst_bits_o = vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits;
-    vlTOPp->io_fpu_inst = vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits;
-    vlTOPp->id_rs_1_in_use = vlSymsp->TOP__Rocket.__PVT__T_6172;
-    vlTOPp->id_rs_0_in_use = vlSymsp->TOP__Rocket.__PVT__T_6193;
     vlTOPp->io_dmem_invalidate_lr = vlSymsp->TOP__Rocket.__PVT__wb_xcpt;
     vlTOPp->io_rocc_exception = ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_xcpt) 
                                  & (0U != (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)));
@@ -443,29 +436,54 @@ void VRocket::_settle__TOP__3(VRocket__Syms* __restrict vlSymsp) {
     vlTOPp->io_imem_ras_update_valid = vlSymsp->TOP__Rocket.__PVT__T_7570;
     vlTOPp->io_imem_bht_update_valid = ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7570) 
                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_branch));
-    vlTOPp->io_imem_btb_update_valid = (((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_replay) 
-                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_hit)) 
-                                        | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7570) 
-                                           & (((IData)(vlSymsp->TOP__Rocket.__PVT__mem_cfi_taken) 
-                                               | (~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_cfi))) 
-                                              & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_wrong_npc))));
     vlTOPp->io_fpu_killm = vlSymsp->TOP__Rocket.__PVT__killm_common;
     vlTOPp->io_imem_req_valid = vlSymsp->TOP__Rocket.__PVT__take_pc_mem_wb;
     vlTOPp->io_dmem_s1_kill = vlSymsp->TOP__Rocket.__PVT__T_7618;
     vlTOPp->ctrl_killm_o = vlSymsp->TOP__Rocket.__PVT__ctrl_killm;
     vlTOPp->ctrl_killx_o = vlSymsp->TOP__Rocket.__PVT__ctrl_killx;
     vlTOPp->io_fpu_killx = vlSymsp->TOP__Rocket.__PVT__ctrl_killx;
-    vlTOPp->ctrl_killd_o = vlSymsp->TOP__Rocket.__PVT__T_7551;
     vlTOPp->io_imem_btb_update_bits_target = vlSymsp->TOP__Rocket.__PVT__T_7559;
     vlTOPp->io_imem_req_bits_pc = vlSymsp->TOP__Rocket.__PVT__T_7559;
-    vlTOPp->io_imem_resp_ready = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_378) 
-                                  & (((3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_374)) 
-                                      >= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_373))) 
-                                     | (1U >= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_381)))));
+    vlTOPp->ibuf_io_pc_o = vlSymsp->TOP__Rocket__ibuf.__PVT__T_488;
+    vlTOPp->ibuf_io_inst_0_valid_o = vlSymsp->TOP__Rocket__ibuf.__PVT__T_519;
 }
 
-VL_INLINE_OPT void VRocket::_combo__TOP__4(VRocket__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VRocket::_combo__TOP__4\n"); );
+void VRocket::_settle__TOP__4(VRocket__Syms* __restrict vlSymsp) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VRocket::_settle__TOP__4\n"); );
+    VRocket* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
+    // Body
+    vlTOPp->io_imem_bht_update_bits_mispredict = vlSymsp->TOP__Rocket.__PVT__mem_wrong_npc;
+    vlTOPp->io_imem_btb_update_valid = (((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_replay) 
+                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_hit)) 
+                                        | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7570) 
+                                           & (((IData)(vlSymsp->TOP__Rocket.__PVT__mem_cfi_taken) 
+                                               | (~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_cfi))) 
+                                              & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_wrong_npc))));
+}
+
+void VRocket::_settle__TOP__5(VRocket__Syms* __restrict vlSymsp) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VRocket::_settle__TOP__5\n"); );
+    VRocket* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
+    // Body
+    vlTOPp->ibuf_io_inst_0_bits_inst_bits_o = vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits;
+    vlTOPp->io_fpu_inst = vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits;
+    vlTOPp->id_rs_1_in_use = vlSymsp->TOP__Rocket.__PVT__T_6172;
+    vlTOPp->id_rs_0_in_use = vlSymsp->TOP__Rocket.__PVT__T_6193;
+    vlTOPp->ctrl_killd_o = vlSymsp->TOP__Rocket.__PVT__T_7551;
+}
+
+VL_INLINE_OPT void VRocket::_settle__TOP__6(VRocket__Syms* __restrict vlSymsp) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VRocket::_settle__TOP__6\n"); );
+    VRocket* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
+    // Body
+    vlTOPp->io_imem_resp_ready = ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_378) 
+                                  & (((3U & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_374)) 
+                                      >= (3U & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_373))) 
+                                     | (1U >= (3U & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_381)))));
+}
+
+VL_INLINE_OPT void VRocket::_combo__TOP__7(VRocket__Syms* __restrict vlSymsp) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VRocket::_combo__TOP__7\n"); );
     VRocket* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
     vlSymsp->TOP__Rocket.io_fpu_cp_resp_bits_data = vlTOPp->io_fpu_cp_resp_bits_data;
@@ -481,16 +499,16 @@ VL_INLINE_OPT void VRocket::_combo__TOP__4(VRocket__Syms* __restrict vlSymsp) {
     vlSymsp->TOP__Rocket.clock = vlTOPp->clock;
 }
 
-VL_INLINE_OPT void VRocket::_combo__TOP__5(VRocket__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VRocket::_combo__TOP__5\n"); );
+VL_INLINE_OPT void VRocket::_combo__TOP__8(VRocket__Syms* __restrict vlSymsp) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VRocket::_combo__TOP__8\n"); );
     VRocket* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
     vlTOPp->io_fpu_dmem_resp_val = ((IData)(vlSymsp->TOP__Rocket.__PVT__dmem_resp_valid) 
                                     & (IData)(vlTOPp->io_dmem_resp_bits_tag));
 }
 
-VL_INLINE_OPT void VRocket::_sequent__TOP__6(VRocket__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VRocket::_sequent__TOP__6\n"); );
+VL_INLINE_OPT void VRocket::_sequent__TOP__9(VRocket__Syms* __restrict vlSymsp) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VRocket::_sequent__TOP__9\n"); );
     VRocket* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
     vlTOPp->io_ptw_ptbr_asid = vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_sptbr_asid;
@@ -705,8 +723,8 @@ VL_INLINE_OPT void VRocket::_sequent__TOP__6(VRocket__Syms* __restrict vlSymsp) 
                                  & (0U != (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)));
 }
 
-VL_INLINE_OPT void VRocket::_combo__TOP__7(VRocket__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VRocket::_combo__TOP__7\n"); );
+VL_INLINE_OPT void VRocket::_combo__TOP__10(VRocket__Syms* __restrict vlSymsp) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VRocket::_combo__TOP__10\n"); );
     VRocket* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
     vlSymsp->TOP__Rocket.io_dmem_xcpt_pf_ld = vlTOPp->io_dmem_xcpt_pf_ld;
@@ -724,17 +742,16 @@ VL_INLINE_OPT void VRocket::_combo__TOP__7(VRocket__Syms* __restrict vlSymsp) {
                                      & (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_fence_i)) 
                                     & (~ (IData)(vlTOPp->io_dmem_s2_nack)));
     vlSymsp->TOP__Rocket.io_fpu_toint_data = vlTOPp->io_fpu_toint_data;
-    vlSymsp->TOP__Rocket.reset = vlTOPp->reset;
     vlTOPp->io_dmem_s1_data = ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc)
                                 ? vlTOPp->io_fpu_store_data
                                 : vlSymsp->TOP__Rocket.__PVT__mem_reg_rs2);
+    vlSymsp->TOP__Rocket.reset = vlTOPp->reset;
 }
 
-VL_INLINE_OPT void VRocket::_combo__TOP__8(VRocket__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VRocket::_combo__TOP__8\n"); );
+VL_INLINE_OPT void VRocket::_combo__TOP__11(VRocket__Syms* __restrict vlSymsp) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VRocket::_combo__TOP__11\n"); );
     VRocket* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    vlTOPp->ibuf_io_pc_o = vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_488;
     vlTOPp->io_rocc_cmd_valid = vlSymsp->TOP__Rocket.__PVT__T_7634;
     vlTOPp->ex_rs_1_o = vlSymsp->TOP__Rocket.__PVT__ex_rs_1;
     vlTOPp->ex_rs_0_o = vlSymsp->TOP__Rocket.__PVT__ex_rs_0;
@@ -760,11 +777,19 @@ VL_INLINE_OPT void VRocket::_combo__TOP__8(VRocket__Syms* __restrict vlSymsp) {
                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_branch));
     vlTOPp->io_fpu_killm = vlSymsp->TOP__Rocket.__PVT__killm_common;
     vlTOPp->io_imem_req_valid = vlSymsp->TOP__Rocket.__PVT__take_pc_mem_wb;
-    vlTOPp->ibuf_io_inst_0_valid_o = vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_519;
     vlTOPp->io_dmem_s1_kill = vlSymsp->TOP__Rocket.__PVT__T_7618;
     vlTOPp->ctrl_killm_o = vlSymsp->TOP__Rocket.__PVT__ctrl_killm;
     vlTOPp->ctrl_killx_o = vlSymsp->TOP__Rocket.__PVT__ctrl_killx;
     vlTOPp->io_fpu_killx = vlSymsp->TOP__Rocket.__PVT__ctrl_killx;
+    vlTOPp->io_dmem_req_bits_addr = (IData)(vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_20);
+    vlTOPp->ibuf_io_pc_o = vlSymsp->TOP__Rocket__ibuf.__PVT__T_488;
+    vlTOPp->ibuf_io_inst_0_valid_o = vlSymsp->TOP__Rocket__ibuf.__PVT__T_519;
+}
+
+VL_INLINE_OPT void VRocket::_combo__TOP__12(VRocket__Syms* __restrict vlSymsp) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VRocket::_combo__TOP__12\n"); );
+    VRocket* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
+    // Body
     vlTOPp->io_imem_bht_update_bits_mispredict = vlSymsp->TOP__Rocket.__PVT__mem_wrong_npc;
     vlTOPp->io_imem_btb_update_valid = (((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_replay) 
                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_hit)) 
@@ -772,34 +797,37 @@ VL_INLINE_OPT void VRocket::_combo__TOP__8(VRocket__Syms* __restrict vlSymsp) {
                                            & (((IData)(vlSymsp->TOP__Rocket.__PVT__mem_cfi_taken) 
                                                | (~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_cfi))) 
                                               & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_wrong_npc))));
-    vlTOPp->io_dmem_req_bits_addr = (IData)(vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_20);
-    vlTOPp->ibuf_io_inst_0_bits_inst_bits_o = vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits;
-    vlTOPp->io_fpu_inst = vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__RVCExpander_1__DOT__T_1940_bits;
+    vlTOPp->ibuf_io_inst_0_bits_inst_bits_o = vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits;
+    vlTOPp->io_fpu_inst = vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits;
     vlTOPp->id_rs_1_in_use = vlSymsp->TOP__Rocket.__PVT__T_6172;
     vlTOPp->id_rs_0_in_use = vlSymsp->TOP__Rocket.__PVT__T_6193;
     vlTOPp->ctrl_killd_o = vlSymsp->TOP__Rocket.__PVT__T_7551;
-    vlTOPp->io_imem_resp_ready = ((IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_378) 
-                                  & (((3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_374)) 
-                                      >= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_373))) 
-                                     | (1U >= (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ibuf__DOT__T_381)))));
 }
 
 void VRocket::_eval(VRocket__Syms* __restrict vlSymsp) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    VRocket::_eval\n"); );
     VRocket* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    vlTOPp->_combo__TOP__4(vlSymsp);
-    vlTOPp->__Vm_traceActivity = (2U | vlTOPp->__Vm_traceActivity);
-    vlSymsp->TOP__Rocket._combo__TOP__Rocket__2(vlSymsp);
-    vlTOPp->_combo__TOP__5(vlSymsp);
-    if (((IData)(vlSymsp->TOP__Rocket.clock) & (~ (IData)(vlTOPp->__Vclklast__TOP__Rocket__clock)))) {
-        vlSymsp->TOP__Rocket._sequent__TOP__Rocket__3(vlSymsp);
-        vlTOPp->__Vm_traceActivity = (4U | vlTOPp->__Vm_traceActivity);
-        vlTOPp->_sequent__TOP__6(vlSymsp);
-    }
     vlTOPp->_combo__TOP__7(vlSymsp);
+    vlTOPp->__Vm_traceActivity = (2U | vlTOPp->__Vm_traceActivity);
     vlSymsp->TOP__Rocket._combo__TOP__Rocket__4(vlSymsp);
+    vlSymsp->TOP__Rocket__ibuf._combo__TOP__Rocket__ibuf__3(vlSymsp);
     vlTOPp->_combo__TOP__8(vlSymsp);
+    if (((IData)(vlSymsp->TOP__Rocket.clock) & (~ (IData)(vlTOPp->__Vclklast__TOP__Rocket__clock)))) {
+        vlSymsp->TOP__Rocket._sequent__TOP__Rocket__5(vlSymsp);
+        vlTOPp->__Vm_traceActivity = (4U | vlTOPp->__Vm_traceActivity);
+        vlSymsp->TOP__Rocket__ibuf._sequent__TOP__Rocket__ibuf__4(vlSymsp);
+        vlTOPp->_sequent__TOP__9(vlSymsp);
+    }
+    vlTOPp->_combo__TOP__10(vlSymsp);
+    vlSymsp->TOP__Rocket._combo__TOP__Rocket__6(vlSymsp);
+    vlSymsp->TOP__Rocket__ibuf._combo__TOP__Rocket__ibuf__5(vlSymsp);
+    vlTOPp->_combo__TOP__11(vlSymsp);
+    vlSymsp->TOP__Rocket__ibuf__RVCExpander_1._settle__TOP__Rocket__ibuf__RVCExpander_1__1(vlSymsp);
+    vlSymsp->TOP__Rocket._combo__TOP__Rocket__7(vlSymsp);
+    vlTOPp->_combo__TOP__12(vlSymsp);
+    vlSymsp->TOP__Rocket__ibuf._settle__TOP__Rocket__ibuf__2(vlSymsp);
+    vlTOPp->_settle__TOP__6(vlSymsp);
     // Final
     vlTOPp->__Vclklast__TOP__Rocket__clock = vlSymsp->TOP__Rocket.clock;
 }
@@ -826,7 +854,15 @@ void VRocket::_eval_settle(VRocket__Syms* __restrict vlSymsp) {
     vlTOPp->_settle__TOP__2(vlSymsp);
     vlTOPp->__Vm_traceActivity = (1U | vlTOPp->__Vm_traceActivity);
     vlSymsp->TOP__Rocket._settle__TOP__Rocket__1(vlSymsp);
+    vlSymsp->TOP__Rocket__ibuf._settle__TOP__Rocket__ibuf__1(vlSymsp);
     vlTOPp->_settle__TOP__3(vlSymsp);
+    vlSymsp->TOP__Rocket._settle__TOP__Rocket__2(vlSymsp);
+    vlSymsp->TOP__Rocket__ibuf__RVCExpander_1._settle__TOP__Rocket__ibuf__RVCExpander_1__1(vlSymsp);
+    vlTOPp->_settle__TOP__4(vlSymsp);
+    vlSymsp->TOP__Rocket._settle__TOP__Rocket__3(vlSymsp);
+    vlTOPp->_settle__TOP__5(vlSymsp);
+    vlSymsp->TOP__Rocket__ibuf._settle__TOP__Rocket__ibuf__2(vlSymsp);
+    vlTOPp->_settle__TOP__6(vlSymsp);
 }
 
 VL_INLINE_OPT QData VRocket::_change_request(VRocket__Syms* __restrict vlSymsp) {

@@ -19,6 +19,8 @@ VM_TRACE_THREADED = 0
 VM_CLASSES_FAST += \
 	VRocket \
 	VRocket_Rocket \
+	VRocket_IBuf \
+	VRocket_RVCExpander \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization
 VM_CLASSES_SLOW += \

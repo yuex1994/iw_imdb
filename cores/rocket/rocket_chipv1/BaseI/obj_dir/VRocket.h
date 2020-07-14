@@ -432,8 +432,9 @@ VL_MODULE(VRocket) {
   private:
     static QData _change_request(VRocket__Syms* __restrict vlSymsp);
   public:
-    static void _combo__TOP__4(VRocket__Syms* __restrict vlSymsp);
-    static void _combo__TOP__5(VRocket__Syms* __restrict vlSymsp);
+    static void _combo__TOP__10(VRocket__Syms* __restrict vlSymsp);
+    static void _combo__TOP__11(VRocket__Syms* __restrict vlSymsp);
+    static void _combo__TOP__12(VRocket__Syms* __restrict vlSymsp);
     static void _combo__TOP__7(VRocket__Syms* __restrict vlSymsp);
     static void _combo__TOP__8(VRocket__Syms* __restrict vlSymsp);
   private:
@@ -448,9 +449,12 @@ VL_MODULE(VRocket) {
     static void _eval_initial(VRocket__Syms* __restrict vlSymsp) VL_ATTR_COLD;
     static void _eval_settle(VRocket__Syms* __restrict vlSymsp) VL_ATTR_COLD;
     static void _initial__TOP__1(VRocket__Syms* __restrict vlSymsp) VL_ATTR_COLD;
-    static void _sequent__TOP__6(VRocket__Syms* __restrict vlSymsp);
+    static void _sequent__TOP__9(VRocket__Syms* __restrict vlSymsp);
     static void _settle__TOP__2(VRocket__Syms* __restrict vlSymsp) VL_ATTR_COLD;
     static void _settle__TOP__3(VRocket__Syms* __restrict vlSymsp) VL_ATTR_COLD;
+    static void _settle__TOP__4(VRocket__Syms* __restrict vlSymsp) VL_ATTR_COLD;
+    static void _settle__TOP__5(VRocket__Syms* __restrict vlSymsp) VL_ATTR_COLD;
+    static void _settle__TOP__6(VRocket__Syms* __restrict vlSymsp);
     static void traceChgThis(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
     static void traceChgThis__2(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
     static void traceChgThis__3(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);

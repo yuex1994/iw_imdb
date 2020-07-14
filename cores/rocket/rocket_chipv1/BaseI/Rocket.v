@@ -668,7 +668,7 @@ module Rocket(
   wire  ibuf_io_inst_0_bits_replay;
   wire  ibuf_io_inst_0_bits_btb_hit;
   wire  ibuf_io_inst_0_bits_rvc;
-  wire [31:0] ibuf_io_inst_0_bits_inst_bits;
+  wire [31:0] ibuf_io_inst_0_bits_inst_bits /*verilator public*/;
   wire [4:0] ibuf_io_inst_0_bits_inst_rd;
   wire [4:0] ibuf_io_inst_0_bits_inst_rs1;
   wire [4:0] ibuf_io_inst_0_bits_inst_rs2;
