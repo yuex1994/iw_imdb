@@ -34,6 +34,7 @@ VRocket__Syms::VRocket__Syms(VRocket* topp, const char* namep)
     // Setup scopes
     __Vscope_Rocket.configure(this, name(), "Rocket", "Rocket", VerilatedScope::SCOPE_OTHER);
     __Vscope_Rocket__csr.configure(this, name(), "Rocket.csr", "csr", VerilatedScope::SCOPE_OTHER);
+    __Vscope_Rocket__ibuf.configure(this, name(), "Rocket.ibuf", "ibuf", VerilatedScope::SCOPE_OTHER);
     __Vscope_Rocket__ibuf__RVCExpander_1.configure(this, name(), "Rocket.ibuf.RVCExpander_1", "RVCExpander_1", VerilatedScope::SCOPE_OTHER);
     __Vscope_TOP.configure(this, name(), "TOP", "TOP", VerilatedScope::SCOPE_OTHER);
     // Setup export functions
@@ -69,6 +70,7 @@ VRocket__Syms::VRocket__Syms(VRocket* topp, const char* namep)
         __Vscope_Rocket.varInsert(__Vfinal,"io_fpu_nack_mem", &(TOP__Rocket.io_fpu_nack_mem), VLVT_UINT8,VLVD_IN|VLVF_PUB_RW,0);
         __Vscope_Rocket.varInsert(__Vfinal,"io_fpu_toint_data", &(TOP__Rocket.io_fpu_toint_data), VLVT_UINT32,VLVD_IN|VLVF_PUB_RW,1 ,31,0);
         __Vscope_Rocket.varInsert(__Vfinal,"reset", &(TOP__Rocket.reset), VLVT_UINT8,VLVD_IN|VLVF_PUB_RW,0);
+        __Vscope_Rocket__ibuf.varInsert(__Vfinal,"nBufValid", &(TOP__Rocket__ibuf.nBufValid), VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,0);
         __Vscope_Rocket__ibuf__RVCExpander_1.varInsert(__Vfinal,"io_in", &(TOP__Rocket__ibuf__RVCExpander_1.io_in), VLVT_UINT32,VLVD_IN|VLVF_PUB_RW,1 ,31,0);
         __Vscope_TOP.varInsert(__Vfinal,"clock", &(TOPp->clock), VLVT_UINT8,VLVD_IN|VLVF_PUB_RW,0);
         __Vscope_TOP.varInsert(__Vfinal,"io_dmem_xcpt_ma_ld", &(TOPp->io_dmem_xcpt_ma_ld), VLVT_UINT8,VLVD_IN|VLVF_PUB_RW,0);

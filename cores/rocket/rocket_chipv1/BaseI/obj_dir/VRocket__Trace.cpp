@@ -4583,32 +4583,12 @@ void VRocket::traceChgThis__3(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
         vcdp->chgBus(c+7873,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_474)
                                ? vlSymsp->TOP__Rocket.__PVT__ex_rs_1
                                : vlSymsp->TOP__Rocket.__PVT__div__DOT__req_in2)),32);
-        vcdp->chgBus(c+7881,((7U & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid) 
-                                    - (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__GEN_30)))),3);
-        vcdp->chgBus(c+7889,((3U & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid) 
-                                    - (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__GEN_30)))),2);
-        vcdp->chgBus(c+7897,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_378)
-                               ? 0U : (3U & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid) 
-                                             - (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__GEN_30))))),2);
-        vcdp->chgBus(c+7905,((3U & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
-                                     ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_381)
-                                     : ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_378)
-                                         ? 0U : ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid) 
-                                                 - (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__GEN_30)))))),2);
-        vcdp->chgBus(c+7913,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBus(c+7881,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                ? vlSymsp->TOP__Rocket__ibuf.__PVT__T_416
                                : vlSymsp->TOP__Rocket__ibuf.__PVT__buf_pc)),32);
-        vcdp->chgBus(c+7921,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBus(c+7889,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                ? (0xffffU & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_408))
                                : vlSymsp->TOP__Rocket__ibuf.__PVT__buf_data)),32);
-        vcdp->chgBus(c+7929,(((IData)(vlSymsp->TOP__Rocket.__PVT__take_pc_mem_wb)
-                               ? 0U : (3U & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
-                                              ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_381)
-                                              : ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_378)
-                                                  ? 0U
-                                                  : 
-                                                 ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid) 
-                                                  - (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__GEN_30))))))),2);
     }
 }
 
@@ -4641,30 +4621,30 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
     WData/*95:0*/ __Vtemp229[3];
     // Body
     {
-        vcdp->chgBus(c+7937,((~ (3U | (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7596))))),32);
-        vcdp->chgBit(c+7945,(((~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_replay)) 
+        vcdp->chgBus(c+7897,((~ (3U | (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7596))))),32);
+        vcdp->chgBit(c+7905,(((~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_replay)) 
                               & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_cfi))));
-        vcdp->chgBit(c+7953,(vlSymsp->TOP__Rocket.__PVT__T_7586));
-        vcdp->chgBit(c+7961,(vlSymsp->TOP__Rocket.__PVT__T_7592));
-        vcdp->chgBus(c+7969,((IData)(vlSymsp->TOP__Rocket.__PVT__T_7596)),32);
-        vcdp->chgBit(c+7977,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7586) 
+        vcdp->chgBit(c+7913,(vlSymsp->TOP__Rocket.__PVT__T_7586));
+        vcdp->chgBit(c+7921,(vlSymsp->TOP__Rocket.__PVT__T_7592));
+        vcdp->chgBus(c+7929,((IData)(vlSymsp->TOP__Rocket.__PVT__T_7596)),32);
+        vcdp->chgBit(c+7937,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7586) 
                               & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                  >> 7U))));
-        vcdp->chgBus(c+7985,(vlSymsp->TOP__Rocket.__PVT__T_7274),32);
-        vcdp->chgBit(c+7993,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_sfence_vm));
-        vcdp->chgBit(c+8001,(vlSymsp->TOP__Rocket.__PVT__T_7615));
-        vcdp->chgBit(c+8009,(vlSymsp->TOP__Rocket.__PVT__wb_xcpt));
-        vcdp->chgBit(c+8017,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573));
-        vcdp->chgBit(c+8025,(((IData)(vlSymsp->TOP__Rocket.__PVT__wb_xcpt) 
+        vcdp->chgBus(c+7945,(vlSymsp->TOP__Rocket.__PVT__T_7274),32);
+        vcdp->chgBit(c+7953,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_sfence_vm));
+        vcdp->chgBit(c+7961,(vlSymsp->TOP__Rocket.__PVT__T_7615));
+        vcdp->chgBit(c+7969,(vlSymsp->TOP__Rocket.__PVT__wb_xcpt));
+        vcdp->chgBit(c+7977,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573));
+        vcdp->chgBit(c+7985,(((IData)(vlSymsp->TOP__Rocket.__PVT__wb_xcpt) 
                               & (0U != (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)))));
-        vcdp->chgBit(c+8033,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_valid) 
+        vcdp->chgBit(c+7993,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_valid) 
                               & ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_cfi_taken) 
                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_flush_pipe)))));
-        vcdp->chgBus(c+8041,(vlSymsp->TOP__Rocket.__PVT__T_7399),3);
-        vcdp->chgBit(c+8049,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5508));
-        vcdp->chgBit(c+8057,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret));
-        vcdp->chgBit(c+8065,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5566));
-        vcdp->chgBus(c+8073,(((IData)(vlSymsp->TOP__Rocket.__PVT__wb_xcpt)
+        vcdp->chgBus(c+8001,(vlSymsp->TOP__Rocket.__PVT__T_7399),3);
+        vcdp->chgBit(c+8009,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5508));
+        vcdp->chgBit(c+8017,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret));
+        vcdp->chgBit(c+8025,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5566));
+        vcdp->chgBus(c+8033,(((IData)(vlSymsp->TOP__Rocket.__PVT__wb_xcpt)
                                ? ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
                                    ? ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)
                                        ? 0x808U : 0x800U)
@@ -4674,42 +4654,42 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                 >> 0x14U)))
                                    ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dpc
                                    : vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mepc))),32);
-        vcdp->chgBus(c+8081,((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4814)),32);
-        vcdp->chgBit(c+8089,(vlSymsp->TOP__Rocket.__PVT__T_6842));
-        vcdp->chgBit(c+8097,(((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_278) 
+        vcdp->chgBus(c+8041,((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4814)),32);
+        vcdp->chgBit(c+8049,(vlSymsp->TOP__Rocket.__PVT__T_6842));
+        vcdp->chgBit(c+8057,(((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_278) 
                               & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action)))));
-        vcdp->chgBit(c+8105,(((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_281) 
+        vcdp->chgBit(c+8065,(((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_281) 
                               & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action)))));
-        vcdp->chgBit(c+8113,(((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_278) 
+        vcdp->chgBit(c+8073,(((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_278) 
                               & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action))));
-        vcdp->chgBit(c+8121,(((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_281) 
+        vcdp->chgBit(c+8081,(((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_281) 
                               & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action))));
-        vcdp->chgBit(c+8129,(vlSymsp->TOP__Rocket.__PVT__T_6866));
-        vcdp->chgBit(c+8137,(vlSymsp->TOP__Rocket.__PVT__T_6867));
-        vcdp->chgBit(c+8145,(vlSymsp->TOP__Rocket.__PVT__T_6870));
-        vcdp->chgBus(c+8153,(vlSymsp->TOP__Rocket.__PVT__T_6909),32);
-        vcdp->chgBus(c+8161,(vlSymsp->TOP__Rocket.__PVT__T_6914),32);
-        vcdp->chgBit(c+8169,(vlSymsp->TOP__Rocket.__PVT__T_6919));
-        vcdp->chgBus(c+8177,((0x7ffU & ((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
+        vcdp->chgBit(c+8089,(vlSymsp->TOP__Rocket.__PVT__T_6866));
+        vcdp->chgBit(c+8097,(vlSymsp->TOP__Rocket.__PVT__T_6867));
+        vcdp->chgBit(c+8105,(vlSymsp->TOP__Rocket.__PVT__T_6870));
+        vcdp->chgBus(c+8113,(vlSymsp->TOP__Rocket.__PVT__T_6909),32);
+        vcdp->chgBus(c+8121,(vlSymsp->TOP__Rocket.__PVT__T_6914),32);
+        vcdp->chgBit(c+8129,(vlSymsp->TOP__Rocket.__PVT__T_6919));
+        vcdp->chgBus(c+8137,((0x7ffU & ((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
                                          ? (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                             >> 0x14U)
                                          : VL_NEGATE_I((IData)((IData)(vlSymsp->TOP__Rocket.__PVT__T_6919)))))),11);
-        vcdp->chgBus(c+8185,((0xffU & (((2U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)) 
+        vcdp->chgBus(c+8145,((0xffU & (((2U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)) 
                                         & (3U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)))
                                         ? VL_NEGATE_I((IData)((IData)(vlSymsp->TOP__Rocket.__PVT__T_6919)))
                                         : (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                            >> 0xcU)))),8);
-        vcdp->chgBit(c+8193,(vlSymsp->TOP__Rocket.__PVT__T_6932));
-        vcdp->chgBit(c+8201,((1U & ((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
+        vcdp->chgBit(c+8153,(vlSymsp->TOP__Rocket.__PVT__T_6932));
+        vcdp->chgBit(c+8161,((1U & ((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
                                      ? (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                         >> 7U) : (IData)(vlSymsp->TOP__Rocket.__PVT__T_6919)))));
-        vcdp->chgBit(c+8209,((1U & ((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
+        vcdp->chgBit(c+8169,((1U & ((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
                                      ? (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                         >> 0x14U) : 
                                     ((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
                                       ? (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                          >> 7U) : (IData)(vlSymsp->TOP__Rocket.__PVT__T_6919))))));
-        vcdp->chgBit(c+8217,((1U & ((~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_6932)) 
+        vcdp->chgBit(c+8177,((1U & ((~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_6932)) 
                                     & ((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
                                         ? (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                            >> 0x14U)
@@ -4717,10 +4697,10 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                             ? (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                                >> 7U)
                                             : (IData)(vlSymsp->TOP__Rocket.__PVT__T_6919)))))));
-        vcdp->chgBus(c+8225,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_6932)
+        vcdp->chgBus(c+8185,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_6932)
                                ? 0U : (0x3fU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                                 >> 0x19U)))),6);
-        vcdp->chgBus(c+8233,(((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6932)
+        vcdp->chgBus(c+8193,(((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6932)
                                  ? 0U : (0x3fU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                                   >> 0x19U))) 
                                << 4U) | ((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
@@ -4741,7 +4721,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                        : 
                                                       (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                                        >> 0x15U))))))),10);
-        vcdp->chgBus(c+8241,(((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6932)
+        vcdp->chgBus(c+8201,(((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6932)
                                  ? 0U : (0x3fU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                                   >> 0x19U))) 
                                << 5U) | ((((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
@@ -4777,7 +4757,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                    == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)) 
                                                   & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                                      >> 0xfU)))))))),11);
-        vcdp->chgBus(c+8249,(((0x1feU & ((((2U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)) 
+        vcdp->chgBus(c+8209,(((0x1feU & ((((2U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)) 
                                            & (3U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)))
                                            ? VL_NEGATE_I((IData)((IData)(vlSymsp->TOP__Rocket.__PVT__T_6919)))
                                            : (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
@@ -4791,13 +4771,13 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                              ? (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                                 >> 7U)
                                              : (IData)(vlSymsp->TOP__Rocket.__PVT__T_6919))))))),9);
-        vcdp->chgBus(c+8257,((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6919) 
+        vcdp->chgBus(c+8217,((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6919) 
                                << 0xbU) | (0x7ffU & 
                                            ((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
                                              ? (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                                 >> 0x14U)
                                              : VL_NEGATE_I((IData)((IData)(vlSymsp->TOP__Rocket.__PVT__T_6919))))))),12);
-        vcdp->chgBus(c+8265,(((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6919) 
+        vcdp->chgBus(c+8225,(((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6919) 
                                 << 0x14U) | (0xffe00U 
                                              & (((2U 
                                                   == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
@@ -4824,10 +4804,10 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                  (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                                   >> 7U)
                                                   : (IData)(vlSymsp->TOP__Rocket.__PVT__T_6919)))))))),21);
-        vcdp->chgBus(c+8273,(vlSymsp->TOP__Rocket.__PVT__T_6983),32);
-        vcdp->chgBus(c+8281,(vlSymsp->TOP__Rocket.__PVT__T_6983),32);
-        vcdp->chgBus(c+8289,(vlSymsp->TOP__Rocket.__PVT__T_6996),4);
-        vcdp->chgBus(c+8297,(((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu2))
+        vcdp->chgBus(c+8233,(vlSymsp->TOP__Rocket.__PVT__T_6983),32);
+        vcdp->chgBus(c+8241,(vlSymsp->TOP__Rocket.__PVT__T_6983),32);
+        vcdp->chgBus(c+8249,(vlSymsp->TOP__Rocket.__PVT__T_6996),4);
+        vcdp->chgBus(c+8257,(((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu2))
                                ? vlSymsp->TOP__Rocket.__PVT__T_6983
                                : ((0xfffffff0U & (VL_NEGATE_I((IData)(
                                                                       (1U 
@@ -4835,16 +4815,16 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                                           >> 3U)))) 
                                                   << 4U)) 
                                   | (IData)(vlSymsp->TOP__Rocket.__PVT__T_6996)))),32);
-        vcdp->chgBit(c+8305,(vlSymsp->TOP__Rocket.__PVT__T_7002));
-        vcdp->chgBit(c+8313,(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid));
-        vcdp->chgBit(c+8321,(vlSymsp->TOP__Rocket.__PVT__ex_slow_bypass));
-        vcdp->chgBit(c+8329,(vlSymsp->TOP__Rocket.__PVT__T_7102));
-        vcdp->chgBus(c+8337,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7102)
+        vcdp->chgBit(c+8265,(vlSymsp->TOP__Rocket.__PVT__T_7002));
+        vcdp->chgBit(c+8273,(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid));
+        vcdp->chgBit(c+8281,(vlSymsp->TOP__Rocket.__PVT__ex_slow_bypass));
+        vcdp->chgBit(c+8289,(vlSymsp->TOP__Rocket.__PVT__T_7102));
+        vcdp->chgBus(c+8297,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7102)
                                ? vlSymsp->TOP__Rocket.__PVT__ex_reg_cause
                                : 2U)),32);
-        vcdp->chgBit(c+8345,(vlSymsp->TOP__Rocket.__PVT__T_7106));
-        vcdp->chgBus(c+8353,(vlSymsp->TOP__Rocket.__PVT__T_7173),12);
-        vcdp->chgBus(c+8361,((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7173) 
+        vcdp->chgBit(c+8305,(vlSymsp->TOP__Rocket.__PVT__T_7106));
+        vcdp->chgBus(c+8313,(vlSymsp->TOP__Rocket.__PVT__T_7173),12);
+        vcdp->chgBus(c+8321,((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7173) 
                                << 9U) | ((0x1feU & 
                                           (VL_NEGATE_I((IData)(
                                                                (1U 
@@ -4853,7 +4833,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                            << 1U)) 
                                          | (1U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                                   >> 7U))))),21);
-        vcdp->chgBus(c+8369,(((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7173) 
+        vcdp->chgBus(c+8329,(((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7173) 
                                 << 0x14U) | ((0xff000U 
                                               & (VL_NEGATE_I((IData)(
                                                                      (1U 
@@ -4867,13 +4847,13 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                             >> 0x14U)) 
                                  | (0x1eU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                              >> 7U))))),32);
-        vcdp->chgBus(c+8377,((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7173) 
+        vcdp->chgBus(c+8337,((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7173) 
                                << 9U) | ((0x1feU & 
                                           (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                            >> 0xbU)) 
                                          | (1U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                                   >> 0x14U))))),21);
-        vcdp->chgBus(c+8385,(((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7173) 
+        vcdp->chgBus(c+8345,(((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7173) 
                                 << 0x14U) | ((0xff000U 
                                               & vlSymsp->TOP__Rocket.__PVT__mem_reg_inst) 
                                              | (0x800U 
@@ -4881,7 +4861,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                    >> 9U)))) 
                               | (0x7feU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                            >> 0x14U)))),32);
-        vcdp->chgBus(c+8393,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_jal)
+        vcdp->chgBus(c+8353,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_jal)
                                ? ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7173) 
                                     << 0x14U) | ((0xff000U 
                                                   & vlSymsp->TOP__Rocket.__PVT__mem_reg_inst) 
@@ -4899,7 +4879,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                   << 4U)) 
                                   | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_rvc)
                                       ? 2U : 4U)))),32);
-        vcdp->chgBus(c+8401,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7106)
+        vcdp->chgBus(c+8361,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7106)
                                ? ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7173) 
                                     << 0x14U) | ((0xff000U 
                                                   & (VL_NEGATE_I((IData)(
@@ -4933,313 +4913,313 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                           << 4U)) | 
                                       ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_rvc)
                                         ? 2U : 4U))))),32);
-        vcdp->chgQuad(c+8409,(vlSymsp->TOP__Rocket.__PVT__T_7254),33);
-        vcdp->chgBus(c+8425,((IData)(vlSymsp->TOP__Rocket.__PVT__T_7254)),32);
-        vcdp->chgBus(c+8433,(vlSymsp->TOP__Rocket.__PVT__T_7257),32);
-        vcdp->chgBus(c+8441,((0xfffffffeU & vlSymsp->TOP__Rocket.__PVT__T_7257)),32);
-        vcdp->chgBit(c+8449,(((0xfffffffeU & vlSymsp->TOP__Rocket.__PVT__T_7257) 
+        vcdp->chgQuad(c+8369,(vlSymsp->TOP__Rocket.__PVT__T_7254),33);
+        vcdp->chgBus(c+8385,((IData)(vlSymsp->TOP__Rocket.__PVT__T_7254)),32);
+        vcdp->chgBus(c+8393,(vlSymsp->TOP__Rocket.__PVT__T_7257),32);
+        vcdp->chgBus(c+8401,((0xfffffffeU & vlSymsp->TOP__Rocket.__PVT__T_7257)),32);
+        vcdp->chgBit(c+8409,(((0xfffffffeU & vlSymsp->TOP__Rocket.__PVT__T_7257) 
                               != vlSymsp->TOP__Rocket.__PVT__ex_reg_pc)));
-        vcdp->chgBit(c+8457,((1U & (vlSymsp->TOP__Rocket.__PVT__T_7257 
+        vcdp->chgBit(c+8417,((1U & (vlSymsp->TOP__Rocket.__PVT__T_7257 
                                     >> 1U))));
-        vcdp->chgBit(c+8465,(vlSymsp->TOP__Rocket.__PVT__mem_npc_misaligned));
-        vcdp->chgBit(c+8473,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_jalr) 
+        vcdp->chgBit(c+8425,(vlSymsp->TOP__Rocket.__PVT__mem_npc_misaligned));
+        vcdp->chgBit(c+8433,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_jalr) 
                               ^ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_npc_misaligned))));
-        vcdp->chgBit(c+8481,(((~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_xcpt)) 
+        vcdp->chgBit(c+8441,(((~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_xcpt)) 
                               & ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_jalr) 
                                  ^ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_npc_misaligned)))));
-        vcdp->chgBit(c+8489,(vlSymsp->TOP__Rocket.__PVT__mem_cfi));
-        vcdp->chgBit(c+8497,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7106) 
+        vcdp->chgBit(c+8449,(vlSymsp->TOP__Rocket.__PVT__mem_cfi));
+        vcdp->chgBit(c+8457,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7106) 
                               | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_jalr))));
-        vcdp->chgBit(c+8505,(vlSymsp->TOP__Rocket.__PVT__mem_cfi_taken));
-        vcdp->chgBit(c+8513,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_cfi_taken) 
+        vcdp->chgBit(c+8465,(vlSymsp->TOP__Rocket.__PVT__mem_cfi_taken));
+        vcdp->chgBit(c+8473,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_cfi_taken) 
                               | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_flush_pipe))));
-        vcdp->chgBit(c+8521,(vlSymsp->TOP__Rocket.__PVT__T_7300));
-        vcdp->chgBit(c+8529,(((((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd)) 
+        vcdp->chgBit(c+8481,(vlSymsp->TOP__Rocket.__PVT__T_7300));
+        vcdp->chgBit(c+8489,(((((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd)) 
                                 | (6U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd))) 
                                | (7U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd))) 
                               | (IData)(vlSymsp->TOP__Rocket.__PVT__T_7300))));
-        vcdp->chgBit(c+8537,(vlSymsp->TOP__Rocket.__PVT__T_7302));
-        vcdp->chgBit(c+8545,((((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd)) 
+        vcdp->chgBit(c+8497,(vlSymsp->TOP__Rocket.__PVT__T_7302));
+        vcdp->chgBit(c+8505,((((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd)) 
                                | (7U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd))) 
                               | (IData)(vlSymsp->TOP__Rocket.__PVT__T_7300))));
-        vcdp->chgBit(c+8553,(vlSymsp->TOP__Rocket.__PVT__T_7310));
-        vcdp->chgBit(c+8561,(vlSymsp->TOP__Rocket.__PVT__T_7312));
-        vcdp->chgBit(c+8569,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8513,(vlSymsp->TOP__Rocket.__PVT__T_7310));
+        vcdp->chgBit(c+8521,(vlSymsp->TOP__Rocket.__PVT__T_7312));
+        vcdp->chgBit(c+8529,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_legal)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_legal))));
-        vcdp->chgBit(c+8577,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8537,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc))));
-        vcdp->chgBit(c+8585,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8545,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_branch)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_branch))));
-        vcdp->chgBit(c+8593,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8553,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_jal)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_jal))));
-        vcdp->chgBit(c+8601,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8561,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_jalr)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_jalr))));
-        vcdp->chgBit(c+8609,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8569,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rxs2)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rxs2))));
-        vcdp->chgBit(c+8617,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8577,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rxs1)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rxs1))));
-        vcdp->chgBus(c+8625,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBus(c+8585,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu2)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_sel_alu2))),2);
-        vcdp->chgBus(c+8633,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBus(c+8593,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu1)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_sel_alu1))),2);
-        vcdp->chgBus(c+8641,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBus(c+8601,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_sel_imm))),3);
-        vcdp->chgBit(c+8649,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8609,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_dw)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_alu_dw))));
-        vcdp->chgBus(c+8657,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBus(c+8617,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_alu_fn))),4);
-        vcdp->chgBit(c+8665,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8625,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem))));
-        vcdp->chgBus(c+8673,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBus(c+8633,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem_cmd))),5);
-        vcdp->chgBus(c+8681,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBus(c+8641,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem_type))),3);
-        vcdp->chgBit(c+8689,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8649,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rfs1)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rfs1))));
-        vcdp->chgBit(c+8697,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8657,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rfs2)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rfs2))));
-        vcdp->chgBit(c+8705,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8665,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rfs3)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rfs3))));
-        vcdp->chgBit(c+8713,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8673,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_div)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_div))));
-        vcdp->chgBit(c+8721,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8681,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_wxd)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_wxd))));
-        vcdp->chgBus(c+8729,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBus(c+8689,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr))),3);
-        vcdp->chgBit(c+8737,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8697,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_fence_i)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_fence_i))));
-        vcdp->chgBit(c+8745,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8705,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_fence)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_fence))));
-        vcdp->chgBit(c+8753,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8713,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_amo)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_amo))));
-        vcdp->chgBit(c+8761,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8721,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_dp)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_dp))));
-        vcdp->chgBit(c+8769,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8729,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_rvc)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_rvc))));
-        vcdp->chgBit(c+8777,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8737,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__T_7302)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_load))));
-        vcdp->chgBit(c+8785,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8745,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__T_7310)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_store))));
-        vcdp->chgBit(c+8793,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8753,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_hit))));
-        vcdp->chgBit(c+8801,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8761,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
                                    ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_taken)
                                    : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_taken))
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_taken))));
-        vcdp->chgBus(c+8809,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBus(c+8769,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
                                    ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_mask)
                                    : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_mask))
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_mask))),2);
-        vcdp->chgBit(c+8817,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8777,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
                                    ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_bridx)
                                    : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_bridx))
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_bridx))));
-        vcdp->chgBus(c+8825,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBus(c+8785,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
                                    ? vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_target
                                    : vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_target)
                                : vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_target)),32);
-        vcdp->chgBit(c+8833,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8793,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
                                    ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_entry)
                                    : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_entry))
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_entry))));
-        vcdp->chgBit(c+8841,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8801,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
                                    ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_bht_history)
                                    : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_bht_history))
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_bht_history))));
-        vcdp->chgBus(c+8849,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBus(c+8809,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
                                    ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_bht_value)
                                    : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_bht_value))
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_bht_value))),2);
-        vcdp->chgBit(c+8857,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8817,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_flush_pipe)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_flush_pipe))));
-        vcdp->chgBit(c+8865,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBit(c+8825,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_slow_bypass)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_slow_bypass))));
-        vcdp->chgBus(c+8873,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBus(c+8833,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? vlSymsp->TOP__Rocket.__PVT__ex_reg_inst
                                : vlSymsp->TOP__Rocket.__PVT__mem_reg_inst)),32);
-        vcdp->chgBus(c+8881,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
+        vcdp->chgBus(c+8841,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_pc_valid)
                                ? vlSymsp->TOP__Rocket.__PVT__ex_reg_pc
                                : vlSymsp->TOP__Rocket.__PVT__mem_reg_pc)),32);
-        vcdp->chgBit(c+8889,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_load) 
+        vcdp->chgBit(c+8849,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_load) 
                               & ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_278) 
                                  & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action))))));
-        vcdp->chgBit(c+8897,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_store) 
+        vcdp->chgBit(c+8857,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_store) 
                               & ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_281) 
                                  & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action))))));
-        vcdp->chgBit(c+8905,(vlSymsp->TOP__Rocket.__PVT__mem_breakpoint));
-        vcdp->chgBit(c+8913,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_load) 
+        vcdp->chgBit(c+8865,(vlSymsp->TOP__Rocket.__PVT__mem_breakpoint));
+        vcdp->chgBit(c+8873,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_load) 
                               & ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_278) 
                                  & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action)))));
-        vcdp->chgBit(c+8921,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_store) 
+        vcdp->chgBit(c+8881,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_store) 
                               & ((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_281) 
                                  & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action)))));
-        vcdp->chgBit(c+8929,(vlSymsp->TOP__Rocket.__PVT__mem_debug_breakpoint));
-        vcdp->chgBit(c+8937,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_debug_breakpoint) 
+        vcdp->chgBit(c+8889,(vlSymsp->TOP__Rocket.__PVT__mem_debug_breakpoint));
+        vcdp->chgBit(c+8897,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_debug_breakpoint) 
                               | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_breakpoint))));
-        vcdp->chgBit(c+8945,((((IData)(vlSymsp->TOP__Rocket.__PVT__mem_debug_breakpoint) 
+        vcdp->chgBit(c+8905,((((IData)(vlSymsp->TOP__Rocket.__PVT__mem_debug_breakpoint) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_breakpoint)) 
                               | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_npc_misaligned))));
-        vcdp->chgBit(c+8953,(vlSymsp->TOP__Rocket.__PVT__T_7338));
-        vcdp->chgBit(c+8961,(((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
+        vcdp->chgBit(c+8913,(vlSymsp->TOP__Rocket.__PVT__T_7338));
+        vcdp->chgBit(c+8921,(((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
                               & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7002))));
-        vcdp->chgBit(c+8969,(vlSymsp->TOP__Rocket.__PVT__T_7360));
-        vcdp->chgBit(c+8977,(vlSymsp->TOP__Rocket.__PVT__T_7364));
-        vcdp->chgBit(c+8985,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+8929,(vlSymsp->TOP__Rocket.__PVT__T_7360));
+        vcdp->chgBit(c+8937,(vlSymsp->TOP__Rocket.__PVT__T_7364));
+        vcdp->chgBit(c+8945,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_legal)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_legal))));
-        vcdp->chgBit(c+8993,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+8953,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_fp))));
-        vcdp->chgBit(c+9001,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+8961,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rocc))));
-        vcdp->chgBit(c+9009,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+8969,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_branch)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_branch))));
-        vcdp->chgBit(c+9017,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+8977,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_jal)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_jal))));
-        vcdp->chgBit(c+9025,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+8985,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_jalr)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_jalr))));
-        vcdp->chgBit(c+9033,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+8993,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rxs2)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rxs2))));
-        vcdp->chgBit(c+9041,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+9001,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rxs1)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rxs1))));
-        vcdp->chgBus(c+9049,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBus(c+9009,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_sel_alu2)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_sel_alu2))),2);
-        vcdp->chgBus(c+9057,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBus(c+9017,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_sel_alu1)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_sel_alu1))),2);
-        vcdp->chgBus(c+9065,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBus(c+9025,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_sel_imm)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_sel_imm))),3);
-        vcdp->chgBit(c+9073,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+9033,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_alu_dw)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_alu_dw))));
-        vcdp->chgBus(c+9081,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBus(c+9041,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_alu_fn)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_alu_fn))),4);
-        vcdp->chgBit(c+9089,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+9049,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_mem))));
-        vcdp->chgBus(c+9097,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBus(c+9057,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem_cmd)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_mem_cmd))),5);
-        vcdp->chgBus(c+9105,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBus(c+9065,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem_type)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_mem_type))),3);
-        vcdp->chgBit(c+9113,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+9073,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rfs1)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rfs1))));
-        vcdp->chgBit(c+9121,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+9081,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rfs2)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rfs2))));
-        vcdp->chgBit(c+9129,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+9089,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rfs3)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rfs3))));
-        vcdp->chgBit(c+9137,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+9097,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_wfd))));
-        vcdp->chgBit(c+9145,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+9105,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_div)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_div))));
-        vcdp->chgBit(c+9153,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+9113,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_wxd)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_wxd))));
-        vcdp->chgBus(c+9161,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBus(c+9121,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_csr))),3);
-        vcdp->chgBit(c+9169,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+9129,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_fence_i)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_fence_i))));
-        vcdp->chgBit(c+9177,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+9137,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_fence)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_fence))));
-        vcdp->chgBit(c+9185,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+9145,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_amo)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_amo))));
-        vcdp->chgBit(c+9193,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBit(c+9153,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_dp)
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_dp))));
-        vcdp->chgBus(c+9201,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBus(c+9161,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc)
                                    ? vlSymsp->TOP__Rocket.__PVT__mem_reg_rs2
                                    : vlSymsp->TOP__Rocket.__PVT__wb_reg_rs2)
                                : vlSymsp->TOP__Rocket.__PVT__wb_reg_rs2)),32);
-        vcdp->chgBus(c+9209,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBus(c+9169,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? vlSymsp->TOP__Rocket.__PVT__mem_reg_inst
                                : vlSymsp->TOP__Rocket.__PVT__wb_reg_inst)),32);
-        vcdp->chgBus(c+9217,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBus(c+9177,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                ? vlSymsp->TOP__Rocket.__PVT__mem_reg_pc
                                : vlSymsp->TOP__Rocket.__PVT__wb_reg_pc)),32);
-        vcdp->chgBit(c+9225,(vlSymsp->TOP__Rocket.__PVT__wb_wxd));
-        vcdp->chgBit(c+9233,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_wxd)))));
-        vcdp->chgBit(c+9241,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_xcpt)))));
-        vcdp->chgBit(c+9249,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7615) 
+        vcdp->chgBit(c+9185,(vlSymsp->TOP__Rocket.__PVT__wb_wxd));
+        vcdp->chgBit(c+9193,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_wxd)))));
+        vcdp->chgBit(c+9201,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_xcpt)))));
+        vcdp->chgBit(c+9209,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7615) 
                               | (IData)(vlSymsp->TOP__Rocket.__PVT__dcache_blocked))));
-        vcdp->chgBit(c+9257,(((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
+        vcdp->chgBit(c+9217,(((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
                               & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_wxd)))));
-        vcdp->chgBit(c+9265,(((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
+        vcdp->chgBit(c+9225,(((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
                               | ((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
                                  & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_wxd))))));
-        vcdp->chgBit(c+9273,((1U & (~ ((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
+        vcdp->chgBit(c+9233,((1U & (~ ((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
                                        | ((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
                                           & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_wxd))))))));
-        vcdp->chgBit(c+9281,((1U & ((~ ((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
+        vcdp->chgBit(c+9241,((1U & ((~ ((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
                                         | ((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
                                            & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_wxd))))) 
                                     | (IData)(vlSymsp->TOP__Rocket.__PVT__T_7002)))));
-        vcdp->chgBit(c+9289,(((IData)(vlSymsp->TOP__Rocket.__PVT__wb_xcpt) 
+        vcdp->chgBit(c+9249,(((IData)(vlSymsp->TOP__Rocket.__PVT__wb_xcpt) 
                               | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret))));
-        vcdp->chgBit(c+9297,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_cfi)))));
-        vcdp->chgBit(c+9305,((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_cfi_taken) 
+        vcdp->chgBit(c+9257,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_cfi)))));
+        vcdp->chgBit(c+9265,((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_cfi_taken) 
                                     | (~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_cfi))))));
-        vcdp->chgQuad(c+9313,(vlSymsp->TOP__Rocket.__PVT__T_7596),33);
-        vcdp->chgBus(c+9329,((~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7596))),32);
-        vcdp->chgBus(c+9337,((3U | (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7596)))),32);
-        vcdp->chgBus(c+9345,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret)
+        vcdp->chgQuad(c+9273,(vlSymsp->TOP__Rocket.__PVT__T_7596),33);
+        vcdp->chgBus(c+9289,((~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7596))),32);
+        vcdp->chgBus(c+9297,((3U | (~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_7596)))),32);
+        vcdp->chgBus(c+9305,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret)
                                ? ((0x90U != (0x90U 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U)))
@@ -5250,7 +5230,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                        ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_prv)
                                        : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_89)))
                                : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_89))),2);
-        vcdp->chgBit(c+9353,((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret)
+        vcdp->chgBit(c+9313,((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret)
                                      ? ((0x90U != (0x90U 
                                                    & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                       >> 0x14U)))
@@ -5262,7 +5242,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                              ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_prv)
                                              : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_89)))
                                      : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_89)))));
-        vcdp->chgBus(c+9361,(((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret)
+        vcdp->chgBus(c+9321,(((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret)
                                       ? ((0x90U != 
                                           (0x90U & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -5276,26 +5256,26 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                               : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_89)))
                                       : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_89)))
                                ? 3U : 0U)),2);
-        vcdp->chgBit(c+9369,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5566)))));
-        vcdp->chgQuad(c+9377,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4804),64);
-        vcdp->chgQuad(c+9393,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_38),59);
-        vcdp->chgQuad(c+9409,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4814),64);
-        vcdp->chgBit(c+9425,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4970));
-        vcdp->chgBit(c+9433,((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))));
-        vcdp->chgBit(c+9441,((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))));
-        vcdp->chgBit(c+9449,((4U != (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))));
-        vcdp->chgBit(c+9457,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__cpu_ren));
-        vcdp->chgBit(c+9465,((5U != (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))));
-        vcdp->chgBit(c+9473,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__cpu_wen));
-        vcdp->chgBus(c+9481,(((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero3 
+        vcdp->chgBit(c+9329,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5566)))));
+        vcdp->chgQuad(c+9337,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4804),64);
+        vcdp->chgQuad(c+9353,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_38),59);
+        vcdp->chgQuad(c+9369,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4814),64);
+        vcdp->chgBit(c+9385,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4970));
+        vcdp->chgBit(c+9393,((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))));
+        vcdp->chgBit(c+9401,((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))));
+        vcdp->chgBit(c+9409,((4U != (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))));
+        vcdp->chgBit(c+9417,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__cpu_ren));
+        vcdp->chgBit(c+9425,((5U != (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))));
+        vcdp->chgBit(c+9433,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__cpu_wen));
+        vcdp->chgBus(c+9441,(((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero3 
                                << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573))),32);
-        vcdp->chgQuad(c+9489,((((QData)((IData)(((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero3 
+        vcdp->chgQuad(c+9449,((((QData)((IData)(((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero3 
                                                   << 1U) 
                                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573)))) 
                                 << 2U) | (QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)))),34);
-        vcdp->chgBus(c+9505,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv) 
+        vcdp->chgBus(c+9465,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv) 
                                << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573))),3);
-        vcdp->chgQuad(c+9513,(((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)) 
+        vcdp->chgQuad(c+9473,(((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)) 
                                  << 0x23U) | ((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa)) 
                                               << 3U)) 
                                | (QData)((IData)((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv) 
@@ -5343,7 +5323,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                                                | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573))))) 
                                                            >> 0x20U)) 
                                                   << 2U)));
-        vcdp->chgArray(c+9529,(__Vtemp180),70);
+        vcdp->chgArray(c+9489,(__Vtemp180),70);
         __Vtemp182[0U] = ((0xffffc000U & ((IData)((
                                                    ((QData)((IData)(
                                                                     ((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero3 
@@ -5430,15 +5410,15 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                                                | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5573))))) 
                                                            >> 0x20U)) 
                                                   << 0x10U)))));
-        vcdp->chgArray(c+9553,(__Vtemp182),84);
-        vcdp->chgArray(c+9577,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5004),99);
-        vcdp->chgBus(c+9609,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5004[0U]),32);
-        vcdp->chgBit(c+9617,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_42));
-        vcdp->chgBus(c+9625,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgArray(c+9513,(__Vtemp182),84);
+        vcdp->chgArray(c+9537,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5004),99);
+        vcdp->chgBus(c+9569,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5004[0U]),32);
+        vcdp->chgBit(c+9577,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_42));
+        vcdp->chgBus(c+9585,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                  ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_ttype)
                                  : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_ttype)) 
                                << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_42))),5);
-        vcdp->chgBus(c+9633,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBus(c+9593,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                   ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_ttype)
                                   : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_ttype)) 
                                 << 0xfU) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_42) 
@@ -5449,7 +5429,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                   << 8U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                              ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_reserved)
                                              : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_reserved))))),19);
-        vcdp->chgBus(c+9641,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBus(c+9601,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                    ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_ttype)
                                    : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_ttype)) 
                                  << 0x15U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_42) 
@@ -5474,7 +5454,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                      << 2U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_tmatch)
                                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch)))))),25);
-        vcdp->chgBus(c+9649,((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBus(c+9609,((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                     ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_ttype)
                                     : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_ttype)) 
                                   << 0x1cU) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_42) 
@@ -5524,23 +5504,23 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                                    ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_r)
                                                    : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_r))))))),32);
-        vcdp->chgBus(c+9657,((IData)((vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4814 
+        vcdp->chgBus(c+9617,((IData)((vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4814 
                                       >> 0x20U))),32);
-        vcdp->chgBus(c+9665,((IData)((vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4804 
+        vcdp->chgBus(c+9625,((IData)((vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4804 
                                       >> 0x20U))),32);
-        vcdp->chgBit(c+9673,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326));
-        vcdp->chgBit(c+9681,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
+        vcdp->chgBit(c+9633,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326));
+        vcdp->chgBit(c+9641,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
                               | (0x340U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9689,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
+        vcdp->chgBit(c+9649,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
                                | (0x340U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U)))) 
                               | (0x341U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9697,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
+        vcdp->chgBit(c+9657,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
                                 | (0x340U == (0xfffU 
                                               & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                  >> 0x14U)))) 
@@ -5550,7 +5530,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0x343U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9705,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
+        vcdp->chgBit(c+9665,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
                                  | (0x340U == (0xfffU 
                                                & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 0x14U)))) 
@@ -5563,7 +5543,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0x342U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9713,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
+        vcdp->chgBit(c+9673,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
                                   | (0x340U == (0xfffU 
                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x14U)))) 
@@ -5579,7 +5559,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0xf14U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9721,((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
+        vcdp->chgBit(c+9681,((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
                                    | (0x340U == (0xfffU 
                                                  & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                     >> 0x14U)))) 
@@ -5598,7 +5578,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0x7b0U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9729,(((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
+        vcdp->chgBit(c+9689,(((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
                                     | (0x340U == (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))) 
@@ -5620,7 +5600,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0x7b1U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9737,((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
+        vcdp->chgBit(c+9697,((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
                                      | (0x340U == (0xfffU 
                                                    & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                       >> 0x14U)))) 
@@ -5645,7 +5625,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0x7b2U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9745,(((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
+        vcdp->chgBit(c+9705,(((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
                                       | (0x340U == 
                                          (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -5674,7 +5654,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0x323U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9753,((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
+        vcdp->chgBit(c+9713,((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
                                        | (0x340U == 
                                           (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -5707,7 +5687,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0xb03U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9761,(((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
+        vcdp->chgBit(c+9721,(((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
                                         | (0x340U == 
                                            (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -5744,7 +5724,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0xc03U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9769,((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
+        vcdp->chgBit(c+9729,((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
                                          | (0x340U 
                                             == (0xfffU 
                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -5785,7 +5765,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0x324U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9777,(((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
+        vcdp->chgBit(c+9737,(((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
                                           | (0x340U 
                                              == (0xfffU 
                                                  & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -5830,7 +5810,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0xb04U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9785,((((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
+        vcdp->chgBit(c+9745,((((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5326) 
                                            | (0x340U 
                                               == (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -5879,19 +5859,19 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0xc04U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9793,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341));
-        vcdp->chgBit(c+9801,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
+        vcdp->chgBit(c+9753,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341));
+        vcdp->chgBit(c+9761,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
                               | (0xb05U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9809,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
+        vcdp->chgBit(c+9769,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
                                | (0xb05U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U)))) 
                               | (0xc05U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9817,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
+        vcdp->chgBit(c+9777,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
                                 | (0xb05U == (0xfffU 
                                               & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                  >> 0x14U)))) 
@@ -5901,7 +5881,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0x326U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9825,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
+        vcdp->chgBit(c+9785,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
                                  | (0xb05U == (0xfffU 
                                                & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 0x14U)))) 
@@ -5914,7 +5894,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0xb06U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9833,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
+        vcdp->chgBit(c+9793,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
                                   | (0xb05U == (0xfffU 
                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x14U)))) 
@@ -5930,7 +5910,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0xc06U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9841,((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
+        vcdp->chgBit(c+9801,((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
                                    | (0xb05U == (0xfffU 
                                                  & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                     >> 0x14U)))) 
@@ -5949,7 +5929,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0x327U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9849,(((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
+        vcdp->chgBit(c+9809,(((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
                                     | (0xb05U == (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))) 
@@ -5971,7 +5951,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0xb07U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9857,((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
+        vcdp->chgBit(c+9817,((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
                                      | (0xb05U == (0xfffU 
                                                    & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                       >> 0x14U)))) 
@@ -5996,7 +5976,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0xc07U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9865,(((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
+        vcdp->chgBit(c+9825,(((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
                                       | (0xb05U == 
                                          (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -6025,7 +6005,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0x328U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9873,((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
+        vcdp->chgBit(c+9833,((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
                                        | (0xb05U == 
                                           (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -6058,7 +6038,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0xb08U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9881,(((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
+        vcdp->chgBit(c+9841,(((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
                                         | (0xb05U == 
                                            (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -6095,7 +6075,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0xc08U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9889,((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
+        vcdp->chgBit(c+9849,((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
                                          | (0xb05U 
                                             == (0xfffU 
                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -6136,7 +6116,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0x329U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9897,(((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
+        vcdp->chgBit(c+9857,(((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
                                           | (0xb05U 
                                              == (0xfffU 
                                                  & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -6181,7 +6161,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0xb09U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9905,((((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
+        vcdp->chgBit(c+9865,((((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5341) 
                                            | (0xb05U 
                                               == (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -6230,19 +6210,19 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0xc09U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9913,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356));
-        vcdp->chgBit(c+9921,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
+        vcdp->chgBit(c+9873,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356));
+        vcdp->chgBit(c+9881,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
                               | (0xb0aU == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9929,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
+        vcdp->chgBit(c+9889,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
                                | (0xb0aU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U)))) 
                               | (0xc0aU == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9937,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
+        vcdp->chgBit(c+9897,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
                                 | (0xb0aU == (0xfffU 
                                               & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                  >> 0x14U)))) 
@@ -6252,7 +6232,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0x32bU == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9945,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
+        vcdp->chgBit(c+9905,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
                                  | (0xb0aU == (0xfffU 
                                                & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 0x14U)))) 
@@ -6265,7 +6245,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0xb0bU == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9953,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
+        vcdp->chgBit(c+9913,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
                                   | (0xb0aU == (0xfffU 
                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x14U)))) 
@@ -6281,7 +6261,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0xc0bU == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9961,((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
+        vcdp->chgBit(c+9921,((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
                                    | (0xb0aU == (0xfffU 
                                                  & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                     >> 0x14U)))) 
@@ -6300,7 +6280,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0x32cU == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9969,(((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
+        vcdp->chgBit(c+9929,(((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
                                     | (0xb0aU == (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))) 
@@ -6322,7 +6302,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0xb0cU == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9977,((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
+        vcdp->chgBit(c+9937,((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
                                      | (0xb0aU == (0xfffU 
                                                    & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                       >> 0x14U)))) 
@@ -6347,7 +6327,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0xc0cU == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9985,(((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
+        vcdp->chgBit(c+9945,(((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
                                       | (0xb0aU == 
                                          (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -6376,7 +6356,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0x32dU == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+9993,((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
+        vcdp->chgBit(c+9953,((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
                                        | (0xb0aU == 
                                           (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -6409,7 +6389,44 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                               | (0xb0dU == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+10001,(((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
+        vcdp->chgBit(c+9961,(((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
+                                        | (0xb0aU == 
+                                           (0xfffU 
+                                            & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                               >> 0x14U)))) 
+                                       | (0xc0aU == 
+                                          (0xfffU & 
+                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                            >> 0x14U)))) 
+                                      | (0x32bU == 
+                                         (0xfffU & 
+                                          (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                           >> 0x14U)))) 
+                                     | (0xb0bU == (0xfffU 
+                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                                      >> 0x14U)))) 
+                                    | (0xc0bU == (0xfffU 
+                                                  & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                                     >> 0x14U)))) 
+                                   | (0x32cU == (0xfffU 
+                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                                    >> 0x14U)))) 
+                                  | (0xb0cU == (0xfffU 
+                                                & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                                   >> 0x14U)))) 
+                                 | (0xc0cU == (0xfffU 
+                                               & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                                  >> 0x14U)))) 
+                                | (0x32dU == (0xfffU 
+                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                                 >> 0x14U)))) 
+                               | (0xb0dU == (0xfffU 
+                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                                >> 0x14U)))) 
+                              | (0xc0dU == (0xfffU 
+                                            & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                               >> 0x14U))))));
+        vcdp->chgBit(c+9969,((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
                                          | (0xb0aU 
                                             == (0xfffU 
                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -6446,8 +6463,11 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                  >> 0x14U)))) 
                                | (0xc0dU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                >> 0x14U))))));
-        vcdp->chgBit(c+10009,((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
+                                                >> 0x14U)))) 
+                              | (0x32eU == (0xfffU 
+                                            & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                               >> 0x14U))))));
+        vcdp->chgBit(c+9977,(((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
                                           | (0xb0aU 
                                              == (0xfffU 
                                                  & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -6488,8 +6508,11 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                  >> 0x14U)))) 
                                | (0x32eU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                >> 0x14U))))));
-        vcdp->chgBit(c+10017,(((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
+                                                >> 0x14U)))) 
+                              | (0xb0eU == (0xfffU 
+                                            & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+                                               >> 0x14U))))));
+        vcdp->chgBit(c+9985,((((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
                                            | (0xb0aU 
                                               == (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -6534,70 +6557,23 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                  >> 0x14U)))) 
                                | (0xb0eU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                >> 0x14U))))));
-        vcdp->chgBit(c+10025,((((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5356) 
-                                            | (0xb0aU 
-                                               == (0xfffU 
-                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                      >> 0x14U)))) 
-                                           | (0xc0aU 
-                                              == (0xfffU 
-                                                  & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                     >> 0x14U)))) 
-                                          | (0x32bU 
-                                             == (0xfffU 
-                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                    >> 0x14U)))) 
-                                         | (0xb0bU 
-                                            == (0xfffU 
-                                                & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                   >> 0x14U)))) 
-                                        | (0xc0bU == 
-                                           (0xfffU 
+                                                >> 0x14U)))) 
+                              | (0xc0eU == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                               >> 0x14U)))) 
-                                       | (0x32cU == 
-                                          (0xfffU & 
-                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                            >> 0x14U)))) 
-                                      | (0xb0cU == 
-                                         (0xfffU & 
-                                          (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                           >> 0x14U)))) 
-                                     | (0xc0cU == (0xfffU 
-                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                      >> 0x14U)))) 
-                                    | (0x32dU == (0xfffU 
-                                                  & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                     >> 0x14U)))) 
-                                   | (0xb0dU == (0xfffU 
-                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                    >> 0x14U)))) 
-                                  | (0xc0dU == (0xfffU 
-                                                & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                   >> 0x14U)))) 
-                                 | (0x32eU == (0xfffU 
-                                               & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                  >> 0x14U)))) 
-                                | (0xb0eU == (0xfffU 
-                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                 >> 0x14U)))) 
-                               | (0xc0eU == (0xfffU 
-                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
-                                                >> 0x14U))))));
-        vcdp->chgBit(c+10033,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371));
-        vcdp->chgBit(c+10041,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
+                                               >> 0x14U))))));
+        vcdp->chgBit(c+9993,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371));
+        vcdp->chgBit(c+10001,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
                                | (0xb0fU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10049,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
+        vcdp->chgBit(c+10009,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
                                 | (0xb0fU == (0xfffU 
                                               & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                  >> 0x14U)))) 
                                | (0xc0fU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10057,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
+        vcdp->chgBit(c+10017,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
                                  | (0xb0fU == (0xfffU 
                                                & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 0x14U)))) 
@@ -6607,7 +6583,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x330U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10065,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
+        vcdp->chgBit(c+10025,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
                                   | (0xb0fU == (0xfffU 
                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x14U)))) 
@@ -6620,7 +6596,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xb10U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10073,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
+        vcdp->chgBit(c+10033,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
                                    | (0xb0fU == (0xfffU 
                                                  & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                     >> 0x14U)))) 
@@ -6636,7 +6612,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xc10U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10081,((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
+        vcdp->chgBit(c+10041,((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
                                     | (0xb0fU == (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))) 
@@ -6655,7 +6631,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x331U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10089,(((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
+        vcdp->chgBit(c+10049,(((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
                                      | (0xb0fU == (0xfffU 
                                                    & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                       >> 0x14U)))) 
@@ -6677,7 +6653,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xb11U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10097,((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
+        vcdp->chgBit(c+10057,((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
                                       | (0xb0fU == 
                                          (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -6703,7 +6679,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xc11U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10105,(((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
+        vcdp->chgBit(c+10065,(((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
                                        | (0xb0fU == 
                                           (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -6733,7 +6709,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x332U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10113,((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
+        vcdp->chgBit(c+10073,((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
                                         | (0xb0fU == 
                                            (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -6767,7 +6743,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xb12U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10121,(((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
+        vcdp->chgBit(c+10081,(((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
                                          | (0xb0fU 
                                             == (0xfffU 
                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -6805,7 +6781,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xc12U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10129,((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
+        vcdp->chgBit(c+10089,((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
                                           | (0xb0fU 
                                              == (0xfffU 
                                                  & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -6847,7 +6823,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x333U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10137,(((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
+        vcdp->chgBit(c+10097,(((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
                                            | (0xb0fU 
                                               == (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -6893,7 +6869,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xb13U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10145,((((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
+        vcdp->chgBit(c+10105,((((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5371) 
                                             | (0xb0fU 
                                                == (0xfffU 
                                                    & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -6943,19 +6919,19 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xc13U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10153,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386));
-        vcdp->chgBit(c+10161,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
+        vcdp->chgBit(c+10113,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386));
+        vcdp->chgBit(c+10121,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
                                | (0xb14U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10169,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
+        vcdp->chgBit(c+10129,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
                                 | (0xb14U == (0xfffU 
                                               & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                  >> 0x14U)))) 
                                | (0xc14U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10177,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
+        vcdp->chgBit(c+10137,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
                                  | (0xb14U == (0xfffU 
                                                & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 0x14U)))) 
@@ -6965,7 +6941,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x335U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10185,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
+        vcdp->chgBit(c+10145,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
                                   | (0xb14U == (0xfffU 
                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x14U)))) 
@@ -6978,7 +6954,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xb15U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10193,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
+        vcdp->chgBit(c+10153,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
                                    | (0xb14U == (0xfffU 
                                                  & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                     >> 0x14U)))) 
@@ -6994,7 +6970,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xc15U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10201,((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
+        vcdp->chgBit(c+10161,((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
                                     | (0xb14U == (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))) 
@@ -7013,7 +6989,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x336U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10209,(((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
+        vcdp->chgBit(c+10169,(((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
                                      | (0xb14U == (0xfffU 
                                                    & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                       >> 0x14U)))) 
@@ -7035,7 +7011,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xb16U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10217,((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
+        vcdp->chgBit(c+10177,((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
                                       | (0xb14U == 
                                          (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -7061,7 +7037,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xc16U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10225,(((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
+        vcdp->chgBit(c+10185,(((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
                                        | (0xb14U == 
                                           (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -7091,7 +7067,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x337U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10233,((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
+        vcdp->chgBit(c+10193,((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
                                         | (0xb14U == 
                                            (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -7125,7 +7101,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xb17U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10241,(((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
+        vcdp->chgBit(c+10201,(((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
                                          | (0xb14U 
                                             == (0xfffU 
                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -7163,7 +7139,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xc17U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10249,((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
+        vcdp->chgBit(c+10209,((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
                                           | (0xb14U 
                                              == (0xfffU 
                                                  & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -7205,7 +7181,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x338U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10257,(((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
+        vcdp->chgBit(c+10217,(((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
                                            | (0xb14U 
                                               == (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -7251,7 +7227,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xb18U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10265,((((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
+        vcdp->chgBit(c+10225,((((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5386) 
                                             | (0xb14U 
                                                == (0xfffU 
                                                    & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -7301,19 +7277,19 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xc18U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10273,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401));
-        vcdp->chgBit(c+10281,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
+        vcdp->chgBit(c+10233,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401));
+        vcdp->chgBit(c+10241,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
                                | (0xb19U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10289,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
+        vcdp->chgBit(c+10249,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
                                 | (0xb19U == (0xfffU 
                                               & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                  >> 0x14U)))) 
                                | (0xc19U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10297,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
+        vcdp->chgBit(c+10257,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
                                  | (0xb19U == (0xfffU 
                                                & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 0x14U)))) 
@@ -7323,7 +7299,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x33aU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10305,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
+        vcdp->chgBit(c+10265,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
                                   | (0xb19U == (0xfffU 
                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x14U)))) 
@@ -7336,7 +7312,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xb1aU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10313,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
+        vcdp->chgBit(c+10273,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
                                    | (0xb19U == (0xfffU 
                                                  & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                     >> 0x14U)))) 
@@ -7352,7 +7328,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xc1aU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10321,((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
+        vcdp->chgBit(c+10281,((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
                                     | (0xb19U == (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))) 
@@ -7371,7 +7347,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x33bU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10329,(((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
+        vcdp->chgBit(c+10289,(((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
                                      | (0xb19U == (0xfffU 
                                                    & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                       >> 0x14U)))) 
@@ -7393,7 +7369,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xb1bU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10337,((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
+        vcdp->chgBit(c+10297,((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
                                       | (0xb19U == 
                                          (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -7419,7 +7395,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xc1bU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10345,(((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
+        vcdp->chgBit(c+10305,(((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
                                        | (0xb19U == 
                                           (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -7449,7 +7425,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x33cU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10353,((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
+        vcdp->chgBit(c+10313,((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
                                         | (0xb19U == 
                                            (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -7483,7 +7459,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xb1cU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10361,(((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
+        vcdp->chgBit(c+10321,(((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
                                          | (0xb19U 
                                             == (0xfffU 
                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -7521,7 +7497,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xc1cU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10369,((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
+        vcdp->chgBit(c+10329,((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
                                           | (0xb19U 
                                              == (0xfffU 
                                                  & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -7563,7 +7539,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x33dU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10377,(((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
+        vcdp->chgBit(c+10337,(((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
                                            | (0xb19U 
                                               == (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -7609,7 +7585,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xb1dU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10385,((((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
+        vcdp->chgBit(c+10345,((((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5401) 
                                             | (0xb19U 
                                                == (0xfffU 
                                                    & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -7659,19 +7635,19 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xc1dU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10393,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416));
-        vcdp->chgBit(c+10401,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
+        vcdp->chgBit(c+10353,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416));
+        vcdp->chgBit(c+10361,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
                                | (0xb1eU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10409,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
+        vcdp->chgBit(c+10369,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
                                 | (0xb1eU == (0xfffU 
                                               & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                  >> 0x14U)))) 
                                | (0xc1eU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10417,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
+        vcdp->chgBit(c+10377,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
                                  | (0xb1eU == (0xfffU 
                                                & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 0x14U)))) 
@@ -7681,7 +7657,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x33fU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10425,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
+        vcdp->chgBit(c+10385,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
                                   | (0xb1eU == (0xfffU 
                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x14U)))) 
@@ -7694,7 +7670,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xb1fU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10433,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
+        vcdp->chgBit(c+10393,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
                                    | (0xb1eU == (0xfffU 
                                                  & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                     >> 0x14U)))) 
@@ -7710,7 +7686,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xc1fU == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10441,((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
+        vcdp->chgBit(c+10401,((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
                                     | (0xb1eU == (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))) 
@@ -7729,7 +7705,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x320U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10449,(((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
+        vcdp->chgBit(c+10409,(((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
                                      | (0xb1eU == (0xfffU 
                                                    & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                       >> 0x14U)))) 
@@ -7751,7 +7727,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xc00U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10457,((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
+        vcdp->chgBit(c+10417,((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
                                       | (0xb1eU == 
                                          (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -7777,7 +7753,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xc02U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10465,(((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
+        vcdp->chgBit(c+10425,(((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
                                        | (0xb1eU == 
                                           (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -7807,7 +7783,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xb80U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10473,((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
+        vcdp->chgBit(c+10433,((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
                                         | (0xb1eU == 
                                            (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -7841,7 +7817,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xb82U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10481,(((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
+        vcdp->chgBit(c+10441,(((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
                                          | (0xb1eU 
                                             == (0xfffU 
                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -7879,7 +7855,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xc80U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10489,((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
+        vcdp->chgBit(c+10449,((((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
                                           | (0xb1eU 
                                              == (0xfffU 
                                                  & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -7921,33 +7897,33 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xc82U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+10497,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__priv_sufficient));
-        vcdp->chgBit(c+10505,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__cpu_wen) 
+        vcdp->chgBit(c+10457,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__priv_sufficient));
+        vcdp->chgBit(c+10465,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__cpu_wen) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__priv_sufficient))));
-        vcdp->chgBit(c+10513,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__wen));
-        vcdp->chgBit(c+10521,((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))));
-        vcdp->chgBit(c+10529,((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))));
-        vcdp->chgBit(c+10537,(((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399)) 
+        vcdp->chgBit(c+10473,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__wen));
+        vcdp->chgBit(c+10481,((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))));
+        vcdp->chgBit(c+10489,((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))));
+        vcdp->chgBit(c+10497,(((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399)) 
                                | (3U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399)))));
-        vcdp->chgBit(c+10545,((3U != (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))));
-        vcdp->chgBus(c+10553,(((3U != (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))
+        vcdp->chgBit(c+10505,((3U != (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))));
+        vcdp->chgBus(c+10513,(((3U != (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))
                                 ? vlSymsp->TOP__Rocket.__PVT__wb_reg_wdata
                                 : 0U)),32);
-        vcdp->chgBus(c+10561,(((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))
+        vcdp->chgBus(c+10521,(((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))
                                 ? vlSymsp->TOP__Rocket.__PVT__wb_reg_wdata
                                 : 0U)),32);
-        vcdp->chgBus(c+10569,((~ ((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))
+        vcdp->chgBus(c+10529,((~ ((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399))
                                    ? vlSymsp->TOP__Rocket.__PVT__wb_reg_wdata
                                    : 0U))),32);
-        vcdp->chgBit(c+10577,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__do_system_insn));
-        vcdp->chgBit(c+10585,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_call));
-        vcdp->chgBit(c+10593,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_break));
-        vcdp->chgBit(c+10601,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_wfi));
-        vcdp->chgBit(c+10609,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__cpu_wen) 
+        vcdp->chgBit(c+10537,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__do_system_insn));
+        vcdp->chgBit(c+10545,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_call));
+        vcdp->chgBit(c+10553,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_break));
+        vcdp->chgBit(c+10561,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_wfi));
+        vcdp->chgBit(c+10569,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__cpu_wen) 
                                & (0U == (3U & (~ (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 0x1eU)))))));
-        vcdp->chgBit(c+10617,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__priv_sufficient)))));
-        vcdp->chgBit(c+10625,((1U & (~ (((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
+        vcdp->chgBit(c+10577,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__priv_sufficient)))));
+        vcdp->chgBit(c+10585,((1U & (~ (((((((((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
                                                    | (0xb1eU 
                                                       == 
                                                       (0xfffU 
@@ -8003,7 +7979,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                            (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))))));
-        vcdp->chgBit(c+10633,((1U & ((~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__priv_sufficient)) 
+        vcdp->chgBit(c+10593,((1U & ((~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__priv_sufficient)) 
                                      | (~ (((((((((
                                                    ((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5416) 
                                                       | (0xb1eU 
@@ -8064,17 +8040,17 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                               == (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))))))));
-        vcdp->chgBit(c+10641,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5492));
-        vcdp->chgBit(c+10649,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__cpu_ren) 
+        vcdp->chgBit(c+10601,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5492));
+        vcdp->chgBit(c+10609,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__cpu_ren) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5492))));
-        vcdp->chgBit(c+10657,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__cpu_wen) 
+        vcdp->chgBit(c+10617,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__cpu_wen) 
                                 & (0U == (3U & (~ (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x1eU))))) 
                                | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__cpu_ren) 
                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5492)))));
-        vcdp->chgBit(c+10665,(((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399)) 
+        vcdp->chgBit(c+10625,(((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399)) 
                                & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__priv_sufficient)))));
-        vcdp->chgBit(c+10673,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__cpu_wen) 
+        vcdp->chgBit(c+10633,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__cpu_wen) 
                                  & (0U == (3U & (~ 
                                                  (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 0x1eU))))) 
@@ -8082,7 +8058,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                    & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5492))) 
                                | ((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399)) 
                                   & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__priv_sufficient))))));
-        vcdp->chgBit(c+10681,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__cpu_wen) 
+        vcdp->chgBit(c+10641,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__cpu_wen) 
                                   & (0U == (3U & (~ 
                                                   (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x1eU))))) 
@@ -8091,24 +8067,24 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                 | ((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_7399)) 
                                    & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__priv_sufficient)))) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_call))));
-        vcdp->chgBit(c+10689,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_wfi) 
+        vcdp->chgBit(c+10649,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_wfi) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_wfi))));
-        vcdp->chgBit(c+10697,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5508)))));
-        vcdp->chgBus(c+10705,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_break)
+        vcdp->chgBit(c+10657,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5508)))));
+        vcdp->chgBus(c+10665,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_break)
                                 ? 3U : 2U)),2);
-        vcdp->chgBus(c+10713,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5521),4);
-        vcdp->chgBus(c+10721,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause),32);
-        vcdp->chgBus(c+10729,((0x1fU & vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)),5);
-        vcdp->chgBit(c+10737,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause 
+        vcdp->chgBus(c+10673,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5521),4);
+        vcdp->chgBus(c+10681,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause),32);
+        vcdp->chgBus(c+10689,((0x1fU & vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)),5);
+        vcdp->chgBit(c+10697,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause 
                                      >> 0x1fU))));
-        vcdp->chgBit(c+10745,((0xdU == (0x1fU & vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause))));
-        vcdp->chgBit(c+10753,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__causeIsDebugInt));
-        vcdp->chgBit(c+10761,((1U & (~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause 
+        vcdp->chgBit(c+10705,((0xdU == (0x1fU & vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause))));
+        vcdp->chgBit(c+10713,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__causeIsDebugInt));
+        vcdp->chgBit(c+10721,((1U & (~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause 
                                         >> 0x1fU)))));
-        vcdp->chgBit(c+10769,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__causeIsDebugTrigger));
-        vcdp->chgBit(c+10777,(((~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause 
+        vcdp->chgBit(c+10729,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__causeIsDebugTrigger));
+        vcdp->chgBit(c+10737,(((~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause 
                                    >> 0x1fU)) & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_break))));
-        vcdp->chgBit(c+10785,((0xfU & (((~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause 
+        vcdp->chgBit(c+10745,((0xfU & (((~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause 
                                             >> 0x1fU)) 
                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_break)) 
                                        & (((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakm) 
@@ -8119,12 +8095,12 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                << 1U) 
                                               | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreaku))) 
                                           >> (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))))));
-        vcdp->chgBit(c+10793,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_singleStepped) 
+        vcdp->chgBit(c+10753,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_singleStepped) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__causeIsDebugInt))));
-        vcdp->chgBit(c+10801,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_singleStepped) 
+        vcdp->chgBit(c+10761,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_singleStepped) 
                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__causeIsDebugInt)) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__causeIsDebugTrigger))));
-        vcdp->chgBit(c+10809,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_singleStepped) 
+        vcdp->chgBit(c+10769,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_singleStepped) 
                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__causeIsDebugInt)) 
                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__causeIsDebugTrigger)) 
                                | (0xfU & (((~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause 
@@ -8138,127 +8114,127 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                   << 1U) 
                                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreaku))) 
                                              >> (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)))))));
-        vcdp->chgBit(c+10817,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543));
-        vcdp->chgBus(c+10825,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
+        vcdp->chgBit(c+10777,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543));
+        vcdp->chgBus(c+10785,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
                                 ? ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)
                                     ? 0x808U : 0x800U)
                                 : vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mtvec)),32);
-        vcdp->chgBus(c+10833,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5578),32);
-        vcdp->chgBit(c+10841,((1U & vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5578)));
-        vcdp->chgBit(c+10849,((3U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)));
-        vcdp->chgBit(c+10857,((4U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)));
-        vcdp->chgBit(c+10865,((6U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)));
-        vcdp->chgBit(c+10873,((0U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)));
-        vcdp->chgBit(c+10881,((5U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)));
-        vcdp->chgBit(c+10889,((7U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)));
-        vcdp->chgBit(c+10897,((1U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)));
-        vcdp->chgBit(c+10905,(((3U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause) 
+        vcdp->chgBus(c+10793,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5578),32);
+        vcdp->chgBit(c+10801,((1U & vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5578)));
+        vcdp->chgBit(c+10809,((3U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)));
+        vcdp->chgBit(c+10817,((4U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)));
+        vcdp->chgBit(c+10825,((6U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)));
+        vcdp->chgBit(c+10833,((0U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)));
+        vcdp->chgBit(c+10841,((5U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)));
+        vcdp->chgBit(c+10849,((7U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)));
+        vcdp->chgBit(c+10857,((1U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)));
+        vcdp->chgBit(c+10865,(((3U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause) 
                                | (4U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause))));
-        vcdp->chgBit(c+10913,((((3U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause) 
+        vcdp->chgBit(c+10873,((((3U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause) 
                                 | (4U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)) 
                                | (6U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause))));
-        vcdp->chgBit(c+10921,(((((3U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause) 
+        vcdp->chgBit(c+10881,(((((3U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause) 
                                  | (4U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)) 
                                 | (6U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)) 
                                | (0U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause))));
-        vcdp->chgBit(c+10929,((((((3U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause) 
+        vcdp->chgBit(c+10889,((((((3U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause) 
                                   | (4U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)) 
                                  | (6U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)) 
                                 | (0U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)) 
                                | (5U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause))));
-        vcdp->chgBit(c+10937,(((((((3U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause) 
+        vcdp->chgBit(c+10897,(((((((3U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause) 
                                    | (4U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)) 
                                   | (6U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)) 
                                  | (0U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)) 
                                 | (5U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)) 
                                | (7U == vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause))));
-        vcdp->chgBit(c+10945,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5599));
-        vcdp->chgBus(c+10953,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__causeIsDebugTrigger)
+        vcdp->chgBit(c+10905,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5599));
+        vcdp->chgBus(c+10913,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__causeIsDebugTrigger)
                                 ? 2U : 1U)),2);
-        vcdp->chgBus(c+10961,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5606),2);
-        vcdp->chgBus(c+10969,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_singleStepped)
+        vcdp->chgBus(c+10921,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5606),2);
+        vcdp->chgBus(c+10929,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_singleStepped)
                                 ? 4U : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5606))),3);
-        vcdp->chgBit(c+10977,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543) 
+        vcdp->chgBit(c+10937,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug))));
-        vcdp->chgBus(c+10985,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
+        vcdp->chgBus(c+10945,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
                                 ? (~ (1U | (~ vlSymsp->TOP__Rocket.__PVT__wb_reg_pc)))
                                 : vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dpc)),32);
-        vcdp->chgBus(c+10993,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
+        vcdp->chgBus(c+10953,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
                                 ? ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_singleStepped)
                                     ? 4U : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5606))
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_cause))),3);
-        vcdp->chgBus(c+11001,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
+        vcdp->chgBus(c+10961,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
                                 ? ((1U & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))
                                     ? 3U : 0U) : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_prv))),2);
-        vcdp->chgBit(c+11009,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)))));
-        vcdp->chgBus(c+11017,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5622),32);
-        vcdp->chgBus(c+11025,((~ vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5622)),32);
-        vcdp->chgBus(c+11033,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5599)
+        vcdp->chgBit(c+10969,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)))));
+        vcdp->chgBus(c+10977,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5622),32);
+        vcdp->chgBus(c+10985,((~ vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5622)),32);
+        vcdp->chgBus(c+10993,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5599)
                                 ? vlSymsp->TOP__Rocket.__PVT__wb_reg_wdata
                                 : vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mbadaddr)),32);
-        vcdp->chgBus(c+11041,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
+        vcdp->chgBus(c+11001,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
                                 ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mepc
                                 : (~ vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5622))),32);
-        vcdp->chgBus(c+11049,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
+        vcdp->chgBus(c+11009,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
                                 ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mcause
                                 : vlSymsp->TOP__Rocket.__PVT__csr__DOT__cause)),32);
-        vcdp->chgBus(c+11057,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
+        vcdp->chgBus(c+11017,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
                                 ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mbadaddr
                                 : ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5599)
                                     ? vlSymsp->TOP__Rocket.__PVT__wb_reg_wdata
                                     : vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mbadaddr))),32);
-        vcdp->chgBit(c+11065,((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
+        vcdp->chgBit(c+11025,((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
                                       ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpie)
                                       : vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5578))));
-        vcdp->chgBus(c+11073,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
+        vcdp->chgBus(c+11033,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpp)
                                 : ((1U & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))
                                     ? 3U : 0U))),2);
-        vcdp->chgBit(c+11081,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543) 
+        vcdp->chgBit(c+11041,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mie))));
-        vcdp->chgBus(c+11089,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
+        vcdp->chgBus(c+11049,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)
                                 : 3U)),2);
-        vcdp->chgBit(c+11097,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_79));
-        vcdp->chgBus(c+11105,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_80),32);
-        vcdp->chgBus(c+11113,(((IData)(vlSymsp->TOP__Rocket.__PVT__wb_xcpt)
+        vcdp->chgBit(c+11057,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_79));
+        vcdp->chgBus(c+11065,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_80),32);
+        vcdp->chgBus(c+11073,(((IData)(vlSymsp->TOP__Rocket.__PVT__wb_xcpt)
                                 ? ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5543)
                                     ? ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_singleStepped)
                                         ? 4U : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5606))
                                     : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_cause))
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_cause))),3);
-        vcdp->chgBus(c+11121,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_82),2);
-        vcdp->chgBus(c+11129,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_spp),2);
-        vcdp->chgBus(c+11137,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_89),2);
-        vcdp->chgBus(c+11145,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_90),32);
-        vcdp->chgBus(c+11153,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_91),32);
-        vcdp->chgBus(c+11161,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_92),32);
-        vcdp->chgBit(c+11169,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_93));
-        vcdp->chgBus(c+11177,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_94),2);
-        vcdp->chgBit(c+11185,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_95));
-        vcdp->chgBus(c+11193,(((0x90U == (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBus(c+11081,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_82),2);
+        vcdp->chgBus(c+11089,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_spp),2);
+        vcdp->chgBus(c+11097,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_89),2);
+        vcdp->chgBus(c+11105,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_90),32);
+        vcdp->chgBus(c+11113,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_91),32);
+        vcdp->chgBus(c+11121,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_92),32);
+        vcdp->chgBit(c+11129,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_93));
+        vcdp->chgBus(c+11137,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_94),2);
+        vcdp->chgBit(c+11145,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_95));
+        vcdp->chgBus(c+11153,(((0x90U == (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x14U)))
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_prv)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_89))),2);
-        vcdp->chgBit(c+11201,(((0x90U != (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBit(c+11161,(((0x90U != (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x14U))) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_79))));
-        vcdp->chgBit(c+11209,(((2U & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpp))
+        vcdp->chgBit(c+11169,(((2U & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpp))
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpie)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_95))));
-        vcdp->chgBit(c+11217,(((0x90U != (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBit(c+11177,(((0x90U != (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x14U)))
                                 ? ((2U & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpp))
                                     ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpie)
                                     : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_95))
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_95))));
-        vcdp->chgBit(c+11225,(((0x90U == (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBit(c+11185,(((0x90U == (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x14U))) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_93))));
-        vcdp->chgBus(c+11233,(((0x90U != (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBus(c+11193,(((0x90U != (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x14U)))
                                 ? 0U : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_94))),2);
-        vcdp->chgBus(c+11241,(((0x90U != (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBus(c+11201,(((0x90U != (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x14U)))
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpp)
                                 : ((0x90U == (0x90U 
@@ -8266,26 +8242,26 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                  >> 0x14U)))
                                     ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_prv)
                                     : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_89)))),2);
-        vcdp->chgBit(c+11249,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret)
+        vcdp->chgBit(c+11209,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret)
                                 ? ((0x90U != (0x90U 
                                               & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                  >> 0x14U))) 
                                    & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_79))
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_79))));
-        vcdp->chgBit(c+11257,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_115));
-        vcdp->chgBit(c+11265,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_116));
-        vcdp->chgBus(c+11273,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_117),2);
-        vcdp->chgBus(c+11281,((3U & ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_xcpt) 
+        vcdp->chgBit(c+11217,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_115));
+        vcdp->chgBit(c+11225,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_116));
+        vcdp->chgBus(c+11233,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_117),2);
+        vcdp->chgBus(c+11241,((3U & ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_xcpt) 
                                      + (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5508)))),2);
-        vcdp->chgBus(c+11289,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret),2);
-        vcdp->chgBus(c+11297,((7U & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret) 
+        vcdp->chgBus(c+11249,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret),2);
+        vcdp->chgBus(c+11257,((7U & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret) 
                                      + (3U & ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_xcpt) 
                                               + (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5508)))))),3);
-        vcdp->chgBit(c+11305,((1U >= (7U & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret) 
+        vcdp->chgBit(c+11265,((1U >= (7U & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret) 
                                             + (3U & 
                                                ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_xcpt) 
                                                 + (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5508))))))));
-        vcdp->chgBus(c+11313,(((0x7a1U == (0xfffU & 
+        vcdp->chgBus(c+11273,(((0x7a1U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? (((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
@@ -8346,56 +8322,56 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                             ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_r)
                                             : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_r))))))
                                 : 0U)),32);
-        vcdp->chgQuad(c+11321,(((0xb00U == (0xfffU 
+        vcdp->chgQuad(c+11281,(((0xb00U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U)))
                                  ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4814
                                  : VL_ULL(0))),64);
-        vcdp->chgQuad(c+11337,(((0xb02U == (0xfffU 
+        vcdp->chgQuad(c+11297,(((0xb02U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U)))
                                  ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4804
                                  : VL_ULL(0))),64);
-        vcdp->chgBus(c+11353,(((0x300U == (0xfffU & 
+        vcdp->chgBus(c+11313,(((0x300U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5004[0U]
                                 : 0U)),32);
-        vcdp->chgQuad(c+11361,(((0xc00U == (0xfffU 
+        vcdp->chgQuad(c+11321,(((0xc00U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U)))
                                  ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4814
                                  : VL_ULL(0))),64);
-        vcdp->chgQuad(c+11377,(((0xc02U == (0xfffU 
+        vcdp->chgQuad(c+11337,(((0xc02U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U)))
                                  ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4804
                                  : VL_ULL(0))),64);
-        vcdp->chgBus(c+11393,(((0xb80U == (0xfffU & 
+        vcdp->chgBus(c+11353,(((0xb80U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? (IData)((vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4814 
                                            >> 0x20U))
                                 : 0U)),32);
-        vcdp->chgBus(c+11401,(((0xb82U == (0xfffU & 
+        vcdp->chgBus(c+11361,(((0xb82U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? (IData)((vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4804 
                                            >> 0x20U))
                                 : 0U)),32);
-        vcdp->chgBus(c+11409,(((0xc80U == (0xfffU & 
+        vcdp->chgBus(c+11369,(((0xc80U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? (IData)((vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4814 
                                            >> 0x20U))
                                 : 0U)),32);
-        vcdp->chgBus(c+11417,(((0xc82U == (0xfffU & 
+        vcdp->chgBus(c+11377,(((0xc82U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? (IData)((vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4804 
                                            >> 0x20U))
                                 : 0U)),32);
-        vcdp->chgBus(c+11425,((((0x7a0U == (0xfffU 
+        vcdp->chgBus(c+11385,((((0x7a0U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))) 
                                 & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)) 
@@ -8460,15 +8436,15 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                    ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_r)
                                                    : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_r))))))
                                    : 0U))),32);
-        vcdp->chgBus(c+11433,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5920),32);
-        vcdp->chgQuad(c+11441,((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5920))),64);
-        vcdp->chgQuad(c+11457,(((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5920)) 
+        vcdp->chgBus(c+11393,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5920),32);
+        vcdp->chgQuad(c+11401,((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5920))),64);
+        vcdp->chgQuad(c+11417,(((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5920)) 
                                 | ((0xb00U == (0xfffU 
                                                & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 0x14U)))
                                     ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4814
                                     : VL_ULL(0)))),64);
-        vcdp->chgQuad(c+11473,((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5920)) 
+        vcdp->chgQuad(c+11433,((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5920)) 
                                  | ((0xb00U == (0xfffU 
                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x14U)))
@@ -8479,7 +8455,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                   >> 0x14U)))
                                     ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4804
                                     : VL_ULL(0)))),64);
-        vcdp->chgQuad(c+11489,(((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5920)) 
+        vcdp->chgQuad(c+11449,(((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5920)) 
                                   | ((0xb00U == (0xfffU 
                                                  & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                     >> 0x14U)))
@@ -8498,7 +8474,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                         >> 0x14U)))
                                                     ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa
                                                     : 0U))))),64);
-        vcdp->chgQuad(c+11505,((QData)((IData)(((0x300U 
+        vcdp->chgQuad(c+11465,((QData)((IData)(((0x300U 
                                                  == 
                                                  (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -8506,7 +8482,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                  ? 
                                                 vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5004[0U]
                                                  : 0U)))),64);
-        vcdp->chgQuad(c+11521,((((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5920)) 
+        vcdp->chgQuad(c+11481,((((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5920)) 
                                    | ((0xb00U == (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))
@@ -8534,7 +8510,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                     ? 
                                                    vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5004[0U]
                                                     : 0U))))),64);
-        vcdp->chgQuad(c+11537,(((((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5920)) 
+        vcdp->chgQuad(c+11497,(((((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5920)) 
                                     | ((0xb00U == (0xfffU 
                                                    & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                       >> 0x14U)))
@@ -8570,7 +8546,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                         >> 0x14U)))
                                                     ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mtvec
                                                     : 0U))))),64);
-        vcdp->chgQuad(c+11553,((QData)((IData)(((0xb80U 
+        vcdp->chgQuad(c+11513,((QData)((IData)(((0xb80U 
                                                  == 
                                                  (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -8579,7 +8555,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                            (vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4814 
                                                             >> 0x20U))
                                                  : 0U)))),64);
-        vcdp->chgQuad(c+11569,((QData)((IData)(((0xb82U 
+        vcdp->chgQuad(c+11529,((QData)((IData)(((0xb82U 
                                                  == 
                                                  (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -8588,7 +8564,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                            (vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4804 
                                                             >> 0x20U))
                                                  : 0U)))),64);
-        vcdp->chgQuad(c+11585,((QData)((IData)(((0xc80U 
+        vcdp->chgQuad(c+11545,((QData)((IData)(((0xc80U 
                                                  == 
                                                  (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -8597,7 +8573,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                            (vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4814 
                                                             >> 0x20U))
                                                  : 0U)))),64);
-        vcdp->chgQuad(c+11601,((QData)((IData)(((0xc82U 
+        vcdp->chgQuad(c+11561,((QData)((IData)(((0xc82U 
                                                  == 
                                                  (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -8606,57 +8582,57 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                            (vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4804 
                                                             >> 0x20U))
                                                  : 0U)))),64);
-        vcdp->chgBus(c+11617,((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4804)),32);
-        vcdp->chgBit(c+11625,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_42)))));
-        vcdp->chgBit(c+11633,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_6341));
-        vcdp->chgBit(c+11641,(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_176));
-        vcdp->chgBit(c+11649,(((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_176) 
+        vcdp->chgBus(c+11577,((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4804)),32);
+        vcdp->chgBit(c+11585,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__GEN_42)))));
+        vcdp->chgBit(c+11593,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_6341));
+        vcdp->chgBit(c+11601,(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_176));
+        vcdp->chgBit(c+11609,(((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_176) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_r))));
-        vcdp->chgBit(c+11657,(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_186));
-        vcdp->chgBit(c+11665,(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_188));
-        vcdp->chgBit(c+11673,(((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_188) 
+        vcdp->chgBit(c+11617,(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_186));
+        vcdp->chgBit(c+11625,(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_188));
+        vcdp->chgBit(c+11633,(((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_188) 
                                & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address 
                                   >> 2U))));
-        vcdp->chgBus(c+11681,((((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_186) 
+        vcdp->chgBus(c+11641,((((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_186) 
                                 << 1U) | (1U & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch)))),2);
-        vcdp->chgBus(c+11689,(((0x7ffffffeU & (((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_188) 
+        vcdp->chgBus(c+11649,(((0x7ffffffeU & (((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_188) 
                                                 << 1U) 
                                                & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address 
                                                   >> 1U))) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_188))),2);
-        vcdp->chgBus(c+11697,(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_193),4);
-        vcdp->chgBus(c+11705,(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_193),32);
-        vcdp->chgBus(c+11713,(((~ vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata) 
+        vcdp->chgBus(c+11657,(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_193),4);
+        vcdp->chgBus(c+11665,(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_193),32);
+        vcdp->chgBus(c+11673,(((~ vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_193))),32);
-        vcdp->chgBus(c+11721,(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_206),32);
-        vcdp->chgBit(c+11729,((((~ vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata) 
+        vcdp->chgBus(c+11681,(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_206),32);
+        vcdp->chgBit(c+11689,((((~ vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata) 
                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_193)) 
                                == vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_206)));
-        vcdp->chgBit(c+11737,(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_208));
-        vcdp->chgBit(c+11745,((((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_176) 
+        vcdp->chgBit(c+11697,(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_208));
+        vcdp->chgBit(c+11705,((((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_176) 
                                 & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_r)) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_208))));
-        vcdp->chgBit(c+11753,(((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_176) 
+        vcdp->chgBit(c+11713,(((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_176) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_w))));
-        vcdp->chgBit(c+11761,((((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_176) 
+        vcdp->chgBit(c+11721,((((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_176) 
                                 & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_w)) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_208))));
-        vcdp->chgBit(c+11769,(((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_176) 
+        vcdp->chgBit(c+11729,(((IData)(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_176) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_x))));
-        vcdp->chgBit(c+11777,(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_278));
-        vcdp->chgBit(c+11785,(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_281));
-        vcdp->chgBit(c+11793,(vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_41));
-        vcdp->chgBit(c+11801,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_80));
-        vcdp->chgBit(c+11809,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_92));
-        vcdp->chgBit(c+11817,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_103));
-        vcdp->chgBit(c+11825,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_103) 
+        vcdp->chgBit(c+11737,(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_278));
+        vcdp->chgBit(c+11745,(vlSymsp->TOP__Rocket.__PVT__bpu__DOT__T_281));
+        vcdp->chgBit(c+11753,(vlSymsp->TOP__Rocket.__PVT__alu__DOT__T_41));
+        vcdp->chgBit(c+11761,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_80));
+        vcdp->chgBit(c+11769,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_92));
+        vcdp->chgBit(c+11777,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_103));
+        vcdp->chgBit(c+11785,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_103) 
                                | (0U == (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))))));
-        vcdp->chgQuad(c+11833,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_136),34);
-        vcdp->chgQuad(c+11849,((VL_ULL(0x1ffffffff) 
+        vcdp->chgQuad(c+11793,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_136),34);
+        vcdp->chgQuad(c+11809,((VL_ULL(0x1ffffffff) 
                                 & vlSymsp->TOP__Rocket.__PVT__div__DOT__T_136)),33);
-        vcdp->chgBit(c+11865,((1U & (IData)((vlSymsp->TOP__Rocket.__PVT__div__DOT__T_136 
+        vcdp->chgBit(c+11825,((1U & (IData)((vlSymsp->TOP__Rocket.__PVT__div__DOT__T_136 
                                              >> 0x20U)))));
-        vcdp->chgBit(c+11873,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_142));
+        vcdp->chgBit(c+11833,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_142));
         VL_EXTEND_WI(66,32, __Vtemp183, (IData)((VL_ULL(0x1ffffffff) 
                                                  & VL_NEGATE_Q((QData)((IData)(
                                                                                vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[0U]))))));
@@ -8666,9 +8642,9 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                            ? __Vtemp183[1U] : vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[1U]);
         __Vtemp184[2U] = ((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_142)
                            ? __Vtemp183[2U] : vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U]);
-        vcdp->chgArray(c+11881,(__Vtemp184),66);
-        vcdp->chgBit(c+11905,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_144));
-        vcdp->chgQuad(c+11913,((VL_ULL(0x1ffffffff) 
+        vcdp->chgArray(c+11841,(__Vtemp184),66);
+        vcdp->chgBit(c+11865,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_144));
+        vcdp->chgQuad(c+11873,((VL_ULL(0x1ffffffff) 
                                 & ((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_144)
                                     ? vlSymsp->TOP__Rocket.__PVT__div__DOT__T_136
                                     : vlSymsp->TOP__Rocket.__PVT__div__DOT__divisor))),33);
@@ -8687,8 +8663,8 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                            ? ((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_142)
                                ? __Vtemp185[2U] : vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U])
                            : vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U]);
-        vcdp->chgArray(c+11929,(__Vtemp188),66);
-        vcdp->chgQuad(c+11953,((VL_ULL(0x1ffffffff) 
+        vcdp->chgArray(c+11889,(__Vtemp188),66);
+        vcdp->chgQuad(c+11913,((VL_ULL(0x1ffffffff) 
                                 & ((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))
                                     ? ((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_144)
                                         ? vlSymsp->TOP__Rocket.__PVT__div__DOT__T_136
@@ -8727,7 +8703,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                     : 
                                                    vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U])
                                                 : vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U]));
-        vcdp->chgArray(c+11969,(__Vtemp195),66);
+        vcdp->chgArray(c+11929,(__Vtemp195),66);
         VL_EXTEND_WI(66,32, __Vtemp196, ((vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U] 
                                           << 0x1fU) 
                                          | (vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[1U] 
@@ -8783,26 +8759,26 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                     vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U])
                                                     : 
                                                    vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U])));
-        vcdp->chgArray(c+11993,(__Vtemp205),66);
-        vcdp->chgBus(c+12017,(vlSymsp->TOP__Rocket.__PVT__div__DOT__GEN_8),3);
-        vcdp->chgBit(c+12025,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_150));
-        vcdp->chgArray(c+12033,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_153),65);
-        vcdp->chgBus(c+12057,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_153[0U]),32);
-        vcdp->chgQuad(c+12065,((VL_ULL(0x1ffffffff) 
+        vcdp->chgArray(c+11953,(__Vtemp205),66);
+        vcdp->chgBus(c+11977,(vlSymsp->TOP__Rocket.__PVT__div__DOT__GEN_8),3);
+        vcdp->chgBit(c+11985,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_150));
+        vcdp->chgArray(c+11993,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_153),65);
+        vcdp->chgBus(c+12017,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_153[0U]),32);
+        vcdp->chgQuad(c+12025,((VL_ULL(0x1ffffffff) 
                                 & (((QData)((IData)(
                                                     vlSymsp->TOP__Rocket.__PVT__div__DOT__T_153[2U])) 
                                     << 0x20U) | (QData)((IData)(
                                                                 vlSymsp->TOP__Rocket.__PVT__div__DOT__T_153[1U]))))),33);
-        vcdp->chgBit(c+12081,((1U & vlSymsp->TOP__Rocket.__PVT__div__DOT__T_153[0U])));
-        vcdp->chgQuad(c+12089,((QData)((IData)((1U 
+        vcdp->chgBit(c+12041,((1U & vlSymsp->TOP__Rocket.__PVT__div__DOT__T_153[0U])));
+        vcdp->chgQuad(c+12049,((QData)((IData)((1U 
                                                 & vlSymsp->TOP__Rocket.__PVT__div__DOT__T_153[0U])))),33);
-        vcdp->chgQuad(c+12105,((VL_ULL(0x3ffffffff) 
+        vcdp->chgQuad(c+12065,((VL_ULL(0x3ffffffff) 
                                 & VL_MULS_QQQ(34,34,34, 
                                               (VL_ULL(0x3ffffffff) 
                                                & VL_EXTENDS_QQ(34,33, vlSymsp->TOP__Rocket.__PVT__div__DOT__divisor)), (QData)((IData)(
                                                                                 (1U 
                                                                                 & vlSymsp->TOP__Rocket.__PVT__div__DOT__T_153[0U])))))),34);
-        vcdp->chgQuad(c+12121,((((QData)((IData)((1U 
+        vcdp->chgQuad(c+12081,((((QData)((IData)((1U 
                                                   & vlSymsp->TOP__Rocket.__PVT__div__DOT__T_153[2U]))) 
                                  << 0x21U) | (VL_ULL(0x1ffffffff) 
                                               & (((QData)((IData)(
@@ -8810,7 +8786,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                   << 0x20U) 
                                                  | (QData)((IData)(
                                                                    vlSymsp->TOP__Rocket.__PVT__div__DOT__T_153[1U])))))),34);
-        vcdp->chgQuad(c+12137,((VL_ULL(0x7ffffffff) 
+        vcdp->chgQuad(c+12097,((VL_ULL(0x7ffffffff) 
                                 & (VL_EXTENDS_QQ(35,34, 
                                                  (VL_ULL(0x3ffffffff) 
                                                   & VL_MULS_QQQ(34,34,34, 
@@ -8829,7 +8805,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                            << 0x20U) 
                                                           | (QData)((IData)(
                                                                             vlSymsp->TOP__Rocket.__PVT__div__DOT__T_153[1U]))))))))),35);
-        vcdp->chgQuad(c+12153,((VL_ULL(0x3ffffffff) 
+        vcdp->chgQuad(c+12113,((VL_ULL(0x3ffffffff) 
                                 & ((VL_ULL(0x7ffffffff) 
                                     & VL_EXTENDS_QQ(35,34, 
                                                     (VL_ULL(0x3ffffffff) 
@@ -8850,25 +8826,25 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                               << 0x20U) 
                                                              | (QData)((IData)(
                                                                                vlSymsp->TOP__Rocket.__PVT__div__DOT__T_153[1U])))))))))),34);
-        vcdp->chgBus(c+12169,((0x7fffffffU & ((vlSymsp->TOP__Rocket.__PVT__div__DOT__T_153[1U] 
+        vcdp->chgBus(c+12129,((0x7fffffffU & ((vlSymsp->TOP__Rocket.__PVT__div__DOT__T_153[1U] 
                                                << 0x1fU) 
                                               | (vlSymsp->TOP__Rocket.__PVT__div__DOT__T_153[0U] 
                                                  >> 1U)))),31);
-        vcdp->chgArray(c+12177,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_165),65);
-        vcdp->chgQuad(c+12201,((VL_ULL(0x1ffffffff) 
+        vcdp->chgArray(c+12137,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_165),65);
+        vcdp->chgQuad(c+12161,((VL_ULL(0x1ffffffff) 
                                 & (((QData)((IData)(
                                                     vlSymsp->TOP__Rocket.__PVT__div__DOT__T_165[2U])) 
                                     << 0x20U) | (QData)((IData)(
                                                                 vlSymsp->TOP__Rocket.__PVT__div__DOT__T_165[1U]))))),33);
-        vcdp->chgBus(c+12217,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_165[0U]),32);
-        vcdp->chgQuad(c+12225,((VL_ULL(0x3fffffffe) 
+        vcdp->chgBus(c+12177,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_165[0U]),32);
+        vcdp->chgQuad(c+12185,((VL_ULL(0x3fffffffe) 
                                 & (((QData)((IData)(
                                                     vlSymsp->TOP__Rocket.__PVT__div__DOT__T_165[2U])) 
                                     << 0x21U) | ((QData)((IData)(
                                                                  vlSymsp->TOP__Rocket.__PVT__div__DOT__T_165[1U])) 
                                                  << 1U)))),34);
-        vcdp->chgArray(c+12241,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_202),66);
-        vcdp->chgBus(c+12265,(((0x1fU == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count))
+        vcdp->chgArray(c+12201,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_202),66);
+        vcdp->chgBus(c+12225,(((0x1fU == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count))
                                 ? ((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__isHi)
                                     ? 3U : 5U) : (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__GEN_8))),3);
         VL_EXTEND_WI(66,32, __Vtemp206, ((vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U] 
@@ -8938,26 +8914,26 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                      vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U])
                                                      : 
                                                     vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U]))));
-        vcdp->chgArray(c+12273,(__Vtemp216),66);
-        vcdp->chgBus(c+12297,((0x3fU & ((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_150)
+        vcdp->chgArray(c+12233,(__Vtemp216),66);
+        vcdp->chgBus(c+12257,((0x3fU & ((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_150)
                                          ? ((IData)(1U) 
                                             + (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count))
                                          : (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count)))),6);
-        vcdp->chgBus(c+12305,(vlSymsp->TOP__Rocket.__PVT__div__DOT__GEN_12),3);
-        vcdp->chgBit(c+12313,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_213));
-        vcdp->chgBus(c+12321,(((0x20U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count))
+        vcdp->chgBus(c+12265,(vlSymsp->TOP__Rocket.__PVT__div__DOT__GEN_12),3);
+        vcdp->chgBit(c+12273,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_213));
+        vcdp->chgBus(c+12281,(((0x20U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count))
                                 ? ((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__isHi)
                                     ? 3U : ((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__neg_out)
                                              ? 4U : 5U))
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__GEN_12))),3);
-        vcdp->chgBus(c+12329,((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_136)),32);
-        vcdp->chgBus(c+12337,(((1U & (IData)((vlSymsp->TOP__Rocket.__PVT__div__DOT__T_136 
+        vcdp->chgBus(c+12289,((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_136)),32);
+        vcdp->chgBus(c+12297,(((1U & (IData)((vlSymsp->TOP__Rocket.__PVT__div__DOT__T_136 
                                               >> 0x20U)))
                                 ? vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[1U]
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_136))),32);
-        vcdp->chgBit(c+12345,((1U & (~ (IData)((vlSymsp->TOP__Rocket.__PVT__div__DOT__T_136 
+        vcdp->chgBit(c+12305,((1U & (~ (IData)((vlSymsp->TOP__Rocket.__PVT__div__DOT__T_136 
                                                 >> 0x20U))))));
-        vcdp->chgQuad(c+12353,((((QData)((IData)(((1U 
+        vcdp->chgQuad(c+12313,((((QData)((IData)(((1U 
                                                    & (IData)(
                                                              (vlSymsp->TOP__Rocket.__PVT__div__DOT__T_136 
                                                               >> 0x20U)))
@@ -8966,14 +8942,14 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                    : (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_136)))) 
                                  << 0x20U) | (QData)((IData)(
                                                              vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[0U])))),64);
-        vcdp->chgArray(c+12369,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_228),65);
-        vcdp->chgBit(c+12393,(((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count)) 
+        vcdp->chgArray(c+12329,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_228),65);
+        vcdp->chgBit(c+12353,(((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count)) 
                                & (~ (IData)((vlSymsp->TOP__Rocket.__PVT__div__DOT__T_136 
                                              >> 0x20U))))));
-        vcdp->chgBit(c+12401,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_470));
-        vcdp->chgBit(c+12409,(((~ (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_470)) 
+        vcdp->chgBit(c+12361,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_470));
+        vcdp->chgBit(c+12369,(((~ (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_470)) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__neg_out))));
-        vcdp->chgBus(c+12417,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_213)
+        vcdp->chgBus(c+12377,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_213)
                                 ? ((0x20U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count))
                                     ? ((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__isHi)
                                         ? 3U : ((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__neg_out)
@@ -8981,7 +8957,7 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                  : 5U))
                                     : (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__GEN_12))
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__GEN_12))),3);
-        vcdp->chgBus(c+12425,((0x3fU & ((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_213)
+        vcdp->chgBus(c+12385,((0x3fU & ((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_213)
                                          ? ((IData)(1U) 
                                             + (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count))
                                          : ((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_150)
@@ -9071,20 +9047,20 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                       vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U])
                                                       : 
                                                      vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U])))));
-        vcdp->chgArray(c+12433,(__Vtemp229),66);
-        vcdp->chgBit(c+12457,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_213)
+        vcdp->chgArray(c+12393,(__Vtemp229),66);
+        vcdp->chgBit(c+12417,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_213)
                                 ? ((~ (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_470)) 
                                    & (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__neg_out))
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__neg_out))));
-        vcdp->chgBit(c+12465,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_474));
-        vcdp->chgBit(c+12473,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_80)))));
-        vcdp->chgBit(c+12481,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_474)
+        vcdp->chgBit(c+12425,(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_474));
+        vcdp->chgBit(c+12433,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_80)))));
+        vcdp->chgBit(c+12441,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_474)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_80)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__isMul))));
-        vcdp->chgBit(c+12489,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_474)
+        vcdp->chgBit(c+12449,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_474)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_92)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__isHi))));
-        vcdp->chgBus(c+12497,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_474)
+        vcdp->chgBus(c+12457,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_474)
                                 ? 0U : (0x3fU & ((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_213)
                                                   ? 
                                                  ((IData)(1U) 
@@ -9095,18 +9071,18 @@ void VRocket::traceChgThis__4(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                   ((IData)(1U) 
                                                    + (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count))
                                                    : (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count)))))),6);
-        vcdp->chgBus(c+12505,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_474)
+        vcdp->chgBus(c+12465,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_474)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__req_fn))),4);
-        vcdp->chgBit(c+12513,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_474)
+        vcdp->chgBit(c+12473,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_474)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_dw)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__req_dw))));
-        vcdp->chgBus(c+12521,((0x1fU & ((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_474)
+        vcdp->chgBus(c+12481,((0x1fU & ((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__T_474)
                                          ? (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                             >> 7U) : (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__req_tag)))),5);
-        vcdp->chgBus(c+12529,(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471),2);
-        vcdp->chgBus(c+12537,(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471),4);
-        vcdp->chgBit(c+12545,((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))));
+        vcdp->chgBus(c+12489,(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471),2);
+        vcdp->chgBus(c+12497,(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471),4);
+        vcdp->chgBit(c+12505,((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))));
     }
 }
 
@@ -9116,367 +9092,367 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
     if (0 && vcdp && c) {}  // Prevent unused
     // Body
     {
-        vcdp->chgBit(c+12553,(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_hit));
-        vcdp->chgBit(c+12561,(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_taken));
-        vcdp->chgBus(c+12569,(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_mask),2);
-        vcdp->chgBit(c+12577,(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_bridx));
-        vcdp->chgBus(c+12585,(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_target),32);
-        vcdp->chgBit(c+12593,(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_entry));
-        vcdp->chgBit(c+12601,(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_bht_history));
-        vcdp->chgBus(c+12609,(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_bht_value),2);
-        vcdp->chgBit(c+12617,((1U & vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata)));
-        vcdp->chgBus(c+12625,(((0x3eU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+        vcdp->chgBit(c+12513,(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_hit));
+        vcdp->chgBit(c+12521,(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_taken));
+        vcdp->chgBus(c+12529,(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_mask),2);
+        vcdp->chgBit(c+12537,(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_bridx));
+        vcdp->chgBus(c+12545,(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_target),32);
+        vcdp->chgBit(c+12553,(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_entry));
+        vcdp->chgBit(c+12561,(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_bht_history));
+        vcdp->chgBus(c+12569,(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_bht_value),2);
+        vcdp->chgBit(c+12577,((1U & vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata)));
+        vcdp->chgBus(c+12585,(((0x3eU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                          >> 6U)) | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc))),7);
-        vcdp->chgBus(c+12633,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd),5);
-        vcdp->chgBus(c+12641,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type),3);
-        vcdp->chgBus(c+12649,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_sptbr_asid),7);
-        vcdp->chgBit(c+12657,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug));
-        vcdp->chgBus(c+12665,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa),32);
-        vcdp->chgBus(c+12673,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv),2);
-        vcdp->chgBus(c+12681,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero3),31);
-        vcdp->chgBus(c+12689,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs),2);
-        vcdp->chgBus(c+12697,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_vm),5);
-        vcdp->chgBus(c+12705,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero1),4);
-        vcdp->chgBit(c+12713,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh));
-        vcdp->chgBit(c+12721,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mprv));
-        vcdp->chgBus(c+12729,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpp),2);
-        vcdp->chgBit(c+12737,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_spp));
-        vcdp->chgBit(c+12745,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpie));
-        vcdp->chgBit(c+12753,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mie));
-        vcdp->chgBus(c+12761,((0x7fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBus(c+12593,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd),5);
+        vcdp->chgBus(c+12601,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type),3);
+        vcdp->chgBus(c+12609,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_sptbr_asid),7);
+        vcdp->chgBit(c+12617,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug));
+        vcdp->chgBus(c+12625,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa),32);
+        vcdp->chgBus(c+12633,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv),2);
+        vcdp->chgBus(c+12641,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero3),31);
+        vcdp->chgBus(c+12649,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs),2);
+        vcdp->chgBus(c+12657,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_vm),5);
+        vcdp->chgBus(c+12665,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero1),4);
+        vcdp->chgBit(c+12673,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh));
+        vcdp->chgBit(c+12681,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mprv));
+        vcdp->chgBus(c+12689,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpp),2);
+        vcdp->chgBit(c+12697,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_spp));
+        vcdp->chgBit(c+12705,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpie));
+        vcdp->chgBit(c+12713,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mie));
+        vcdp->chgBus(c+12721,((0x7fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                         >> 0x19U))),7);
-        vcdp->chgBus(c+12769,((0x1fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBus(c+12729,((0x1fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                         >> 0x14U))),5);
-        vcdp->chgBus(c+12777,((0x1fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBus(c+12737,((0x1fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                         >> 0xfU))),5);
-        vcdp->chgBit(c+12785,((1U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBit(c+12745,((1U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                      >> 0xeU))));
-        vcdp->chgBit(c+12793,((1U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBit(c+12753,((1U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                      >> 0xdU))));
-        vcdp->chgBit(c+12801,((1U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBit(c+12761,((1U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                      >> 0xcU))));
-        vcdp->chgBus(c+12809,((0x1fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBus(c+12769,((0x1fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                         >> 7U))),5);
-        vcdp->chgBus(c+12817,((0x7fU & vlSymsp->TOP__Rocket.__PVT__wb_reg_inst)),7);
-        vcdp->chgBus(c+12825,(vlSymsp->TOP__Rocket.__PVT__wb_reg_wdata),32);
-        vcdp->chgBus(c+12833,(vlSymsp->TOP__Rocket.__PVT__wb_reg_rs2),32);
-        vcdp->chgBit(c+12841,(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid));
-        vcdp->chgBit(c+12849,(vlSymsp->TOP__Rocket.__PVT__mem_reg_valid));
-        vcdp->chgBit(c+12857,(vlSymsp->TOP__Rocket.__PVT__wb_reg_valid));
-        vcdp->chgBus(c+12865,(vlSymsp->TOP__Rocket.__PVT__wb_reg_inst),32);
-        vcdp->chgBus(c+12873,(vlSymsp->TOP__Rocket.__PVT__ex_reg_inst),32);
-        vcdp->chgBus(c+12881,(vlSymsp->TOP__Rocket.__PVT__mem_reg_inst),32);
-        vcdp->chgBus(c+12889,(vlSymsp->TOP__Rocket.__PVT__wb_reg_pc),32);
-        vcdp->chgBus(c+12897,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+12777,((0x7fU & vlSymsp->TOP__Rocket.__PVT__wb_reg_inst)),7);
+        vcdp->chgBus(c+12785,(vlSymsp->TOP__Rocket.__PVT__wb_reg_wdata),32);
+        vcdp->chgBus(c+12793,(vlSymsp->TOP__Rocket.__PVT__wb_reg_rs2),32);
+        vcdp->chgBit(c+12801,(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid));
+        vcdp->chgBit(c+12809,(vlSymsp->TOP__Rocket.__PVT__mem_reg_valid));
+        vcdp->chgBit(c+12817,(vlSymsp->TOP__Rocket.__PVT__wb_reg_valid));
+        vcdp->chgBus(c+12825,(vlSymsp->TOP__Rocket.__PVT__wb_reg_inst),32);
+        vcdp->chgBus(c+12833,(vlSymsp->TOP__Rocket.__PVT__ex_reg_inst),32);
+        vcdp->chgBus(c+12841,(vlSymsp->TOP__Rocket.__PVT__mem_reg_inst),32);
+        vcdp->chgBus(c+12849,(vlSymsp->TOP__Rocket.__PVT__wb_reg_pc),32);
+        vcdp->chgBus(c+12857,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0x1eU]),32);
-        vcdp->chgBus(c+12905,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+12865,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0x15U]),32);
-        vcdp->chgBus(c+12913,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+12873,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0x14U]),32);
-        vcdp->chgBus(c+12921,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+12881,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0x13U]),32);
-        vcdp->chgBus(c+12929,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+12889,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0x12U]),32);
-        vcdp->chgBus(c+12937,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+12897,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0x11U]),32);
-        vcdp->chgBus(c+12945,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+12905,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0x10U]),32);
-        vcdp->chgBus(c+12953,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+12913,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0xfU]),32);
-        vcdp->chgBus(c+12961,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+12921,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0xeU]),32);
-        vcdp->chgBus(c+12969,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+12929,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0xdU]),32);
-        vcdp->chgBus(c+12977,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+12937,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0xcU]),32);
-        vcdp->chgBus(c+12985,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+12945,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0x1dU]),32);
-        vcdp->chgBus(c+12993,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+12953,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0xbU]),32);
-        vcdp->chgBus(c+13001,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+12961,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0xaU]),32);
-        vcdp->chgBus(c+13009,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+12969,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [9U]),32);
-        vcdp->chgBus(c+13017,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+12977,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [8U]),32);
-        vcdp->chgBus(c+13025,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+12985,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [7U]),32);
-        vcdp->chgBus(c+13033,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+12993,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [6U]),32);
-        vcdp->chgBus(c+13041,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+13001,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [5U]),32);
-        vcdp->chgBus(c+13049,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+13009,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [4U]),32);
-        vcdp->chgBus(c+13057,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+13017,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [3U]),32);
-        vcdp->chgBus(c+13065,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+13025,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [2U]),32);
-        vcdp->chgBus(c+13073,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+13033,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0x1cU]),32);
-        vcdp->chgBus(c+13081,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+13041,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [1U]),32);
-        vcdp->chgBus(c+13089,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+13049,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0U]),32);
-        vcdp->chgBus(c+13097,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+13057,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0x1bU]),32);
-        vcdp->chgBus(c+13105,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+13065,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0x1aU]),32);
-        vcdp->chgBus(c+13113,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+13073,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0x19U]),32);
-        vcdp->chgBus(c+13121,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+13081,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0x18U]),32);
-        vcdp->chgBus(c+13129,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+13089,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0x17U]),32);
-        vcdp->chgBus(c+13137,(vlSymsp->TOP__Rocket.__PVT__T_6545
+        vcdp->chgBus(c+13097,(vlSymsp->TOP__Rocket.__PVT__T_6545
                               [0x16U]),32);
-        vcdp->chgBit(c+13145,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_legal));
-        vcdp->chgBit(c+13153,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc));
-        vcdp->chgBit(c+13161,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_branch));
-        vcdp->chgBit(c+13169,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_jal));
-        vcdp->chgBit(c+13177,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_jalr));
-        vcdp->chgBit(c+13185,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rxs2));
-        vcdp->chgBit(c+13193,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rxs1));
-        vcdp->chgBus(c+13201,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu2),2);
-        vcdp->chgBus(c+13209,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu1),2);
-        vcdp->chgBus(c+13217,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm),3);
-        vcdp->chgBit(c+13225,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_dw));
-        vcdp->chgBus(c+13233,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn),4);
-        vcdp->chgBit(c+13241,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem));
-        vcdp->chgBit(c+13249,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rfs1));
-        vcdp->chgBit(c+13257,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rfs2));
-        vcdp->chgBit(c+13265,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rfs3));
-        vcdp->chgBit(c+13273,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_div));
-        vcdp->chgBit(c+13281,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_wxd));
-        vcdp->chgBus(c+13289,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr),3);
-        vcdp->chgBit(c+13297,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_fence_i));
-        vcdp->chgBit(c+13305,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_fence));
-        vcdp->chgBit(c+13313,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_amo));
-        vcdp->chgBit(c+13321,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_dp));
-        vcdp->chgBit(c+13329,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_legal));
-        vcdp->chgBit(c+13337,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc));
-        vcdp->chgBit(c+13345,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_branch));
-        vcdp->chgBit(c+13353,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_jal));
-        vcdp->chgBit(c+13361,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_jalr));
-        vcdp->chgBit(c+13369,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rxs2));
-        vcdp->chgBit(c+13377,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rxs1));
-        vcdp->chgBus(c+13385,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_sel_alu2),2);
-        vcdp->chgBus(c+13393,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_sel_alu1),2);
-        vcdp->chgBus(c+13401,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_sel_imm),3);
-        vcdp->chgBit(c+13409,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_alu_dw));
-        vcdp->chgBus(c+13417,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_alu_fn),4);
-        vcdp->chgBit(c+13425,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem));
-        vcdp->chgBus(c+13433,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem_cmd),5);
-        vcdp->chgBus(c+13441,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem_type),3);
-        vcdp->chgBit(c+13449,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rfs1));
-        vcdp->chgBit(c+13457,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rfs2));
-        vcdp->chgBit(c+13465,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rfs3));
-        vcdp->chgBit(c+13473,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_div));
-        vcdp->chgBit(c+13481,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_wxd));
-        vcdp->chgBus(c+13489,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr),3);
-        vcdp->chgBit(c+13497,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_fence_i));
-        vcdp->chgBit(c+13505,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_fence));
-        vcdp->chgBit(c+13513,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_amo));
-        vcdp->chgBit(c+13521,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_dp));
-        vcdp->chgBit(c+13529,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_legal));
-        vcdp->chgBit(c+13537,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_fp));
-        vcdp->chgBit(c+13545,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rocc));
-        vcdp->chgBit(c+13553,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_branch));
-        vcdp->chgBit(c+13561,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_jal));
-        vcdp->chgBit(c+13569,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_jalr));
-        vcdp->chgBit(c+13577,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rxs2));
-        vcdp->chgBit(c+13585,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rxs1));
-        vcdp->chgBus(c+13593,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_sel_alu2),2);
-        vcdp->chgBus(c+13601,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_sel_alu1),2);
-        vcdp->chgBus(c+13609,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_sel_imm),3);
-        vcdp->chgBit(c+13617,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_alu_dw));
-        vcdp->chgBus(c+13625,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_alu_fn),4);
-        vcdp->chgBit(c+13633,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_mem));
-        vcdp->chgBus(c+13641,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_mem_cmd),5);
-        vcdp->chgBus(c+13649,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_mem_type),3);
-        vcdp->chgBit(c+13657,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rfs1));
-        vcdp->chgBit(c+13665,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rfs2));
-        vcdp->chgBit(c+13673,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rfs3));
-        vcdp->chgBit(c+13681,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_wfd));
-        vcdp->chgBit(c+13689,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_div));
-        vcdp->chgBit(c+13697,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_wxd));
-        vcdp->chgBus(c+13705,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_csr),3);
-        vcdp->chgBit(c+13713,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_fence_i));
-        vcdp->chgBit(c+13721,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_fence));
-        vcdp->chgBit(c+13729,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_amo));
-        vcdp->chgBit(c+13737,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_dp));
-        vcdp->chgBit(c+13745,(vlSymsp->TOP__Rocket.__PVT__ex_reg_xcpt_interrupt));
-        vcdp->chgBit(c+13753,(vlSymsp->TOP__Rocket.__PVT__ex_reg_rvc));
-        vcdp->chgBit(c+13761,(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit));
-        vcdp->chgBit(c+13769,(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_taken));
-        vcdp->chgBus(c+13777,(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_mask),2);
-        vcdp->chgBit(c+13785,(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_bridx));
-        vcdp->chgBus(c+13793,(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_target),32);
-        vcdp->chgBit(c+13801,(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_entry));
-        vcdp->chgBit(c+13809,(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_bht_history));
-        vcdp->chgBus(c+13817,(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_bht_value),2);
-        vcdp->chgBit(c+13825,(vlSymsp->TOP__Rocket.__PVT__ex_reg_xcpt));
-        vcdp->chgBit(c+13833,(vlSymsp->TOP__Rocket.__PVT__ex_reg_flush_pipe));
-        vcdp->chgBit(c+13841,(vlSymsp->TOP__Rocket.__PVT__ex_reg_load_use));
-        vcdp->chgBus(c+13849,(vlSymsp->TOP__Rocket.__PVT__ex_reg_cause),32);
-        vcdp->chgBit(c+13857,(vlSymsp->TOP__Rocket.__PVT__ex_reg_replay));
-        vcdp->chgBus(c+13865,(vlSymsp->TOP__Rocket.__PVT__ex_reg_pc),32);
-        vcdp->chgBit(c+13873,(vlSymsp->TOP__Rocket.__PVT__mem_reg_xcpt_interrupt));
-        vcdp->chgBit(c+13881,(vlSymsp->TOP__Rocket.__PVT__mem_reg_rvc));
-        vcdp->chgBit(c+13889,(vlSymsp->TOP__Rocket.__PVT__mem_reg_xcpt));
-        vcdp->chgBit(c+13897,(vlSymsp->TOP__Rocket.__PVT__mem_reg_replay));
-        vcdp->chgBit(c+13905,(vlSymsp->TOP__Rocket.__PVT__mem_reg_flush_pipe));
-        vcdp->chgBus(c+13913,(vlSymsp->TOP__Rocket.__PVT__mem_reg_cause),32);
-        vcdp->chgBit(c+13921,(vlSymsp->TOP__Rocket.__PVT__mem_reg_slow_bypass));
-        vcdp->chgBit(c+13929,(vlSymsp->TOP__Rocket.__PVT__mem_reg_load));
-        vcdp->chgBit(c+13937,(vlSymsp->TOP__Rocket.__PVT__mem_reg_store));
-        vcdp->chgBus(c+13945,(vlSymsp->TOP__Rocket.__PVT__mem_reg_pc),32);
-        vcdp->chgBus(c+13953,(vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata),32);
-        vcdp->chgBus(c+13961,(vlSymsp->TOP__Rocket.__PVT__mem_reg_rs2),32);
-        vcdp->chgBit(c+13969,(vlSymsp->TOP__Rocket.__PVT__wb_reg_xcpt));
-        vcdp->chgBit(c+13977,(vlSymsp->TOP__Rocket.__PVT__wb_reg_replay));
-        vcdp->chgBus(c+13985,(vlSymsp->TOP__Rocket.__PVT__wb_reg_cause),32);
-        vcdp->chgBit(c+13993,(vlSymsp->TOP__Rocket.__PVT__id_reg_fence));
-        vcdp->chgBus(c+14001,(vlSymsp->TOP__Rocket.__PVT__T_6545[0]),32);
-        vcdp->chgBus(c+14002,(vlSymsp->TOP__Rocket.__PVT__T_6545[1]),32);
-        vcdp->chgBus(c+14003,(vlSymsp->TOP__Rocket.__PVT__T_6545[2]),32);
-        vcdp->chgBus(c+14004,(vlSymsp->TOP__Rocket.__PVT__T_6545[3]),32);
-        vcdp->chgBus(c+14005,(vlSymsp->TOP__Rocket.__PVT__T_6545[4]),32);
-        vcdp->chgBus(c+14006,(vlSymsp->TOP__Rocket.__PVT__T_6545[5]),32);
-        vcdp->chgBus(c+14007,(vlSymsp->TOP__Rocket.__PVT__T_6545[6]),32);
-        vcdp->chgBus(c+14008,(vlSymsp->TOP__Rocket.__PVT__T_6545[7]),32);
-        vcdp->chgBus(c+14009,(vlSymsp->TOP__Rocket.__PVT__T_6545[8]),32);
-        vcdp->chgBus(c+14010,(vlSymsp->TOP__Rocket.__PVT__T_6545[9]),32);
-        vcdp->chgBus(c+14011,(vlSymsp->TOP__Rocket.__PVT__T_6545[10]),32);
-        vcdp->chgBus(c+14012,(vlSymsp->TOP__Rocket.__PVT__T_6545[11]),32);
-        vcdp->chgBus(c+14013,(vlSymsp->TOP__Rocket.__PVT__T_6545[12]),32);
-        vcdp->chgBus(c+14014,(vlSymsp->TOP__Rocket.__PVT__T_6545[13]),32);
-        vcdp->chgBus(c+14015,(vlSymsp->TOP__Rocket.__PVT__T_6545[14]),32);
-        vcdp->chgBus(c+14016,(vlSymsp->TOP__Rocket.__PVT__T_6545[15]),32);
-        vcdp->chgBus(c+14017,(vlSymsp->TOP__Rocket.__PVT__T_6545[16]),32);
-        vcdp->chgBus(c+14018,(vlSymsp->TOP__Rocket.__PVT__T_6545[17]),32);
-        vcdp->chgBus(c+14019,(vlSymsp->TOP__Rocket.__PVT__T_6545[18]),32);
-        vcdp->chgBus(c+14020,(vlSymsp->TOP__Rocket.__PVT__T_6545[19]),32);
-        vcdp->chgBus(c+14021,(vlSymsp->TOP__Rocket.__PVT__T_6545[20]),32);
-        vcdp->chgBus(c+14022,(vlSymsp->TOP__Rocket.__PVT__T_6545[21]),32);
-        vcdp->chgBus(c+14023,(vlSymsp->TOP__Rocket.__PVT__T_6545[22]),32);
-        vcdp->chgBus(c+14024,(vlSymsp->TOP__Rocket.__PVT__T_6545[23]),32);
-        vcdp->chgBus(c+14025,(vlSymsp->TOP__Rocket.__PVT__T_6545[24]),32);
-        vcdp->chgBus(c+14026,(vlSymsp->TOP__Rocket.__PVT__T_6545[25]),32);
-        vcdp->chgBus(c+14027,(vlSymsp->TOP__Rocket.__PVT__T_6545[26]),32);
-        vcdp->chgBus(c+14028,(vlSymsp->TOP__Rocket.__PVT__T_6545[27]),32);
-        vcdp->chgBus(c+14029,(vlSymsp->TOP__Rocket.__PVT__T_6545[28]),32);
-        vcdp->chgBus(c+14030,(vlSymsp->TOP__Rocket.__PVT__T_6545[29]),32);
-        vcdp->chgBus(c+14031,(vlSymsp->TOP__Rocket.__PVT__T_6545[30]),32);
-        vcdp->chgBus(c+14249,((0xfffU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBit(c+13105,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_legal));
+        vcdp->chgBit(c+13113,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc));
+        vcdp->chgBit(c+13121,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_branch));
+        vcdp->chgBit(c+13129,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_jal));
+        vcdp->chgBit(c+13137,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_jalr));
+        vcdp->chgBit(c+13145,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rxs2));
+        vcdp->chgBit(c+13153,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rxs1));
+        vcdp->chgBus(c+13161,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu2),2);
+        vcdp->chgBus(c+13169,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu1),2);
+        vcdp->chgBus(c+13177,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm),3);
+        vcdp->chgBit(c+13185,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_dw));
+        vcdp->chgBus(c+13193,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn),4);
+        vcdp->chgBit(c+13201,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem));
+        vcdp->chgBit(c+13209,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rfs1));
+        vcdp->chgBit(c+13217,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rfs2));
+        vcdp->chgBit(c+13225,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rfs3));
+        vcdp->chgBit(c+13233,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_div));
+        vcdp->chgBit(c+13241,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_wxd));
+        vcdp->chgBus(c+13249,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr),3);
+        vcdp->chgBit(c+13257,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_fence_i));
+        vcdp->chgBit(c+13265,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_fence));
+        vcdp->chgBit(c+13273,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_amo));
+        vcdp->chgBit(c+13281,(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_dp));
+        vcdp->chgBit(c+13289,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_legal));
+        vcdp->chgBit(c+13297,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc));
+        vcdp->chgBit(c+13305,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_branch));
+        vcdp->chgBit(c+13313,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_jal));
+        vcdp->chgBit(c+13321,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_jalr));
+        vcdp->chgBit(c+13329,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rxs2));
+        vcdp->chgBit(c+13337,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rxs1));
+        vcdp->chgBus(c+13345,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_sel_alu2),2);
+        vcdp->chgBus(c+13353,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_sel_alu1),2);
+        vcdp->chgBus(c+13361,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_sel_imm),3);
+        vcdp->chgBit(c+13369,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_alu_dw));
+        vcdp->chgBus(c+13377,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_alu_fn),4);
+        vcdp->chgBit(c+13385,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem));
+        vcdp->chgBus(c+13393,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem_cmd),5);
+        vcdp->chgBus(c+13401,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem_type),3);
+        vcdp->chgBit(c+13409,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rfs1));
+        vcdp->chgBit(c+13417,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rfs2));
+        vcdp->chgBit(c+13425,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rfs3));
+        vcdp->chgBit(c+13433,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_div));
+        vcdp->chgBit(c+13441,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_wxd));
+        vcdp->chgBus(c+13449,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr),3);
+        vcdp->chgBit(c+13457,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_fence_i));
+        vcdp->chgBit(c+13465,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_fence));
+        vcdp->chgBit(c+13473,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_amo));
+        vcdp->chgBit(c+13481,(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_dp));
+        vcdp->chgBit(c+13489,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_legal));
+        vcdp->chgBit(c+13497,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_fp));
+        vcdp->chgBit(c+13505,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rocc));
+        vcdp->chgBit(c+13513,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_branch));
+        vcdp->chgBit(c+13521,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_jal));
+        vcdp->chgBit(c+13529,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_jalr));
+        vcdp->chgBit(c+13537,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rxs2));
+        vcdp->chgBit(c+13545,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rxs1));
+        vcdp->chgBus(c+13553,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_sel_alu2),2);
+        vcdp->chgBus(c+13561,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_sel_alu1),2);
+        vcdp->chgBus(c+13569,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_sel_imm),3);
+        vcdp->chgBit(c+13577,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_alu_dw));
+        vcdp->chgBus(c+13585,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_alu_fn),4);
+        vcdp->chgBit(c+13593,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_mem));
+        vcdp->chgBus(c+13601,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_mem_cmd),5);
+        vcdp->chgBus(c+13609,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_mem_type),3);
+        vcdp->chgBit(c+13617,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rfs1));
+        vcdp->chgBit(c+13625,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rfs2));
+        vcdp->chgBit(c+13633,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_rfs3));
+        vcdp->chgBit(c+13641,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_wfd));
+        vcdp->chgBit(c+13649,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_div));
+        vcdp->chgBit(c+13657,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_wxd));
+        vcdp->chgBus(c+13665,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_csr),3);
+        vcdp->chgBit(c+13673,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_fence_i));
+        vcdp->chgBit(c+13681,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_fence));
+        vcdp->chgBit(c+13689,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_amo));
+        vcdp->chgBit(c+13697,(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_dp));
+        vcdp->chgBit(c+13705,(vlSymsp->TOP__Rocket.__PVT__ex_reg_xcpt_interrupt));
+        vcdp->chgBit(c+13713,(vlSymsp->TOP__Rocket.__PVT__ex_reg_rvc));
+        vcdp->chgBit(c+13721,(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit));
+        vcdp->chgBit(c+13729,(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_taken));
+        vcdp->chgBus(c+13737,(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_mask),2);
+        vcdp->chgBit(c+13745,(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_bridx));
+        vcdp->chgBus(c+13753,(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_target),32);
+        vcdp->chgBit(c+13761,(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_entry));
+        vcdp->chgBit(c+13769,(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_bht_history));
+        vcdp->chgBus(c+13777,(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_bht_value),2);
+        vcdp->chgBit(c+13785,(vlSymsp->TOP__Rocket.__PVT__ex_reg_xcpt));
+        vcdp->chgBit(c+13793,(vlSymsp->TOP__Rocket.__PVT__ex_reg_flush_pipe));
+        vcdp->chgBit(c+13801,(vlSymsp->TOP__Rocket.__PVT__ex_reg_load_use));
+        vcdp->chgBus(c+13809,(vlSymsp->TOP__Rocket.__PVT__ex_reg_cause),32);
+        vcdp->chgBit(c+13817,(vlSymsp->TOP__Rocket.__PVT__ex_reg_replay));
+        vcdp->chgBus(c+13825,(vlSymsp->TOP__Rocket.__PVT__ex_reg_pc),32);
+        vcdp->chgBit(c+13833,(vlSymsp->TOP__Rocket.__PVT__mem_reg_xcpt_interrupt));
+        vcdp->chgBit(c+13841,(vlSymsp->TOP__Rocket.__PVT__mem_reg_rvc));
+        vcdp->chgBit(c+13849,(vlSymsp->TOP__Rocket.__PVT__mem_reg_xcpt));
+        vcdp->chgBit(c+13857,(vlSymsp->TOP__Rocket.__PVT__mem_reg_replay));
+        vcdp->chgBit(c+13865,(vlSymsp->TOP__Rocket.__PVT__mem_reg_flush_pipe));
+        vcdp->chgBus(c+13873,(vlSymsp->TOP__Rocket.__PVT__mem_reg_cause),32);
+        vcdp->chgBit(c+13881,(vlSymsp->TOP__Rocket.__PVT__mem_reg_slow_bypass));
+        vcdp->chgBit(c+13889,(vlSymsp->TOP__Rocket.__PVT__mem_reg_load));
+        vcdp->chgBit(c+13897,(vlSymsp->TOP__Rocket.__PVT__mem_reg_store));
+        vcdp->chgBus(c+13905,(vlSymsp->TOP__Rocket.__PVT__mem_reg_pc),32);
+        vcdp->chgBus(c+13913,(vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata),32);
+        vcdp->chgBus(c+13921,(vlSymsp->TOP__Rocket.__PVT__mem_reg_rs2),32);
+        vcdp->chgBit(c+13929,(vlSymsp->TOP__Rocket.__PVT__wb_reg_xcpt));
+        vcdp->chgBit(c+13937,(vlSymsp->TOP__Rocket.__PVT__wb_reg_replay));
+        vcdp->chgBus(c+13945,(vlSymsp->TOP__Rocket.__PVT__wb_reg_cause),32);
+        vcdp->chgBit(c+13953,(vlSymsp->TOP__Rocket.__PVT__id_reg_fence));
+        vcdp->chgBus(c+13961,(vlSymsp->TOP__Rocket.__PVT__T_6545[0]),32);
+        vcdp->chgBus(c+13962,(vlSymsp->TOP__Rocket.__PVT__T_6545[1]),32);
+        vcdp->chgBus(c+13963,(vlSymsp->TOP__Rocket.__PVT__T_6545[2]),32);
+        vcdp->chgBus(c+13964,(vlSymsp->TOP__Rocket.__PVT__T_6545[3]),32);
+        vcdp->chgBus(c+13965,(vlSymsp->TOP__Rocket.__PVT__T_6545[4]),32);
+        vcdp->chgBus(c+13966,(vlSymsp->TOP__Rocket.__PVT__T_6545[5]),32);
+        vcdp->chgBus(c+13967,(vlSymsp->TOP__Rocket.__PVT__T_6545[6]),32);
+        vcdp->chgBus(c+13968,(vlSymsp->TOP__Rocket.__PVT__T_6545[7]),32);
+        vcdp->chgBus(c+13969,(vlSymsp->TOP__Rocket.__PVT__T_6545[8]),32);
+        vcdp->chgBus(c+13970,(vlSymsp->TOP__Rocket.__PVT__T_6545[9]),32);
+        vcdp->chgBus(c+13971,(vlSymsp->TOP__Rocket.__PVT__T_6545[10]),32);
+        vcdp->chgBus(c+13972,(vlSymsp->TOP__Rocket.__PVT__T_6545[11]),32);
+        vcdp->chgBus(c+13973,(vlSymsp->TOP__Rocket.__PVT__T_6545[12]),32);
+        vcdp->chgBus(c+13974,(vlSymsp->TOP__Rocket.__PVT__T_6545[13]),32);
+        vcdp->chgBus(c+13975,(vlSymsp->TOP__Rocket.__PVT__T_6545[14]),32);
+        vcdp->chgBus(c+13976,(vlSymsp->TOP__Rocket.__PVT__T_6545[15]),32);
+        vcdp->chgBus(c+13977,(vlSymsp->TOP__Rocket.__PVT__T_6545[16]),32);
+        vcdp->chgBus(c+13978,(vlSymsp->TOP__Rocket.__PVT__T_6545[17]),32);
+        vcdp->chgBus(c+13979,(vlSymsp->TOP__Rocket.__PVT__T_6545[18]),32);
+        vcdp->chgBus(c+13980,(vlSymsp->TOP__Rocket.__PVT__T_6545[19]),32);
+        vcdp->chgBus(c+13981,(vlSymsp->TOP__Rocket.__PVT__T_6545[20]),32);
+        vcdp->chgBus(c+13982,(vlSymsp->TOP__Rocket.__PVT__T_6545[21]),32);
+        vcdp->chgBus(c+13983,(vlSymsp->TOP__Rocket.__PVT__T_6545[22]),32);
+        vcdp->chgBus(c+13984,(vlSymsp->TOP__Rocket.__PVT__T_6545[23]),32);
+        vcdp->chgBus(c+13985,(vlSymsp->TOP__Rocket.__PVT__T_6545[24]),32);
+        vcdp->chgBus(c+13986,(vlSymsp->TOP__Rocket.__PVT__T_6545[25]),32);
+        vcdp->chgBus(c+13987,(vlSymsp->TOP__Rocket.__PVT__T_6545[26]),32);
+        vcdp->chgBus(c+13988,(vlSymsp->TOP__Rocket.__PVT__T_6545[27]),32);
+        vcdp->chgBus(c+13989,(vlSymsp->TOP__Rocket.__PVT__T_6545[28]),32);
+        vcdp->chgBus(c+13990,(vlSymsp->TOP__Rocket.__PVT__T_6545[29]),32);
+        vcdp->chgBus(c+13991,(vlSymsp->TOP__Rocket.__PVT__T_6545[30]),32);
+        vcdp->chgBus(c+14209,((0xfffU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                          >> 0x14U))),12);
-        vcdp->chgBit(c+14257,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_wfi));
-        vcdp->chgBus(c+14265,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_ttype),4);
-        vcdp->chgBit(c+14273,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_dmode));
-        vcdp->chgBus(c+14281,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_maskmax),6);
-        vcdp->chgBus(c+14289,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_reserved),8);
-        vcdp->chgBit(c+14297,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action));
-        vcdp->chgBit(c+14305,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain));
-        vcdp->chgBus(c+14313,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_zero),2);
-        vcdp->chgBus(c+14321,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch),2);
-        vcdp->chgBit(c+14329,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_m));
-        vcdp->chgBit(c+14337,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_u));
-        vcdp->chgBit(c+14345,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_x));
-        vcdp->chgBit(c+14353,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_w));
-        vcdp->chgBit(c+14361,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_r));
-        vcdp->chgBus(c+14369,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address),32);
-        vcdp->chgBit(c+14377,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
+        vcdp->chgBit(c+14217,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_wfi));
+        vcdp->chgBus(c+14225,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_ttype),4);
+        vcdp->chgBit(c+14233,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_dmode));
+        vcdp->chgBus(c+14241,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_maskmax),6);
+        vcdp->chgBus(c+14249,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_reserved),8);
+        vcdp->chgBit(c+14257,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action));
+        vcdp->chgBit(c+14265,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain));
+        vcdp->chgBus(c+14273,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_zero),2);
+        vcdp->chgBus(c+14281,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch),2);
+        vcdp->chgBit(c+14289,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_m));
+        vcdp->chgBit(c+14297,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_u));
+        vcdp->chgBit(c+14305,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_x));
+        vcdp->chgBit(c+14313,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_w));
+        vcdp->chgBit(c+14321,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_r));
+        vcdp->chgBus(c+14329,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address),32);
+        vcdp->chgBit(c+14337,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
                                      >> 0xcU))));
-        vcdp->chgBit(c+14385,((1U & (~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
+        vcdp->chgBit(c+14345,((1U & (~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
                                         >> 0xcU)))));
-        vcdp->chgBit(c+14393,((1U & vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa)));
-        vcdp->chgBit(c+14401,((1U & (~ vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa))));
-        vcdp->chgBit(c+14409,((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs))));
-        vcdp->chgBit(c+14417,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
+        vcdp->chgBit(c+14353,((1U & vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa)));
+        vcdp->chgBit(c+14361,((1U & (~ vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa))));
+        vcdp->chgBit(c+14369,((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs))));
+        vcdp->chgBit(c+14377,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
                                      >> 5U))));
-        vcdp->chgBit(c+14425,(((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)) 
+        vcdp->chgBit(c+14385,(((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)) 
                                & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
                                   >> 5U))));
-        vcdp->chgBit(c+14433,((1U & (~ ((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)) 
+        vcdp->chgBit(c+14393,((1U & (~ ((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)) 
                                         & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
                                            >> 5U))))));
-        vcdp->chgBit(c+14441,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
+        vcdp->chgBit(c+14401,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
                                      >> 3U))));
-        vcdp->chgBit(c+14449,((1U & (~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
+        vcdp->chgBit(c+14409,((1U & (~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
                                         >> 3U)))));
-        vcdp->chgBit(c+14457,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
+        vcdp->chgBit(c+14417,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
                                      >> 2U))));
-        vcdp->chgBit(c+14465,((1U & (~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
+        vcdp->chgBit(c+14425,((1U & (~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
                                         >> 2U)))));
-        vcdp->chgBit(c+14473,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
+        vcdp->chgBit(c+14433,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
                                      >> 0x17U))));
-        vcdp->chgBit(c+14481,(((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)) 
+        vcdp->chgBit(c+14441,(((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)) 
                                & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
                                   >> 0x17U))));
-        vcdp->chgBit(c+14489,((1U & (~ ((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)) 
+        vcdp->chgBit(c+14449,((1U & (~ ((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)) 
                                         & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
                                            >> 0x17U))))));
-        vcdp->chgBus(c+14497,((0x1fU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+        vcdp->chgBus(c+14457,((0x1fU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                         >> 7U))),5);
-        vcdp->chgBus(c+14505,((0x1fU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+        vcdp->chgBus(c+14465,((0x1fU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                         >> 7U))),5);
-        vcdp->chgBit(c+14513,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem)))));
-        vcdp->chgBit(c+14521,(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_bypass_0));
-        vcdp->chgBit(c+14529,(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_bypass_1));
-        vcdp->chgBus(c+14537,(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_lsb_0),2);
-        vcdp->chgBus(c+14545,(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_lsb_1),2);
-        vcdp->chgBus(c+14553,(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_msb_0),30);
-        vcdp->chgBus(c+14561,(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_msb_1),30);
-        vcdp->chgBus(c+14569,(((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_lsb_0))
+        vcdp->chgBit(c+14473,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem)))));
+        vcdp->chgBit(c+14481,(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_bypass_0));
+        vcdp->chgBit(c+14489,(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_bypass_1));
+        vcdp->chgBus(c+14497,(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_lsb_0),2);
+        vcdp->chgBus(c+14505,(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_lsb_1),2);
+        vcdp->chgBus(c+14513,(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_msb_0),30);
+        vcdp->chgBus(c+14521,(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_msb_1),30);
+        vcdp->chgBus(c+14529,(((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_lsb_0))
                                 ? vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata
                                 : 0U)),32);
-        vcdp->chgBus(c+14577,(((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_lsb_0))
+        vcdp->chgBus(c+14537,(((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_lsb_0))
                                 ? vlSymsp->TOP__Rocket.__PVT__wb_reg_wdata
                                 : ((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_lsb_0))
                                     ? vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata
                                     : 0U))),32);
-        vcdp->chgBus(c+14585,(((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_lsb_1))
+        vcdp->chgBus(c+14545,(((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_lsb_1))
                                 ? vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata
                                 : 0U)),32);
-        vcdp->chgBus(c+14593,(((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_lsb_1))
+        vcdp->chgBus(c+14553,(((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_lsb_1))
                                 ? vlSymsp->TOP__Rocket.__PVT__wb_reg_wdata
                                 : ((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_rs_lsb_1))
                                     ? vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata
                                     : 0U))),32);
-        vcdp->chgBit(c+14601,((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))));
-        vcdp->chgBit(c+14609,((1U & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+        vcdp->chgBit(c+14561,((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))));
+        vcdp->chgBit(c+14569,((1U & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                      >> 0x1fU))));
-        vcdp->chgBit(c+14617,((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))));
-        vcdp->chgBus(c+14625,((0x7ffU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+        vcdp->chgBit(c+14577,((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))));
+        vcdp->chgBus(c+14585,((0x7ffU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                          >> 0x14U))),11);
-        vcdp->chgBit(c+14633,((2U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))));
-        vcdp->chgBit(c+14641,((3U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))));
-        vcdp->chgBit(c+14649,(((2U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)) 
+        vcdp->chgBit(c+14593,((2U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))));
+        vcdp->chgBit(c+14601,((3U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))));
+        vcdp->chgBit(c+14609,(((2U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)) 
                                & (3U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)))));
-        vcdp->chgBus(c+14657,((0xffU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+        vcdp->chgBus(c+14617,((0xffU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                         >> 0xcU))),8);
-        vcdp->chgBit(c+14665,((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))));
-        vcdp->chgBit(c+14673,((1U & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+        vcdp->chgBit(c+14625,((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))));
+        vcdp->chgBit(c+14633,((1U & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                      >> 0x14U))));
-        vcdp->chgBit(c+14681,((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))));
-        vcdp->chgBit(c+14689,((1U & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+        vcdp->chgBit(c+14641,((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))));
+        vcdp->chgBit(c+14649,((1U & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                      >> 7U))));
-        vcdp->chgBus(c+14697,((0x3fU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+        vcdp->chgBus(c+14657,((0x3fU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                         >> 0x19U))),6);
-        vcdp->chgBit(c+14705,((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))));
-        vcdp->chgBit(c+14713,(((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)) 
+        vcdp->chgBit(c+14665,((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))));
+        vcdp->chgBit(c+14673,(((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)) 
                                | (1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)))));
-        vcdp->chgBus(c+14721,((0xfU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+        vcdp->chgBus(c+14681,((0xfU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                        >> 8U))),4);
-        vcdp->chgBus(c+14729,((0xfU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+        vcdp->chgBus(c+14689,((0xfU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                        >> 0x10U))),4);
-        vcdp->chgBus(c+14737,((0xfU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+        vcdp->chgBus(c+14697,((0xfU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                        >> 0x15U))),4);
-        vcdp->chgBus(c+14745,((0xfU & ((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
+        vcdp->chgBus(c+14705,((0xfU & ((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
                                         ? (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                            >> 0x10U)
                                         : (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                            >> 0x15U)))),4);
-        vcdp->chgBus(c+14753,((0xfU & (((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)) 
+        vcdp->chgBus(c+14713,((0xfU & (((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)) 
                                         | (1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)))
                                         ? (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                            >> 8U) : 
@@ -9485,7 +9461,7 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                             >> 0x10U)
                                          : (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                             >> 0x15U))))),4);
-        vcdp->chgBus(c+14761,(((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
+        vcdp->chgBus(c+14721,(((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
                                 ? 0U : (0xfU & (((0U 
                                                   == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)) 
                                                  | (1U 
@@ -9502,19 +9478,19 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                   : 
                                                  (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                                   >> 0x15U)))))),4);
-        vcdp->chgBit(c+14769,((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))));
-        vcdp->chgBit(c+14777,((1U & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+        vcdp->chgBit(c+14729,((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))));
+        vcdp->chgBit(c+14737,((1U & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                      >> 0xfU))));
-        vcdp->chgBit(c+14785,(((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)) 
+        vcdp->chgBit(c+14745,(((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)) 
                                & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                   >> 0xfU))));
-        vcdp->chgBit(c+14793,((1U & ((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
+        vcdp->chgBit(c+14753,((1U & ((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
                                       ? (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                          >> 0x14U) : 
                                      ((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)) 
                                       & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                          >> 0xfU))))));
-        vcdp->chgBit(c+14801,((1U & ((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
+        vcdp->chgBit(c+14761,((1U & ((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm))
                                       ? (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                          >> 7U) : (
                                                    (4U 
@@ -9527,287 +9503,287 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                      == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_imm)) 
                                                     & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                                        >> 0xfU)))))));
-        vcdp->chgBus(c+14809,(vlSymsp->TOP__Rocket.__PVT__ex_reg_pc),32);
-        vcdp->chgBit(c+14817,((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu1))));
-        vcdp->chgBus(c+14825,(((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu1))
+        vcdp->chgBus(c+14769,(vlSymsp->TOP__Rocket.__PVT__ex_reg_pc),32);
+        vcdp->chgBit(c+14777,((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu1))));
+        vcdp->chgBus(c+14785,(((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu1))
                                 ? vlSymsp->TOP__Rocket.__PVT__ex_reg_pc
                                 : 0U)),32);
-        vcdp->chgBit(c+14833,((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu1))));
-        vcdp->chgBus(c+14841,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_rvc)
+        vcdp->chgBit(c+14793,((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu1))));
+        vcdp->chgBus(c+14801,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_rvc)
                                 ? 2U : 4U)),4);
-        vcdp->chgBit(c+14849,((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu2))));
-        vcdp->chgBit(c+14857,((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu2))));
-        vcdp->chgBit(c+14865,((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu2))));
-        vcdp->chgBit(c+14873,((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))));
-        vcdp->chgBit(c+14881,((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))));
-        vcdp->chgBus(c+14889,(vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[0U]),32);
-        vcdp->chgBus(c+14897,(vlSymsp->TOP__Rocket.__PVT__div__DOT__req_tag),5);
-        vcdp->chgBit(c+14905,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid) 
+        vcdp->chgBit(c+14809,((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu2))));
+        vcdp->chgBit(c+14817,((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu2))));
+        vcdp->chgBit(c+14825,((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_sel_alu2))));
+        vcdp->chgBit(c+14833,((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))));
+        vcdp->chgBit(c+14841,((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))));
+        vcdp->chgBus(c+14849,(vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[0U]),32);
+        vcdp->chgBus(c+14857,(vlSymsp->TOP__Rocket.__PVT__div__DOT__req_tag),5);
+        vcdp->chgBit(c+14865,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_replay))));
-        vcdp->chgBit(c+14913,((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))));
-        vcdp->chgBit(c+14921,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_div) 
+        vcdp->chgBit(c+14873,((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))));
+        vcdp->chgBit(c+14881,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_div) 
                                & (0U != (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)))));
-        vcdp->chgBit(c+14929,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid)))));
-        vcdp->chgBit(c+14937,((7U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd))));
-        vcdp->chgBit(c+14945,((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type))));
-        vcdp->chgBit(c+14953,((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type))));
-        vcdp->chgBit(c+14961,((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type))));
-        vcdp->chgBit(c+14969,((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type))));
-        vcdp->chgBit(c+14977,(((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type)) 
+        vcdp->chgBit(c+14889,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid)))));
+        vcdp->chgBit(c+14897,((7U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd))));
+        vcdp->chgBit(c+14905,((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type))));
+        vcdp->chgBit(c+14913,((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type))));
+        vcdp->chgBit(c+14921,((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type))));
+        vcdp->chgBit(c+14929,((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type))));
+        vcdp->chgBit(c+14937,(((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type)) 
                                | (4U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type)))));
-        vcdp->chgBit(c+14985,((((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type)) 
+        vcdp->chgBit(c+14945,((((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type)) 
                                 | (4U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type))) 
                                | (1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type)))));
-        vcdp->chgBit(c+14993,(((((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type)) 
+        vcdp->chgBit(c+14953,(((((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type)) 
                                  | (4U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type))) 
                                 | (1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type))) 
                                | (5U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_type)))));
-        vcdp->chgBus(c+15001,(vlSymsp->TOP__Rocket.__PVT__mem_reg_pc),32);
-        vcdp->chgBit(c+15009,((1U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+        vcdp->chgBus(c+14961,(vlSymsp->TOP__Rocket.__PVT__mem_reg_pc),32);
+        vcdp->chgBit(c+14969,((1U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                      >> 0x1fU))));
-        vcdp->chgBus(c+15017,((0x7ffU & VL_NEGATE_I((IData)(
+        vcdp->chgBus(c+14977,((0x7ffU & VL_NEGATE_I((IData)(
                                                             (1U 
                                                              & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                                                 >> 0x1fU)))))),11);
-        vcdp->chgBus(c+15025,((0xffU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+        vcdp->chgBus(c+14985,((0xffU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                         >> 0xcU))),8);
-        vcdp->chgBus(c+15033,((0xffU & VL_NEGATE_I((IData)(
+        vcdp->chgBus(c+14993,((0xffU & VL_NEGATE_I((IData)(
                                                            (1U 
                                                             & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                                                >> 0x1fU)))))),8);
-        vcdp->chgBit(c+15041,((1U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+        vcdp->chgBit(c+15001,((1U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                      >> 0x14U))));
-        vcdp->chgBit(c+15049,((1U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+        vcdp->chgBit(c+15009,((1U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                      >> 7U))));
-        vcdp->chgBus(c+15057,((0x3fU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+        vcdp->chgBus(c+15017,((0x3fU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                         >> 0x19U))),6);
-        vcdp->chgBus(c+15065,((0xfU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+        vcdp->chgBus(c+15025,((0xfU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                        >> 8U))),4);
-        vcdp->chgBus(c+15073,((0xfU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+        vcdp->chgBus(c+15033,((0xfU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                        >> 0x15U))),4);
-        vcdp->chgBus(c+15081,(((0x3f0U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+        vcdp->chgBus(c+15041,(((0x3f0U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                           >> 0x15U)) 
                                | (0xfU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                           >> 8U)))),10);
-        vcdp->chgBus(c+15089,(((0x7e0U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+        vcdp->chgBus(c+15049,(((0x7e0U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                           >> 0x14U)) 
                                | (0x1eU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                            >> 7U)))),11);
-        vcdp->chgBus(c+15097,(((0x1feU & (VL_NEGATE_I((IData)(
+        vcdp->chgBus(c+15057,(((0x1feU & (VL_NEGATE_I((IData)(
                                                               (1U 
                                                                & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                                                   >> 0x1fU)))) 
                                           << 1U)) | 
                                (1U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                       >> 7U)))),9);
-        vcdp->chgBus(c+15105,((0x3ffU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+        vcdp->chgBus(c+15065,((0x3ffU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                          >> 0x15U))),10);
-        vcdp->chgBus(c+15113,((0x7feU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+        vcdp->chgBus(c+15073,((0x7feU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                          >> 0x14U))),11);
-        vcdp->chgBus(c+15121,(((0x1feU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+        vcdp->chgBus(c+15081,(((0x1feU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                           >> 0xbU)) 
                                | (1U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                         >> 0x14U)))),9);
-        vcdp->chgBus(c+15129,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_rvc)
+        vcdp->chgBus(c+15089,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_rvc)
                                 ? 2U : 4U)),4);
-        vcdp->chgBus(c+15137,(vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata),32);
-        vcdp->chgBit(c+15145,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_xcpt)))));
-        vcdp->chgBit(c+15153,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_branch) 
+        vcdp->chgBus(c+15097,(vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata),32);
+        vcdp->chgBit(c+15105,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_xcpt)))));
+        vcdp->chgBit(c+15113,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_branch) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_jalr))));
-        vcdp->chgBit(c+15161,((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd))));
-        vcdp->chgBit(c+15169,((6U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd))));
-        vcdp->chgBit(c+15177,(((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd)) 
+        vcdp->chgBit(c+15121,((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd))));
+        vcdp->chgBit(c+15129,((6U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd))));
+        vcdp->chgBit(c+15137,(((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd)) 
                                | (6U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd)))));
-        vcdp->chgBit(c+15185,((((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd)) 
+        vcdp->chgBit(c+15145,((((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd)) 
                                 | (6U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd))) 
                                | (7U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd)))));
-        vcdp->chgBit(c+15193,((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd) 
+        vcdp->chgBit(c+15153,((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd) 
                                      >> 3U))));
-        vcdp->chgBit(c+15201,((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd))));
-        vcdp->chgBit(c+15209,((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd))));
-        vcdp->chgBit(c+15217,(((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd)) 
+        vcdp->chgBit(c+15161,((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd))));
+        vcdp->chgBit(c+15169,((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd))));
+        vcdp->chgBit(c+15177,(((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd)) 
                                | (7U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem_cmd)))));
-        vcdp->chgBit(c+15225,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
+        vcdp->chgBit(c+15185,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_taken)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_taken))));
-        vcdp->chgBus(c+15233,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
+        vcdp->chgBus(c+15193,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_mask)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_mask))),2);
-        vcdp->chgBit(c+15241,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
+        vcdp->chgBit(c+15201,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_bridx)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_bridx))));
-        vcdp->chgBus(c+15249,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
+        vcdp->chgBus(c+15209,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
                                 ? vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_target
                                 : vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_target)),32);
-        vcdp->chgBit(c+15257,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
+        vcdp->chgBit(c+15217,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_entry)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_entry))));
-        vcdp->chgBit(c+15265,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
+        vcdp->chgBit(c+15225,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_bht_history)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_bht_history))));
-        vcdp->chgBus(c+15273,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
+        vcdp->chgBus(c+15233,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_hit)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_bht_value)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_resp_bht_value))),2);
-        vcdp->chgBit(c+15281,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem) 
+        vcdp->chgBit(c+15241,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc))));
-        vcdp->chgBit(c+15289,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_valid) 
+        vcdp->chgBit(c+15249,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_valid) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc))));
-        vcdp->chgBit(c+15297,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_valid)))));
-        vcdp->chgBit(c+15305,(vlSymsp->TOP__Rocket.__PVT__T_7348));
-        vcdp->chgBit(c+15313,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_valid) 
+        vcdp->chgBit(c+15257,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_valid)))));
+        vcdp->chgBit(c+15265,(vlSymsp->TOP__Rocket.__PVT__T_7348));
+        vcdp->chgBit(c+15273,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_valid) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_replay))));
-        vcdp->chgBit(c+15321,(((~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_xcpt)) 
+        vcdp->chgBit(c+15281,(((~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_xcpt)) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc))));
-        vcdp->chgBus(c+15329,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc)
+        vcdp->chgBus(c+15289,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc)
                                 ? vlSymsp->TOP__Rocket.__PVT__mem_reg_rs2
                                 : vlSymsp->TOP__Rocket.__PVT__wb_reg_rs2)),32);
-        vcdp->chgBit(c+15337,((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_csr))));
-        vcdp->chgBus(c+15345,(vlSymsp->TOP__Rocket.__PVT__T_7410),32);
-        vcdp->chgBus(c+15353,((0x7fffffffU & (vlSymsp->TOP__Rocket.__PVT__T_7410 
+        vcdp->chgBit(c+15297,((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_csr))));
+        vcdp->chgBus(c+15305,(vlSymsp->TOP__Rocket.__PVT__T_7410),32);
+        vcdp->chgBus(c+15313,((0x7fffffffU & (vlSymsp->TOP__Rocket.__PVT__T_7410 
                                               >> 1U))),31);
-        vcdp->chgBus(c+15361,((0x7fffffffU & (vlSymsp->TOP__Rocket.__PVT__T_7410 
+        vcdp->chgBus(c+15321,((0x7fffffffU & (vlSymsp->TOP__Rocket.__PVT__T_7410 
                                               >> 1U))),32);
-        vcdp->chgBus(c+15369,((0xfffffffeU & vlSymsp->TOP__Rocket.__PVT__T_7410)),32);
-        vcdp->chgBus(c+15377,(((IData)(1U) << (0x1fU 
+        vcdp->chgBus(c+15329,((0xfffffffeU & vlSymsp->TOP__Rocket.__PVT__T_7410)),32);
+        vcdp->chgBus(c+15337,(((IData)(1U) << (0x1fU 
                                                & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 7U)))),32);
-        vcdp->chgBit(c+15385,((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr))));
-        vcdp->chgBit(c+15393,(((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr)) 
+        vcdp->chgBit(c+15345,((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr))));
+        vcdp->chgBit(c+15353,(((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr)) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_jalr))));
-        vcdp->chgBit(c+15401,((((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr)) 
+        vcdp->chgBit(c+15361,((((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr)) 
                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_jalr)) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem))));
-        vcdp->chgBit(c+15409,(((((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr)) 
+        vcdp->chgBit(c+15369,(((((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr)) 
                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_jalr)) 
                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem)) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_div))));
-        vcdp->chgBit(c+15417,((((((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr)) 
+        vcdp->chgBit(c+15377,((((((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr)) 
                                   | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_jalr)) 
                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem)) 
                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_div)) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc))));
-        vcdp->chgBit(c+15425,(((((((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr)) 
+        vcdp->chgBit(c+15385,(((((((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_csr)) 
                                    | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_jalr)) 
                                   | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem)) 
                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_div)) 
                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc)) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc))));
-        vcdp->chgBit(c+15433,((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr))));
-        vcdp->chgBit(c+15441,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem) 
+        vcdp->chgBit(c+15393,((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr))));
+        vcdp->chgBit(c+15401,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_slow_bypass))));
-        vcdp->chgBit(c+15449,(((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr)) 
+        vcdp->chgBit(c+15409,(((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr)) 
                                | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem) 
                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_slow_bypass)))));
-        vcdp->chgBit(c+15457,((((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr)) 
+        vcdp->chgBit(c+15417,((((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr)) 
                                 | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem) 
                                    & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_slow_bypass))) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_div))));
-        vcdp->chgBit(c+15465,(((((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr)) 
+        vcdp->chgBit(c+15425,(((((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr)) 
                                  | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem) 
                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_slow_bypass))) 
                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_div)) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc))));
-        vcdp->chgBit(c+15473,((((((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr)) 
+        vcdp->chgBit(c+15433,((((((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr)) 
                                   | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem) 
                                      & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_slow_bypass))) 
                                  | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_div)) 
                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc)) 
                                | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc))));
-        vcdp->chgBit(c+15481,(vlSymsp->TOP__Rocket.__PVT__dcache_blocked));
-        vcdp->chgBit(c+15489,(vlSymsp->TOP__Rocket.__PVT__rocc_blocked));
-        vcdp->chgBit(c+15497,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_xcpt)))));
-        vcdp->chgBit(c+15505,(((IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_valid) 
+        vcdp->chgBit(c+15441,(vlSymsp->TOP__Rocket.__PVT__dcache_blocked));
+        vcdp->chgBit(c+15449,(vlSymsp->TOP__Rocket.__PVT__rocc_blocked));
+        vcdp->chgBit(c+15457,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_xcpt)))));
+        vcdp->chgBit(c+15465,(((IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_valid) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_fence_i))));
-        vcdp->chgBit(c+15513,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_replay) 
+        vcdp->chgBit(c+15473,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_replay) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_btb_hit))));
-        vcdp->chgBit(c+15521,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_replay)))));
-        vcdp->chgBus(c+15529,((0x1fU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+        vcdp->chgBit(c+15481,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_replay)))));
+        vcdp->chgBus(c+15489,((0x1fU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                         >> 0xfU))),5);
-        vcdp->chgBus(c+15537,((0x19U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+        vcdp->chgBus(c+15497,((0x19U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                         >> 0xfU))),5);
-        vcdp->chgBit(c+15545,((1U == (0x19U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+        vcdp->chgBit(c+15505,((1U == (0x19U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                                >> 0xfU)))));
-        vcdp->chgBus(c+15553,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_rvc)
+        vcdp->chgBus(c+15513,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_rvc)
                                 ? 0U : 2U)),2);
-        vcdp->chgBus(c+15561,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_rvc)
+        vcdp->chgBus(c+15521,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_rvc)
                                 ? 0U : 2U)),32);
-        vcdp->chgBit(c+15569,((1U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
+        vcdp->chgBit(c+15529,((1U & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                      >> 7U))));
-        vcdp->chgBus(c+15577,(((0x3eU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
+        vcdp->chgBus(c+15537,(((0x3eU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                          >> 6U)) | (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc))),6);
-        vcdp->chgBus(c+15585,(vlSymsp->TOP__Rocket.__PVT__T_7679),32);
-        vcdp->chgBus(c+15593,(vlSymsp->TOP__Rocket.__PVT__T_7680),32);
-        vcdp->chgBus(c+15601,(vlSymsp->TOP__Rocket.__PVT__T_7682),32);
-        vcdp->chgBus(c+15609,(vlSymsp->TOP__Rocket.__PVT__T_7683),32);
-        vcdp->chgBit(c+15617,(vlSymsp->TOP__Rocket.__PVT__error));
-        vcdp->chgBit(c+15625,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_debug));
-        vcdp->chgBus(c+15633,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_isa),32);
-        vcdp->chgBit(c+15641,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_sd));
-        vcdp->chgBit(c+15649,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_sd_rv32));
-        vcdp->chgBus(c+15657,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_xdebugver),2);
-        vcdp->chgBit(c+15665,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ndreset));
-        vcdp->chgBit(c+15673,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_fullreset));
-        vcdp->chgBus(c+15681,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_zero3),12);
-        vcdp->chgBit(c+15689,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakm));
-        vcdp->chgBit(c+15697,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreaku));
-        vcdp->chgBit(c+15705,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_zero2));
-        vcdp->chgBit(c+15713,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_stopcycle));
-        vcdp->chgBit(c+15721,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_stoptime));
-        vcdp->chgBus(c+15729,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_cause),3);
-        vcdp->chgBit(c+15737,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_debugint));
-        vcdp->chgBit(c+15745,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_zero1));
-        vcdp->chgBit(c+15753,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_halt));
-        vcdp->chgBit(c+15761,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_step));
-        vcdp->chgBus(c+15769,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_prv),2);
-        vcdp->chgBus(c+15777,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dpc),32);
-        vcdp->chgBus(c+15785,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dscratch),32);
-        vcdp->chgBit(c+15793,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_singleStepped));
-        vcdp->chgBit(c+15801,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_singleStepped)))));
-        vcdp->chgBus(c+15809,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_ttype),4);
-        vcdp->chgBit(c+15817,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_dmode));
-        vcdp->chgBus(c+15825,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_maskmax),6);
-        vcdp->chgBus(c+15833,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_reserved),8);
-        vcdp->chgBit(c+15841,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_action));
-        vcdp->chgBit(c+15849,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_chain));
-        vcdp->chgBus(c+15857,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_zero),2);
-        vcdp->chgBus(c+15865,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_tmatch),2);
-        vcdp->chgBit(c+15873,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_m));
-        vcdp->chgBit(c+15881,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_h));
-        vcdp->chgBit(c+15889,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_s));
-        vcdp->chgBit(c+15897,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_u));
-        vcdp->chgBit(c+15905,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_x));
-        vcdp->chgBit(c+15913,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_w));
-        vcdp->chgBit(c+15921,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_r));
-        vcdp->chgBus(c+15929,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_address),32);
-        vcdp->chgBus(c+15937,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mie),32);
-        vcdp->chgBus(c+15945,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mscounteren),32);
-        vcdp->chgBus(c+15953,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_medeleg),32);
-        vcdp->chgBit(c+15961,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_meip));
-        vcdp->chgBit(c+15969,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_mtip));
-        vcdp->chgBit(c+15977,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_msip));
-        vcdp->chgBus(c+15985,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mepc),32);
-        vcdp->chgBus(c+15993,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mcause),32);
-        vcdp->chgBus(c+16001,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mbadaddr),32);
-        vcdp->chgBus(c+16009,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mscratch),32);
-        vcdp->chgBus(c+16017,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mtvec),32);
-        vcdp->chgBus(c+16025,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mucounteren),32);
-        vcdp->chgBus(c+16033,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_fflags),5);
-        vcdp->chgBus(c+16041,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4797),6);
-        vcdp->chgQuad(c+16049,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4800),58);
-        vcdp->chgQuad(c+16065,((VL_ULL(0x7ffffffffffffff) 
+        vcdp->chgBus(c+15545,(vlSymsp->TOP__Rocket.__PVT__T_7679),32);
+        vcdp->chgBus(c+15553,(vlSymsp->TOP__Rocket.__PVT__T_7680),32);
+        vcdp->chgBus(c+15561,(vlSymsp->TOP__Rocket.__PVT__T_7682),32);
+        vcdp->chgBus(c+15569,(vlSymsp->TOP__Rocket.__PVT__T_7683),32);
+        vcdp->chgBit(c+15577,(vlSymsp->TOP__Rocket.__PVT__error));
+        vcdp->chgBit(c+15585,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_debug));
+        vcdp->chgBus(c+15593,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_isa),32);
+        vcdp->chgBit(c+15601,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_sd));
+        vcdp->chgBit(c+15609,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_sd_rv32));
+        vcdp->chgBus(c+15617,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_xdebugver),2);
+        vcdp->chgBit(c+15625,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ndreset));
+        vcdp->chgBit(c+15633,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_fullreset));
+        vcdp->chgBus(c+15641,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_zero3),12);
+        vcdp->chgBit(c+15649,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakm));
+        vcdp->chgBit(c+15657,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreaku));
+        vcdp->chgBit(c+15665,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_zero2));
+        vcdp->chgBit(c+15673,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_stopcycle));
+        vcdp->chgBit(c+15681,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_stoptime));
+        vcdp->chgBus(c+15689,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_cause),3);
+        vcdp->chgBit(c+15697,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_debugint));
+        vcdp->chgBit(c+15705,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_zero1));
+        vcdp->chgBit(c+15713,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_halt));
+        vcdp->chgBit(c+15721,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_step));
+        vcdp->chgBus(c+15729,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_prv),2);
+        vcdp->chgBus(c+15737,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dpc),32);
+        vcdp->chgBus(c+15745,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dscratch),32);
+        vcdp->chgBit(c+15753,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_singleStepped));
+        vcdp->chgBit(c+15761,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_singleStepped)))));
+        vcdp->chgBus(c+15769,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_ttype),4);
+        vcdp->chgBit(c+15777,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_dmode));
+        vcdp->chgBus(c+15785,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_maskmax),6);
+        vcdp->chgBus(c+15793,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_reserved),8);
+        vcdp->chgBit(c+15801,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_action));
+        vcdp->chgBit(c+15809,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_chain));
+        vcdp->chgBus(c+15817,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_zero),2);
+        vcdp->chgBus(c+15825,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_tmatch),2);
+        vcdp->chgBit(c+15833,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_m));
+        vcdp->chgBit(c+15841,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_h));
+        vcdp->chgBit(c+15849,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_s));
+        vcdp->chgBit(c+15857,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_u));
+        vcdp->chgBit(c+15865,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_x));
+        vcdp->chgBit(c+15873,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_w));
+        vcdp->chgBit(c+15881,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_r));
+        vcdp->chgBus(c+15889,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_address),32);
+        vcdp->chgBus(c+15897,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mie),32);
+        vcdp->chgBus(c+15905,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mscounteren),32);
+        vcdp->chgBus(c+15913,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_medeleg),32);
+        vcdp->chgBit(c+15921,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_meip));
+        vcdp->chgBit(c+15929,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_mtip));
+        vcdp->chgBit(c+15937,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_msip));
+        vcdp->chgBus(c+15945,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mepc),32);
+        vcdp->chgBus(c+15953,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mcause),32);
+        vcdp->chgBus(c+15961,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mbadaddr),32);
+        vcdp->chgBus(c+15969,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mscratch),32);
+        vcdp->chgBus(c+15977,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mtvec),32);
+        vcdp->chgBus(c+15985,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mucounteren),32);
+        vcdp->chgBus(c+15993,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_fflags),5);
+        vcdp->chgBus(c+16001,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4797),6);
+        vcdp->chgQuad(c+16009,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4800),58);
+        vcdp->chgQuad(c+16025,((VL_ULL(0x7ffffffffffffff) 
                                 & (VL_ULL(1) + vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4800))),59);
-        vcdp->chgBus(c+16081,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4807),6);
-        vcdp->chgBus(c+16089,((0x7fU & ((IData)(1U) 
+        vcdp->chgBus(c+16041,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4807),6);
+        vcdp->chgBus(c+16049,((0x7fU & ((IData)(1U) 
                                         + (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4807)))),7);
-        vcdp->chgQuad(c+16097,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4810),58);
-        vcdp->chgBit(c+16113,((1U & (((IData)(1U) + (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4807)) 
+        vcdp->chgQuad(c+16057,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4810),58);
+        vcdp->chgBit(c+16073,((1U & (((IData)(1U) + (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4807)) 
                                      >> 6U))));
-        vcdp->chgQuad(c+16121,((VL_ULL(0x7ffffffffffffff) 
+        vcdp->chgQuad(c+16081,((VL_ULL(0x7ffffffffffffff) 
                                 & (VL_ULL(1) + vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_4810))),59);
-        vcdp->chgBus(c+16137,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_stip) 
+        vcdp->chgBus(c+16097,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_stip) 
                                 << 2U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_utip) 
                                            << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_msip)))),3);
-        vcdp->chgBus(c+16145,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_stip) 
+        vcdp->chgBus(c+16105,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_stip) 
                                  << 5U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_utip) 
                                             << 4U) 
                                            | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_msip) 
@@ -9816,58 +9792,58 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                    << 2U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_ssip) 
                                               << 1U) 
                                              | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_usip))))),6);
-        vcdp->chgBus(c+16153,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_ueip) 
+        vcdp->chgBus(c+16113,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_ueip) 
                                 << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_mtip))),2);
-        vcdp->chgBus(c+16161,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_ueip) 
+        vcdp->chgBus(c+16121,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_ueip) 
                                 << 2U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_mtip) 
                                            << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_htip)))),3);
-        vcdp->chgBit(c+16169,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)))));
-        vcdp->chgBit(c+16177,((3U > (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))));
-        vcdp->chgBit(c+16185,((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))));
-        vcdp->chgBit(c+16193,(((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
+        vcdp->chgBit(c+16129,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)))));
+        vcdp->chgBit(c+16137,((3U > (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))));
+        vcdp->chgBit(c+16145,((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))));
+        vcdp->chgBit(c+16153,(((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mie))));
-        vcdp->chgBit(c+16201,(((3U > (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
+        vcdp->chgBit(c+16161,(((3U > (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
                                | ((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mie)))));
-        vcdp->chgBit(c+16209,(((~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)) 
+        vcdp->chgBit(c+16169,(((~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)) 
                                & ((3U > (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
                                   | ((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
                                      & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mie))))));
-        vcdp->chgBus(c+16217,((~ vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mscounteren)),32);
-        vcdp->chgBit(c+16225,((1U > (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))));
-        vcdp->chgBit(c+16233,((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))));
-        vcdp->chgBit(c+16241,(((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
+        vcdp->chgBus(c+16177,((~ vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mscounteren)),32);
+        vcdp->chgBit(c+16185,((1U > (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))));
+        vcdp->chgBit(c+16193,((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))));
+        vcdp->chgBit(c+16201,(((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh))));
-        vcdp->chgBit(c+16249,(((1U > (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
+        vcdp->chgBit(c+16209,(((1U > (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
                                | ((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh)))));
-        vcdp->chgBit(c+16257,(((~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)) 
+        vcdp->chgBit(c+16217,(((~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)) 
                                & ((1U > (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
                                   | ((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
                                      & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh))))));
-        vcdp->chgBus(c+16265,((3U & VL_NEGATE_I((IData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh))))),2);
-        vcdp->chgBus(c+16273,((7U & VL_NEGATE_I((IData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh))))),3);
-        vcdp->chgBus(c+16281,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
+        vcdp->chgBus(c+16225,((3U & VL_NEGATE_I((IData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh))))),2);
+        vcdp->chgBus(c+16233,((7U & VL_NEGATE_I((IData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh))))),3);
+        vcdp->chgBus(c+16241,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
                                 << 2U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
                                            << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mie)))),3);
-        vcdp->chgBus(c+16289,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
+        vcdp->chgBus(c+16249,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
                                 << 5U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
                                            << 4U) | 
                                           (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mie) 
                                             << 3U) 
                                            | (7U & 
                                               VL_NEGATE_I((IData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh)))))))),6);
-        vcdp->chgBus(c+16297,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_spp) 
+        vcdp->chgBus(c+16257,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_spp) 
                                 << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpie))),2);
-        vcdp->chgBus(c+16305,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_spp) 
+        vcdp->chgBus(c+16265,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_spp) 
                                 << 2U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpie) 
                                            << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh)))),3);
-        vcdp->chgBus(c+16313,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs) 
+        vcdp->chgBus(c+16273,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs) 
                                 << 2U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpp))),4);
-        vcdp->chgBus(c+16321,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs) 
+        vcdp->chgBus(c+16281,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs) 
                                 << 4U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpp) 
                                            << 2U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)))),6);
-        vcdp->chgBus(c+16329,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs) 
+        vcdp->chgBus(c+16289,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs) 
                                  << 7U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpp) 
                                             << 5U) 
                                            | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs) 
@@ -9876,7 +9852,7 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                    << 2U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpie) 
                                               << 1U) 
                                              | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh))))),9);
-        vcdp->chgBus(c+16337,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs) 
+        vcdp->chgBus(c+16297,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs) 
                                   << 0xdU) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpp) 
                                                << 0xbU) 
                                               | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs) 
@@ -9893,17 +9869,17 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                  << 3U) 
                                                 | (7U 
                                                    & VL_NEGATE_I((IData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh))))))))),15);
-        vcdp->chgBus(c+16345,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
+        vcdp->chgBus(c+16305,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
                                 << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mprv))),2);
-        vcdp->chgBus(c+16353,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
+        vcdp->chgBus(c+16313,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
                                 << 3U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mprv) 
                                            << 2U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)))),4);
-        vcdp->chgBus(c+16361,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_vm) 
+        vcdp->chgBus(c+16321,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_vm) 
                                 << 4U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero1))),9);
-        vcdp->chgBus(c+16369,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_vm) 
+        vcdp->chgBus(c+16329,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_vm) 
                                 << 5U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero1) 
                                            << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh)))),10);
-        vcdp->chgBus(c+16377,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_vm) 
+        vcdp->chgBus(c+16337,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_vm) 
                                  << 9U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_zero1) 
                                             << 5U) 
                                            | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
@@ -9912,60 +9888,60 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                    << 3U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mprv) 
                                               << 2U) 
                                              | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs))))),14);
-        vcdp->chgQuad(c+16385,((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)) 
+        vcdp->chgQuad(c+16345,((((QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)) 
                                  << 0x20U) | (QData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa)))),33);
-        vcdp->chgBus(c+16401,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBus(c+16361,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_ttype)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_ttype))),4);
-        vcdp->chgBus(c+16409,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBus(c+16369,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_maskmax)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_maskmax))),6);
-        vcdp->chgBus(c+16417,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBus(c+16377,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_reserved)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_reserved))),8);
-        vcdp->chgBit(c+16425,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBit(c+16385,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_action)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action))));
-        vcdp->chgBit(c+16433,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBit(c+16393,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_chain)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain))));
-        vcdp->chgBus(c+16441,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBus(c+16401,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_zero)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_zero))),2);
-        vcdp->chgBus(c+16449,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBus(c+16409,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_tmatch)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch))),2);
-        vcdp->chgBit(c+16457,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBit(c+16417,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_m)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_m))));
-        vcdp->chgBit(c+16465,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBit(c+16425,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_h)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain))));
-        vcdp->chgBit(c+16473,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBit(c+16433,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_s)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain))));
-        vcdp->chgBit(c+16481,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBit(c+16441,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_u)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_u))));
-        vcdp->chgBit(c+16489,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBit(c+16449,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_x)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_x))));
-        vcdp->chgBit(c+16497,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBit(c+16457,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_w)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_w))));
-        vcdp->chgBit(c+16505,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBit(c+16465,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_r)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_r))));
-        vcdp->chgBus(c+16513,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBus(c+16473,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                 ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_address
                                 : vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address)),32);
-        vcdp->chgBus(c+16521,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBus(c+16481,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                   ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_x)
                                   : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_x)) 
                                 << 1U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                            ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_w)
                                            : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_w)))),2);
-        vcdp->chgBus(c+16529,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBus(c+16489,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                   ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_x)
                                   : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_x)) 
                                 << 2U) | ((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
@@ -9975,19 +9951,19 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                           ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                             ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_r)
                                             : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_r))))),3);
-        vcdp->chgBus(c+16537,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBus(c+16497,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                   ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_s)
                                   : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)) 
                                 << 1U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                            ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_u)
                                            : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_u)))),2);
-        vcdp->chgBus(c+16545,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBus(c+16505,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                   ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_m)
                                   : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_m)) 
                                 << 1U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                            ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_h)
                                            : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)))),2);
-        vcdp->chgBus(c+16553,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBus(c+16513,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                    ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_m)
                                    : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_m)) 
                                  << 3U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
@@ -10000,7 +9976,7 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                    << 1U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                               ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_u)
                                               : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_u))))),4);
-        vcdp->chgBus(c+16561,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBus(c+16521,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                     ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_m)
                                     : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_m)) 
                                   << 6U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
@@ -10024,19 +10000,19 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                              | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                                  ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_r)
                                                  : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_r)))))),7);
-        vcdp->chgBus(c+16569,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBus(c+16529,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                   ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_zero)
                                   : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_zero)) 
                                 << 2U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                            ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_tmatch)
                                            : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch)))),4);
-        vcdp->chgBus(c+16577,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBus(c+16537,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                   ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_action)
                                   : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action)) 
                                 << 1U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                            ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_chain)
                                            : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)))),2);
-        vcdp->chgBus(c+16585,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBus(c+16545,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                    ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_action)
                                    : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action)) 
                                  << 5U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
@@ -10049,31 +10025,31 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                    << 2U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                               ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_tmatch)
                                               : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch))))),6);
-        vcdp->chgBus(c+16593,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
+        vcdp->chgBus(c+16553,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                   ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_maskmax)
                                   : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_maskmax)) 
                                 << 8U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                            ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_control_reserved)
                                            : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_reserved)))),14);
-        vcdp->chgBus(c+16601,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_step) 
+        vcdp->chgBus(c+16561,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_step) 
                                 << 2U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_prv))),3);
-        vcdp->chgBus(c+16609,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_zero1) 
+        vcdp->chgBus(c+16569,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_zero1) 
                                 << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_halt))),2);
-        vcdp->chgBus(c+16617,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_zero1) 
+        vcdp->chgBus(c+16577,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_zero1) 
                                  << 4U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_halt) 
                                            << 3U)) 
                                | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_step) 
                                    << 2U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_prv)))),5);
-        vcdp->chgBus(c+16625,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_cause) 
+        vcdp->chgBus(c+16585,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_cause) 
                                 << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_debugint))),4);
-        vcdp->chgBus(c+16633,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_stopcycle) 
+        vcdp->chgBus(c+16593,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_stopcycle) 
                                 << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_stoptime))),2);
-        vcdp->chgBus(c+16641,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_stopcycle) 
+        vcdp->chgBus(c+16601,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_stopcycle) 
                                  << 5U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_stoptime) 
                                            << 4U)) 
                                | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_cause) 
                                    << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_debugint)))),6);
-        vcdp->chgBus(c+16649,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_stopcycle) 
+        vcdp->chgBus(c+16609,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_stopcycle) 
                                   << 0xaU) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_stoptime) 
                                               << 9U)) 
                                 | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_cause) 
@@ -10084,28 +10060,28 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                               << 3U)) 
                                   | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_step) 
                                       << 2U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_prv))))),11);
-        vcdp->chgBus(c+16657,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreaku) 
+        vcdp->chgBus(c+16617,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreaku) 
                                 << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_zero2))),2);
-        vcdp->chgBus(c+16665,(((0xcU & (VL_NEGATE_I((IData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh))) 
+        vcdp->chgBus(c+16625,(((0xcU & (VL_NEGATE_I((IData)((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh))) 
                                         << 2U)) | (
                                                    ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreaku) 
                                                     << 1U) 
                                                    | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_zero2)))),4);
-        vcdp->chgBus(c+16673,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_zero3) 
+        vcdp->chgBus(c+16633,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_zero3) 
                                 << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakm))),13);
-        vcdp->chgBus(c+16681,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_xdebugver) 
+        vcdp->chgBus(c+16641,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_xdebugver) 
                                 << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ndreset))),3);
-        vcdp->chgBus(c+16689,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_xdebugver) 
+        vcdp->chgBus(c+16649,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_xdebugver) 
                                 << 2U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ndreset) 
                                            << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_fullreset)))),4);
-        vcdp->chgBus(c+16697,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_xdebugver) 
+        vcdp->chgBus(c+16657,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_xdebugver) 
                                  << 0xfU) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ndreset) 
                                               << 0xeU) 
                                              | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_fullreset) 
                                                 << 0xdU))) 
                                | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_zero3) 
                                    << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakm)))),17);
-        vcdp->chgBus(c+16705,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_xdebugver) 
+        vcdp->chgBus(c+16665,((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_xdebugver) 
                                   << 0x13U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ndreset) 
                                                 << 0x12U) 
                                                | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_fullreset) 
@@ -10117,7 +10093,7 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                            << 2U)) 
                                   | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreaku) 
                                       << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_zero2))))),21);
-        vcdp->chgBus(c+16713,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_xdebugver) 
+        vcdp->chgBus(c+16673,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_xdebugver) 
                                    << 0x1eU) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ndreset) 
                                                  << 0x1dU) 
                                                 | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_fullreset) 
@@ -10141,364 +10117,364 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                  << 3U)) 
                                      | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_step) 
                                          << 2U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_prv)))))),32);
-        vcdp->chgBit(c+16721,((0x7a0U == (0xfffU & 
+        vcdp->chgBit(c+16681,((0x7a0U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16729,((0x7a1U == (0xfffU & 
+        vcdp->chgBit(c+16689,((0x7a1U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16737,((0x7a2U == (0xfffU & 
+        vcdp->chgBit(c+16697,((0x7a2U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16745,((0xf13U == (0xfffU & 
+        vcdp->chgBit(c+16705,((0xf13U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16753,((0xf12U == (0xfffU & 
+        vcdp->chgBit(c+16713,((0xf12U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16761,((0xf11U == (0xfffU & 
+        vcdp->chgBit(c+16721,((0xf11U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16769,((0xb00U == (0xfffU & 
+        vcdp->chgBit(c+16729,((0xb00U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16777,((0xb02U == (0xfffU & 
+        vcdp->chgBit(c+16737,((0xb02U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16785,((0x301U == (0xfffU & 
+        vcdp->chgBit(c+16745,((0x301U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16793,((0x300U == (0xfffU & 
+        vcdp->chgBit(c+16753,((0x300U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16801,((0x305U == (0xfffU & 
+        vcdp->chgBit(c+16761,((0x305U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16809,((0x344U == (0xfffU & 
+        vcdp->chgBit(c+16769,((0x344U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16817,((0x304U == (0xfffU & 
+        vcdp->chgBit(c+16777,((0x304U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16825,((0x303U == (0xfffU & 
+        vcdp->chgBit(c+16785,((0x303U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16833,((0x302U == (0xfffU & 
+        vcdp->chgBit(c+16793,((0x302U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16841,((0x340U == (0xfffU & 
+        vcdp->chgBit(c+16801,((0x340U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16849,((0x341U == (0xfffU & 
+        vcdp->chgBit(c+16809,((0x341U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16857,((0x343U == (0xfffU & 
+        vcdp->chgBit(c+16817,((0x343U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16865,((0x342U == (0xfffU & 
+        vcdp->chgBit(c+16825,((0x342U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16873,((0xf14U == (0xfffU & 
+        vcdp->chgBit(c+16833,((0xf14U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16881,((0x7b0U == (0xfffU & 
+        vcdp->chgBit(c+16841,((0x7b0U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16889,((0x7b1U == (0xfffU & 
+        vcdp->chgBit(c+16849,((0x7b1U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16897,((0x7b2U == (0xfffU & 
+        vcdp->chgBit(c+16857,((0x7b2U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16905,((0x323U == (0xfffU & 
+        vcdp->chgBit(c+16865,((0x323U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16913,((0xb03U == (0xfffU & 
+        vcdp->chgBit(c+16873,((0xb03U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16921,((0xc03U == (0xfffU & 
+        vcdp->chgBit(c+16881,((0xc03U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16929,((0x324U == (0xfffU & 
+        vcdp->chgBit(c+16889,((0x324U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16937,((0xb04U == (0xfffU & 
+        vcdp->chgBit(c+16897,((0xb04U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16945,((0xc04U == (0xfffU & 
+        vcdp->chgBit(c+16905,((0xc04U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16953,((0x325U == (0xfffU & 
+        vcdp->chgBit(c+16913,((0x325U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16961,((0xb05U == (0xfffU & 
+        vcdp->chgBit(c+16921,((0xb05U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16969,((0xc05U == (0xfffU & 
+        vcdp->chgBit(c+16929,((0xc05U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16977,((0x326U == (0xfffU & 
+        vcdp->chgBit(c+16937,((0x326U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16985,((0xb06U == (0xfffU & 
+        vcdp->chgBit(c+16945,((0xb06U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+16993,((0xc06U == (0xfffU & 
+        vcdp->chgBit(c+16953,((0xc06U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17001,((0x327U == (0xfffU & 
+        vcdp->chgBit(c+16961,((0x327U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17009,((0xb07U == (0xfffU & 
+        vcdp->chgBit(c+16969,((0xb07U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17017,((0xc07U == (0xfffU & 
+        vcdp->chgBit(c+16977,((0xc07U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17025,((0x328U == (0xfffU & 
+        vcdp->chgBit(c+16985,((0x328U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17033,((0xb08U == (0xfffU & 
+        vcdp->chgBit(c+16993,((0xb08U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17041,((0xc08U == (0xfffU & 
+        vcdp->chgBit(c+17001,((0xc08U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17049,((0x329U == (0xfffU & 
+        vcdp->chgBit(c+17009,((0x329U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17057,((0xb09U == (0xfffU & 
+        vcdp->chgBit(c+17017,((0xb09U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17065,((0xc09U == (0xfffU & 
+        vcdp->chgBit(c+17025,((0xc09U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17073,((0x32aU == (0xfffU & 
+        vcdp->chgBit(c+17033,((0x32aU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17081,((0xb0aU == (0xfffU & 
+        vcdp->chgBit(c+17041,((0xb0aU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17089,((0xc0aU == (0xfffU & 
+        vcdp->chgBit(c+17049,((0xc0aU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17097,((0x32bU == (0xfffU & 
+        vcdp->chgBit(c+17057,((0x32bU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17105,((0xb0bU == (0xfffU & 
+        vcdp->chgBit(c+17065,((0xb0bU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17113,((0xc0bU == (0xfffU & 
+        vcdp->chgBit(c+17073,((0xc0bU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17121,((0x32cU == (0xfffU & 
+        vcdp->chgBit(c+17081,((0x32cU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17129,((0xb0cU == (0xfffU & 
+        vcdp->chgBit(c+17089,((0xb0cU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17137,((0xc0cU == (0xfffU & 
+        vcdp->chgBit(c+17097,((0xc0cU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17145,((0x32dU == (0xfffU & 
+        vcdp->chgBit(c+17105,((0x32dU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17153,((0xb0dU == (0xfffU & 
+        vcdp->chgBit(c+17113,((0xb0dU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17161,((0xc0dU == (0xfffU & 
+        vcdp->chgBit(c+17121,((0xc0dU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17169,((0x32eU == (0xfffU & 
+        vcdp->chgBit(c+17129,((0x32eU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17177,((0xb0eU == (0xfffU & 
+        vcdp->chgBit(c+17137,((0xb0eU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17185,((0xc0eU == (0xfffU & 
+        vcdp->chgBit(c+17145,((0xc0eU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17193,((0x32fU == (0xfffU & 
+        vcdp->chgBit(c+17153,((0x32fU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17201,((0xb0fU == (0xfffU & 
+        vcdp->chgBit(c+17161,((0xb0fU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17209,((0xc0fU == (0xfffU & 
+        vcdp->chgBit(c+17169,((0xc0fU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17217,((0x330U == (0xfffU & 
+        vcdp->chgBit(c+17177,((0x330U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17225,((0xb10U == (0xfffU & 
+        vcdp->chgBit(c+17185,((0xb10U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17233,((0xc10U == (0xfffU & 
+        vcdp->chgBit(c+17193,((0xc10U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17241,((0x331U == (0xfffU & 
+        vcdp->chgBit(c+17201,((0x331U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17249,((0xb11U == (0xfffU & 
+        vcdp->chgBit(c+17209,((0xb11U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17257,((0xc11U == (0xfffU & 
+        vcdp->chgBit(c+17217,((0xc11U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17265,((0x332U == (0xfffU & 
+        vcdp->chgBit(c+17225,((0x332U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17273,((0xb12U == (0xfffU & 
+        vcdp->chgBit(c+17233,((0xb12U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17281,((0xc12U == (0xfffU & 
+        vcdp->chgBit(c+17241,((0xc12U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17289,((0x333U == (0xfffU & 
+        vcdp->chgBit(c+17249,((0x333U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17297,((0xb13U == (0xfffU & 
+        vcdp->chgBit(c+17257,((0xb13U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17305,((0xc13U == (0xfffU & 
+        vcdp->chgBit(c+17265,((0xc13U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17313,((0x334U == (0xfffU & 
+        vcdp->chgBit(c+17273,((0x334U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17321,((0xb14U == (0xfffU & 
+        vcdp->chgBit(c+17281,((0xb14U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17329,((0xc14U == (0xfffU & 
+        vcdp->chgBit(c+17289,((0xc14U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17337,((0x335U == (0xfffU & 
+        vcdp->chgBit(c+17297,((0x335U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17345,((0xb15U == (0xfffU & 
+        vcdp->chgBit(c+17305,((0xb15U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17353,((0xc15U == (0xfffU & 
+        vcdp->chgBit(c+17313,((0xc15U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17361,((0x336U == (0xfffU & 
+        vcdp->chgBit(c+17321,((0x336U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17369,((0xb16U == (0xfffU & 
+        vcdp->chgBit(c+17329,((0xb16U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17377,((0xc16U == (0xfffU & 
+        vcdp->chgBit(c+17337,((0xc16U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17385,((0x337U == (0xfffU & 
+        vcdp->chgBit(c+17345,((0x337U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17393,((0xb17U == (0xfffU & 
+        vcdp->chgBit(c+17353,((0xb17U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17401,((0xc17U == (0xfffU & 
+        vcdp->chgBit(c+17361,((0xc17U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17409,((0x338U == (0xfffU & 
+        vcdp->chgBit(c+17369,((0x338U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17417,((0xb18U == (0xfffU & 
+        vcdp->chgBit(c+17377,((0xb18U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17425,((0xc18U == (0xfffU & 
+        vcdp->chgBit(c+17385,((0xc18U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17433,((0x339U == (0xfffU & 
+        vcdp->chgBit(c+17393,((0x339U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17441,((0xb19U == (0xfffU & 
+        vcdp->chgBit(c+17401,((0xb19U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17449,((0xc19U == (0xfffU & 
+        vcdp->chgBit(c+17409,((0xc19U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17457,((0x33aU == (0xfffU & 
+        vcdp->chgBit(c+17417,((0x33aU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17465,((0xb1aU == (0xfffU & 
+        vcdp->chgBit(c+17425,((0xb1aU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17473,((0xc1aU == (0xfffU & 
+        vcdp->chgBit(c+17433,((0xc1aU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17481,((0x33bU == (0xfffU & 
+        vcdp->chgBit(c+17441,((0x33bU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17489,((0xb1bU == (0xfffU & 
+        vcdp->chgBit(c+17449,((0xb1bU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17497,((0xc1bU == (0xfffU & 
+        vcdp->chgBit(c+17457,((0xc1bU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17505,((0x33cU == (0xfffU & 
+        vcdp->chgBit(c+17465,((0x33cU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17513,((0xb1cU == (0xfffU & 
+        vcdp->chgBit(c+17473,((0xb1cU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17521,((0xc1cU == (0xfffU & 
+        vcdp->chgBit(c+17481,((0xc1cU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17529,((0x33dU == (0xfffU & 
+        vcdp->chgBit(c+17489,((0x33dU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17537,((0xb1dU == (0xfffU & 
+        vcdp->chgBit(c+17497,((0xb1dU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17545,((0xc1dU == (0xfffU & 
+        vcdp->chgBit(c+17505,((0xc1dU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17553,((0x33eU == (0xfffU & 
+        vcdp->chgBit(c+17513,((0x33eU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17561,((0xb1eU == (0xfffU & 
+        vcdp->chgBit(c+17521,((0xb1eU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17569,((0xc1eU == (0xfffU & 
+        vcdp->chgBit(c+17529,((0xc1eU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17577,((0x33fU == (0xfffU & 
+        vcdp->chgBit(c+17537,((0x33fU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17585,((0xb1fU == (0xfffU & 
+        vcdp->chgBit(c+17545,((0xb1fU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17593,((0xc1fU == (0xfffU & 
+        vcdp->chgBit(c+17553,((0xc1fU == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17601,((0x320U == (0xfffU & 
+        vcdp->chgBit(c+17561,((0x320U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17609,((0xc00U == (0xfffU & 
+        vcdp->chgBit(c+17569,((0xc00U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17617,((0xc02U == (0xfffU & 
+        vcdp->chgBit(c+17577,((0xc02U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17625,((0xb80U == (0xfffU & 
+        vcdp->chgBit(c+17585,((0xb80U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17633,((0xb82U == (0xfffU & 
+        vcdp->chgBit(c+17593,((0xb82U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17641,((0xc80U == (0xfffU & 
+        vcdp->chgBit(c+17601,((0xc80U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17649,((0xc82U == (0xfffU & 
+        vcdp->chgBit(c+17609,((0xc82U == (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17657,(((0x7a0U == (0xfffU & 
+        vcdp->chgBit(c+17617,(((0x7a0U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U))) 
                                | (0x7a1U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+17665,((((0x7a0U == (0xfffU 
+        vcdp->chgBit(c+17625,((((0x7a0U == (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))) 
                                 | (0x7a1U == (0xfffU 
@@ -10507,7 +10483,7 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x7a2U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+17673,(((((0x7a0U == (0xfffU 
+        vcdp->chgBit(c+17633,(((((0x7a0U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))) 
                                  | (0x7a1U == (0xfffU 
@@ -10519,7 +10495,7 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xf13U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+17681,((((((0x7a0U == (0xfffU 
+        vcdp->chgBit(c+17641,((((((0x7a0U == (0xfffU 
                                               & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                  >> 0x14U))) 
                                   | (0x7a1U == (0xfffU 
@@ -10534,7 +10510,7 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xf12U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+17689,(((((((0x7a0U == (0xfffU 
+        vcdp->chgBit(c+17649,(((((((0x7a0U == (0xfffU 
                                                & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 0x14U))) 
                                    | (0x7a1U == (0xfffU 
@@ -10552,7 +10528,7 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xf11U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+17697,((((((((0x7a0U == (0xfffU 
+        vcdp->chgBit(c+17657,((((((((0x7a0U == (0xfffU 
                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x14U))) 
                                     | (0x7a1U == (0xfffU 
@@ -10573,7 +10549,7 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xb00U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+17705,(((((((((0x7a0U == (0xfffU 
+        vcdp->chgBit(c+17665,(((((((((0x7a0U == (0xfffU 
                                                  & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                     >> 0x14U))) 
                                      | (0x7a1U == (0xfffU 
@@ -10597,7 +10573,7 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0xb02U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+17713,((((((((((0x7a0U == (0xfffU 
+        vcdp->chgBit(c+17673,((((((((((0x7a0U == (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U))) 
                                       | (0x7a1U == 
@@ -10625,7 +10601,7 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x301U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+17721,(((((((((((0x7a0U == (0xfffU 
+        vcdp->chgBit(c+17681,(((((((((((0x7a0U == (0xfffU 
                                                    & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                       >> 0x14U))) 
                                        | (0x7a1U == 
@@ -10657,7 +10633,7 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x300U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+17729,((((((((((((0x7a0U == 
+        vcdp->chgBit(c+17689,((((((((((((0x7a0U == 
                                          (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U))) 
@@ -10694,7 +10670,7 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x305U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+17737,(((((((((((((0x7a0U == 
+        vcdp->chgBit(c+17697,(((((((((((((0x7a0U == 
                                           (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U))) 
@@ -10735,7 +10711,7 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x344U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+17745,((((((((((((((0x7a0U == 
+        vcdp->chgBit(c+17705,((((((((((((((0x7a0U == 
                                            (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))) 
@@ -10780,7 +10756,7 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x304U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+17753,(((((((((((((((0x7a0U 
+        vcdp->chgBit(c+17713,(((((((((((((((0x7a0U 
                                             == (0xfffU 
                                                 & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x14U))) 
@@ -10829,49 +10805,49 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                | (0x303U == (0xfffU 
                                              & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+17761,((0xc00U <= (0xfffU & 
+        vcdp->chgBit(c+17721,((0xc00U <= (0xfffU & 
                                           (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+17769,((0xc20U > (0xfffU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBit(c+17729,((0xc20U > (0xfffU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x14U)))));
-        vcdp->chgBit(c+17777,(((0xc00U <= (0xfffU & 
+        vcdp->chgBit(c+17737,(((0xc00U <= (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U))) 
                                & (0xc20U > (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+17785,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug) 
+        vcdp->chgBit(c+17745,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug) 
                                | (3U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)))));
-        vcdp->chgBus(c+17793,((0x1fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBus(c+17753,((0x1fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                         >> 0x14U))),5);
-        vcdp->chgBus(c+17801,((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mscounteren 
+        vcdp->chgBus(c+17761,((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mscounteren 
                                >> (0x1fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))),32);
-        vcdp->chgBit(c+17809,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mscounteren 
+        vcdp->chgBit(c+17769,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mscounteren 
                                      >> (0x1fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 0x14U))))));
-        vcdp->chgBit(c+17817,(((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
+        vcdp->chgBit(c+17777,(((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
                                & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mscounteren 
                                   >> (0x1fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+17825,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug) 
+        vcdp->chgBit(c+17785,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug) 
                                 | (3U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))) 
                                | ((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
                                   & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mscounteren 
                                      >> (0x1fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 0x14U)))))));
-        vcdp->chgBit(c+17833,((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))));
-        vcdp->chgBus(c+17841,((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mucounteren 
+        vcdp->chgBit(c+17793,((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))));
+        vcdp->chgBus(c+17801,((vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mucounteren 
                                >> (0x1fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))),32);
-        vcdp->chgBit(c+17849,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mucounteren 
+        vcdp->chgBit(c+17809,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mucounteren 
                                      >> (0x1fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 0x14U))))));
-        vcdp->chgBit(c+17857,(((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
+        vcdp->chgBit(c+17817,(((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
                                & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mucounteren 
                                   >> (0x1fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))))));
-        vcdp->chgBit(c+17865,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug) 
+        vcdp->chgBit(c+17825,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug) 
                                  | (3U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))) 
                                 | ((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
                                    & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mscounteren 
@@ -10881,55 +10857,55 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                   & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mucounteren 
                                      >> (0x1fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 0x14U)))))));
-        vcdp->chgBus(c+17873,((3U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBus(c+17833,((3U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                      >> 0x1cU))),2);
-        vcdp->chgBus(c+17881,((0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBus(c+17841,((0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                         >> 0x14U))),12);
-        vcdp->chgBit(c+17889,((0x90U == (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBit(c+17849,((0x90U == (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 0x14U)))));
-        vcdp->chgBit(c+17897,((0x90U != (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBit(c+17857,((0x90U != (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 0x14U)))));
-        vcdp->chgBit(c+17905,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv) 
+        vcdp->chgBit(c+17865,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv) 
                                >= (3U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                          >> 0x1cU)))));
-        vcdp->chgBit(c+17913,(((0x90U != (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBit(c+17873,(((0x90U != (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x14U))) 
                                & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv) 
                                   >= (3U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x1cU))))));
-        vcdp->chgBus(c+17921,((3U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBus(c+17881,((3U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                      >> 0x1eU))),2);
-        vcdp->chgBus(c+17929,((3U & (~ (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBus(c+17889,((3U & (~ (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                         >> 0x1eU)))),2);
-        vcdp->chgBit(c+17937,((0U == (3U & (~ (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBit(c+17897,((0U == (3U & (~ (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x1eU))))));
-        vcdp->chgBit(c+17945,((0U != (3U & (~ (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBit(c+17905,((0U != (3U & (~ (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x1eU))))));
-        vcdp->chgBus(c+17953,((7U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBus(c+17913,((7U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                      >> 0x14U))),3);
-        vcdp->chgBus(c+17961,((0xffU & ((IData)(1U) 
+        vcdp->chgBus(c+17921,((0xffU & ((IData)(1U) 
                                         << (7U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 0x14U))))),8);
-        vcdp->chgBit(c+17969,((1U & ((IData)(1U) << 
+        vcdp->chgBit(c+17929,((1U & ((IData)(1U) << 
                                      (7U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U))))));
-        vcdp->chgBit(c+17977,((1U & (((IData)(1U) << 
+        vcdp->chgBit(c+17937,((1U & (((IData)(1U) << 
                                       (7U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                              >> 0x14U))) 
                                      >> 1U))));
-        vcdp->chgBit(c+17985,((1U & (((IData)(1U) << 
+        vcdp->chgBit(c+17945,((1U & (((IData)(1U) << 
                                       (7U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                              >> 0x14U))) 
                                      >> 2U))));
-        vcdp->chgBit(c+17993,((1U & (((IData)(1U) << 
+        vcdp->chgBit(c+17953,((1U & (((IData)(1U) << 
                                       (7U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                              >> 0x14U))) 
                                      >> 4U))));
-        vcdp->chgBit(c+18001,((1U & (((IData)(1U) << 
+        vcdp->chgBit(c+17961,((1U & (((IData)(1U) << 
                                       (7U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                              >> 0x14U))) 
                                      >> 5U))));
-        vcdp->chgBit(c+18009,((1U & (~ ((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug) 
+        vcdp->chgBit(c+17969,((1U & (~ ((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug) 
                                           | (3U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))) 
                                          | ((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)) 
                                             & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mscounteren 
@@ -10941,7 +10917,7 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                               >> (0x1fU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))))))));
-        vcdp->chgBit(c+18017,((((0xc00U <= (0xfffU 
+        vcdp->chgBit(c+17977,((((0xc00U <= (0xfffU 
                                             & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 0x14U))) 
                                 & (0xc20U > (0xfffU 
@@ -10959,113 +10935,113 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                            >> (0x1fU 
                                                & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 0x14U)))))))));
-        vcdp->chgBus(c+18025,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv),4);
-        vcdp->chgBus(c+18033,((0x1fU & ((IData)(8U) 
+        vcdp->chgBus(c+17985,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv),4);
+        vcdp->chgBus(c+17993,((0x1fU & ((IData)(8U) 
                                         + (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)))),5);
-        vcdp->chgBus(c+18041,((0xfU & ((IData)(8U) 
+        vcdp->chgBus(c+18001,((0xfU & ((IData)(8U) 
                                        + (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)))),4);
-        vcdp->chgBus(c+18049,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
+        vcdp->chgBus(c+18009,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
                                 << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreaku))),2);
-        vcdp->chgBus(c+18057,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakm) 
+        vcdp->chgBus(c+18017,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakm) 
                                 << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh))),2);
-        vcdp->chgBus(c+18065,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakm) 
+        vcdp->chgBus(c+18025,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakm) 
                                  << 3U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
                                            << 2U)) 
                                | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
                                    << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreaku)))),4);
-        vcdp->chgBus(c+18073,((0xfU & (((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakm) 
+        vcdp->chgBus(c+18033,((0xfU & (((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakm) 
                                           << 3U) | 
                                          ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
                                           << 2U)) | 
                                         (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
                                           << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreaku))) 
                                        >> (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)))),4);
-        vcdp->chgBit(c+18081,((1U & (((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakm) 
+        vcdp->chgBit(c+18041,((1U & (((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakm) 
                                         << 3U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
                                                   << 2U)) 
                                       | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreakh) 
                                           << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_ebreaku))) 
                                      >> (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)))));
-        vcdp->chgBus(c+18089,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)
+        vcdp->chgBus(c+18049,(((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_debug)
                                 ? 0x808U : 0x800U)),12);
-        vcdp->chgBus(c+18097,(((0x90U == (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
+        vcdp->chgBus(c+18057,(((0x90U == (0x90U & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                    >> 0x14U)))
                                 ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dpc
                                 : vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mepc)),32);
-        vcdp->chgBus(c+18105,((3U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)))),2);
-        vcdp->chgBit(c+18113,((0U == (3U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs))))));
-        vcdp->chgBus(c+18121,((~ vlSymsp->TOP__Rocket.__PVT__wb_reg_pc)),32);
-        vcdp->chgBus(c+18129,((1U | (~ vlSymsp->TOP__Rocket.__PVT__wb_reg_pc))),32);
-        vcdp->chgBus(c+18137,((~ (1U | (~ vlSymsp->TOP__Rocket.__PVT__wb_reg_pc)))),32);
-        vcdp->chgBit(c+18145,((1U & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))));
-        vcdp->chgBus(c+18153,(((1U & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))
+        vcdp->chgBus(c+18065,((3U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs)))),2);
+        vcdp->chgBit(c+18073,((0U == (3U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_fs))))));
+        vcdp->chgBus(c+18081,((~ vlSymsp->TOP__Rocket.__PVT__wb_reg_pc)),32);
+        vcdp->chgBus(c+18089,((1U | (~ vlSymsp->TOP__Rocket.__PVT__wb_reg_pc))),32);
+        vcdp->chgBus(c+18097,((~ (1U | (~ vlSymsp->TOP__Rocket.__PVT__wb_reg_pc)))),32);
+        vcdp->chgBit(c+18105,((1U & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))));
+        vcdp->chgBus(c+18113,(((1U & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv))
                                 ? 3U : 0U)),2);
-        vcdp->chgBus(c+18161,((1U | (2U & ((~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
+        vcdp->chgBus(c+18121,((1U | (2U & ((~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
                                                >> 2U)) 
                                            << 1U)))),2);
-        vcdp->chgBus(c+18169,((1U | (2U & ((~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
+        vcdp->chgBus(c+18129,((1U | (2U & ((~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
                                                >> 2U)) 
                                            << 1U)))),32);
-        vcdp->chgBus(c+18177,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_spp),2);
-        vcdp->chgBit(c+18185,((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpp) 
+        vcdp->chgBus(c+18137,(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_spp),2);
+        vcdp->chgBit(c+18145,((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_mpp) 
                                      >> 1U))));
-        vcdp->chgBit(c+18193,(((0x7a0U == (0xfffU & 
+        vcdp->chgBit(c+18153,(((0x7a0U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U))) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain))));
-        vcdp->chgBus(c+18201,(((0x7a2U == (0xfffU & 
+        vcdp->chgBus(c+18161,(((0x7a2U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)
                                     ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_1_address
                                     : vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address)
                                 : 0U)),32);
-        vcdp->chgBus(c+18209,(((0x301U == (0xfffU & 
+        vcdp->chgBus(c+18169,(((0x301U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa
                                 : 0U)),32);
-        vcdp->chgBus(c+18217,(((0x305U == (0xfffU & 
+        vcdp->chgBus(c+18177,(((0x305U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mtvec
                                 : 0U)),32);
-        vcdp->chgBus(c+18225,(((0x304U == (0xfffU & 
+        vcdp->chgBus(c+18185,(((0x304U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mie
                                 : 0U)),32);
-        vcdp->chgBus(c+18233,(((0x303U == (0xfffU & 
+        vcdp->chgBus(c+18193,(((0x303U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mscounteren
                                 : 0U)),32);
-        vcdp->chgBus(c+18241,(((0x302U == (0xfffU & 
+        vcdp->chgBus(c+18201,(((0x302U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_medeleg
                                 : 0U)),32);
-        vcdp->chgBus(c+18249,(((0x340U == (0xfffU & 
+        vcdp->chgBus(c+18209,(((0x340U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mscratch
                                 : 0U)),32);
-        vcdp->chgBus(c+18257,(((0x341U == (0xfffU & 
+        vcdp->chgBus(c+18217,(((0x341U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mepc
                                 : 0U)),32);
-        vcdp->chgBus(c+18265,(((0x343U == (0xfffU & 
+        vcdp->chgBus(c+18225,(((0x343U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mbadaddr
                                 : 0U)),32);
-        vcdp->chgBus(c+18273,(((0x342U == (0xfffU & 
+        vcdp->chgBus(c+18233,(((0x342U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mcause
                                 : 0U)),32);
-        vcdp->chgBus(c+18281,(((0x7b0U == (0xfffU & 
+        vcdp->chgBus(c+18241,(((0x7b0U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? ((((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_xdebugver) 
@@ -11100,89 +11076,89 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                              << 2U) 
                                             | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_prv)))))
                                 : 0U)),32);
-        vcdp->chgBus(c+18289,(((0x7b1U == (0xfffU & 
+        vcdp->chgBus(c+18249,(((0x7b1U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dpc
                                 : 0U)),32);
-        vcdp->chgBus(c+18297,(((0x7b2U == (0xfffU & 
+        vcdp->chgBus(c+18257,(((0x7b2U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dscratch
                                 : 0U)),32);
-        vcdp->chgBus(c+18305,(((0x320U == (0xfffU & 
+        vcdp->chgBus(c+18265,(((0x320U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mucounteren
                                 : 0U)),32);
-        vcdp->chgBus(c+18313,(((0x7a0U == (0xfffU & 
+        vcdp->chgBus(c+18273,(((0x7a0U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U))) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain))),32);
-        vcdp->chgQuad(c+18321,((QData)((IData)(((0x301U 
+        vcdp->chgQuad(c+18281,((QData)((IData)(((0x301U 
                                                  == 
                                                  (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))
                                                  ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa
                                                  : 0U)))),64);
-        vcdp->chgQuad(c+18337,((QData)((IData)(((0x305U 
+        vcdp->chgQuad(c+18297,((QData)((IData)(((0x305U 
                                                  == 
                                                  (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))
                                                  ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mtvec
                                                  : 0U)))),64);
-        vcdp->chgQuad(c+18353,((QData)((IData)(((0x304U 
+        vcdp->chgQuad(c+18313,((QData)((IData)(((0x304U 
                                                  == 
                                                  (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))
                                                  ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mie
                                                  : 0U)))),64);
-        vcdp->chgQuad(c+18369,((QData)((IData)(((0x303U 
+        vcdp->chgQuad(c+18329,((QData)((IData)(((0x303U 
                                                  == 
                                                  (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))
                                                  ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mscounteren
                                                  : 0U)))),64);
-        vcdp->chgQuad(c+18385,((QData)((IData)(((0x302U 
+        vcdp->chgQuad(c+18345,((QData)((IData)(((0x302U 
                                                  == 
                                                  (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))
                                                  ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_medeleg
                                                  : 0U)))),64);
-        vcdp->chgQuad(c+18401,((QData)((IData)(((0x340U 
+        vcdp->chgQuad(c+18361,((QData)((IData)(((0x340U 
                                                  == 
                                                  (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))
                                                  ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mscratch
                                                  : 0U)))),64);
-        vcdp->chgQuad(c+18417,((QData)((IData)(((0x341U 
+        vcdp->chgQuad(c+18377,((QData)((IData)(((0x341U 
                                                  == 
                                                  (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))
                                                  ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mepc
                                                  : 0U)))),64);
-        vcdp->chgQuad(c+18433,((QData)((IData)(((0x343U 
+        vcdp->chgQuad(c+18393,((QData)((IData)(((0x343U 
                                                  == 
                                                  (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))
                                                  ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mbadaddr
                                                  : 0U)))),64);
-        vcdp->chgQuad(c+18449,((QData)((IData)(((0x342U 
+        vcdp->chgQuad(c+18409,((QData)((IData)(((0x342U 
                                                  == 
                                                  (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))
                                                  ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mcause
                                                  : 0U)))),64);
-        vcdp->chgQuad(c+18465,((QData)((IData)(((0x7b0U 
+        vcdp->chgQuad(c+18425,((QData)((IData)(((0x7b0U 
                                                  == 
                                                  (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
@@ -11221,251 +11197,200 @@ void VRocket::traceChgThis__5(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                            << 2U) 
                                                           | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_prv)))))
                                                  : 0U)))),64);
-        vcdp->chgQuad(c+18481,((QData)((IData)(((0x7b1U 
+        vcdp->chgQuad(c+18441,((QData)((IData)(((0x7b1U 
                                                  == 
                                                  (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))
                                                  ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dpc
                                                  : 0U)))),64);
-        vcdp->chgQuad(c+18497,((QData)((IData)(((0x7b2U 
+        vcdp->chgQuad(c+18457,((QData)((IData)(((0x7b2U 
                                                  == 
                                                  (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))
                                                  ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dscratch
                                                  : 0U)))),64);
-        vcdp->chgQuad(c+18513,((QData)((IData)(((0x320U 
+        vcdp->chgQuad(c+18473,((QData)((IData)(((0x320U 
                                                  == 
                                                  (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))
                                                  ? vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mucounteren
                                                  : 0U)))),64);
-        vcdp->chgBus(c+18529,((0xffaU & vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa)),32);
-        vcdp->chgBus(c+18537,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain) 
+        vcdp->chgBus(c+18489,((0xffaU & vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa)),32);
+        vcdp->chgBus(c+18497,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain) 
                                 << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_u))),2);
-        vcdp->chgBus(c+18545,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_m) 
+        vcdp->chgBus(c+18505,((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_m) 
                                 << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain))),2);
-        vcdp->chgBus(c+18553,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_m) 
+        vcdp->chgBus(c+18513,(((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_m) 
                                  << 3U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain) 
                                            << 2U)) 
                                | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain) 
                                    << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_u)))),4);
-        vcdp->chgBus(c+18561,((0xfU & (((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_m) 
+        vcdp->chgBus(c+18521,((0xfU & (((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_m) 
                                           << 3U) | 
                                          ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain) 
                                           << 2U)) | 
                                         (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain) 
                                           << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_u))) 
                                        >> (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)))),4);
-        vcdp->chgBit(c+18569,((1U & (((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_m) 
+        vcdp->chgBit(c+18529,((1U & (((((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_m) 
                                         << 3U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain) 
                                                   << 2U)) 
                                       | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain) 
                                           << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_u))) 
                                      >> (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mstatus_prv)))));
-        vcdp->chgBit(c+18577,((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch) 
+        vcdp->chgBit(c+18537,((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch) 
                                      >> 1U))));
-        vcdp->chgBit(c+18585,((vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata 
+        vcdp->chgBit(c+18545,((vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata 
                                >= vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address)));
-        vcdp->chgBit(c+18593,((1U & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch))));
-        vcdp->chgBit(c+18601,((1U & ((vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata 
+        vcdp->chgBit(c+18553,((1U & (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch))));
+        vcdp->chgBit(c+18561,((1U & ((vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata 
                                       >= vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address) 
                                      ^ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_tmatch)))));
-        vcdp->chgBus(c+18609,((~ vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata)),32);
-        vcdp->chgBit(c+18617,((1U & vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address)));
-        vcdp->chgBit(c+18625,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address 
+        vcdp->chgBus(c+18569,((~ vlSymsp->TOP__Rocket.__PVT__mem_reg_wdata)),32);
+        vcdp->chgBit(c+18577,((1U & vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address)));
+        vcdp->chgBit(c+18585,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address 
                                      >> 1U))));
-        vcdp->chgBit(c+18633,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address 
+        vcdp->chgBit(c+18593,((1U & (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address 
                                      >> 2U))));
-        vcdp->chgBus(c+18641,((~ vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address)),32);
-        vcdp->chgBit(c+18649,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)))));
-        vcdp->chgBit(c+18657,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action)))));
-        vcdp->chgBit(c+18665,((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn) 
+        vcdp->chgBus(c+18601,((~ vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_address)),32);
+        vcdp->chgBit(c+18609,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_chain)))));
+        vcdp->chgBit(c+18617,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action)))));
+        vcdp->chgBit(c+18625,((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn) 
                                      >> 3U))));
-        vcdp->chgBus(c+18673,((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn) 
+        vcdp->chgBus(c+18633,((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn) 
                                      >> 3U))),32);
-        vcdp->chgBit(c+18681,((1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
-        vcdp->chgBit(c+18689,((1U & (~ ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn) 
+        vcdp->chgBit(c+18641,((1U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
+        vcdp->chgBit(c+18649,((1U & (~ ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn) 
                                         >> 3U)))));
-        vcdp->chgBit(c+18697,((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn) 
+        vcdp->chgBit(c+18657,((1U & ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn) 
                                      >> 1U))));
-        vcdp->chgBit(c+18705,((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
-        vcdp->chgBit(c+18713,((0xbU == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
-        vcdp->chgBit(c+18721,((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
-        vcdp->chgBit(c+18729,((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
-        vcdp->chgBit(c+18737,((6U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
-        vcdp->chgBit(c+18745,(((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)) 
+        vcdp->chgBit(c+18665,((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
+        vcdp->chgBit(c+18673,((0xbU == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
+        vcdp->chgBit(c+18681,((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
+        vcdp->chgBit(c+18689,((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
+        vcdp->chgBit(c+18697,((6U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
+        vcdp->chgBit(c+18705,(((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)) 
                                | (6U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)))));
-        vcdp->chgBit(c+18753,((7U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
-        vcdp->chgBit(c+18761,(((6U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)) 
+        vcdp->chgBit(c+18713,((7U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
+        vcdp->chgBit(c+18721,(((6U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)) 
                                | (7U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)))));
-        vcdp->chgBit(c+18769,((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
-        vcdp->chgBit(c+18777,((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
-        vcdp->chgBit(c+18785,(((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)) 
+        vcdp->chgBit(c+18729,((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
+        vcdp->chgBit(c+18737,((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
+        vcdp->chgBit(c+18745,(((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)) 
                                | (3U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)))));
-        vcdp->chgBit(c+18793,((0xcU <= (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
-        vcdp->chgBit(c+18801,((((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)) 
+        vcdp->chgBit(c+18753,((0xcU <= (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
+        vcdp->chgBit(c+18761,((((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)) 
                                 | (3U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))) 
                                | (0xcU <= (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)))));
-        vcdp->chgBit(c+18809,((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
-        vcdp->chgBit(c+18817,((0xaU == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
-        vcdp->chgBit(c+18825,(((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)) 
+        vcdp->chgBit(c+18769,((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
+        vcdp->chgBit(c+18777,((0xaU == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))));
+        vcdp->chgBit(c+18785,(((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)) 
                                | (0xaU == (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)))));
-        vcdp->chgBus(c+18833,(vlSymsp->TOP__Rocket.__PVT__div__DOT__state),3);
-        vcdp->chgBus(c+18841,(vlSymsp->TOP__Rocket.__PVT__div__DOT__req_fn),4);
-        vcdp->chgBit(c+18849,(vlSymsp->TOP__Rocket.__PVT__div__DOT__req_dw));
-        vcdp->chgBus(c+18857,(vlSymsp->TOP__Rocket.__PVT__div__DOT__req_in1),32);
-        vcdp->chgBus(c+18865,(vlSymsp->TOP__Rocket.__PVT__div__DOT__req_in2),32);
-        vcdp->chgBus(c+18873,(vlSymsp->TOP__Rocket.__PVT__div__DOT__count),6);
-        vcdp->chgBit(c+18881,(vlSymsp->TOP__Rocket.__PVT__div__DOT__neg_out));
-        vcdp->chgBit(c+18889,(vlSymsp->TOP__Rocket.__PVT__div__DOT__isMul));
-        vcdp->chgBit(c+18897,(vlSymsp->TOP__Rocket.__PVT__div__DOT__isHi));
-        vcdp->chgQuad(c+18905,(vlSymsp->TOP__Rocket.__PVT__div__DOT__divisor),33);
-        vcdp->chgArray(c+18921,(vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder),66);
-        vcdp->chgBus(c+18945,((4U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))),4);
-        vcdp->chgBit(c+18953,((0U == (4U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)))));
-        vcdp->chgBus(c+18961,((8U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))),4);
-        vcdp->chgBit(c+18969,((8U == (8U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)))));
-        vcdp->chgBus(c+18977,((5U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))),4);
-        vcdp->chgBit(c+18985,((1U == (5U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)))));
-        vcdp->chgBus(c+18993,((2U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))),4);
-        vcdp->chgBit(c+19001,((2U == (2U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)))));
-        vcdp->chgBit(c+19009,(((1U == (5U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))) 
+        vcdp->chgBus(c+18793,(vlSymsp->TOP__Rocket.__PVT__div__DOT__state),3);
+        vcdp->chgBus(c+18801,(vlSymsp->TOP__Rocket.__PVT__div__DOT__req_fn),4);
+        vcdp->chgBit(c+18809,(vlSymsp->TOP__Rocket.__PVT__div__DOT__req_dw));
+        vcdp->chgBus(c+18817,(vlSymsp->TOP__Rocket.__PVT__div__DOT__req_in1),32);
+        vcdp->chgBus(c+18825,(vlSymsp->TOP__Rocket.__PVT__div__DOT__req_in2),32);
+        vcdp->chgBus(c+18833,(vlSymsp->TOP__Rocket.__PVT__div__DOT__count),6);
+        vcdp->chgBit(c+18841,(vlSymsp->TOP__Rocket.__PVT__div__DOT__neg_out));
+        vcdp->chgBit(c+18849,(vlSymsp->TOP__Rocket.__PVT__div__DOT__isMul));
+        vcdp->chgBit(c+18857,(vlSymsp->TOP__Rocket.__PVT__div__DOT__isHi));
+        vcdp->chgQuad(c+18865,(vlSymsp->TOP__Rocket.__PVT__div__DOT__divisor),33);
+        vcdp->chgArray(c+18881,(vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder),66);
+        vcdp->chgBus(c+18905,((4U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))),4);
+        vcdp->chgBit(c+18913,((0U == (4U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)))));
+        vcdp->chgBus(c+18921,((8U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))),4);
+        vcdp->chgBit(c+18929,((8U == (8U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)))));
+        vcdp->chgBus(c+18937,((5U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))),4);
+        vcdp->chgBit(c+18945,((1U == (5U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)))));
+        vcdp->chgBus(c+18953,((2U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))),4);
+        vcdp->chgBit(c+18961,((2U == (2U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)))));
+        vcdp->chgBit(c+18969,(((1U == (5U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))) 
                                | (2U == (2U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))))));
-        vcdp->chgBus(c+19017,((9U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))),4);
-        vcdp->chgBit(c+19025,((0U == (9U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)))));
-        vcdp->chgBus(c+19033,((3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))),4);
-        vcdp->chgBit(c+19041,((0U == (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)))));
-        vcdp->chgQuad(c+19049,((VL_ULL(0x1ffffffff) 
+        vcdp->chgBus(c+18977,((9U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))),4);
+        vcdp->chgBit(c+18985,((0U == (9U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)))));
+        vcdp->chgBus(c+18993,((3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn))),4);
+        vcdp->chgBit(c+19001,((0U == (3U & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_alu_fn)))));
+        vcdp->chgQuad(c+19009,((VL_ULL(0x1ffffffff) 
                                 & (((QData)((IData)(
                                                     vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U])) 
                                     << 0x20U) | (QData)((IData)(
                                                                 vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[1U]))))),33);
-        vcdp->chgQuad(c+19065,((VL_ULL(0x1ffffffff) 
+        vcdp->chgQuad(c+19025,((VL_ULL(0x1ffffffff) 
                                 & VL_NEGATE_Q((QData)((IData)(
                                                               vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[0U]))))),33);
-        vcdp->chgBus(c+19081,((IData)((VL_ULL(0x1ffffffff) 
+        vcdp->chgBus(c+19041,((IData)((VL_ULL(0x1ffffffff) 
                                        & VL_NEGATE_Q((QData)((IData)(
                                                                      vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[0U])))))),32);
-        vcdp->chgBit(c+19089,((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))));
-        vcdp->chgBit(c+19097,((1U & (vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[0U] 
+        vcdp->chgBit(c+19049,((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))));
+        vcdp->chgBit(c+19057,((1U & (vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[0U] 
                                      >> 0x1fU))));
-        vcdp->chgBit(c+19105,((1U & (IData)((vlSymsp->TOP__Rocket.__PVT__div__DOT__divisor 
+        vcdp->chgBit(c+19065,((1U & (IData)((vlSymsp->TOP__Rocket.__PVT__div__DOT__divisor 
                                              >> 0x1fU)))));
-        vcdp->chgBus(c+19113,(((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))
+        vcdp->chgBus(c+19073,(((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))
                                 ? 2U : (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))),3);
-        vcdp->chgBit(c+19121,((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))));
-        vcdp->chgBus(c+19129,(((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))
+        vcdp->chgBit(c+19081,((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))));
+        vcdp->chgBus(c+19089,(((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))
                                 ? 5U : ((1U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))
                                          ? 2U : (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)))),3);
-        vcdp->chgBit(c+19137,((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))));
-        vcdp->chgBus(c+19145,(((vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U] 
+        vcdp->chgBit(c+19097,((3U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))));
+        vcdp->chgBus(c+19105,(((vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U] 
                                 << 0x1fU) | (vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[1U] 
                                              >> 1U))),32);
-        vcdp->chgBus(c+19153,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__neg_out)
+        vcdp->chgBus(c+19113,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__neg_out)
                                 ? 4U : 5U)),3);
-        vcdp->chgBit(c+19161,((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))));
-        vcdp->chgQuad(c+19169,((VL_ULL(0x1ffffffff) 
+        vcdp->chgBit(c+19121,((2U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))));
+        vcdp->chgQuad(c+19129,((VL_ULL(0x1ffffffff) 
                                 & (((QData)((IData)(
                                                     vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[2U])) 
                                     << 0x1fU) | ((QData)((IData)(
                                                                  vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[1U])) 
                                                  >> 1U)))),33);
-        vcdp->chgQuad(c+19185,(vlSymsp->TOP__Rocket.__PVT__div__DOT__divisor),33);
-        vcdp->chgBit(c+19201,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__isHi)))));
-        vcdp->chgBus(c+19209,((0x7fU & ((IData)(1U) 
+        vcdp->chgQuad(c+19145,(vlSymsp->TOP__Rocket.__PVT__div__DOT__divisor),33);
+        vcdp->chgBit(c+19161,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__isHi)))));
+        vcdp->chgBus(c+19169,((0x7fU & ((IData)(1U) 
                                         + (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count)))),7);
-        vcdp->chgBus(c+19217,((0x3fU & ((IData)(1U) 
+        vcdp->chgBus(c+19177,((0x3fU & ((IData)(1U) 
                                         + (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count)))),6);
-        vcdp->chgBit(c+19225,((0x1fU == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count))));
-        vcdp->chgBus(c+19233,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__isHi)
+        vcdp->chgBit(c+19185,((0x1fU == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count))));
+        vcdp->chgBus(c+19193,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__isHi)
                                 ? 3U : 5U)),3);
-        vcdp->chgBit(c+19241,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__isMul)))));
-        vcdp->chgBit(c+19249,((0x20U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count))));
-        vcdp->chgBus(c+19257,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__isHi)
+        vcdp->chgBit(c+19201,((1U & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__isMul)))));
+        vcdp->chgBit(c+19209,((0x20U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count))));
+        vcdp->chgBus(c+19217,(((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__isHi)
                                 ? 3U : ((IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__neg_out)
                                          ? 4U : 5U))),3);
-        vcdp->chgBus(c+19265,(vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[1U]),32);
-        vcdp->chgBit(c+19273,((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count))));
-        vcdp->chgBit(c+19281,(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid));
-        vcdp->chgBit(c+19289,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_valid));
-        vcdp->chgBit(c+19297,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_taken));
-        vcdp->chgBus(c+19305,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_mask),2);
-        vcdp->chgBit(c+19313,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_bridx));
-        vcdp->chgBus(c+19321,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_target),32);
-        vcdp->chgBit(c+19329,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_entry));
-        vcdp->chgBit(c+19337,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_bht_history));
-        vcdp->chgBus(c+19345,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_bht_value),2);
-        vcdp->chgBus(c+19353,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_pc),32);
-        vcdp->chgBus(c+19361,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_data),32);
-        vcdp->chgBus(c+19369,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_mask),2);
-        vcdp->chgBit(c+19377,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_xcpt_if));
-        vcdp->chgBit(c+19385,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_replay));
-        vcdp->chgBit(c+19393,(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBHit));
-        vcdp->chgBit(c+19401,(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_taken));
-        vcdp->chgBus(c+19409,(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_mask),2);
-        vcdp->chgBit(c+19417,(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bridx));
-        vcdp->chgBus(c+19425,(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_target),32);
-        vcdp->chgBit(c+19433,(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_entry));
-        vcdp->chgBit(c+19441,(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bht_history));
-        vcdp->chgBus(c+19449,(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bht_value),2);
-        vcdp->chgBus(c+19457,(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid),2);
-        vcdp->chgBus(c+19465,((7U & ((IData)(2U) + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)))),3);
-        vcdp->chgBus(c+19473,((3U & ((IData)(2U) + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)))),2);
-        vcdp->chgBus(c+19481,(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid),5);
-        vcdp->chgBus(c+19489,((0x1fU & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid) 
-                                        << 4U))),5);
-        vcdp->chgQuad(c+19497,((VL_ULL(0x7fffffffffffffff) 
-                                & (VL_ULL(0xffffffff) 
-                                   << (0x1fU & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid) 
-                                                << 4U))))),63);
-        vcdp->chgBus(c+19513,((IData)((VL_ULL(0x7fffffffffffffff) 
-                                       & (VL_ULL(0xffffffff) 
-                                          << (0x1fU 
-                                              & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid) 
-                                                 << 4U)))))),32);
-        vcdp->chgBus(c+19521,((~ (IData)((VL_ULL(0x7fffffffffffffff) 
-                                          & (VL_ULL(0xffffffff) 
-                                             << (0x1fU 
-                                                 & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid) 
-                                                    << 4U))))))),32);
-        vcdp->chgBus(c+19529,((vlSymsp->TOP__Rocket__ibuf.__PVT__buf_data 
-                               & (~ (IData)((VL_ULL(0x7fffffffffffffff) 
-                                             & (VL_ULL(0xffffffff) 
-                                                << 
-                                                (0x1fU 
-                                                 & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid) 
-                                                    << 4U)))))))),32);
-        vcdp->chgBus(c+19537,((3U & ((IData)(1U) << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)))),2);
-        vcdp->chgBus(c+19545,((7U & ((3U & ((IData)(1U) 
-                                            << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid))) 
-                                     - (IData)(1U)))),3);
-        vcdp->chgBus(c+19553,((3U & (((IData)(1U) << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
-                                     - (IData)(1U)))),2);
-        vcdp->chgBus(c+19561,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_xcpt_if)
-                                ? (3U & (((IData)(1U) 
-                                          << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
-                                         - (IData)(1U)))
-                                : 0U)),2);
-        vcdp->chgBus(c+19569,((3U & (~ (((IData)(1U) 
-                                         << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
-                                        - (IData)(1U))))),2);
-        vcdp->chgBus(c+19577,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_replay)
-                                ? (3U & (((IData)(1U) 
-                                          << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
-                                         - (IData)(1U)))
-                                : 0U)),2);
-        vcdp->chgBus(c+19585,((3U & ((IData)(1U) << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bridx)))),2);
-        vcdp->chgBus(c+19593,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBHit)
+        vcdp->chgBus(c+19225,(vlSymsp->TOP__Rocket.__PVT__div__DOT__remainder[1U]),32);
+        vcdp->chgBit(c+19233,((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__count))));
+        vcdp->chgBit(c+19241,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_valid));
+        vcdp->chgBit(c+19249,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_taken));
+        vcdp->chgBus(c+19257,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_mask),2);
+        vcdp->chgBit(c+19265,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_bridx));
+        vcdp->chgBus(c+19273,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_target),32);
+        vcdp->chgBit(c+19281,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_entry));
+        vcdp->chgBit(c+19289,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_bht_history));
+        vcdp->chgBus(c+19297,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_bht_value),2);
+        vcdp->chgBus(c+19305,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_pc),32);
+        vcdp->chgBus(c+19313,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_data),32);
+        vcdp->chgBus(c+19321,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_mask),2);
+        vcdp->chgBit(c+19329,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_xcpt_if));
+        vcdp->chgBit(c+19337,(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_replay));
+        vcdp->chgBit(c+19345,(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBHit));
+        vcdp->chgBit(c+19353,(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_taken));
+        vcdp->chgBus(c+19361,(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_mask),2);
+        vcdp->chgBit(c+19369,(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bridx));
+        vcdp->chgBus(c+19377,(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_target),32);
+        vcdp->chgBit(c+19385,(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_entry));
+        vcdp->chgBit(c+19393,(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bht_history));
+        vcdp->chgBus(c+19401,(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bht_value),2);
+        vcdp->chgBus(c+19409,((3U & ((IData)(1U) << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bridx)))),2);
+        vcdp->chgBus(c+19417,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBHit)
                                 ? (3U & ((IData)(1U) 
                                          << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bridx)))
                                 : 0U)),2);
-        vcdp->chgBus(c+19601,((3U & (~ (((IData)(1U) 
-                                         << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
-                                        - (IData)(1U))))),4);
-        vcdp->chgBit(c+19609,(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid));
     }
 }
 
@@ -11489,498 +11414,498 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
     WData/*191:0*/ __Vtemp248[6];
     // Body
     {
-        vcdp->chgBit(c+19617,(vlTOPp->clock));
-        vcdp->chgBit(c+19625,(vlTOPp->reset));
-        vcdp->chgBit(c+19633,(vlTOPp->io_interrupts_debug));
-        vcdp->chgBit(c+19641,(vlTOPp->io_interrupts_mtip));
-        vcdp->chgBit(c+19649,(vlTOPp->io_interrupts_msip));
-        vcdp->chgBit(c+19657,(vlTOPp->io_interrupts_meip));
-        vcdp->chgBus(c+19665,(vlTOPp->io_hartid),32);
-        vcdp->chgBit(c+19673,(vlTOPp->io_imem_req_valid));
-        vcdp->chgBus(c+19681,(vlTOPp->io_imem_req_bits_pc),32);
-        vcdp->chgBit(c+19689,(vlTOPp->io_imem_req_bits_speculative));
-        vcdp->chgBit(c+19697,(vlTOPp->io_imem_resp_ready));
-        vcdp->chgBit(c+19705,(vlTOPp->io_imem_resp_valid));
-        vcdp->chgBit(c+19713,(vlTOPp->io_imem_resp_bits_btb_valid));
-        vcdp->chgBit(c+19721,(vlTOPp->io_imem_resp_bits_btb_bits_taken));
-        vcdp->chgBus(c+19729,(vlTOPp->io_imem_resp_bits_btb_bits_mask),2);
-        vcdp->chgBit(c+19737,(vlTOPp->io_imem_resp_bits_btb_bits_bridx));
-        vcdp->chgBus(c+19745,(vlTOPp->io_imem_resp_bits_btb_bits_target),32);
-        vcdp->chgBit(c+19753,(vlTOPp->io_imem_resp_bits_btb_bits_entry));
-        vcdp->chgBit(c+19761,(vlTOPp->io_imem_resp_bits_btb_bits_bht_history));
-        vcdp->chgBus(c+19769,(vlTOPp->io_imem_resp_bits_btb_bits_bht_value),2);
-        vcdp->chgBus(c+19777,(vlTOPp->io_imem_resp_bits_pc),32);
-        vcdp->chgBus(c+19785,(vlTOPp->io_imem_resp_bits_data),32);
-        vcdp->chgBus(c+19793,(vlTOPp->io_imem_resp_bits_mask),2);
-        vcdp->chgBit(c+19801,(vlTOPp->io_imem_resp_bits_xcpt_if));
-        vcdp->chgBit(c+19809,(vlTOPp->io_imem_resp_bits_replay));
-        vcdp->chgBit(c+19817,(vlTOPp->io_imem_btb_update_valid));
-        vcdp->chgBit(c+19825,(vlTOPp->io_imem_btb_update_bits_prediction_valid));
-        vcdp->chgBit(c+19833,(vlTOPp->io_imem_btb_update_bits_prediction_bits_taken));
-        vcdp->chgBus(c+19841,(vlTOPp->io_imem_btb_update_bits_prediction_bits_mask),2);
-        vcdp->chgBit(c+19849,(vlTOPp->io_imem_btb_update_bits_prediction_bits_bridx));
-        vcdp->chgBus(c+19857,(vlTOPp->io_imem_btb_update_bits_prediction_bits_target),32);
-        vcdp->chgBit(c+19865,(vlTOPp->io_imem_btb_update_bits_prediction_bits_entry));
-        vcdp->chgBit(c+19873,(vlTOPp->io_imem_btb_update_bits_prediction_bits_bht_history));
-        vcdp->chgBus(c+19881,(vlTOPp->io_imem_btb_update_bits_prediction_bits_bht_value),2);
-        vcdp->chgBus(c+19889,(vlTOPp->io_imem_btb_update_bits_pc),32);
-        vcdp->chgBus(c+19897,(vlTOPp->io_imem_btb_update_bits_target),32);
-        vcdp->chgBit(c+19905,(vlTOPp->io_imem_btb_update_bits_taken));
-        vcdp->chgBit(c+19913,(vlTOPp->io_imem_btb_update_bits_isValid));
-        vcdp->chgBit(c+19921,(vlTOPp->io_imem_btb_update_bits_isJump));
-        vcdp->chgBit(c+19929,(vlTOPp->io_imem_btb_update_bits_isReturn));
-        vcdp->chgBus(c+19937,(vlTOPp->io_imem_btb_update_bits_br_pc),32);
-        vcdp->chgBit(c+19945,(vlTOPp->io_imem_bht_update_valid));
-        vcdp->chgBit(c+19953,(vlTOPp->io_imem_bht_update_bits_prediction_valid));
-        vcdp->chgBit(c+19961,(vlTOPp->io_imem_bht_update_bits_prediction_bits_taken));
-        vcdp->chgBus(c+19969,(vlTOPp->io_imem_bht_update_bits_prediction_bits_mask),2);
-        vcdp->chgBit(c+19977,(vlTOPp->io_imem_bht_update_bits_prediction_bits_bridx));
-        vcdp->chgBus(c+19985,(vlTOPp->io_imem_bht_update_bits_prediction_bits_target),32);
-        vcdp->chgBit(c+19993,(vlTOPp->io_imem_bht_update_bits_prediction_bits_entry));
-        vcdp->chgBit(c+20001,(vlTOPp->io_imem_bht_update_bits_prediction_bits_bht_history));
-        vcdp->chgBus(c+20009,(vlTOPp->io_imem_bht_update_bits_prediction_bits_bht_value),2);
-        vcdp->chgBus(c+20017,(vlTOPp->io_imem_bht_update_bits_pc),32);
-        vcdp->chgBit(c+20025,(vlTOPp->io_imem_bht_update_bits_taken));
-        vcdp->chgBit(c+20033,(vlTOPp->io_imem_bht_update_bits_mispredict));
-        vcdp->chgBit(c+20041,(vlTOPp->io_imem_ras_update_valid));
-        vcdp->chgBit(c+20049,(vlTOPp->io_imem_ras_update_bits_isCall));
-        vcdp->chgBit(c+20057,(vlTOPp->io_imem_ras_update_bits_isReturn));
-        vcdp->chgBus(c+20065,(vlTOPp->io_imem_ras_update_bits_returnAddr),32);
-        vcdp->chgBit(c+20073,(vlTOPp->io_imem_ras_update_bits_prediction_valid));
-        vcdp->chgBit(c+20081,(vlTOPp->io_imem_ras_update_bits_prediction_bits_taken));
-        vcdp->chgBus(c+20089,(vlTOPp->io_imem_ras_update_bits_prediction_bits_mask),2);
-        vcdp->chgBit(c+20097,(vlTOPp->io_imem_ras_update_bits_prediction_bits_bridx));
-        vcdp->chgBus(c+20105,(vlTOPp->io_imem_ras_update_bits_prediction_bits_target),32);
-        vcdp->chgBit(c+20113,(vlTOPp->io_imem_ras_update_bits_prediction_bits_entry));
-        vcdp->chgBit(c+20121,(vlTOPp->io_imem_ras_update_bits_prediction_bits_bht_history));
-        vcdp->chgBus(c+20129,(vlTOPp->io_imem_ras_update_bits_prediction_bits_bht_value),2);
-        vcdp->chgBit(c+20137,(vlTOPp->io_imem_flush_icache));
-        vcdp->chgBit(c+20145,(vlTOPp->io_imem_flush_tlb));
-        vcdp->chgBus(c+20153,(vlTOPp->io_imem_npc),32);
-        vcdp->chgBit(c+20161,(vlTOPp->io_dmem_req_ready));
-        vcdp->chgBit(c+20169,(vlTOPp->io_dmem_req_valid));
-        vcdp->chgBus(c+20177,(vlTOPp->io_dmem_req_bits_addr),32);
-        vcdp->chgBus(c+20185,(vlTOPp->io_dmem_req_bits_tag),7);
-        vcdp->chgBus(c+20193,(vlTOPp->io_dmem_req_bits_cmd),5);
-        vcdp->chgBus(c+20201,(vlTOPp->io_dmem_req_bits_typ),3);
-        vcdp->chgBit(c+20209,(vlTOPp->io_dmem_req_bits_phys));
-        vcdp->chgBus(c+20217,(vlTOPp->io_dmem_req_bits_data),32);
-        vcdp->chgBit(c+20225,(vlTOPp->io_dmem_s1_kill));
-        vcdp->chgBus(c+20233,(vlTOPp->io_dmem_s1_data),32);
-        vcdp->chgBit(c+20241,(vlTOPp->io_dmem_s2_nack));
-        vcdp->chgBit(c+20249,(vlTOPp->io_dmem_resp_valid));
-        vcdp->chgBus(c+20257,(vlTOPp->io_dmem_resp_bits_addr),32);
-        vcdp->chgBus(c+20265,(vlTOPp->io_dmem_resp_bits_tag),7);
-        vcdp->chgBus(c+20273,(vlTOPp->io_dmem_resp_bits_cmd),5);
-        vcdp->chgBus(c+20281,(vlTOPp->io_dmem_resp_bits_typ),3);
-        vcdp->chgBus(c+20289,(vlTOPp->io_dmem_resp_bits_data),32);
-        vcdp->chgBit(c+20297,(vlTOPp->io_dmem_resp_bits_replay));
-        vcdp->chgBit(c+20305,(vlTOPp->io_dmem_resp_bits_has_data));
-        vcdp->chgBus(c+20313,(vlTOPp->io_dmem_resp_bits_data_word_bypass),32);
-        vcdp->chgBus(c+20321,(vlTOPp->io_dmem_resp_bits_store_data),32);
-        vcdp->chgBit(c+20329,(vlTOPp->io_dmem_replay_next));
-        vcdp->chgBit(c+20337,(vlTOPp->io_dmem_xcpt_ma_ld));
-        vcdp->chgBit(c+20345,(vlTOPp->io_dmem_xcpt_ma_st));
-        vcdp->chgBit(c+20353,(vlTOPp->io_dmem_xcpt_pf_ld));
-        vcdp->chgBit(c+20361,(vlTOPp->io_dmem_xcpt_pf_st));
-        vcdp->chgBit(c+20369,(vlTOPp->io_dmem_invalidate_lr));
-        vcdp->chgBit(c+20377,(vlTOPp->io_dmem_ordered));
-        vcdp->chgBus(c+20385,(vlTOPp->io_ptw_ptbr_asid),7);
-        vcdp->chgBus(c+20393,(vlTOPp->io_ptw_ptbr_ppn),22);
-        vcdp->chgBit(c+20401,(vlTOPp->io_ptw_invalidate));
-        vcdp->chgBit(c+20409,(vlTOPp->io_ptw_status_debug));
-        vcdp->chgBus(c+20417,(vlTOPp->io_ptw_status_isa),32);
-        vcdp->chgBus(c+20425,(vlTOPp->io_ptw_status_prv),2);
-        vcdp->chgBit(c+20433,(vlTOPp->io_ptw_status_sd));
-        vcdp->chgBus(c+20441,(vlTOPp->io_ptw_status_zero3),31);
-        vcdp->chgBit(c+20449,(vlTOPp->io_ptw_status_sd_rv32));
-        vcdp->chgBus(c+20457,(vlTOPp->io_ptw_status_zero2),2);
-        vcdp->chgBus(c+20465,(vlTOPp->io_ptw_status_vm),5);
-        vcdp->chgBus(c+20473,(vlTOPp->io_ptw_status_zero1),4);
-        vcdp->chgBit(c+20481,(vlTOPp->io_ptw_status_mxr));
-        vcdp->chgBit(c+20489,(vlTOPp->io_ptw_status_pum));
-        vcdp->chgBit(c+20497,(vlTOPp->io_ptw_status_mprv));
-        vcdp->chgBus(c+20505,(vlTOPp->io_ptw_status_xs),2);
-        vcdp->chgBus(c+20513,(vlTOPp->io_ptw_status_fs),2);
-        vcdp->chgBus(c+20521,(vlTOPp->io_ptw_status_mpp),2);
-        vcdp->chgBus(c+20529,(vlTOPp->io_ptw_status_hpp),2);
-        vcdp->chgBit(c+20537,(vlTOPp->io_ptw_status_spp));
-        vcdp->chgBit(c+20545,(vlTOPp->io_ptw_status_mpie));
-        vcdp->chgBit(c+20553,(vlTOPp->io_ptw_status_hpie));
-        vcdp->chgBit(c+20561,(vlTOPp->io_ptw_status_spie));
-        vcdp->chgBit(c+20569,(vlTOPp->io_ptw_status_upie));
-        vcdp->chgBit(c+20577,(vlTOPp->io_ptw_status_mie));
-        vcdp->chgBit(c+20585,(vlTOPp->io_ptw_status_hie));
-        vcdp->chgBit(c+20593,(vlTOPp->io_ptw_status_sie));
-        vcdp->chgBit(c+20601,(vlTOPp->io_ptw_status_uie));
-        vcdp->chgBus(c+20609,(vlTOPp->io_fpu_inst),32);
-        vcdp->chgBus(c+20617,(vlTOPp->io_fpu_fromint_data),32);
-        vcdp->chgBus(c+20625,(vlTOPp->io_fpu_fcsr_rm),3);
-        vcdp->chgBit(c+20633,(vlTOPp->io_fpu_fcsr_flags_valid));
-        vcdp->chgBus(c+20641,(vlTOPp->io_fpu_fcsr_flags_bits),5);
-        vcdp->chgBus(c+20649,(vlTOPp->io_fpu_store_data),32);
-        vcdp->chgBus(c+20657,(vlTOPp->io_fpu_toint_data),32);
-        vcdp->chgBit(c+20665,(vlTOPp->io_fpu_dmem_resp_val));
-        vcdp->chgBus(c+20673,(vlTOPp->io_fpu_dmem_resp_type),3);
-        vcdp->chgBus(c+20681,(vlTOPp->io_fpu_dmem_resp_tag),5);
-        vcdp->chgBus(c+20689,(vlTOPp->io_fpu_dmem_resp_data),32);
-        vcdp->chgBit(c+20697,(vlTOPp->io_fpu_valid));
-        vcdp->chgBit(c+20705,(vlTOPp->io_fpu_fcsr_rdy));
-        vcdp->chgBit(c+20713,(vlTOPp->io_fpu_nack_mem));
-        vcdp->chgBit(c+20721,(vlTOPp->io_fpu_illegal_rm));
-        vcdp->chgBit(c+20729,(vlTOPp->io_fpu_killx));
-        vcdp->chgBit(c+20737,(vlTOPp->io_fpu_killm));
-        vcdp->chgBus(c+20745,(vlTOPp->io_fpu_dec_cmd),5);
-        vcdp->chgBit(c+20753,(vlTOPp->io_fpu_dec_ldst));
-        vcdp->chgBit(c+20761,(vlTOPp->io_fpu_dec_wen));
-        vcdp->chgBit(c+20769,(vlTOPp->io_fpu_dec_ren1));
-        vcdp->chgBit(c+20777,(vlTOPp->io_fpu_dec_ren2));
-        vcdp->chgBit(c+20785,(vlTOPp->io_fpu_dec_ren3));
-        vcdp->chgBit(c+20793,(vlTOPp->io_fpu_dec_swap12));
-        vcdp->chgBit(c+20801,(vlTOPp->io_fpu_dec_swap23));
-        vcdp->chgBit(c+20809,(vlTOPp->io_fpu_dec_single));
-        vcdp->chgBit(c+20817,(vlTOPp->io_fpu_dec_fromint));
-        vcdp->chgBit(c+20825,(vlTOPp->io_fpu_dec_toint));
-        vcdp->chgBit(c+20833,(vlTOPp->io_fpu_dec_fastpipe));
-        vcdp->chgBit(c+20841,(vlTOPp->io_fpu_dec_fma));
-        vcdp->chgBit(c+20849,(vlTOPp->io_fpu_dec_div));
-        vcdp->chgBit(c+20857,(vlTOPp->io_fpu_dec_sqrt));
-        vcdp->chgBit(c+20865,(vlTOPp->io_fpu_dec_round));
-        vcdp->chgBit(c+20873,(vlTOPp->io_fpu_dec_wflags));
-        vcdp->chgBit(c+20881,(vlTOPp->io_fpu_sboard_set));
-        vcdp->chgBit(c+20889,(vlTOPp->io_fpu_sboard_clr));
-        vcdp->chgBus(c+20897,(vlTOPp->io_fpu_sboard_clra),5);
-        vcdp->chgBit(c+20905,(vlTOPp->io_fpu_cp_req_ready));
-        vcdp->chgBit(c+20913,(vlTOPp->io_fpu_cp_req_valid));
-        vcdp->chgBus(c+20921,(vlTOPp->io_fpu_cp_req_bits_cmd),5);
-        vcdp->chgBit(c+20929,(vlTOPp->io_fpu_cp_req_bits_ldst));
-        vcdp->chgBit(c+20937,(vlTOPp->io_fpu_cp_req_bits_wen));
-        vcdp->chgBit(c+20945,(vlTOPp->io_fpu_cp_req_bits_ren1));
-        vcdp->chgBit(c+20953,(vlTOPp->io_fpu_cp_req_bits_ren2));
-        vcdp->chgBit(c+20961,(vlTOPp->io_fpu_cp_req_bits_ren3));
-        vcdp->chgBit(c+20969,(vlTOPp->io_fpu_cp_req_bits_swap12));
-        vcdp->chgBit(c+20977,(vlTOPp->io_fpu_cp_req_bits_swap23));
-        vcdp->chgBit(c+20985,(vlTOPp->io_fpu_cp_req_bits_single));
-        vcdp->chgBit(c+20993,(vlTOPp->io_fpu_cp_req_bits_fromint));
-        vcdp->chgBit(c+21001,(vlTOPp->io_fpu_cp_req_bits_toint));
-        vcdp->chgBit(c+21009,(vlTOPp->io_fpu_cp_req_bits_fastpipe));
-        vcdp->chgBit(c+21017,(vlTOPp->io_fpu_cp_req_bits_fma));
-        vcdp->chgBit(c+21025,(vlTOPp->io_fpu_cp_req_bits_div));
-        vcdp->chgBit(c+21033,(vlTOPp->io_fpu_cp_req_bits_sqrt));
-        vcdp->chgBit(c+21041,(vlTOPp->io_fpu_cp_req_bits_round));
-        vcdp->chgBit(c+21049,(vlTOPp->io_fpu_cp_req_bits_wflags));
-        vcdp->chgBus(c+21057,(vlTOPp->io_fpu_cp_req_bits_rm),3);
-        vcdp->chgBus(c+21065,(vlTOPp->io_fpu_cp_req_bits_typ),2);
-        vcdp->chgQuad(c+21073,(vlTOPp->io_fpu_cp_req_bits_in1),33);
-        vcdp->chgQuad(c+21089,(vlTOPp->io_fpu_cp_req_bits_in2),33);
-        vcdp->chgQuad(c+21105,(vlTOPp->io_fpu_cp_req_bits_in3),33);
-        vcdp->chgBit(c+21121,(vlTOPp->io_fpu_cp_resp_ready));
-        vcdp->chgBit(c+21129,(vlTOPp->io_fpu_cp_resp_valid));
-        vcdp->chgQuad(c+21137,(vlTOPp->io_fpu_cp_resp_bits_data),33);
-        vcdp->chgBus(c+21153,(vlTOPp->io_fpu_cp_resp_bits_exc),5);
-        vcdp->chgBit(c+21161,(vlTOPp->io_rocc_cmd_ready));
-        vcdp->chgBit(c+21169,(vlTOPp->io_rocc_cmd_valid));
-        vcdp->chgBus(c+21177,(vlTOPp->io_rocc_cmd_bits_inst_funct),7);
-        vcdp->chgBus(c+21185,(vlTOPp->io_rocc_cmd_bits_inst_rs2),5);
-        vcdp->chgBus(c+21193,(vlTOPp->io_rocc_cmd_bits_inst_rs1),5);
-        vcdp->chgBit(c+21201,(vlTOPp->io_rocc_cmd_bits_inst_xd));
-        vcdp->chgBit(c+21209,(vlTOPp->io_rocc_cmd_bits_inst_xs1));
-        vcdp->chgBit(c+21217,(vlTOPp->io_rocc_cmd_bits_inst_xs2));
-        vcdp->chgBus(c+21225,(vlTOPp->io_rocc_cmd_bits_inst_rd),5);
-        vcdp->chgBus(c+21233,(vlTOPp->io_rocc_cmd_bits_inst_opcode),7);
-        vcdp->chgBus(c+21241,(vlTOPp->io_rocc_cmd_bits_rs1),32);
-        vcdp->chgBus(c+21249,(vlTOPp->io_rocc_cmd_bits_rs2),32);
-        vcdp->chgBit(c+21257,(vlTOPp->io_rocc_cmd_bits_status_debug));
-        vcdp->chgBus(c+21265,(vlTOPp->io_rocc_cmd_bits_status_isa),32);
-        vcdp->chgBus(c+21273,(vlTOPp->io_rocc_cmd_bits_status_prv),2);
-        vcdp->chgBit(c+21281,(vlTOPp->io_rocc_cmd_bits_status_sd));
-        vcdp->chgBus(c+21289,(vlTOPp->io_rocc_cmd_bits_status_zero3),31);
-        vcdp->chgBit(c+21297,(vlTOPp->io_rocc_cmd_bits_status_sd_rv32));
-        vcdp->chgBus(c+21305,(vlTOPp->io_rocc_cmd_bits_status_zero2),2);
-        vcdp->chgBus(c+21313,(vlTOPp->io_rocc_cmd_bits_status_vm),5);
-        vcdp->chgBus(c+21321,(vlTOPp->io_rocc_cmd_bits_status_zero1),4);
-        vcdp->chgBit(c+21329,(vlTOPp->io_rocc_cmd_bits_status_mxr));
-        vcdp->chgBit(c+21337,(vlTOPp->io_rocc_cmd_bits_status_pum));
-        vcdp->chgBit(c+21345,(vlTOPp->io_rocc_cmd_bits_status_mprv));
-        vcdp->chgBus(c+21353,(vlTOPp->io_rocc_cmd_bits_status_xs),2);
-        vcdp->chgBus(c+21361,(vlTOPp->io_rocc_cmd_bits_status_fs),2);
-        vcdp->chgBus(c+21369,(vlTOPp->io_rocc_cmd_bits_status_mpp),2);
-        vcdp->chgBus(c+21377,(vlTOPp->io_rocc_cmd_bits_status_hpp),2);
-        vcdp->chgBit(c+21385,(vlTOPp->io_rocc_cmd_bits_status_spp));
-        vcdp->chgBit(c+21393,(vlTOPp->io_rocc_cmd_bits_status_mpie));
-        vcdp->chgBit(c+21401,(vlTOPp->io_rocc_cmd_bits_status_hpie));
-        vcdp->chgBit(c+21409,(vlTOPp->io_rocc_cmd_bits_status_spie));
-        vcdp->chgBit(c+21417,(vlTOPp->io_rocc_cmd_bits_status_upie));
-        vcdp->chgBit(c+21425,(vlTOPp->io_rocc_cmd_bits_status_mie));
-        vcdp->chgBit(c+21433,(vlTOPp->io_rocc_cmd_bits_status_hie));
-        vcdp->chgBit(c+21441,(vlTOPp->io_rocc_cmd_bits_status_sie));
-        vcdp->chgBit(c+21449,(vlTOPp->io_rocc_cmd_bits_status_uie));
-        vcdp->chgBit(c+21457,(vlTOPp->io_rocc_resp_ready));
-        vcdp->chgBit(c+21465,(vlTOPp->io_rocc_resp_valid));
-        vcdp->chgBus(c+21473,(vlTOPp->io_rocc_resp_bits_rd),5);
-        vcdp->chgBus(c+21481,(vlTOPp->io_rocc_resp_bits_data),32);
-        vcdp->chgBit(c+21489,(vlTOPp->io_rocc_mem_req_ready));
-        vcdp->chgBit(c+21497,(vlTOPp->io_rocc_mem_req_valid));
-        vcdp->chgBus(c+21505,(vlTOPp->io_rocc_mem_req_bits_addr),32);
-        vcdp->chgBus(c+21513,(vlTOPp->io_rocc_mem_req_bits_tag),7);
-        vcdp->chgBus(c+21521,(vlTOPp->io_rocc_mem_req_bits_cmd),5);
-        vcdp->chgBus(c+21529,(vlTOPp->io_rocc_mem_req_bits_typ),3);
-        vcdp->chgBit(c+21537,(vlTOPp->io_rocc_mem_req_bits_phys));
-        vcdp->chgBus(c+21545,(vlTOPp->io_rocc_mem_req_bits_data),32);
-        vcdp->chgBit(c+21553,(vlTOPp->io_rocc_mem_s1_kill));
-        vcdp->chgBus(c+21561,(vlTOPp->io_rocc_mem_s1_data),32);
-        vcdp->chgBit(c+21569,(vlTOPp->io_rocc_mem_s2_nack));
-        vcdp->chgBit(c+21577,(vlTOPp->io_rocc_mem_resp_valid));
-        vcdp->chgBus(c+21585,(vlTOPp->io_rocc_mem_resp_bits_addr),32);
-        vcdp->chgBus(c+21593,(vlTOPp->io_rocc_mem_resp_bits_tag),7);
-        vcdp->chgBus(c+21601,(vlTOPp->io_rocc_mem_resp_bits_cmd),5);
-        vcdp->chgBus(c+21609,(vlTOPp->io_rocc_mem_resp_bits_typ),3);
-        vcdp->chgBus(c+21617,(vlTOPp->io_rocc_mem_resp_bits_data),32);
-        vcdp->chgBit(c+21625,(vlTOPp->io_rocc_mem_resp_bits_replay));
-        vcdp->chgBit(c+21633,(vlTOPp->io_rocc_mem_resp_bits_has_data));
-        vcdp->chgBus(c+21641,(vlTOPp->io_rocc_mem_resp_bits_data_word_bypass),32);
-        vcdp->chgBus(c+21649,(vlTOPp->io_rocc_mem_resp_bits_store_data),32);
-        vcdp->chgBit(c+21657,(vlTOPp->io_rocc_mem_replay_next));
-        vcdp->chgBit(c+21665,(vlTOPp->io_rocc_mem_xcpt_ma_ld));
-        vcdp->chgBit(c+21673,(vlTOPp->io_rocc_mem_xcpt_ma_st));
-        vcdp->chgBit(c+21681,(vlTOPp->io_rocc_mem_xcpt_pf_ld));
-        vcdp->chgBit(c+21689,(vlTOPp->io_rocc_mem_xcpt_pf_st));
-        vcdp->chgBit(c+21697,(vlTOPp->io_rocc_mem_invalidate_lr));
-        vcdp->chgBit(c+21705,(vlTOPp->io_rocc_mem_ordered));
-        vcdp->chgBit(c+21713,(vlTOPp->io_rocc_busy));
-        vcdp->chgBit(c+21721,(vlTOPp->io_rocc_interrupt));
-        vcdp->chgBit(c+21729,(vlTOPp->io_rocc_autl_acquire_ready));
-        vcdp->chgBit(c+21737,(vlTOPp->io_rocc_autl_acquire_valid));
-        vcdp->chgBus(c+21745,(vlTOPp->io_rocc_autl_acquire_bits_addr_block),26);
-        vcdp->chgBit(c+21753,(vlTOPp->io_rocc_autl_acquire_bits_client_xact_id));
-        vcdp->chgBus(c+21761,(vlTOPp->io_rocc_autl_acquire_bits_addr_beat),4);
-        vcdp->chgBit(c+21769,(vlTOPp->io_rocc_autl_acquire_bits_is_builtin_type));
-        vcdp->chgBus(c+21777,(vlTOPp->io_rocc_autl_acquire_bits_a_type),3);
-        vcdp->chgBus(c+21785,(vlTOPp->io_rocc_autl_acquire_bits_union),10);
-        vcdp->chgBus(c+21793,(vlTOPp->io_rocc_autl_acquire_bits_data),32);
-        vcdp->chgBit(c+21801,(vlTOPp->io_rocc_autl_grant_ready));
-        vcdp->chgBit(c+21809,(vlTOPp->io_rocc_autl_grant_valid));
-        vcdp->chgBus(c+21817,(vlTOPp->io_rocc_autl_grant_bits_addr_beat),4);
-        vcdp->chgBit(c+21825,(vlTOPp->io_rocc_autl_grant_bits_client_xact_id));
-        vcdp->chgBus(c+21833,(vlTOPp->io_rocc_autl_grant_bits_manager_xact_id),2);
-        vcdp->chgBit(c+21841,(vlTOPp->io_rocc_autl_grant_bits_is_builtin_type));
-        vcdp->chgBus(c+21849,(vlTOPp->io_rocc_autl_grant_bits_g_type),4);
-        vcdp->chgBus(c+21857,(vlTOPp->io_rocc_autl_grant_bits_data),32);
-        vcdp->chgBit(c+21865,(vlTOPp->io_rocc_fpu_req_ready));
-        vcdp->chgBit(c+21873,(vlTOPp->io_rocc_fpu_req_valid));
-        vcdp->chgBus(c+21881,(vlTOPp->io_rocc_fpu_req_bits_cmd),5);
-        vcdp->chgBit(c+21889,(vlTOPp->io_rocc_fpu_req_bits_ldst));
-        vcdp->chgBit(c+21897,(vlTOPp->io_rocc_fpu_req_bits_wen));
-        vcdp->chgBit(c+21905,(vlTOPp->io_rocc_fpu_req_bits_ren1));
-        vcdp->chgBit(c+21913,(vlTOPp->io_rocc_fpu_req_bits_ren2));
-        vcdp->chgBit(c+21921,(vlTOPp->io_rocc_fpu_req_bits_ren3));
-        vcdp->chgBit(c+21929,(vlTOPp->io_rocc_fpu_req_bits_swap12));
-        vcdp->chgBit(c+21937,(vlTOPp->io_rocc_fpu_req_bits_swap23));
-        vcdp->chgBit(c+21945,(vlTOPp->io_rocc_fpu_req_bits_single));
-        vcdp->chgBit(c+21953,(vlTOPp->io_rocc_fpu_req_bits_fromint));
-        vcdp->chgBit(c+21961,(vlTOPp->io_rocc_fpu_req_bits_toint));
-        vcdp->chgBit(c+21969,(vlTOPp->io_rocc_fpu_req_bits_fastpipe));
-        vcdp->chgBit(c+21977,(vlTOPp->io_rocc_fpu_req_bits_fma));
-        vcdp->chgBit(c+21985,(vlTOPp->io_rocc_fpu_req_bits_div));
-        vcdp->chgBit(c+21993,(vlTOPp->io_rocc_fpu_req_bits_sqrt));
-        vcdp->chgBit(c+22001,(vlTOPp->io_rocc_fpu_req_bits_round));
-        vcdp->chgBit(c+22009,(vlTOPp->io_rocc_fpu_req_bits_wflags));
-        vcdp->chgBus(c+22017,(vlTOPp->io_rocc_fpu_req_bits_rm),3);
-        vcdp->chgBus(c+22025,(vlTOPp->io_rocc_fpu_req_bits_typ),2);
-        vcdp->chgQuad(c+22033,(vlTOPp->io_rocc_fpu_req_bits_in1),33);
-        vcdp->chgQuad(c+22049,(vlTOPp->io_rocc_fpu_req_bits_in2),33);
-        vcdp->chgQuad(c+22065,(vlTOPp->io_rocc_fpu_req_bits_in3),33);
-        vcdp->chgBit(c+22081,(vlTOPp->io_rocc_fpu_resp_ready));
-        vcdp->chgBit(c+22089,(vlTOPp->io_rocc_fpu_resp_valid));
-        vcdp->chgQuad(c+22097,(vlTOPp->io_rocc_fpu_resp_bits_data),33);
-        vcdp->chgBus(c+22113,(vlTOPp->io_rocc_fpu_resp_bits_exc),5);
-        vcdp->chgBit(c+22121,(vlTOPp->io_rocc_exception));
-        vcdp->chgBus(c+22129,(vlTOPp->ibuf_io_inst_0_bits_inst_bits_o),32);
-        vcdp->chgBit(c+22137,(vlTOPp->ibuf_io_inst_0_valid_o));
-        vcdp->chgBit(c+22145,(vlTOPp->ex_reg_valid_o));
-        vcdp->chgBit(c+22153,(vlTOPp->mem_reg_valid_o));
-        vcdp->chgBit(c+22161,(vlTOPp->wb_valid_o));
-        vcdp->chgBit(c+22169,(vlTOPp->wb_reg_valid_o));
-        vcdp->chgBus(c+22177,(vlTOPp->wb_reg_inst_o),32);
-        vcdp->chgBus(c+22185,(vlTOPp->ex_reg_inst_o),32);
-        vcdp->chgBus(c+22193,(vlTOPp->mem_reg_inst_o),32);
-        vcdp->chgBit(c+22201,(vlTOPp->ctrl_killd_o));
-        vcdp->chgBit(c+22209,(vlTOPp->ctrl_killx_o));
-        vcdp->chgBit(c+22217,(vlTOPp->ctrl_killm_o));
-        vcdp->chgBus(c+22225,(vlTOPp->ibuf_io_pc_o),32);
-        vcdp->chgBus(c+22233,(vlTOPp->wb_reg_pc_o),32);
-        vcdp->chgBus(c+22241,(vlTOPp->first_valid_pc),32);
-        vcdp->chgBit(c+22249,(vlTOPp->no_first_valid_pc));
-        vcdp->chgBus(c+22257,(vlTOPp->rf_idx_i),5);
-        vcdp->chgBus(c+22265,(vlTOPp->rf_idx_o),32);
-        vcdp->chgBus(c+22273,(vlTOPp->ex_rs_0_o),32);
-        vcdp->chgBus(c+22281,(vlTOPp->ex_rs_1_o),32);
-        vcdp->chgBit(c+22289,(vlTOPp->id_rs_0_in_use));
-        vcdp->chgBit(c+22297,(vlTOPp->id_rs_1_in_use));
-        vcdp->chgBus(c+22305,(vlTOPp->x0),32);
-        vcdp->chgBus(c+22313,(vlTOPp->x1),32);
-        vcdp->chgBus(c+22321,(vlTOPp->x10),32);
-        vcdp->chgBus(c+22329,(vlTOPp->x11),32);
-        vcdp->chgBus(c+22337,(vlTOPp->x12),32);
-        vcdp->chgBus(c+22345,(vlTOPp->x13),32);
-        vcdp->chgBus(c+22353,(vlTOPp->x14),32);
-        vcdp->chgBus(c+22361,(vlTOPp->x15),32);
-        vcdp->chgBus(c+22369,(vlTOPp->x16),32);
-        vcdp->chgBus(c+22377,(vlTOPp->x17),32);
-        vcdp->chgBus(c+22385,(vlTOPp->x18),32);
-        vcdp->chgBus(c+22393,(vlTOPp->x19),32);
-        vcdp->chgBus(c+22401,(vlTOPp->x2),32);
-        vcdp->chgBus(c+22409,(vlTOPp->x20),32);
-        vcdp->chgBus(c+22417,(vlTOPp->x21),32);
-        vcdp->chgBus(c+22425,(vlTOPp->x22),32);
-        vcdp->chgBus(c+22433,(vlTOPp->x23),32);
-        vcdp->chgBus(c+22441,(vlTOPp->x24),32);
-        vcdp->chgBus(c+22449,(vlTOPp->x25),32);
-        vcdp->chgBus(c+22457,(vlTOPp->x26),32);
-        vcdp->chgBus(c+22465,(vlTOPp->x27),32);
-        vcdp->chgBus(c+22473,(vlTOPp->x28),32);
-        vcdp->chgBus(c+22481,(vlTOPp->x29),32);
-        vcdp->chgBus(c+22489,(vlTOPp->x3),32);
-        vcdp->chgBus(c+22497,(vlTOPp->x30),32);
-        vcdp->chgBus(c+22505,(vlTOPp->x31),32);
-        vcdp->chgBus(c+22513,(vlTOPp->x4),32);
-        vcdp->chgBus(c+22521,(vlTOPp->x5),32);
-        vcdp->chgBus(c+22529,(vlTOPp->x6),32);
-        vcdp->chgBus(c+22537,(vlTOPp->x7),32);
-        vcdp->chgBus(c+22545,(vlTOPp->x8),32);
-        vcdp->chgBus(c+22553,(vlTOPp->x9),32);
-        vcdp->chgBit(c+22561,(vlSymsp->TOP__Rocket.clock));
-        vcdp->chgBit(c+22569,(vlSymsp->TOP__Rocket.reset));
-        vcdp->chgBit(c+22577,((((IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_valid) 
+        vcdp->chgBit(c+19425,(vlTOPp->clock));
+        vcdp->chgBit(c+19433,(vlTOPp->reset));
+        vcdp->chgBit(c+19441,(vlTOPp->io_interrupts_debug));
+        vcdp->chgBit(c+19449,(vlTOPp->io_interrupts_mtip));
+        vcdp->chgBit(c+19457,(vlTOPp->io_interrupts_msip));
+        vcdp->chgBit(c+19465,(vlTOPp->io_interrupts_meip));
+        vcdp->chgBus(c+19473,(vlTOPp->io_hartid),32);
+        vcdp->chgBit(c+19481,(vlTOPp->io_imem_req_valid));
+        vcdp->chgBus(c+19489,(vlTOPp->io_imem_req_bits_pc),32);
+        vcdp->chgBit(c+19497,(vlTOPp->io_imem_req_bits_speculative));
+        vcdp->chgBit(c+19505,(vlTOPp->io_imem_resp_ready));
+        vcdp->chgBit(c+19513,(vlTOPp->io_imem_resp_valid));
+        vcdp->chgBit(c+19521,(vlTOPp->io_imem_resp_bits_btb_valid));
+        vcdp->chgBit(c+19529,(vlTOPp->io_imem_resp_bits_btb_bits_taken));
+        vcdp->chgBus(c+19537,(vlTOPp->io_imem_resp_bits_btb_bits_mask),2);
+        vcdp->chgBit(c+19545,(vlTOPp->io_imem_resp_bits_btb_bits_bridx));
+        vcdp->chgBus(c+19553,(vlTOPp->io_imem_resp_bits_btb_bits_target),32);
+        vcdp->chgBit(c+19561,(vlTOPp->io_imem_resp_bits_btb_bits_entry));
+        vcdp->chgBit(c+19569,(vlTOPp->io_imem_resp_bits_btb_bits_bht_history));
+        vcdp->chgBus(c+19577,(vlTOPp->io_imem_resp_bits_btb_bits_bht_value),2);
+        vcdp->chgBus(c+19585,(vlTOPp->io_imem_resp_bits_pc),32);
+        vcdp->chgBus(c+19593,(vlTOPp->io_imem_resp_bits_data),32);
+        vcdp->chgBus(c+19601,(vlTOPp->io_imem_resp_bits_mask),2);
+        vcdp->chgBit(c+19609,(vlTOPp->io_imem_resp_bits_xcpt_if));
+        vcdp->chgBit(c+19617,(vlTOPp->io_imem_resp_bits_replay));
+        vcdp->chgBit(c+19625,(vlTOPp->io_imem_btb_update_valid));
+        vcdp->chgBit(c+19633,(vlTOPp->io_imem_btb_update_bits_prediction_valid));
+        vcdp->chgBit(c+19641,(vlTOPp->io_imem_btb_update_bits_prediction_bits_taken));
+        vcdp->chgBus(c+19649,(vlTOPp->io_imem_btb_update_bits_prediction_bits_mask),2);
+        vcdp->chgBit(c+19657,(vlTOPp->io_imem_btb_update_bits_prediction_bits_bridx));
+        vcdp->chgBus(c+19665,(vlTOPp->io_imem_btb_update_bits_prediction_bits_target),32);
+        vcdp->chgBit(c+19673,(vlTOPp->io_imem_btb_update_bits_prediction_bits_entry));
+        vcdp->chgBit(c+19681,(vlTOPp->io_imem_btb_update_bits_prediction_bits_bht_history));
+        vcdp->chgBus(c+19689,(vlTOPp->io_imem_btb_update_bits_prediction_bits_bht_value),2);
+        vcdp->chgBus(c+19697,(vlTOPp->io_imem_btb_update_bits_pc),32);
+        vcdp->chgBus(c+19705,(vlTOPp->io_imem_btb_update_bits_target),32);
+        vcdp->chgBit(c+19713,(vlTOPp->io_imem_btb_update_bits_taken));
+        vcdp->chgBit(c+19721,(vlTOPp->io_imem_btb_update_bits_isValid));
+        vcdp->chgBit(c+19729,(vlTOPp->io_imem_btb_update_bits_isJump));
+        vcdp->chgBit(c+19737,(vlTOPp->io_imem_btb_update_bits_isReturn));
+        vcdp->chgBus(c+19745,(vlTOPp->io_imem_btb_update_bits_br_pc),32);
+        vcdp->chgBit(c+19753,(vlTOPp->io_imem_bht_update_valid));
+        vcdp->chgBit(c+19761,(vlTOPp->io_imem_bht_update_bits_prediction_valid));
+        vcdp->chgBit(c+19769,(vlTOPp->io_imem_bht_update_bits_prediction_bits_taken));
+        vcdp->chgBus(c+19777,(vlTOPp->io_imem_bht_update_bits_prediction_bits_mask),2);
+        vcdp->chgBit(c+19785,(vlTOPp->io_imem_bht_update_bits_prediction_bits_bridx));
+        vcdp->chgBus(c+19793,(vlTOPp->io_imem_bht_update_bits_prediction_bits_target),32);
+        vcdp->chgBit(c+19801,(vlTOPp->io_imem_bht_update_bits_prediction_bits_entry));
+        vcdp->chgBit(c+19809,(vlTOPp->io_imem_bht_update_bits_prediction_bits_bht_history));
+        vcdp->chgBus(c+19817,(vlTOPp->io_imem_bht_update_bits_prediction_bits_bht_value),2);
+        vcdp->chgBus(c+19825,(vlTOPp->io_imem_bht_update_bits_pc),32);
+        vcdp->chgBit(c+19833,(vlTOPp->io_imem_bht_update_bits_taken));
+        vcdp->chgBit(c+19841,(vlTOPp->io_imem_bht_update_bits_mispredict));
+        vcdp->chgBit(c+19849,(vlTOPp->io_imem_ras_update_valid));
+        vcdp->chgBit(c+19857,(vlTOPp->io_imem_ras_update_bits_isCall));
+        vcdp->chgBit(c+19865,(vlTOPp->io_imem_ras_update_bits_isReturn));
+        vcdp->chgBus(c+19873,(vlTOPp->io_imem_ras_update_bits_returnAddr),32);
+        vcdp->chgBit(c+19881,(vlTOPp->io_imem_ras_update_bits_prediction_valid));
+        vcdp->chgBit(c+19889,(vlTOPp->io_imem_ras_update_bits_prediction_bits_taken));
+        vcdp->chgBus(c+19897,(vlTOPp->io_imem_ras_update_bits_prediction_bits_mask),2);
+        vcdp->chgBit(c+19905,(vlTOPp->io_imem_ras_update_bits_prediction_bits_bridx));
+        vcdp->chgBus(c+19913,(vlTOPp->io_imem_ras_update_bits_prediction_bits_target),32);
+        vcdp->chgBit(c+19921,(vlTOPp->io_imem_ras_update_bits_prediction_bits_entry));
+        vcdp->chgBit(c+19929,(vlTOPp->io_imem_ras_update_bits_prediction_bits_bht_history));
+        vcdp->chgBus(c+19937,(vlTOPp->io_imem_ras_update_bits_prediction_bits_bht_value),2);
+        vcdp->chgBit(c+19945,(vlTOPp->io_imem_flush_icache));
+        vcdp->chgBit(c+19953,(vlTOPp->io_imem_flush_tlb));
+        vcdp->chgBus(c+19961,(vlTOPp->io_imem_npc),32);
+        vcdp->chgBit(c+19969,(vlTOPp->io_dmem_req_ready));
+        vcdp->chgBit(c+19977,(vlTOPp->io_dmem_req_valid));
+        vcdp->chgBus(c+19985,(vlTOPp->io_dmem_req_bits_addr),32);
+        vcdp->chgBus(c+19993,(vlTOPp->io_dmem_req_bits_tag),7);
+        vcdp->chgBus(c+20001,(vlTOPp->io_dmem_req_bits_cmd),5);
+        vcdp->chgBus(c+20009,(vlTOPp->io_dmem_req_bits_typ),3);
+        vcdp->chgBit(c+20017,(vlTOPp->io_dmem_req_bits_phys));
+        vcdp->chgBus(c+20025,(vlTOPp->io_dmem_req_bits_data),32);
+        vcdp->chgBit(c+20033,(vlTOPp->io_dmem_s1_kill));
+        vcdp->chgBus(c+20041,(vlTOPp->io_dmem_s1_data),32);
+        vcdp->chgBit(c+20049,(vlTOPp->io_dmem_s2_nack));
+        vcdp->chgBit(c+20057,(vlTOPp->io_dmem_resp_valid));
+        vcdp->chgBus(c+20065,(vlTOPp->io_dmem_resp_bits_addr),32);
+        vcdp->chgBus(c+20073,(vlTOPp->io_dmem_resp_bits_tag),7);
+        vcdp->chgBus(c+20081,(vlTOPp->io_dmem_resp_bits_cmd),5);
+        vcdp->chgBus(c+20089,(vlTOPp->io_dmem_resp_bits_typ),3);
+        vcdp->chgBus(c+20097,(vlTOPp->io_dmem_resp_bits_data),32);
+        vcdp->chgBit(c+20105,(vlTOPp->io_dmem_resp_bits_replay));
+        vcdp->chgBit(c+20113,(vlTOPp->io_dmem_resp_bits_has_data));
+        vcdp->chgBus(c+20121,(vlTOPp->io_dmem_resp_bits_data_word_bypass),32);
+        vcdp->chgBus(c+20129,(vlTOPp->io_dmem_resp_bits_store_data),32);
+        vcdp->chgBit(c+20137,(vlTOPp->io_dmem_replay_next));
+        vcdp->chgBit(c+20145,(vlTOPp->io_dmem_xcpt_ma_ld));
+        vcdp->chgBit(c+20153,(vlTOPp->io_dmem_xcpt_ma_st));
+        vcdp->chgBit(c+20161,(vlTOPp->io_dmem_xcpt_pf_ld));
+        vcdp->chgBit(c+20169,(vlTOPp->io_dmem_xcpt_pf_st));
+        vcdp->chgBit(c+20177,(vlTOPp->io_dmem_invalidate_lr));
+        vcdp->chgBit(c+20185,(vlTOPp->io_dmem_ordered));
+        vcdp->chgBus(c+20193,(vlTOPp->io_ptw_ptbr_asid),7);
+        vcdp->chgBus(c+20201,(vlTOPp->io_ptw_ptbr_ppn),22);
+        vcdp->chgBit(c+20209,(vlTOPp->io_ptw_invalidate));
+        vcdp->chgBit(c+20217,(vlTOPp->io_ptw_status_debug));
+        vcdp->chgBus(c+20225,(vlTOPp->io_ptw_status_isa),32);
+        vcdp->chgBus(c+20233,(vlTOPp->io_ptw_status_prv),2);
+        vcdp->chgBit(c+20241,(vlTOPp->io_ptw_status_sd));
+        vcdp->chgBus(c+20249,(vlTOPp->io_ptw_status_zero3),31);
+        vcdp->chgBit(c+20257,(vlTOPp->io_ptw_status_sd_rv32));
+        vcdp->chgBus(c+20265,(vlTOPp->io_ptw_status_zero2),2);
+        vcdp->chgBus(c+20273,(vlTOPp->io_ptw_status_vm),5);
+        vcdp->chgBus(c+20281,(vlTOPp->io_ptw_status_zero1),4);
+        vcdp->chgBit(c+20289,(vlTOPp->io_ptw_status_mxr));
+        vcdp->chgBit(c+20297,(vlTOPp->io_ptw_status_pum));
+        vcdp->chgBit(c+20305,(vlTOPp->io_ptw_status_mprv));
+        vcdp->chgBus(c+20313,(vlTOPp->io_ptw_status_xs),2);
+        vcdp->chgBus(c+20321,(vlTOPp->io_ptw_status_fs),2);
+        vcdp->chgBus(c+20329,(vlTOPp->io_ptw_status_mpp),2);
+        vcdp->chgBus(c+20337,(vlTOPp->io_ptw_status_hpp),2);
+        vcdp->chgBit(c+20345,(vlTOPp->io_ptw_status_spp));
+        vcdp->chgBit(c+20353,(vlTOPp->io_ptw_status_mpie));
+        vcdp->chgBit(c+20361,(vlTOPp->io_ptw_status_hpie));
+        vcdp->chgBit(c+20369,(vlTOPp->io_ptw_status_spie));
+        vcdp->chgBit(c+20377,(vlTOPp->io_ptw_status_upie));
+        vcdp->chgBit(c+20385,(vlTOPp->io_ptw_status_mie));
+        vcdp->chgBit(c+20393,(vlTOPp->io_ptw_status_hie));
+        vcdp->chgBit(c+20401,(vlTOPp->io_ptw_status_sie));
+        vcdp->chgBit(c+20409,(vlTOPp->io_ptw_status_uie));
+        vcdp->chgBus(c+20417,(vlTOPp->io_fpu_inst),32);
+        vcdp->chgBus(c+20425,(vlTOPp->io_fpu_fromint_data),32);
+        vcdp->chgBus(c+20433,(vlTOPp->io_fpu_fcsr_rm),3);
+        vcdp->chgBit(c+20441,(vlTOPp->io_fpu_fcsr_flags_valid));
+        vcdp->chgBus(c+20449,(vlTOPp->io_fpu_fcsr_flags_bits),5);
+        vcdp->chgBus(c+20457,(vlTOPp->io_fpu_store_data),32);
+        vcdp->chgBus(c+20465,(vlTOPp->io_fpu_toint_data),32);
+        vcdp->chgBit(c+20473,(vlTOPp->io_fpu_dmem_resp_val));
+        vcdp->chgBus(c+20481,(vlTOPp->io_fpu_dmem_resp_type),3);
+        vcdp->chgBus(c+20489,(vlTOPp->io_fpu_dmem_resp_tag),5);
+        vcdp->chgBus(c+20497,(vlTOPp->io_fpu_dmem_resp_data),32);
+        vcdp->chgBit(c+20505,(vlTOPp->io_fpu_valid));
+        vcdp->chgBit(c+20513,(vlTOPp->io_fpu_fcsr_rdy));
+        vcdp->chgBit(c+20521,(vlTOPp->io_fpu_nack_mem));
+        vcdp->chgBit(c+20529,(vlTOPp->io_fpu_illegal_rm));
+        vcdp->chgBit(c+20537,(vlTOPp->io_fpu_killx));
+        vcdp->chgBit(c+20545,(vlTOPp->io_fpu_killm));
+        vcdp->chgBus(c+20553,(vlTOPp->io_fpu_dec_cmd),5);
+        vcdp->chgBit(c+20561,(vlTOPp->io_fpu_dec_ldst));
+        vcdp->chgBit(c+20569,(vlTOPp->io_fpu_dec_wen));
+        vcdp->chgBit(c+20577,(vlTOPp->io_fpu_dec_ren1));
+        vcdp->chgBit(c+20585,(vlTOPp->io_fpu_dec_ren2));
+        vcdp->chgBit(c+20593,(vlTOPp->io_fpu_dec_ren3));
+        vcdp->chgBit(c+20601,(vlTOPp->io_fpu_dec_swap12));
+        vcdp->chgBit(c+20609,(vlTOPp->io_fpu_dec_swap23));
+        vcdp->chgBit(c+20617,(vlTOPp->io_fpu_dec_single));
+        vcdp->chgBit(c+20625,(vlTOPp->io_fpu_dec_fromint));
+        vcdp->chgBit(c+20633,(vlTOPp->io_fpu_dec_toint));
+        vcdp->chgBit(c+20641,(vlTOPp->io_fpu_dec_fastpipe));
+        vcdp->chgBit(c+20649,(vlTOPp->io_fpu_dec_fma));
+        vcdp->chgBit(c+20657,(vlTOPp->io_fpu_dec_div));
+        vcdp->chgBit(c+20665,(vlTOPp->io_fpu_dec_sqrt));
+        vcdp->chgBit(c+20673,(vlTOPp->io_fpu_dec_round));
+        vcdp->chgBit(c+20681,(vlTOPp->io_fpu_dec_wflags));
+        vcdp->chgBit(c+20689,(vlTOPp->io_fpu_sboard_set));
+        vcdp->chgBit(c+20697,(vlTOPp->io_fpu_sboard_clr));
+        vcdp->chgBus(c+20705,(vlTOPp->io_fpu_sboard_clra),5);
+        vcdp->chgBit(c+20713,(vlTOPp->io_fpu_cp_req_ready));
+        vcdp->chgBit(c+20721,(vlTOPp->io_fpu_cp_req_valid));
+        vcdp->chgBus(c+20729,(vlTOPp->io_fpu_cp_req_bits_cmd),5);
+        vcdp->chgBit(c+20737,(vlTOPp->io_fpu_cp_req_bits_ldst));
+        vcdp->chgBit(c+20745,(vlTOPp->io_fpu_cp_req_bits_wen));
+        vcdp->chgBit(c+20753,(vlTOPp->io_fpu_cp_req_bits_ren1));
+        vcdp->chgBit(c+20761,(vlTOPp->io_fpu_cp_req_bits_ren2));
+        vcdp->chgBit(c+20769,(vlTOPp->io_fpu_cp_req_bits_ren3));
+        vcdp->chgBit(c+20777,(vlTOPp->io_fpu_cp_req_bits_swap12));
+        vcdp->chgBit(c+20785,(vlTOPp->io_fpu_cp_req_bits_swap23));
+        vcdp->chgBit(c+20793,(vlTOPp->io_fpu_cp_req_bits_single));
+        vcdp->chgBit(c+20801,(vlTOPp->io_fpu_cp_req_bits_fromint));
+        vcdp->chgBit(c+20809,(vlTOPp->io_fpu_cp_req_bits_toint));
+        vcdp->chgBit(c+20817,(vlTOPp->io_fpu_cp_req_bits_fastpipe));
+        vcdp->chgBit(c+20825,(vlTOPp->io_fpu_cp_req_bits_fma));
+        vcdp->chgBit(c+20833,(vlTOPp->io_fpu_cp_req_bits_div));
+        vcdp->chgBit(c+20841,(vlTOPp->io_fpu_cp_req_bits_sqrt));
+        vcdp->chgBit(c+20849,(vlTOPp->io_fpu_cp_req_bits_round));
+        vcdp->chgBit(c+20857,(vlTOPp->io_fpu_cp_req_bits_wflags));
+        vcdp->chgBus(c+20865,(vlTOPp->io_fpu_cp_req_bits_rm),3);
+        vcdp->chgBus(c+20873,(vlTOPp->io_fpu_cp_req_bits_typ),2);
+        vcdp->chgQuad(c+20881,(vlTOPp->io_fpu_cp_req_bits_in1),33);
+        vcdp->chgQuad(c+20897,(vlTOPp->io_fpu_cp_req_bits_in2),33);
+        vcdp->chgQuad(c+20913,(vlTOPp->io_fpu_cp_req_bits_in3),33);
+        vcdp->chgBit(c+20929,(vlTOPp->io_fpu_cp_resp_ready));
+        vcdp->chgBit(c+20937,(vlTOPp->io_fpu_cp_resp_valid));
+        vcdp->chgQuad(c+20945,(vlTOPp->io_fpu_cp_resp_bits_data),33);
+        vcdp->chgBus(c+20961,(vlTOPp->io_fpu_cp_resp_bits_exc),5);
+        vcdp->chgBit(c+20969,(vlTOPp->io_rocc_cmd_ready));
+        vcdp->chgBit(c+20977,(vlTOPp->io_rocc_cmd_valid));
+        vcdp->chgBus(c+20985,(vlTOPp->io_rocc_cmd_bits_inst_funct),7);
+        vcdp->chgBus(c+20993,(vlTOPp->io_rocc_cmd_bits_inst_rs2),5);
+        vcdp->chgBus(c+21001,(vlTOPp->io_rocc_cmd_bits_inst_rs1),5);
+        vcdp->chgBit(c+21009,(vlTOPp->io_rocc_cmd_bits_inst_xd));
+        vcdp->chgBit(c+21017,(vlTOPp->io_rocc_cmd_bits_inst_xs1));
+        vcdp->chgBit(c+21025,(vlTOPp->io_rocc_cmd_bits_inst_xs2));
+        vcdp->chgBus(c+21033,(vlTOPp->io_rocc_cmd_bits_inst_rd),5);
+        vcdp->chgBus(c+21041,(vlTOPp->io_rocc_cmd_bits_inst_opcode),7);
+        vcdp->chgBus(c+21049,(vlTOPp->io_rocc_cmd_bits_rs1),32);
+        vcdp->chgBus(c+21057,(vlTOPp->io_rocc_cmd_bits_rs2),32);
+        vcdp->chgBit(c+21065,(vlTOPp->io_rocc_cmd_bits_status_debug));
+        vcdp->chgBus(c+21073,(vlTOPp->io_rocc_cmd_bits_status_isa),32);
+        vcdp->chgBus(c+21081,(vlTOPp->io_rocc_cmd_bits_status_prv),2);
+        vcdp->chgBit(c+21089,(vlTOPp->io_rocc_cmd_bits_status_sd));
+        vcdp->chgBus(c+21097,(vlTOPp->io_rocc_cmd_bits_status_zero3),31);
+        vcdp->chgBit(c+21105,(vlTOPp->io_rocc_cmd_bits_status_sd_rv32));
+        vcdp->chgBus(c+21113,(vlTOPp->io_rocc_cmd_bits_status_zero2),2);
+        vcdp->chgBus(c+21121,(vlTOPp->io_rocc_cmd_bits_status_vm),5);
+        vcdp->chgBus(c+21129,(vlTOPp->io_rocc_cmd_bits_status_zero1),4);
+        vcdp->chgBit(c+21137,(vlTOPp->io_rocc_cmd_bits_status_mxr));
+        vcdp->chgBit(c+21145,(vlTOPp->io_rocc_cmd_bits_status_pum));
+        vcdp->chgBit(c+21153,(vlTOPp->io_rocc_cmd_bits_status_mprv));
+        vcdp->chgBus(c+21161,(vlTOPp->io_rocc_cmd_bits_status_xs),2);
+        vcdp->chgBus(c+21169,(vlTOPp->io_rocc_cmd_bits_status_fs),2);
+        vcdp->chgBus(c+21177,(vlTOPp->io_rocc_cmd_bits_status_mpp),2);
+        vcdp->chgBus(c+21185,(vlTOPp->io_rocc_cmd_bits_status_hpp),2);
+        vcdp->chgBit(c+21193,(vlTOPp->io_rocc_cmd_bits_status_spp));
+        vcdp->chgBit(c+21201,(vlTOPp->io_rocc_cmd_bits_status_mpie));
+        vcdp->chgBit(c+21209,(vlTOPp->io_rocc_cmd_bits_status_hpie));
+        vcdp->chgBit(c+21217,(vlTOPp->io_rocc_cmd_bits_status_spie));
+        vcdp->chgBit(c+21225,(vlTOPp->io_rocc_cmd_bits_status_upie));
+        vcdp->chgBit(c+21233,(vlTOPp->io_rocc_cmd_bits_status_mie));
+        vcdp->chgBit(c+21241,(vlTOPp->io_rocc_cmd_bits_status_hie));
+        vcdp->chgBit(c+21249,(vlTOPp->io_rocc_cmd_bits_status_sie));
+        vcdp->chgBit(c+21257,(vlTOPp->io_rocc_cmd_bits_status_uie));
+        vcdp->chgBit(c+21265,(vlTOPp->io_rocc_resp_ready));
+        vcdp->chgBit(c+21273,(vlTOPp->io_rocc_resp_valid));
+        vcdp->chgBus(c+21281,(vlTOPp->io_rocc_resp_bits_rd),5);
+        vcdp->chgBus(c+21289,(vlTOPp->io_rocc_resp_bits_data),32);
+        vcdp->chgBit(c+21297,(vlTOPp->io_rocc_mem_req_ready));
+        vcdp->chgBit(c+21305,(vlTOPp->io_rocc_mem_req_valid));
+        vcdp->chgBus(c+21313,(vlTOPp->io_rocc_mem_req_bits_addr),32);
+        vcdp->chgBus(c+21321,(vlTOPp->io_rocc_mem_req_bits_tag),7);
+        vcdp->chgBus(c+21329,(vlTOPp->io_rocc_mem_req_bits_cmd),5);
+        vcdp->chgBus(c+21337,(vlTOPp->io_rocc_mem_req_bits_typ),3);
+        vcdp->chgBit(c+21345,(vlTOPp->io_rocc_mem_req_bits_phys));
+        vcdp->chgBus(c+21353,(vlTOPp->io_rocc_mem_req_bits_data),32);
+        vcdp->chgBit(c+21361,(vlTOPp->io_rocc_mem_s1_kill));
+        vcdp->chgBus(c+21369,(vlTOPp->io_rocc_mem_s1_data),32);
+        vcdp->chgBit(c+21377,(vlTOPp->io_rocc_mem_s2_nack));
+        vcdp->chgBit(c+21385,(vlTOPp->io_rocc_mem_resp_valid));
+        vcdp->chgBus(c+21393,(vlTOPp->io_rocc_mem_resp_bits_addr),32);
+        vcdp->chgBus(c+21401,(vlTOPp->io_rocc_mem_resp_bits_tag),7);
+        vcdp->chgBus(c+21409,(vlTOPp->io_rocc_mem_resp_bits_cmd),5);
+        vcdp->chgBus(c+21417,(vlTOPp->io_rocc_mem_resp_bits_typ),3);
+        vcdp->chgBus(c+21425,(vlTOPp->io_rocc_mem_resp_bits_data),32);
+        vcdp->chgBit(c+21433,(vlTOPp->io_rocc_mem_resp_bits_replay));
+        vcdp->chgBit(c+21441,(vlTOPp->io_rocc_mem_resp_bits_has_data));
+        vcdp->chgBus(c+21449,(vlTOPp->io_rocc_mem_resp_bits_data_word_bypass),32);
+        vcdp->chgBus(c+21457,(vlTOPp->io_rocc_mem_resp_bits_store_data),32);
+        vcdp->chgBit(c+21465,(vlTOPp->io_rocc_mem_replay_next));
+        vcdp->chgBit(c+21473,(vlTOPp->io_rocc_mem_xcpt_ma_ld));
+        vcdp->chgBit(c+21481,(vlTOPp->io_rocc_mem_xcpt_ma_st));
+        vcdp->chgBit(c+21489,(vlTOPp->io_rocc_mem_xcpt_pf_ld));
+        vcdp->chgBit(c+21497,(vlTOPp->io_rocc_mem_xcpt_pf_st));
+        vcdp->chgBit(c+21505,(vlTOPp->io_rocc_mem_invalidate_lr));
+        vcdp->chgBit(c+21513,(vlTOPp->io_rocc_mem_ordered));
+        vcdp->chgBit(c+21521,(vlTOPp->io_rocc_busy));
+        vcdp->chgBit(c+21529,(vlTOPp->io_rocc_interrupt));
+        vcdp->chgBit(c+21537,(vlTOPp->io_rocc_autl_acquire_ready));
+        vcdp->chgBit(c+21545,(vlTOPp->io_rocc_autl_acquire_valid));
+        vcdp->chgBus(c+21553,(vlTOPp->io_rocc_autl_acquire_bits_addr_block),26);
+        vcdp->chgBit(c+21561,(vlTOPp->io_rocc_autl_acquire_bits_client_xact_id));
+        vcdp->chgBus(c+21569,(vlTOPp->io_rocc_autl_acquire_bits_addr_beat),4);
+        vcdp->chgBit(c+21577,(vlTOPp->io_rocc_autl_acquire_bits_is_builtin_type));
+        vcdp->chgBus(c+21585,(vlTOPp->io_rocc_autl_acquire_bits_a_type),3);
+        vcdp->chgBus(c+21593,(vlTOPp->io_rocc_autl_acquire_bits_union),10);
+        vcdp->chgBus(c+21601,(vlTOPp->io_rocc_autl_acquire_bits_data),32);
+        vcdp->chgBit(c+21609,(vlTOPp->io_rocc_autl_grant_ready));
+        vcdp->chgBit(c+21617,(vlTOPp->io_rocc_autl_grant_valid));
+        vcdp->chgBus(c+21625,(vlTOPp->io_rocc_autl_grant_bits_addr_beat),4);
+        vcdp->chgBit(c+21633,(vlTOPp->io_rocc_autl_grant_bits_client_xact_id));
+        vcdp->chgBus(c+21641,(vlTOPp->io_rocc_autl_grant_bits_manager_xact_id),2);
+        vcdp->chgBit(c+21649,(vlTOPp->io_rocc_autl_grant_bits_is_builtin_type));
+        vcdp->chgBus(c+21657,(vlTOPp->io_rocc_autl_grant_bits_g_type),4);
+        vcdp->chgBus(c+21665,(vlTOPp->io_rocc_autl_grant_bits_data),32);
+        vcdp->chgBit(c+21673,(vlTOPp->io_rocc_fpu_req_ready));
+        vcdp->chgBit(c+21681,(vlTOPp->io_rocc_fpu_req_valid));
+        vcdp->chgBus(c+21689,(vlTOPp->io_rocc_fpu_req_bits_cmd),5);
+        vcdp->chgBit(c+21697,(vlTOPp->io_rocc_fpu_req_bits_ldst));
+        vcdp->chgBit(c+21705,(vlTOPp->io_rocc_fpu_req_bits_wen));
+        vcdp->chgBit(c+21713,(vlTOPp->io_rocc_fpu_req_bits_ren1));
+        vcdp->chgBit(c+21721,(vlTOPp->io_rocc_fpu_req_bits_ren2));
+        vcdp->chgBit(c+21729,(vlTOPp->io_rocc_fpu_req_bits_ren3));
+        vcdp->chgBit(c+21737,(vlTOPp->io_rocc_fpu_req_bits_swap12));
+        vcdp->chgBit(c+21745,(vlTOPp->io_rocc_fpu_req_bits_swap23));
+        vcdp->chgBit(c+21753,(vlTOPp->io_rocc_fpu_req_bits_single));
+        vcdp->chgBit(c+21761,(vlTOPp->io_rocc_fpu_req_bits_fromint));
+        vcdp->chgBit(c+21769,(vlTOPp->io_rocc_fpu_req_bits_toint));
+        vcdp->chgBit(c+21777,(vlTOPp->io_rocc_fpu_req_bits_fastpipe));
+        vcdp->chgBit(c+21785,(vlTOPp->io_rocc_fpu_req_bits_fma));
+        vcdp->chgBit(c+21793,(vlTOPp->io_rocc_fpu_req_bits_div));
+        vcdp->chgBit(c+21801,(vlTOPp->io_rocc_fpu_req_bits_sqrt));
+        vcdp->chgBit(c+21809,(vlTOPp->io_rocc_fpu_req_bits_round));
+        vcdp->chgBit(c+21817,(vlTOPp->io_rocc_fpu_req_bits_wflags));
+        vcdp->chgBus(c+21825,(vlTOPp->io_rocc_fpu_req_bits_rm),3);
+        vcdp->chgBus(c+21833,(vlTOPp->io_rocc_fpu_req_bits_typ),2);
+        vcdp->chgQuad(c+21841,(vlTOPp->io_rocc_fpu_req_bits_in1),33);
+        vcdp->chgQuad(c+21857,(vlTOPp->io_rocc_fpu_req_bits_in2),33);
+        vcdp->chgQuad(c+21873,(vlTOPp->io_rocc_fpu_req_bits_in3),33);
+        vcdp->chgBit(c+21889,(vlTOPp->io_rocc_fpu_resp_ready));
+        vcdp->chgBit(c+21897,(vlTOPp->io_rocc_fpu_resp_valid));
+        vcdp->chgQuad(c+21905,(vlTOPp->io_rocc_fpu_resp_bits_data),33);
+        vcdp->chgBus(c+21921,(vlTOPp->io_rocc_fpu_resp_bits_exc),5);
+        vcdp->chgBit(c+21929,(vlTOPp->io_rocc_exception));
+        vcdp->chgBus(c+21937,(vlTOPp->ibuf_io_inst_0_bits_inst_bits_o),32);
+        vcdp->chgBit(c+21945,(vlTOPp->ibuf_io_inst_0_valid_o));
+        vcdp->chgBit(c+21953,(vlTOPp->ex_reg_valid_o));
+        vcdp->chgBit(c+21961,(vlTOPp->mem_reg_valid_o));
+        vcdp->chgBit(c+21969,(vlTOPp->wb_valid_o));
+        vcdp->chgBit(c+21977,(vlTOPp->wb_reg_valid_o));
+        vcdp->chgBus(c+21985,(vlTOPp->wb_reg_inst_o),32);
+        vcdp->chgBus(c+21993,(vlTOPp->ex_reg_inst_o),32);
+        vcdp->chgBus(c+22001,(vlTOPp->mem_reg_inst_o),32);
+        vcdp->chgBit(c+22009,(vlTOPp->ctrl_killd_o));
+        vcdp->chgBit(c+22017,(vlTOPp->ctrl_killx_o));
+        vcdp->chgBit(c+22025,(vlTOPp->ctrl_killm_o));
+        vcdp->chgBus(c+22033,(vlTOPp->ibuf_io_pc_o),32);
+        vcdp->chgBus(c+22041,(vlTOPp->wb_reg_pc_o),32);
+        vcdp->chgBus(c+22049,(vlTOPp->first_valid_pc),32);
+        vcdp->chgBit(c+22057,(vlTOPp->no_first_valid_pc));
+        vcdp->chgBus(c+22065,(vlTOPp->rf_idx_i),5);
+        vcdp->chgBus(c+22073,(vlTOPp->rf_idx_o),32);
+        vcdp->chgBus(c+22081,(vlTOPp->ex_rs_0_o),32);
+        vcdp->chgBus(c+22089,(vlTOPp->ex_rs_1_o),32);
+        vcdp->chgBit(c+22097,(vlTOPp->id_rs_0_in_use));
+        vcdp->chgBit(c+22105,(vlTOPp->id_rs_1_in_use));
+        vcdp->chgBus(c+22113,(vlTOPp->x0),32);
+        vcdp->chgBus(c+22121,(vlTOPp->x1),32);
+        vcdp->chgBus(c+22129,(vlTOPp->x10),32);
+        vcdp->chgBus(c+22137,(vlTOPp->x11),32);
+        vcdp->chgBus(c+22145,(vlTOPp->x12),32);
+        vcdp->chgBus(c+22153,(vlTOPp->x13),32);
+        vcdp->chgBus(c+22161,(vlTOPp->x14),32);
+        vcdp->chgBus(c+22169,(vlTOPp->x15),32);
+        vcdp->chgBus(c+22177,(vlTOPp->x16),32);
+        vcdp->chgBus(c+22185,(vlTOPp->x17),32);
+        vcdp->chgBus(c+22193,(vlTOPp->x18),32);
+        vcdp->chgBus(c+22201,(vlTOPp->x19),32);
+        vcdp->chgBus(c+22209,(vlTOPp->x2),32);
+        vcdp->chgBus(c+22217,(vlTOPp->x20),32);
+        vcdp->chgBus(c+22225,(vlTOPp->x21),32);
+        vcdp->chgBus(c+22233,(vlTOPp->x22),32);
+        vcdp->chgBus(c+22241,(vlTOPp->x23),32);
+        vcdp->chgBus(c+22249,(vlTOPp->x24),32);
+        vcdp->chgBus(c+22257,(vlTOPp->x25),32);
+        vcdp->chgBus(c+22265,(vlTOPp->x26),32);
+        vcdp->chgBus(c+22273,(vlTOPp->x27),32);
+        vcdp->chgBus(c+22281,(vlTOPp->x28),32);
+        vcdp->chgBus(c+22289,(vlTOPp->x29),32);
+        vcdp->chgBus(c+22297,(vlTOPp->x3),32);
+        vcdp->chgBus(c+22305,(vlTOPp->x30),32);
+        vcdp->chgBus(c+22313,(vlTOPp->x31),32);
+        vcdp->chgBus(c+22321,(vlTOPp->x4),32);
+        vcdp->chgBus(c+22329,(vlTOPp->x5),32);
+        vcdp->chgBus(c+22337,(vlTOPp->x6),32);
+        vcdp->chgBus(c+22345,(vlTOPp->x7),32);
+        vcdp->chgBus(c+22353,(vlTOPp->x8),32);
+        vcdp->chgBus(c+22361,(vlTOPp->x9),32);
+        vcdp->chgBit(c+22369,(vlSymsp->TOP__Rocket.clock));
+        vcdp->chgBit(c+22377,(vlSymsp->TOP__Rocket.reset));
+        vcdp->chgBit(c+22385,((((IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_valid) 
                                 & (IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_fence_i)) 
                                & (~ (IData)(vlTOPp->io_dmem_s2_nack)))));
-        vcdp->chgBus(c+22585,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc)
+        vcdp->chgBus(c+22393,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc)
                                 ? vlTOPp->io_fpu_store_data
                                 : vlSymsp->TOP__Rocket.__PVT__mem_reg_rs2)),32);
-        vcdp->chgBit(c+22593,(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_ld));
-        vcdp->chgBit(c+22601,(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_st));
-        vcdp->chgBit(c+22609,(vlSymsp->TOP__Rocket.io_dmem_xcpt_pf_ld));
-        vcdp->chgBit(c+22617,(vlSymsp->TOP__Rocket.io_dmem_xcpt_pf_st));
-        vcdp->chgBus(c+22625,(vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits),32);
-        vcdp->chgBit(c+22633,(vlSymsp->TOP__Rocket.io_fpu_fcsr_flags_valid));
-        vcdp->chgBus(c+22641,(vlSymsp->TOP__Rocket.io_fpu_fcsr_flags_bits),5);
-        vcdp->chgBus(c+22649,(vlSymsp->TOP__Rocket.io_fpu_toint_data),32);
-        vcdp->chgBit(c+22657,(((IData)(vlSymsp->TOP__Rocket.__PVT__dmem_resp_valid) 
+        vcdp->chgBit(c+22401,(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_ld));
+        vcdp->chgBit(c+22409,(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_st));
+        vcdp->chgBit(c+22417,(vlSymsp->TOP__Rocket.io_dmem_xcpt_pf_ld));
+        vcdp->chgBit(c+22425,(vlSymsp->TOP__Rocket.io_dmem_xcpt_pf_st));
+        vcdp->chgBus(c+22433,(vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits),32);
+        vcdp->chgBit(c+22441,(vlSymsp->TOP__Rocket.io_fpu_fcsr_flags_valid));
+        vcdp->chgBus(c+22449,(vlSymsp->TOP__Rocket.io_fpu_fcsr_flags_bits),5);
+        vcdp->chgBus(c+22457,(vlSymsp->TOP__Rocket.io_fpu_toint_data),32);
+        vcdp->chgBit(c+22465,(((IData)(vlSymsp->TOP__Rocket.__PVT__dmem_resp_valid) 
                                & (IData)(vlTOPp->io_dmem_resp_bits_tag))));
-        vcdp->chgBus(c+22665,((0x1fU & ((IData)(vlTOPp->io_dmem_resp_bits_tag) 
+        vcdp->chgBus(c+22473,((0x1fU & ((IData)(vlTOPp->io_dmem_resp_bits_tag) 
                                         >> 1U))),5);
-        vcdp->chgBit(c+22673,(vlSymsp->TOP__Rocket.io_fpu_fcsr_rdy));
-        vcdp->chgBit(c+22681,(vlSymsp->TOP__Rocket.io_fpu_nack_mem));
-        vcdp->chgBit(c+22689,(vlSymsp->TOP__Rocket.io_fpu_illegal_rm));
-        vcdp->chgBit(c+22697,(vlSymsp->TOP__Rocket.io_fpu_cp_resp_valid));
-        vcdp->chgQuad(c+22705,(vlSymsp->TOP__Rocket.io_fpu_cp_resp_bits_data),33);
-        vcdp->chgBus(c+22721,(((0U == (IData)(vlTOPp->rf_idx_i))
+        vcdp->chgBit(c+22481,(vlSymsp->TOP__Rocket.io_fpu_fcsr_rdy));
+        vcdp->chgBit(c+22489,(vlSymsp->TOP__Rocket.io_fpu_nack_mem));
+        vcdp->chgBit(c+22497,(vlSymsp->TOP__Rocket.io_fpu_illegal_rm));
+        vcdp->chgBit(c+22505,(vlSymsp->TOP__Rocket.io_fpu_cp_resp_valid));
+        vcdp->chgQuad(c+22513,(vlSymsp->TOP__Rocket.io_fpu_cp_resp_bits_data),33);
+        vcdp->chgBus(c+22529,(((0U == (IData)(vlTOPp->rf_idx_i))
                                 ? 0U : ((0x1eU >= (0x1fU 
                                                    & (~ (IData)(vlTOPp->rf_idx_i))))
                                          ? vlSymsp->TOP__Rocket.__PVT__T_6545
                                         [(0x1fU & (~ (IData)(vlTOPp->rf_idx_i)))]
                                          : 0U))),32);
-        vcdp->chgBus(c+22729,(vlSymsp->TOP__Rocket.ibuf_io_imem_bits_mask),2);
-        vcdp->chgBit(c+22737,(vlSymsp->TOP__Rocket.ibuf_io_imem_bits_xcpt_if));
-        vcdp->chgBit(c+22745,(((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
+        vcdp->chgBus(c+22537,(vlSymsp->TOP__Rocket.ibuf_io_imem_bits_mask),2);
+        vcdp->chgBit(c+22545,(vlSymsp->TOP__Rocket.ibuf_io_imem_bits_xcpt_if));
+        vcdp->chgBit(c+22553,(((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
                                 ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_taken)
                                 : (IData)(vlTOPp->io_imem_resp_bits_btb_bits_taken))));
-        vcdp->chgBus(c+22753,(((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
+        vcdp->chgBus(c+22561,(((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
                                 ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_mask)
                                 : (IData)(vlTOPp->io_imem_resp_bits_btb_bits_mask))),2);
-        vcdp->chgBit(c+22761,(((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
+        vcdp->chgBit(c+22569,(((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
                                 ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bridx)
                                 : (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx))));
-        vcdp->chgBus(c+22769,(((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
+        vcdp->chgBus(c+22577,(((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
                                 ? vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_target
                                 : vlTOPp->io_imem_resp_bits_btb_bits_target)),32);
-        vcdp->chgBit(c+22777,(((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
+        vcdp->chgBit(c+22585,(((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
                                 ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_entry)
                                 : (IData)(vlTOPp->io_imem_resp_bits_btb_bits_entry))));
-        vcdp->chgBit(c+22785,(((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
+        vcdp->chgBit(c+22593,(((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
                                 ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bht_history)
                                 : (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bht_history))));
-        vcdp->chgBus(c+22793,(((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
+        vcdp->chgBus(c+22601,(((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
                                 ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bht_value)
                                 : (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bht_value))),2);
-        vcdp->chgBit(c+22801,((3U != (3U & vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.io_in))));
-        vcdp->chgBit(c+22809,((0x40U == (0x54U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+22817,((0x48U == (0x48U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+22825,((4U == (0x1cU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+22833,((0x2000030U == (0x2000074U 
+        vcdp->chgBit(c+22609,((3U != (3U & vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.io_in))));
+        vcdp->chgBit(c+22617,((0x40U == (0x54U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBit(c+22625,((0x48U == (0x48U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBit(c+22633,((4U == (0x1cU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBit(c+22641,((0x2000030U == (0x2000074U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+22841,((0x1008U == (0x1048U 
+        vcdp->chgBit(c+22649,((0x1008U == (0x1048U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+22849,((8U == (0x3048U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+22857,((0x2008U == (0x2048U 
+        vcdp->chgBit(c+22657,((8U == (0x3048U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBit(c+22665,((0x2008U == (0x2048U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+22865,((0x505fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+22873,((3U == (0x505fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+22881,((0x207fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+22889,((3U == (0x207fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+22897,((0x607fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+22905,((0xfU == (0x607fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+22913,((0x5fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+22921,((0x17U == (0x5fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+22929,((0xfc00007fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+22937,((0x33U == (0xfc00007fU 
+        vcdp->chgBus(c+22673,((0x505fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+22681,((3U == (0x505fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+22689,((0x207fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+22697,((3U == (0x207fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+22705,((0x607fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+22713,((0xfU == (0x607fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+22721,((0x5fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+22729,((0x17U == (0x5fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+22737,((0xfc00007fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+22745,((0x33U == (0xfc00007fU 
                                          & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+22945,((0xbe00707fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+22953,((0x33U == (0xbe00707fU 
+        vcdp->chgBus(c+22753,((0xbe00707fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+22761,((0x33U == (0xbe00707fU 
                                          & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+22961,((0x707bU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+22969,((0x63U == (0x707bU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+22977,((0x7fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+22985,((0x6fU == (0x7fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+22993,((0xffefffffU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23001,((0x73U == (0xffefffffU 
+        vcdp->chgBus(c+22769,((0x707bU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+22777,((0x63U == (0x707bU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+22785,((0x7fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+22793,((0x6fU == (0x7fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+22801,((0xffefffffU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+22809,((0x73U == (0xffefffffU 
                                          & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23009,((0xfc00305fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23017,((0x1013U == (0xfc00305fU 
+        vcdp->chgBus(c+22817,((0xfc00305fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+22825,((0x1013U == (0xfc00305fU 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23025,((0x2013U == (0x207fU 
+        vcdp->chgBit(c+22833,((0x2013U == (0x207fU 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23033,((0x1800707fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23041,((0x202fU == (0x1800707fU 
+        vcdp->chgBus(c+22841,((0x1800707fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+22849,((0x202fU == (0x1800707fU 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23049,((0x2073U == (0x207fU 
+        vcdp->chgBit(c+22857,((0x2073U == (0x207fU 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23057,((0xbc00707fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23065,((0x5013U == (0xbc00707fU 
+        vcdp->chgBus(c+22865,((0xbc00707fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+22873,((0x5013U == (0xbc00707fU 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23073,((0x5033U == (0xbe00707fU 
+        vcdp->chgBit(c+22881,((0x5033U == (0xbe00707fU 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23081,((0xe800707fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23089,((0x800202fU == (0xe800707fU 
+        vcdp->chgBus(c+22889,((0xe800707fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+22897,((0x800202fU == (0xe800707fU 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23097,((0xf9f0707fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23105,((0x1000202fU == (0xf9f0707fU 
+        vcdp->chgBus(c+22905,((0xf9f0707fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+22913,((0x1000202fU == (0xf9f0707fU 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23113,((0x10500073U == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)));
-        vcdp->chgBit(c+23121,((0x30200073U == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)));
-        vcdp->chgBit(c+23129,((0x7b200073U == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)));
-        vcdp->chgBus(c+23137,((0x603fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23145,((0x23U == (0x603fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23153,((0x306fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23161,((0x1063U == (0x306fU 
+        vcdp->chgBit(c+22921,((0x10500073U == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)));
+        vcdp->chgBit(c+22929,((0x30200073U == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)));
+        vcdp->chgBit(c+22937,((0x7b200073U == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)));
+        vcdp->chgBus(c+22945,((0x603fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+22953,((0x23U == (0x603fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+22961,((0x306fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+22969,((0x1063U == (0x306fU 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23169,((0x407fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23177,((0x4063U == (0x407fU 
+        vcdp->chgBus(c+22977,((0x407fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+22985,((0x4063U == (0x407fU 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23185,((3U == (0x306fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23193,(((3U == (0x505fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+22993,((3U == (0x306fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBit(c+23001,(((3U == (0x505fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (3U == (0x207fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23201,((((3U == (0x505fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+23009,((((3U == (0x505fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 | (3U == (0x207fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0xfU == (0x607fU 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23209,(((((3U == (0x505fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+23017,(((((3U == (0x505fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                  | (3U == (0x207fU 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                 | (0xfU == (0x607fU 
                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x17U == (0x5fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23217,((((((3U == (0x505fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+23025,((((((3U == (0x505fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                   | (3U == (0x207fU 
                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                  | (0xfU == (0x607fU 
@@ -11989,7 +11914,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x33U == (0xfc00007fU 
                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23225,(((((((3U == (0x505fU 
+        vcdp->chgBit(c+23033,(((((((3U == (0x505fU 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                    | (3U == (0x207fU 
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
@@ -12001,7 +11926,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x33U == (0xbe00707fU 
                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23233,((((((((3U == (0x505fU 
+        vcdp->chgBit(c+23041,((((((((3U == (0x505fU 
                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                     | (3U == (0x207fU 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
@@ -12015,7 +11940,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x63U == (0x707bU 
                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23241,(((((((((3U == (0x505fU 
+        vcdp->chgBit(c+23049,(((((((((3U == (0x505fU 
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                      | (3U == (0x207fU 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
@@ -12030,7 +11955,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                 | (0x63U == (0x707bU 
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x6fU == (0x7fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23249,((((((((((3U == (0x505fU 
+        vcdp->chgBit(c+23057,((((((((((3U == (0x505fU 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                       | (3U == (0x207fU 
                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
@@ -12048,7 +11973,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x73U == (0xffefffffU 
                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23257,(((((((((((3U == (0x505fU 
+        vcdp->chgBit(c+23065,(((((((((((3U == (0x505fU 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                        | (3U == (0x207fU 
                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
@@ -12068,7 +11993,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x1013U == (0xfc00305fU 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23265,((((((((((((3U == (0x505fU 
+        vcdp->chgBit(c+23073,((((((((((((3U == (0x505fU 
                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                         | (3U == (0x207fU 
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
@@ -12090,7 +12015,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x2013U == (0x207fU 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23273,(((((((((((((3U == (0x505fU 
+        vcdp->chgBit(c+23081,(((((((((((((3U == (0x505fU 
                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                          | (3U == (0x207fU 
                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
@@ -12115,7 +12040,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x202fU == (0x1800707fU 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23281,((((((((((((((3U == (0x505fU 
+        vcdp->chgBit(c+23089,((((((((((((((3U == (0x505fU 
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                           | (3U == 
                                              (0x207fU 
@@ -12144,7 +12069,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x2073U == (0x207fU 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23289,(((((((((((((((3U == (0x505fU 
+        vcdp->chgBit(c+23097,(((((((((((((((3U == (0x505fU 
                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                            | (3U == 
                                               (0x207fU 
@@ -12177,7 +12102,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x5013U == (0xbc00707fU 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23297,((((((((((((((((3U == 
+        vcdp->chgBit(c+23105,((((((((((((((((3U == 
                                              (0x505fU 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                             | (3U == 
@@ -12214,7 +12139,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x5033U == (0xbe00707fU 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23305,(((((((((((((((((3U == 
+        vcdp->chgBit(c+23113,(((((((((((((((((3U == 
                                               (0x505fU 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                              | (3U 
@@ -12255,7 +12180,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x800202fU == (0xe800707fU 
                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23313,((((((((((((((((((3U == 
+        vcdp->chgBit(c+23121,((((((((((((((((((3U == 
                                                (0x505fU 
                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                               | (3U 
@@ -12300,24 +12225,24 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x1000202fU == (0xf9f0707fU 
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23321,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_6130) 
+        vcdp->chgBit(c+23129,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_6130) 
                                | (0x30200073U == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23329,((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6130) 
+        vcdp->chgBit(c+23137,((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6130) 
                                 | (0x30200073U == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (0x7b200073U == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23337,(((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6130) 
+        vcdp->chgBit(c+23145,(((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6130) 
                                  | (0x30200073U == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 | (0x7b200073U == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (0x23U == (0x603fU 
                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23345,((((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6130) 
+        vcdp->chgBit(c+23153,((((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6130) 
                                   | (0x30200073U == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                  | (0x7b200073U == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 | (0x23U == (0x603fU 
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x1063U == (0x306fU 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23353,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6130) 
+        vcdp->chgBit(c+23161,(((((((IData)(vlSymsp->TOP__Rocket.__PVT__T_6130) 
                                    | (0x30200073U == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                   | (0x7b200073U == vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                  | (0x23U == (0x603fU 
@@ -12326,98 +12251,98 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x4063U == (0x407fU 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBus(c+23361,((0x54U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBus(c+23369,((0x48U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBus(c+23377,((0x1cU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBus(c+23385,((0x70U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23393,((0x20U == (0x70U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23401,((0x64U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23409,((0x20U == (0x64U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23417,((0x34U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23425,((0x20U == (0x34U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23433,(((0x20U == (0x70U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBus(c+23169,((0x54U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBus(c+23177,((0x48U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBus(c+23185,((0x1cU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBus(c+23193,((0x70U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23201,((0x20U == (0x70U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+23209,((0x64U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23217,((0x20U == (0x64U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+23225,((0x34U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23233,((0x20U == (0x34U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBit(c+23241,(((0x20U == (0x70U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (0x20U == (0x64U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBus(c+23441,((0x4004U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23449,((0U == (0x4004U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23457,((0x44U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23465,((0U == (0x44U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23473,((0x18U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23481,((0U == (0x18U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23489,((0x2050U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23497,((0x2000U == (0x2050U 
+        vcdp->chgBus(c+23249,((0x4004U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23257,((0U == (0x4004U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+23265,((0x44U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23273,((0U == (0x44U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+23281,((0x18U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23289,((0U == (0x18U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+23297,((0x2050U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23305,((0x2000U == (0x2050U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23505,(((0U == (0x4004U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+23313,(((0U == (0x4004U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (0U == (0x44U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23513,((((0U == (0x4004U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+23321,((((0U == (0x4004U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 | (0U == (0x44U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0U == (0x18U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBus(c+23521,((0x58U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23529,((0U == (0x58U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23537,((0x20U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23545,((0U == (0x20U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23553,((0xcU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23561,((4U == (0xcU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23569,((0x4050U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23577,((0x4050U == (0x4050U 
+        vcdp->chgBus(c+23329,((0x58U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23337,((0U == (0x58U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+23345,((0x20U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23353,((0U == (0x20U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+23361,((0xcU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23369,((4U == (0xcU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+23377,((0x4050U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23385,((0x4050U == (0x4050U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23585,(((0U == (0x58U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+23393,(((0U == (0x58U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (0U == (0x20U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23593,((((0U == (0x58U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+23401,((((0U == (0x58U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 | (0U == (0x20U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (4U == (0xcU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23601,(((((0U == (0x58U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+23409,(((((0U == (0x58U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                  | (0U == (0x20U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                 | (4U == (0xcU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x48U == (0x48U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23609,((((((0U == (0x58U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+23417,((((((0U == (0x58U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                   | (0U == (0x20U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                  | (4U == (0xcU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                 | (0x48U == (0x48U 
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x4050U == (0x4050U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23617,((0U == (0x48U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23625,((0x4008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23633,((0x4000U == (0x4008U 
+        vcdp->chgBit(c+23425,((0U == (0x48U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+23433,((0x4008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23441,((0x4000U == (0x4008U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23641,(((0U == (0x48U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+23449,(((0U == (0x48U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (0U == (0x18U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23649,((((0U == (0x48U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+23457,((((0U == (0x48U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 | (0U == (0x18U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x4000U == (0x4008U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBus(c+23657,((0x50U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23665,((0U == (0x50U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23673,(((0U == (0x4004U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBus(c+23465,((0x50U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23473,((0U == (0x50U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBit(c+23481,(((0U == (0x4004U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (0U == (0x50U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23681,((((0U == (0x4004U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+23489,((((0U == (0x4004U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 | (0U == (0x50U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0U == (0x44U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23689,(((((0U == (0x4004U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+23497,(((((0U == (0x4004U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                  | (0U == (0x50U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                 | (0U == (0x44U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0U == (0x18U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBus(c+23697,((0x24U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23705,((4U == (0x24U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23713,(((4U == (0x24U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBus(c+23505,((0x24U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23513,((4U == (0x24U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBit(c+23521,(((4U == (0x24U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (0x48U == (0x48U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBus(c+23721,((8U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23729,((8U == (8U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23737,((0x40U == (0x44U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23745,(((8U == (8U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBus(c+23529,((8U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23537,((8U == (8U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBit(c+23545,((0x40U == (0x44U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBit(c+23553,(((8U == (8U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (0x40U == (0x44U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23753,((4U == (0x44U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23761,(((4U == (0x44U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+23561,((4U == (0x44U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBit(c+23569,(((4U == (0x44U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (8U == (8U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23769,((0U == (0x24U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23777,((0x14U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23785,((0x10U == (0x14U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23793,(((0U == (0x24U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+23577,((0U == (0x24U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+23585,((0x14U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23593,((0x10U == (0x14U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBit(c+23601,(((0U == (0x24U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (4U == (0x1cU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23801,((((0U == (0x24U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+23609,((((0U == (0x24U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 | (4U == (0x1cU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x10U == (0x14U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBus(c+23809,((((((0U == (0x24U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBus(c+23617,((((((0U == (0x24U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                   | (4U == (0x1cU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                  | (0x10U == (0x14U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
@@ -12425,52 +12350,52 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                           | (8U == 
                                              (8U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))))),2);
-        vcdp->chgBus(c+23817,((0x3054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23825,((0x1010U == (0x3054U 
+        vcdp->chgBus(c+23625,((0x3054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23633,((0x1010U == (0x3054U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23833,((0x1058U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23841,((0x1040U == (0x1058U 
+        vcdp->chgBus(c+23641,((0x1058U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23649,((0x1040U == (0x1058U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23849,((0x7044U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23857,((0x7000U == (0x7044U 
+        vcdp->chgBus(c+23657,((0x7044U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23665,((0x7000U == (0x7044U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23865,(((0x1010U == (0x3054U 
+        vcdp->chgBit(c+23673,(((0x1010U == (0x3054U 
                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (0x1040U == (0x1058U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23873,((((0x1010U == (0x3054U 
+        vcdp->chgBit(c+23681,((((0x1010U == (0x3054U 
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 | (0x1040U == (0x1058U 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x7000U == (0x7044U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBus(c+23881,((0x4054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23889,((0x40U == (0x4054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23897,((0x3044U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23905,((0x3000U == (0x3044U 
+        vcdp->chgBus(c+23689,((0x4054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23697,((0x40U == (0x4054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+23705,((0x3044U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23713,((0x3000U == (0x3044U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23913,((0x6044U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23921,((0x6000U == (0x6044U 
+        vcdp->chgBus(c+23721,((0x6044U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23729,((0x6000U == (0x6044U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23929,((0x6018U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23937,((0x6000U == (0x6018U 
+        vcdp->chgBus(c+23737,((0x6018U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23745,((0x6000U == (0x6018U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23945,((0x40003034U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23953,((0x40000030U == (0x40003034U 
+        vcdp->chgBus(c+23753,((0x40003034U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23761,((0x40000030U == (0x40003034U 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+23961,((0x40001054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+23969,((0x40001010U == (0x40001054U 
+        vcdp->chgBus(c+23769,((0x40001054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23777,((0x40001010U == (0x40001054U 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+23977,(((0x40U == (0x4054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+23785,(((0x40U == (0x4054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (0x3000U == (0x3044U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23985,((((0x40U == (0x4054U 
+        vcdp->chgBit(c+23793,((((0x40U == (0x4054U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 | (0x3000U == (0x3044U 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x6000U == (0x6044U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+23993,(((((0x40U == (0x4054U 
+        vcdp->chgBit(c+23801,(((((0x40U == (0x4054U 
                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                  | (0x3000U == (0x3044U 
                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
@@ -12478,7 +12403,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x6000U == (0x6018U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+24001,((((((0x40U == (0x4054U 
+        vcdp->chgBit(c+23809,((((((0x40U == (0x4054U 
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                   | (0x3000U == (0x3044U 
                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
@@ -12488,7 +12413,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x40000030U == (0x40003034U 
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+24009,(((((((0x40U == (0x4054U 
+        vcdp->chgBit(c+23817,(((((((0x40U == (0x4054U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                    | (0x3000U == (0x3044U 
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
@@ -12500,29 +12425,29 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x40001010U == (0x40001054U 
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBus(c+24017,((0x2054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24025,((0x2010U == (0x2054U 
+        vcdp->chgBus(c+23825,((0x2054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23833,((0x2010U == (0x2054U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+24033,((0x40004054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24041,((0x4010U == (0x40004054U 
+        vcdp->chgBus(c+23841,((0x40004054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23849,((0x4010U == (0x40004054U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+24049,((0x5054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24057,((0x4010U == (0x5054U 
+        vcdp->chgBus(c+23857,((0x5054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23865,((0x4010U == (0x5054U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+24065,((0x4058U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24073,((0x4040U == (0x4058U 
+        vcdp->chgBus(c+23873,((0x4058U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23881,((0x4040U == (0x4058U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+24081,(((0x2010U == (0x2054U 
+        vcdp->chgBit(c+23889,(((0x2010U == (0x2054U 
                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (0x4010U == (0x40004054U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+24089,((((0x2010U == (0x2054U 
+        vcdp->chgBit(c+23897,((((0x2010U == (0x2054U 
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 | (0x4010U == (0x40004054U 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x4010U == (0x5054U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+24097,(((((0x2010U == (0x2054U 
+        vcdp->chgBit(c+23905,(((((0x2010U == (0x2054U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                  | (0x4010U == (0x40004054U 
                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
@@ -12530,23 +12455,23 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x4040U == (0x4058U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBus(c+24105,((0x6054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24113,((0x2010U == (0x6054U 
+        vcdp->chgBus(c+23913,((0x6054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23921,((0x2010U == (0x6054U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+24121,((0x40003054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24129,((0x40001010U == (0x40003054U 
+        vcdp->chgBus(c+23929,((0x40003054U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23937,((0x40001010U == (0x40003054U 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+24137,(((0x2010U == (0x6054U 
+        vcdp->chgBit(c+23945,(((0x2010U == (0x6054U 
                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (0x4040U == (0x4058U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+24145,((((0x2010U == (0x6054U 
+        vcdp->chgBit(c+23953,((((0x2010U == (0x6054U 
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 | (0x4040U == (0x4058U 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x40000030U == (0x40003034U 
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+24153,(((((0x2010U == (0x6054U 
+        vcdp->chgBit(c+23961,(((((0x2010U == (0x6054U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                  | (0x4040U == (0x4058U 
                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
@@ -12554,7 +12479,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x40001010U == (0x40003054U 
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBus(c+24161,(((((((((0x40U == (0x4054U 
+        vcdp->chgBus(c+23969,(((((((((0x40U == (0x4054U 
                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                      | (0x3000U == 
                                         (0x3044U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
@@ -12575,7 +12500,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                           | (0x7000U 
                                              == (0x7044U 
                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))))),2);
-        vcdp->chgBus(c+24169,(((((((0x2010U == (0x6054U 
+        vcdp->chgBus(c+23977,(((((((0x2010U == (0x6054U 
                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                    | (0x4040U == (0x4058U 
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
@@ -12595,23 +12520,23 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                           | (0x4040U 
                                              == (0x4058U 
                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))))),2);
-        vcdp->chgBus(c+24177,((0x605fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24185,((3U == (0x605fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+24193,((0x707fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24201,((0x100fU == (0x707fU 
+        vcdp->chgBus(c+23985,((0x605fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+23993,((3U == (0x605fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+24001,((0x707fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+24009,((0x100fU == (0x707fU 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+24209,(((3U == (0x605fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+24017,(((3U == (0x605fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (3U == (0x505fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+24217,((((3U == (0x605fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+24025,((((3U == (0x605fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 | (3U == (0x505fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (3U == (0x207fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+24225,(((((3U == (0x605fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+24033,(((((3U == (0x605fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                  | (3U == (0x505fU 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                 | (3U == (0x207fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x100fU == (0x707fU 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+24233,((((((3U == (0x605fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+24041,((((((3U == (0x605fU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                   | (3U == (0x505fU 
                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                  | (3U == (0x207fU 
@@ -12620,7 +12545,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x202fU == (0x1800707fU 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+24241,(((((((3U == (0x605fU 
+        vcdp->chgBit(c+24049,(((((((3U == (0x605fU 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                    | (3U == (0x505fU 
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
@@ -12632,67 +12557,67 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x800202fU == (0xe800707fU 
                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBus(c+24249,((0x2008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24257,((8U == (0x2008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+24265,((0x28U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24273,((0x20U == (0x28U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+24281,((0x18000020U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24289,((0x18000020U == (0x18000020U 
+        vcdp->chgBus(c+24057,((0x2008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+24065,((8U == (0x2008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+24073,((0x28U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+24081,((0x20U == (0x28U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+24089,((0x18000020U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+24097,((0x18000020U == (0x18000020U 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+24297,((0x20000020U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24305,((0x20000020U == (0x20000020U 
+        vcdp->chgBus(c+24105,((0x20000020U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+24113,((0x20000020U == (0x20000020U 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+24313,(((8U == (0x2008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+24121,(((8U == (0x2008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (0x20U == (0x28U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+24321,((((8U == (0x2008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+24129,((((8U == (0x2008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 | (0x20U == (0x28U 
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x18000020U == (0x18000020U 
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+24329,(((((8U == (0x2008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+24137,(((((8U == (0x2008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                  | (0x20U == (0x28U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                 | (0x18000020U == (0x18000020U 
                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x20000020U == (0x20000020U 
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBus(c+24337,((0x10001008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24345,((0x10000008U == (0x10001008U 
+        vcdp->chgBus(c+24145,((0x10001008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+24153,((0x10000008U == (0x10001008U 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+24353,((0x40001008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24361,((0x40000008U == (0x40001008U 
+        vcdp->chgBus(c+24161,((0x40001008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+24169,((0x40000008U == (0x40001008U 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+24369,(((0x10000008U == (0x10001008U 
+        vcdp->chgBit(c+24177,(((0x10000008U == (0x10001008U 
                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (0x40000008U == (0x40001008U 
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBus(c+24377,((0x8000008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24385,((0x8000008U == (0x8000008U 
+        vcdp->chgBus(c+24185,((0x8000008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+24193,((0x8000008U == (0x8000008U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+24393,((0x10000008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24401,((0x10000008U == (0x10000008U 
+        vcdp->chgBus(c+24201,((0x10000008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+24209,((0x10000008U == (0x10000008U 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+24409,((0x80000008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24417,((0x80000008U == (0x80000008U 
+        vcdp->chgBus(c+24217,((0x80000008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+24225,((0x80000008U == (0x80000008U 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+24425,(((8U == (0x2008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+24233,(((8U == (0x2008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (0x8000008U == (0x8000008U 
                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+24433,((((8U == (0x2008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+24241,((((8U == (0x2008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 | (0x8000008U == (0x8000008U 
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x10000008U == (0x10000008U 
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+24441,(((((8U == (0x2008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+24249,(((((8U == (0x2008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                  | (0x8000008U == (0x8000008U 
                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                 | (0x10000008U == (0x10000008U 
                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x80000008U == (0x80000008U 
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBus(c+24449,((0x18001008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24457,((8U == (0x18001008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+24465,(((((0x10000008U == (0x10001008U 
+        vcdp->chgBus(c+24257,((0x18001008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+24265,((8U == (0x18001008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+24273,(((((0x10000008U == (0x10001008U 
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                  | (0x40000008U == 
                                     (0x40001008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
@@ -12708,8 +12633,8 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                           | (0x20000020U 
                                              == (0x20000020U 
                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))))),2);
-        vcdp->chgBus(c+24473,((8U == (0x18001008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))),2);
-        vcdp->chgBus(c+24481,((((8U == (0x18001008U 
+        vcdp->chgBus(c+24281,((8U == (0x18001008U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))),2);
+        vcdp->chgBus(c+24289,((((8U == (0x18001008U 
                                         & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 << 1U) | ((((8U == 
                                              (0x2008U 
@@ -12723,42 +12648,42 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                           | (0x80000008U 
                                              == (0x80000008U 
                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))))),3);
-        vcdp->chgBus(c+24489,((0x1000U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24497,((0x1000U == (0x1000U 
+        vcdp->chgBus(c+24297,((0x1000U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+24305,((0x1000U == (0x1000U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+24505,((0x2000U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24513,((0x2000U == (0x2000U 
+        vcdp->chgBus(c+24313,((0x2000U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+24321,((0x2000U == (0x2000U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+24521,((0x4000U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24529,((0x4000U == (0x4000U 
+        vcdp->chgBus(c+24329,((0x4000U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+24337,((0x4000U == (0x4000U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+24537,((((0x4000U == (0x4000U 
+        vcdp->chgBus(c+24345,((((0x4000U == (0x4000U 
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 << 1U) | (0x2000U == 
                                           (0x2000U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))),2);
-        vcdp->chgBus(c+24545,((0x2000074U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24553,((0U == (0x28U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+24561,((0x10U == (0x50U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+24569,((0x1010U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24577,((0x1010U == (0x1010U 
+        vcdp->chgBus(c+24353,((0x2000074U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+24361,((0U == (0x28U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBit(c+24369,((0x10U == (0x50U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+24377,((0x1010U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+24385,((0x1010U == (0x1010U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+24585,((0x2008U == (0x2008U 
+        vcdp->chgBit(c+24393,((0x2008U == (0x2008U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+24593,((0x2010U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24601,((0x2010U == (0x2010U 
+        vcdp->chgBus(c+24401,((0x2010U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+24409,((0x2010U == (0x2010U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+24609,(((0U == (0x28U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+24417,(((0U == (0x28U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | (4U == (0xcU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+24617,((((0U == (0x28U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+24425,((((0U == (0x28U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 | (4U == (0xcU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x10U == (0x50U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+24625,(((((0U == (0x28U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+24433,(((((0U == (0x28U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                  | (4U == (0xcU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                 | (0x10U == (0x50U 
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x48U == (0x48U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+24633,((((((0U == (0x28U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+24441,((((((0U == (0x28U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                   | (4U == (0xcU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                  | (0x10U == (0x50U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
@@ -12766,7 +12691,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x1010U == (0x1010U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+24641,(((((((0U == (0x28U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+24449,(((((((0U == (0x28U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                    | (4U == (0xcU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                   | (0x10U == (0x50U 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
@@ -12776,59 +12701,59 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | (0x2008U == (0x2008U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBus(c+24649,((0x1050U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24657,((0x1050U == (0x1050U 
+        vcdp->chgBus(c+24457,((0x1050U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+24465,((0x1050U == (0x1050U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBit(c+24665,((0x2050U == (0x2050U 
+        vcdp->chgBit(c+24473,((0x2050U == (0x2050U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+24673,((0x3050U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBit(c+24681,((0x50U == (0x3050U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
-        vcdp->chgBus(c+24689,((((0x50U == (0x3050U 
+        vcdp->chgBus(c+24481,((0x3050U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBit(c+24489,((0x50U == (0x3050U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))));
+        vcdp->chgBus(c+24497,((((0x50U == (0x3050U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 << 1U) | (0x2050U == 
                                           (0x2050U 
                                            & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))),2);
-        vcdp->chgBus(c+24697,((0x1048U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBus(c+24705,((0x3048U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBus(c+24713,((0x2048U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
-        vcdp->chgBus(c+24721,(vlSymsp->TOP__Rocket.csr_io_hartid),32);
-        vcdp->chgBit(c+24729,(vlSymsp->TOP__Rocket.csr_io_rocc_cmd_ready));
-        vcdp->chgBit(c+24737,(vlSymsp->TOP__Rocket.csr_io_rocc_resp_valid));
-        vcdp->chgBit(c+24745,(vlSymsp->TOP__Rocket.csr_io_rocc_mem_req_valid));
-        vcdp->chgBit(c+24753,(vlSymsp->TOP__Rocket.csr_io_rocc_mem_s1_kill));
-        vcdp->chgBit(c+24761,(vlSymsp->TOP__Rocket.csr_io_rocc_mem_invalidate_lr));
-        vcdp->chgBit(c+24769,(vlSymsp->TOP__Rocket.csr_io_rocc_busy));
-        vcdp->chgBit(c+24777,(vlSymsp->TOP__Rocket.csr_io_rocc_interrupt));
-        vcdp->chgBit(c+24785,(vlSymsp->TOP__Rocket.csr_io_rocc_autl_acquire_valid));
-        vcdp->chgBit(c+24793,(vlSymsp->TOP__Rocket.csr_io_rocc_autl_acquire_bits_client_xact_id));
-        vcdp->chgBit(c+24801,(vlSymsp->TOP__Rocket.csr_io_rocc_autl_acquire_bits_is_builtin_type));
-        vcdp->chgBit(c+24809,(vlSymsp->TOP__Rocket.csr_io_rocc_autl_grant_ready));
-        vcdp->chgBit(c+24817,(vlSymsp->TOP__Rocket.csr_io_rocc_fpu_req_valid));
-        vcdp->chgBit(c+24825,(vlSymsp->TOP__Rocket.csr_io_rocc_fpu_resp_ready));
-        vcdp->chgBus(c+24833,((0xfffU & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
+        vcdp->chgBus(c+24505,((0x1048U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBus(c+24513,((0x3048U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBus(c+24521,((0x2048U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)),32);
+        vcdp->chgBus(c+24529,(vlSymsp->TOP__Rocket.csr_io_hartid),32);
+        vcdp->chgBit(c+24537,(vlSymsp->TOP__Rocket.csr_io_rocc_cmd_ready));
+        vcdp->chgBit(c+24545,(vlSymsp->TOP__Rocket.csr_io_rocc_resp_valid));
+        vcdp->chgBit(c+24553,(vlSymsp->TOP__Rocket.csr_io_rocc_mem_req_valid));
+        vcdp->chgBit(c+24561,(vlSymsp->TOP__Rocket.csr_io_rocc_mem_s1_kill));
+        vcdp->chgBit(c+24569,(vlSymsp->TOP__Rocket.csr_io_rocc_mem_invalidate_lr));
+        vcdp->chgBit(c+24577,(vlSymsp->TOP__Rocket.csr_io_rocc_busy));
+        vcdp->chgBit(c+24585,(vlSymsp->TOP__Rocket.csr_io_rocc_interrupt));
+        vcdp->chgBit(c+24593,(vlSymsp->TOP__Rocket.csr_io_rocc_autl_acquire_valid));
+        vcdp->chgBit(c+24601,(vlSymsp->TOP__Rocket.csr_io_rocc_autl_acquire_bits_client_xact_id));
+        vcdp->chgBit(c+24609,(vlSymsp->TOP__Rocket.csr_io_rocc_autl_acquire_bits_is_builtin_type));
+        vcdp->chgBit(c+24617,(vlSymsp->TOP__Rocket.csr_io_rocc_autl_grant_ready));
+        vcdp->chgBit(c+24625,(vlSymsp->TOP__Rocket.csr_io_rocc_fpu_req_valid));
+        vcdp->chgBit(c+24633,(vlSymsp->TOP__Rocket.csr_io_rocc_fpu_resp_ready));
+        vcdp->chgBus(c+24641,((0xfffU & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                          >> 0x14U))),12);
-        vcdp->chgBus(c+24841,((0x46U & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
+        vcdp->chgBus(c+24649,((0x46U & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                         >> 0x14U))),12);
-        vcdp->chgBit(c+24849,((0x40U == (0x46U & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
+        vcdp->chgBit(c+24657,((0x40U == (0x46U & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                                   >> 0x14U)))));
-        vcdp->chgBus(c+24857,((0x244U & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
+        vcdp->chgBus(c+24665,((0x244U & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                          >> 0x14U))),12);
-        vcdp->chgBit(c+24865,((0x240U == (0x244U & 
+        vcdp->chgBit(c+24673,((0x240U == (0x244U & 
                                           (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                            >> 0x14U)))));
-        vcdp->chgBit(c+24873,(((0x40U == (0x46U & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
+        vcdp->chgBit(c+24681,(((0x40U == (0x46U & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                                    >> 0x14U))) 
                                | (0x240U == (0x244U 
                                              & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                                 >> 0x14U))))));
-        vcdp->chgBit(c+24881,((1U & (~ ((0x40U == (0x46U 
+        vcdp->chgBit(c+24689,((1U & (~ ((0x40U == (0x46U 
                                                    & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                                       >> 0x14U))) 
                                         | (0x240U == 
                                            (0x244U 
                                             & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                                >> 0x14U))))))));
-        vcdp->chgBit(c+24889,((((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521)) 
+        vcdp->chgBit(c+24697,((((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521)) 
                                 & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__id_csr_ren))) 
                                & (~ ((0x40U == (0x46U 
                                                 & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
@@ -12836,7 +12761,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                      | (0x240U == (0x244U 
                                                    & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                                       >> 0x14U))))))));
-        vcdp->chgBit(c+24897,(((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521)) 
+        vcdp->chgBit(c+24705,(((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521)) 
                                | (((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521)) 
                                    & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__id_csr_ren))) 
                                   & (~ ((0x40U == (0x46U 
@@ -12846,20 +12771,20 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                            (0x244U 
                                             & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                                >> 0x14U)))))))));
-        vcdp->chgBit(c+24905,(((0x2000030U == (0x2000074U 
+        vcdp->chgBit(c+24713,(((0x2000030U == (0x2000074U 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                & (~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
                                      >> 0xcU)))));
-        vcdp->chgBit(c+24913,((1U & ((~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_6136)) 
+        vcdp->chgBit(c+24721,((1U & ((~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_6136)) 
                                      | ((0x2000030U 
                                          == (0x2000074U 
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                         & (~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
                                               >> 0xcU)))))));
-        vcdp->chgBit(c+24921,(((0x2008U == (0x2048U 
+        vcdp->chgBit(c+24729,(((0x2008U == (0x2048U 
                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                & (~ vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa))));
-        vcdp->chgBit(c+24929,((1U & (((~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_6136)) 
+        vcdp->chgBit(c+24737,((1U & (((~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_6136)) 
                                       | ((0x2000030U 
                                           == (0x2000074U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
@@ -12868,10 +12793,10 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                      | ((0x2008U == 
                                          (0x2048U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                         & (~ vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa))))));
-        vcdp->chgBit(c+24937,(((3U != (3U & vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.io_in)) 
+        vcdp->chgBit(c+24745,(((3U != (3U & vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.io_in)) 
                                & (~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
                                      >> 2U)))));
-        vcdp->chgBit(c+24945,((1U & ((((~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_6136)) 
+        vcdp->chgBit(c+24753,((1U & ((((~ (IData)(vlSymsp->TOP__Rocket.__PVT__T_6136)) 
                                        | ((0x2000030U 
                                            == (0x2000074U 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
@@ -12885,39 +12810,39 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                 & vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.io_in)) 
                                         & (~ (vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_misa 
                                               >> 2U)))))));
-        vcdp->chgBit(c+24953,((1U & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
+        vcdp->chgBit(c+24761,((1U & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                      >> 0x1aU))));
-        vcdp->chgBit(c+24961,((1U & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
+        vcdp->chgBit(c+24769,((1U & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                      >> 0x19U))));
-        vcdp->chgBit(c+24969,(((0x2008U == (0x2048U 
+        vcdp->chgBit(c+24777,(((0x2008U == (0x2048U 
                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                   >> 0x19U))));
-        vcdp->chgBit(c+24977,(((8U == (0x3048U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+24785,(((8U == (0x3048U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | ((0x2008U == (0x2048U 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                   & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                      >> 0x19U)))));
-        vcdp->chgBit(c+24985,((1U & (~ (IData)(vlTOPp->io_dmem_ordered)))));
-        vcdp->chgBit(c+24993,((((8U == (0x3048U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
+        vcdp->chgBit(c+24793,((1U & (~ (IData)(vlTOPp->io_dmem_ordered)))));
+        vcdp->chgBit(c+24801,((((8U == (0x3048U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 | ((0x2008U == (0x2048U 
                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                    & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                       >> 0x19U))) | 
                                ((IData)(vlSymsp->TOP__Rocket.__PVT__id_reg_fence) 
                                 & (IData)(vlSymsp->TOP__Rocket.__PVT__id_mem_busy)))));
-        vcdp->chgBit(c+25001,(((0x2008U == (0x2048U 
+        vcdp->chgBit(c+24809,(((0x2008U == (0x2048U 
                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                   >> 0x1aU))));
-        vcdp->chgBit(c+25009,((((0x2008U == (0x2048U 
+        vcdp->chgBit(c+24817,((((0x2008U == (0x2048U 
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                 & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                    >> 0x1aU)) | (0x1008U 
                                                  == 
                                                  (0x1048U 
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+25017,(((((0x2008U == (0x2048U 
+        vcdp->chgBit(c+24825,(((((0x2008U == (0x2048U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                  & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                     >> 0x1aU)) | (0x1008U 
@@ -12926,7 +12851,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                    & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                | ((IData)(vlSymsp->TOP__Rocket.__PVT__id_reg_fence) 
                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6383)))));
-        vcdp->chgBit(c+25025,(((IData)(vlSymsp->TOP__Rocket.__PVT__id_mem_busy) 
+        vcdp->chgBit(c+24833,(((IData)(vlSymsp->TOP__Rocket.__PVT__id_mem_busy) 
                                & ((((0x2008U == (0x2048U 
                                                  & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                     & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
@@ -12935,48 +12860,48 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                 & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                   | ((IData)(vlSymsp->TOP__Rocket.__PVT__id_reg_fence) 
                                      & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6383))))));
-        vcdp->chgBit(c+25033,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_540)
+        vcdp->chgBit(c+24841,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_540)
                                 ? ((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
                                     ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_taken)
                                     : (IData)(vlTOPp->io_imem_resp_bits_btb_bits_taken))
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_taken))));
-        vcdp->chgBus(c+25041,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_540)
+        vcdp->chgBus(c+24849,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_540)
                                 ? ((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
                                     ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_mask)
                                     : (IData)(vlTOPp->io_imem_resp_bits_btb_bits_mask))
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_mask))),2);
-        vcdp->chgBit(c+25049,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_540)
+        vcdp->chgBit(c+24857,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_540)
                                 ? ((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
                                     ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bridx)
                                     : (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx))
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_bridx))));
-        vcdp->chgBus(c+25057,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_540)
+        vcdp->chgBus(c+24865,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_540)
                                 ? ((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
                                     ? vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_target
                                     : vlTOPp->io_imem_resp_bits_btb_bits_target)
                                 : vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_target)),32);
-        vcdp->chgBit(c+25065,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_540)
+        vcdp->chgBit(c+24873,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_540)
                                 ? ((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
                                     ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_entry)
                                     : (IData)(vlTOPp->io_imem_resp_bits_btb_bits_entry))
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_entry))));
-        vcdp->chgBit(c+25073,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_540)
+        vcdp->chgBit(c+24881,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_540)
                                 ? ((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
                                     ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bht_history)
                                     : (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bht_history))
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_bht_history))));
-        vcdp->chgBus(c+25081,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_540)
+        vcdp->chgBus(c+24889,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_540)
                                 ? ((0U != (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471))
                                     ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bht_value)
                                     : (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bht_value))
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_btb_resp_bht_value))),2);
-        vcdp->chgBit(c+25089,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7023) 
+        vcdp->chgBit(c+24897,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7023) 
                                | (3U != (3U & vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.io_in)))));
-        vcdp->chgBit(c+25097,(((IData)(vlSymsp->TOP__Rocket.__PVT__id_xcpt)
+        vcdp->chgBit(c+24905,(((IData)(vlSymsp->TOP__Rocket.__PVT__id_xcpt)
                                 ? ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7023) 
                                    | (3U != (3U & vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.io_in)))
                                 : (3U != (3U & vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.io_in)))));
-        vcdp->chgBit(c+25105,(((0x1008U == (0x1048U 
+        vcdp->chgBit(c+24913,(((0x1008U == (0x1048U 
                                             & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                | ((4U == (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521)) 
                                   | (((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__T_6521)) 
@@ -12989,72 +12914,72 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                               == (0x244U 
                                                   & (vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits 
                                                      >> 0x14U))))))))));
-        vcdp->chgBit(c+25113,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7027) 
+        vcdp->chgBit(c+24921,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7027) 
                                | (0x1008U == (0x1048U 
                                               & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+25121,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)
+        vcdp->chgBit(c+24929,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_branch)
                                 : (0x40U == (0x54U 
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+25129,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)
+        vcdp->chgBit(c+24937,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_jal)
                                 : (0x48U == (0x48U 
                                              & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+25137,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)
+        vcdp->chgBit(c+24945,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_jalr)
                                 : (4U == (0x1cU & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+25145,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)
+        vcdp->chgBit(c+24953,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_div)
                                 : (0x2000030U == (0x2000074U 
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+25153,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)
+        vcdp->chgBit(c+24961,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_fence_i)
                                 : ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7027) 
                                    | (0x1008U == (0x1048U 
                                                   & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))))));
-        vcdp->chgBit(c+25161,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)
+        vcdp->chgBit(c+24969,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_fence)
                                 : (8U == (0x3048U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+25169,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)
+        vcdp->chgBit(c+24977,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_amo)
                                 : (0x2008U == (0x2048U 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)))));
-        vcdp->chgBit(c+25177,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)
+        vcdp->chgBit(c+24985,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7551)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_rvc)
                                 : ((IData)(vlSymsp->TOP__Rocket.__PVT__id_xcpt)
                                     ? ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7023) 
                                        | (3U != (3U 
                                                  & vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.io_in)))
                                     : (3U != (3U & vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.io_in))))));
-        vcdp->chgBus(c+25185,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7063)
+        vcdp->chgBus(c+24993,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7063)
                                 ? vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits
                                 : vlSymsp->TOP__Rocket.__PVT__ex_reg_inst)),32);
-        vcdp->chgBit(c+25193,((1U & (~ (IData)(vlTOPp->io_dmem_resp_valid)))));
-        vcdp->chgBit(c+25201,((1U & (~ (IData)(vlTOPp->io_dmem_req_ready)))));
-        vcdp->chgBit(c+25209,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem) 
+        vcdp->chgBit(c+25001,((1U & (~ (IData)(vlTOPp->io_dmem_resp_valid)))));
+        vcdp->chgBit(c+25009,((1U & (~ (IData)(vlTOPp->io_dmem_req_ready)))));
+        vcdp->chgBit(c+25017,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem) 
                                & (~ (IData)(vlTOPp->io_dmem_req_ready)))));
-        vcdp->chgBit(c+25217,((((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem) 
+        vcdp->chgBit(c+25025,((((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem) 
                                 & (~ (IData)(vlTOPp->io_dmem_req_ready))) 
                                | ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_div) 
                                   & (0U != (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state))))));
-        vcdp->chgBit(c+25225,(((((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem) 
+        vcdp->chgBit(c+25033,(((((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem) 
                                  & (~ (IData)(vlTOPp->io_dmem_req_ready))) 
                                 | ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_div) 
                                    & (0U != (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)))) 
                                | ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_dcache_miss) 
                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_load_use)))));
-        vcdp->chgBit(c+25233,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid) 
+        vcdp->chgBit(c+25041,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid) 
                                & ((((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_mem) 
                                     & (~ (IData)(vlTOPp->io_dmem_req_ready))) 
                                    | ((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_div) 
                                       & (0U != (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)))) 
                                   | ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_dcache_miss) 
                                      & (IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_load_use))))));
-        vcdp->chgBit(c+25241,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc) 
+        vcdp->chgBit(c+25049,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc) 
                                & (IData)(vlSymsp->TOP__Rocket.io_fpu_illegal_rm))));
-        vcdp->chgBit(c+25249,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem) 
+        vcdp->chgBit(c+25057,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem) 
                                & (IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_pf_ld))));
-        vcdp->chgBit(c+25257,((((((((IData)(vlSymsp->TOP__Rocket.__PVT__mem_debug_breakpoint) 
+        vcdp->chgBit(c+25065,((((((((IData)(vlSymsp->TOP__Rocket.__PVT__mem_debug_breakpoint) 
                                     | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_breakpoint)) 
                                    | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_npc_misaligned)) 
                                   | (IData)(vlSymsp->TOP__Rocket.__PVT__T_7320)) 
@@ -13062,7 +12987,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                 | (IData)(vlSymsp->TOP__Rocket.__PVT__T_7324)) 
                                | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem) 
                                   & (IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_pf_ld)))));
-        vcdp->chgBit(c+25265,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_valid) 
+        vcdp->chgBit(c+25073,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_valid) 
                                & (((((((IData)(vlSymsp->TOP__Rocket.__PVT__mem_debug_breakpoint) 
                                        | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_breakpoint)) 
                                       | (IData)(vlSymsp->TOP__Rocket.__PVT__mem_npc_misaligned)) 
@@ -13071,38 +12996,38 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                    | (IData)(vlSymsp->TOP__Rocket.__PVT__T_7324)) 
                                   | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem) 
                                      & (IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_pf_ld))))));
-        vcdp->chgBus(c+25273,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7364)
+        vcdp->chgBus(c+25081,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7364)
                                 ? vlSymsp->TOP__Rocket.io_fpu_toint_data
                                 : vlSymsp->TOP__Rocket.__PVT__T_7274)),32);
-        vcdp->chgBus(c+25281,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
+        vcdp->chgBus(c+25089,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_7360)
                                 ? ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7364)
                                     ? vlSymsp->TOP__Rocket.io_fpu_toint_data
                                     : vlSymsp->TOP__Rocket.__PVT__T_7274)
                                 : vlSymsp->TOP__Rocket.__PVT__wb_reg_wdata)),32);
-        vcdp->chgBit(c+25289,((1U & (~ (IData)(vlTOPp->io_rocc_cmd_ready)))));
-        vcdp->chgBit(c+25297,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_6842) 
+        vcdp->chgBit(c+25097,((1U & (~ (IData)(vlTOPp->io_rocc_cmd_ready)))));
+        vcdp->chgBit(c+25105,(((IData)(vlSymsp->TOP__Rocket.__PVT__T_6842) 
                                & (~ (IData)(vlTOPp->io_rocc_cmd_ready)))));
-        vcdp->chgBit(c+25305,((1U & (IData)(vlTOPp->io_dmem_resp_bits_tag))));
-        vcdp->chgBit(c+25313,((1U & (~ (IData)(vlTOPp->io_dmem_resp_bits_tag)))));
-        vcdp->chgBit(c+25321,(((IData)(vlSymsp->TOP__Rocket.__PVT__dmem_resp_valid) 
+        vcdp->chgBit(c+25113,((1U & (IData)(vlTOPp->io_dmem_resp_bits_tag))));
+        vcdp->chgBit(c+25121,((1U & (~ (IData)(vlTOPp->io_dmem_resp_bits_tag)))));
+        vcdp->chgBit(c+25129,(((IData)(vlSymsp->TOP__Rocket.__PVT__dmem_resp_valid) 
                                & (IData)(vlTOPp->io_dmem_resp_bits_replay))));
-        vcdp->chgBit(c+25329,(((IData)(vlSymsp->TOP__Rocket.__PVT__dmem_resp_valid) 
+        vcdp->chgBit(c+25137,(((IData)(vlSymsp->TOP__Rocket.__PVT__dmem_resp_valid) 
                                & (~ (IData)(vlTOPp->io_dmem_resp_bits_tag)))));
-        vcdp->chgBit(c+25337,(((IData)(vlTOPp->io_fpu_dec_ren1) 
+        vcdp->chgBit(c+25145,(((IData)(vlTOPp->io_fpu_dec_ren1) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7443))));
-        vcdp->chgBit(c+25345,(((IData)(vlTOPp->io_fpu_dec_ren2) 
+        vcdp->chgBit(c+25153,(((IData)(vlTOPp->io_fpu_dec_ren2) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7445))));
-        vcdp->chgBit(c+25353,(((IData)(vlTOPp->io_fpu_dec_ren3) 
+        vcdp->chgBit(c+25161,(((IData)(vlTOPp->io_fpu_dec_ren3) 
                                & ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs3) 
                                   == (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                                >> 7U))))));
-        vcdp->chgBit(c+25361,(((IData)(vlTOPp->io_fpu_dec_wen) 
+        vcdp->chgBit(c+25169,(((IData)(vlTOPp->io_fpu_dec_wen) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7447))));
-        vcdp->chgBit(c+25369,((((IData)(vlTOPp->io_fpu_dec_ren1) 
+        vcdp->chgBit(c+25177,((((IData)(vlTOPp->io_fpu_dec_ren1) 
                                 & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7443)) 
                                | ((IData)(vlTOPp->io_fpu_dec_ren2) 
                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7445)))));
-        vcdp->chgBit(c+25377,(((((IData)(vlTOPp->io_fpu_dec_ren1) 
+        vcdp->chgBit(c+25185,(((((IData)(vlTOPp->io_fpu_dec_ren1) 
                                  & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7443)) 
                                 | ((IData)(vlTOPp->io_fpu_dec_ren2) 
                                    & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7445))) 
@@ -13110,7 +13035,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                   & ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs3) 
                                      == (0x1fU & (vlSymsp->TOP__Rocket.__PVT__ex_reg_inst 
                                                   >> 7U)))))));
-        vcdp->chgBit(c+25385,((((((IData)(vlTOPp->io_fpu_dec_ren1) 
+        vcdp->chgBit(c+25193,((((((IData)(vlTOPp->io_fpu_dec_ren1) 
                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7443)) 
                                  | ((IData)(vlTOPp->io_fpu_dec_ren2) 
                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7445))) 
@@ -13120,7 +13045,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                    >> 7U))))) 
                                | ((IData)(vlTOPp->io_fpu_dec_wen) 
                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7447)))));
-        vcdp->chgBit(c+25393,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc) 
+        vcdp->chgBit(c+25201,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_rocc) 
                                & (((((IData)(vlTOPp->io_fpu_dec_ren1) 
                                      & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7443)) 
                                     | ((IData)(vlTOPp->io_fpu_dec_ren2) 
@@ -13132,7 +13057,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                 >> 7U))))) 
                                   | ((IData)(vlTOPp->io_fpu_dec_wen) 
                                      & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7447))))));
-        vcdp->chgBit(c+25401,(((((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_wxd) 
+        vcdp->chgBit(c+25209,(((((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_wxd) 
                                  & ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
                                       & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7443)) 
                                      | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7405) 
@@ -13157,7 +13082,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                    >> 7U))))) 
                                      | ((IData)(vlTOPp->io_fpu_dec_wen) 
                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7447)))))));
-        vcdp->chgBit(c+25409,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid) 
+        vcdp->chgBit(c+25217,(((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid) 
                                & ((((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_wxd) 
                                     & ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7443)) 
@@ -13183,21 +13108,21 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                       >> 7U))))) 
                                         | ((IData)(vlTOPp->io_fpu_dec_wen) 
                                            & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7447))))))));
-        vcdp->chgBit(c+25417,(((IData)(vlTOPp->io_fpu_dec_ren1) 
+        vcdp->chgBit(c+25225,(((IData)(vlTOPp->io_fpu_dec_ren1) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7470))));
-        vcdp->chgBit(c+25425,(((IData)(vlTOPp->io_fpu_dec_ren2) 
+        vcdp->chgBit(c+25233,(((IData)(vlTOPp->io_fpu_dec_ren2) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7472))));
-        vcdp->chgBit(c+25433,(((IData)(vlTOPp->io_fpu_dec_ren3) 
+        vcdp->chgBit(c+25241,(((IData)(vlTOPp->io_fpu_dec_ren3) 
                                & ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs3) 
                                   == (0x1fU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                                >> 7U))))));
-        vcdp->chgBit(c+25441,(((IData)(vlTOPp->io_fpu_dec_wen) 
+        vcdp->chgBit(c+25249,(((IData)(vlTOPp->io_fpu_dec_wen) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7474))));
-        vcdp->chgBit(c+25449,((((IData)(vlTOPp->io_fpu_dec_ren1) 
+        vcdp->chgBit(c+25257,((((IData)(vlTOPp->io_fpu_dec_ren1) 
                                 & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7470)) 
                                | ((IData)(vlTOPp->io_fpu_dec_ren2) 
                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7472)))));
-        vcdp->chgBit(c+25457,(((((IData)(vlTOPp->io_fpu_dec_ren1) 
+        vcdp->chgBit(c+25265,(((((IData)(vlTOPp->io_fpu_dec_ren1) 
                                  & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7470)) 
                                 | ((IData)(vlTOPp->io_fpu_dec_ren2) 
                                    & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7472))) 
@@ -13205,7 +13130,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                   & ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs3) 
                                      == (0x1fU & (vlSymsp->TOP__Rocket.__PVT__mem_reg_inst 
                                                   >> 7U)))))));
-        vcdp->chgBit(c+25465,((((((IData)(vlTOPp->io_fpu_dec_ren1) 
+        vcdp->chgBit(c+25273,((((((IData)(vlTOPp->io_fpu_dec_ren1) 
                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7470)) 
                                  | ((IData)(vlTOPp->io_fpu_dec_ren2) 
                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7472))) 
@@ -13215,7 +13140,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                    >> 7U))))) 
                                | ((IData)(vlTOPp->io_fpu_dec_wen) 
                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7474)))));
-        vcdp->chgBit(c+25473,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc) 
+        vcdp->chgBit(c+25281,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_rocc) 
                                & (((((IData)(vlTOPp->io_fpu_dec_ren1) 
                                      & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7470)) 
                                     | ((IData)(vlTOPp->io_fpu_dec_ren2) 
@@ -13227,7 +13152,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                 >> 7U))))) 
                                   | ((IData)(vlTOPp->io_fpu_dec_wen) 
                                      & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7474))))));
-        vcdp->chgBit(c+25481,((((IData)(vlSymsp->TOP__Rocket.__PVT__data_hazard_mem) 
+        vcdp->chgBit(c+25289,((((IData)(vlSymsp->TOP__Rocket.__PVT__data_hazard_mem) 
                                 & (((((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr)) 
                                       | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem) 
                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_slow_bypass))) 
@@ -13246,7 +13171,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                    >> 7U))))) 
                                      | ((IData)(vlTOPp->io_fpu_dec_wen) 
                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7474)))))));
-        vcdp->chgBit(c+25489,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_valid) 
+        vcdp->chgBit(c+25297,(((IData)(vlSymsp->TOP__Rocket.__PVT__mem_reg_valid) 
                                & (((IData)(vlSymsp->TOP__Rocket.__PVT__data_hazard_mem) 
                                    & (((((0U != (IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_csr)) 
                                          | ((IData)(vlSymsp->TOP__Rocket.__PVT__mem_ctrl_mem) 
@@ -13266,21 +13191,21 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                       >> 7U))))) 
                                         | ((IData)(vlTOPp->io_fpu_dec_wen) 
                                            & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7474))))))));
-        vcdp->chgBit(c+25497,(((IData)(vlTOPp->io_fpu_dec_ren1) 
+        vcdp->chgBit(c+25305,(((IData)(vlTOPp->io_fpu_dec_ren1) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7493))));
-        vcdp->chgBit(c+25505,(((IData)(vlTOPp->io_fpu_dec_ren2) 
+        vcdp->chgBit(c+25313,(((IData)(vlTOPp->io_fpu_dec_ren2) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7495))));
-        vcdp->chgBit(c+25513,(((IData)(vlTOPp->io_fpu_dec_ren3) 
+        vcdp->chgBit(c+25321,(((IData)(vlTOPp->io_fpu_dec_ren3) 
                                & ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs3) 
                                   == (0x1fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                >> 7U))))));
-        vcdp->chgBit(c+25521,(((IData)(vlTOPp->io_fpu_dec_wen) 
+        vcdp->chgBit(c+25329,(((IData)(vlTOPp->io_fpu_dec_wen) 
                                & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7497))));
-        vcdp->chgBit(c+25529,((((IData)(vlTOPp->io_fpu_dec_ren1) 
+        vcdp->chgBit(c+25337,((((IData)(vlTOPp->io_fpu_dec_ren1) 
                                 & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7493)) 
                                | ((IData)(vlTOPp->io_fpu_dec_ren2) 
                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7495)))));
-        vcdp->chgBit(c+25537,(((((IData)(vlTOPp->io_fpu_dec_ren1) 
+        vcdp->chgBit(c+25345,(((((IData)(vlTOPp->io_fpu_dec_ren1) 
                                  & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7493)) 
                                 | ((IData)(vlTOPp->io_fpu_dec_ren2) 
                                    & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7495))) 
@@ -13288,7 +13213,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                   & ((IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1940_rs3) 
                                      == (0x1fU & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                   >> 7U)))))));
-        vcdp->chgBit(c+25545,((((((IData)(vlTOPp->io_fpu_dec_ren1) 
+        vcdp->chgBit(c+25353,((((((IData)(vlTOPp->io_fpu_dec_ren1) 
                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7493)) 
                                  | ((IData)(vlTOPp->io_fpu_dec_ren2) 
                                     & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7495))) 
@@ -13298,7 +13223,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                    >> 7U))))) 
                                | ((IData)(vlTOPp->io_fpu_dec_wen) 
                                   & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7497)))));
-        vcdp->chgBit(c+25553,(((IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_wfd) 
+        vcdp->chgBit(c+25361,(((IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_wfd) 
                                & (((((IData)(vlTOPp->io_fpu_dec_ren1) 
                                      & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7493)) 
                                     | ((IData)(vlTOPp->io_fpu_dec_ren2) 
@@ -13310,7 +13235,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                 >> 7U))))) 
                                   | ((IData)(vlTOPp->io_fpu_dec_wen) 
                                      & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7497))))));
-        vcdp->chgBit(c+25561,(((((IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_wxd) 
+        vcdp->chgBit(c+25369,(((((IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_wxd) 
                                  & ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
                                       & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7493)) 
                                      | ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7405) 
@@ -13330,7 +13255,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                    >> 7U))))) 
                                      | ((IData)(vlTOPp->io_fpu_dec_wen) 
                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7497)))))));
-        vcdp->chgBit(c+25569,(((IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_valid) 
+        vcdp->chgBit(c+25377,(((IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_valid) 
                                & ((((IData)(vlSymsp->TOP__Rocket.__PVT__wb_ctrl_wxd) 
                                     & ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
                                          & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7493)) 
@@ -13351,16 +13276,16 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                       >> 7U))))) 
                                         | ((IData)(vlTOPp->io_fpu_dec_wen) 
                                            & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7497))))))));
-        vcdp->chgBit(c+25577,(((~ (IData)(vlTOPp->io_dmem_req_ready)) 
+        vcdp->chgBit(c+25385,(((~ (IData)(vlTOPp->io_dmem_req_ready)) 
                                & ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7615) 
                                   | (IData)(vlSymsp->TOP__Rocket.__PVT__dcache_blocked)))));
-        vcdp->chgBit(c+25585,((1U & ((~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_xcpt)) 
+        vcdp->chgBit(c+25393,((1U & ((~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_xcpt)) 
                                      & (~ (IData)(vlTOPp->io_rocc_cmd_ready))))));
-        vcdp->chgBit(c+25593,((((~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_xcpt)) 
+        vcdp->chgBit(c+25401,((((~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_xcpt)) 
                                 & (~ (IData)(vlTOPp->io_rocc_cmd_ready))) 
                                & ((IData)(vlSymsp->TOP__Rocket.__PVT__T_7634) 
                                   | (IData)(vlSymsp->TOP__Rocket.__PVT__rocc_blocked)))));
-        vcdp->chgBit(c+25601,((((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid) 
+        vcdp->chgBit(c+25409,((((IData)(vlSymsp->TOP__Rocket.__PVT__ex_reg_valid) 
                                 & ((((IData)(vlSymsp->TOP__Rocket.__PVT__ex_ctrl_wxd) 
                                      & ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
                                           & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7443)) 
@@ -13408,13 +13333,13 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                       >> 7U))))) 
                                            | ((IData)(vlTOPp->io_fpu_dec_wen) 
                                               & (IData)(vlSymsp->TOP__Rocket.__PVT__T_7474)))))))));
-        vcdp->chgBit(c+25609,(((0x2000030U == (0x2000074U 
+        vcdp->chgBit(c+25417,(((0x2000030U == (0x2000074U 
                                                & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits)) 
                                & ((~ ((0U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
                                       | ((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
                                          & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_wxd))))) 
                                   | (IData)(vlSymsp->TOP__Rocket.__PVT__T_7002)))));
-        vcdp->chgBit(c+25617,(((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7528) 
+        vcdp->chgBit(c+25425,(((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7528) 
                                  | ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
                                       & ((0xfffffffeU 
                                           & vlSymsp->TOP__Rocket.__PVT__T_7410) 
@@ -13435,7 +13360,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                          | ((5U == (IData)(vlSymsp->TOP__Rocket.__PVT__div__DOT__state)) 
                                             & (~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_wxd))))) 
                                      | (IData)(vlSymsp->TOP__Rocket.__PVT__T_7002))))));
-        vcdp->chgBit(c+25625,((((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7528) 
+        vcdp->chgBit(c+25433,((((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7528) 
                                   | ((((IData)(vlSymsp->TOP__Rocket.__PVT__T_7402) 
                                        & ((0xfffffffeU 
                                            & vlSymsp->TOP__Rocket.__PVT__T_7410) 
@@ -13465,28 +13390,28 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                          (0x1048U & vlSymsp->TOP__Rocket.ibuf_io_inst_0_bits_inst_bits))) 
                                      | ((IData)(vlSymsp->TOP__Rocket.__PVT__id_reg_fence) 
                                         & (IData)(vlSymsp->TOP__Rocket.__PVT__T_6383)))))));
-        vcdp->chgBit(c+25633,((1U & (~ (IData)(vlTOPp->io_dmem_s2_nack)))));
-        vcdp->chgBus(c+25641,((((IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_pf_ld) 
+        vcdp->chgBit(c+25441,((1U & (~ (IData)(vlTOPp->io_dmem_s2_nack)))));
+        vcdp->chgBus(c+25449,((((IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_pf_ld) 
                                 << 1U) | (IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_pf_st))),2);
-        vcdp->chgBus(c+25649,((((IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_ld) 
+        vcdp->chgBus(c+25457,((((IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_ld) 
                                 << 1U) | (IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_st))),2);
-        vcdp->chgBus(c+25657,(((((IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_ld) 
+        vcdp->chgBus(c+25465,(((((IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_ld) 
                                  << 3U) | ((IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_st) 
                                            << 2U)) 
                                | (((IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_pf_ld) 
                                    << 1U) | (IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_pf_st)))),4);
-        vcdp->chgBit(c+25665,((0U != ((((IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_ld) 
+        vcdp->chgBit(c+25473,((0U != ((((IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_ld) 
                                         << 3U) | ((IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_st) 
                                                   << 2U)) 
                                       | (((IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_pf_ld) 
                                           << 1U) | (IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_pf_st))))));
-        vcdp->chgBit(c+25673,(((0U != ((((IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_ld) 
+        vcdp->chgBit(c+25481,(((0U != ((((IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_ld) 
                                          << 3U) | ((IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_st) 
                                                    << 2U)) 
                                        | (((IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_pf_ld) 
                                            << 1U) | (IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_pf_st)))) 
                                | (IData)(vlSymsp->TOP__Rocket.reset))));
-        vcdp->chgBit(c+25681,((1U & (~ ((0U != ((((IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_ld) 
+        vcdp->chgBit(c+25489,((1U & (~ ((0U != ((((IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_ld) 
                                                   << 3U) 
                                                  | ((IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_ma_st) 
                                                     << 2U)) 
@@ -13494,21 +13419,21 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                     << 1U) 
                                                    | (IData)(vlSymsp->TOP__Rocket.io_dmem_xcpt_pf_st)))) 
                                         | (IData)(vlSymsp->TOP__Rocket.reset))))));
-        vcdp->chgBit(c+25689,((1U & (~ (IData)(vlSymsp->TOP__Rocket.reset)))));
-        vcdp->chgBit(c+25697,((1U & (((~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_singleStepped)) 
+        vcdp->chgBit(c+25497,((1U & (~ (IData)(vlSymsp->TOP__Rocket.reset)))));
+        vcdp->chgBit(c+25505,((1U & (((~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_singleStepped)) 
                                       | (~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_valid))) 
                                      | (IData)(vlSymsp->TOP__Rocket.reset)))));
-        vcdp->chgBit(c+25705,((1U & (~ (((~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_singleStepped)) 
+        vcdp->chgBit(c+25513,((1U & (~ (((~ (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_singleStepped)) 
                                          | (~ (IData)(vlSymsp->TOP__Rocket.__PVT__wb_valid))) 
                                         | (IData)(vlSymsp->TOP__Rocket.reset))))));
-        vcdp->chgBus(c+25713,((((IData)(vlSymsp->TOP__Rocket.csr_io_rocc_interrupt) 
+        vcdp->chgBus(c+25521,((((IData)(vlSymsp->TOP__Rocket.csr_io_rocc_interrupt) 
                                 << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_meip))),2);
-        vcdp->chgBus(c+25721,(((((IData)(vlSymsp->TOP__Rocket.csr_io_rocc_interrupt) 
+        vcdp->chgBus(c+25529,(((((IData)(vlSymsp->TOP__Rocket.csr_io_rocc_interrupt) 
                                  << 3U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_meip) 
                                            << 2U)) 
                                | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_heip) 
                                    << 1U) | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_seip)))),4);
-        vcdp->chgBus(c+25729,((((((IData)(vlSymsp->TOP__Rocket.csr_io_rocc_interrupt) 
+        vcdp->chgBus(c+25537,((((((IData)(vlSymsp->TOP__Rocket.csr_io_rocc_interrupt) 
                                   << 6U) | ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_meip) 
                                             << 5U)) 
                                 | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_heip) 
@@ -13518,31 +13443,31 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                    << 2U) | (((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_mtip) 
                                               << 1U) 
                                              | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_mip_htip))))),7);
-        vcdp->chgBit(c+25737,(((1U >= (7U & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret) 
+        vcdp->chgBit(c+25545,(((1U >= (7U & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret) 
                                              + (3U 
                                                 & ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_xcpt) 
                                                    + (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5508)))))) 
                                | (IData)(vlSymsp->TOP__Rocket.reset))));
-        vcdp->chgBit(c+25745,((1U & (~ ((1U >= (7U 
+        vcdp->chgBit(c+25553,((1U & (~ ((1U >= (7U 
                                                 & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__insn_ret) 
                                                    + 
                                                    (3U 
                                                     & ((IData)(vlSymsp->TOP__Rocket.__PVT__wb_reg_xcpt) 
                                                        + (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5508)))))) 
                                         | (IData)(vlSymsp->TOP__Rocket.reset))))));
-        vcdp->chgBus(c+25753,(((0xf14U == (0xfffU & 
+        vcdp->chgBus(c+25561,(((0xf14U == (0xfffU & 
                                            (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                             >> 0x14U)))
                                 ? vlSymsp->TOP__Rocket.csr_io_hartid
                                 : 0U)),32);
-        vcdp->chgQuad(c+25761,((QData)((IData)(((0xf14U 
+        vcdp->chgQuad(c+25569,((QData)((IData)(((0xf14U 
                                                  == 
                                                  (0xfffU 
                                                   & (vlSymsp->TOP__Rocket.__PVT__wb_reg_inst 
                                                      >> 0x14U)))
                                                  ? vlSymsp->TOP__Rocket.csr_io_hartid
                                                  : 0U)))),64);
-        vcdp->chgQuad(c+25777,((((((vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5932 
+        vcdp->chgQuad(c+25585,((((((vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5932 
                                     | (QData)((IData)(
                                                       ((0x340U 
                                                         == 
@@ -13583,7 +13508,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                         >> 0x14U)))
                                                     ? vlSymsp->TOP__Rocket.csr_io_hartid
                                                     : 0U))))),64);
-        vcdp->chgQuad(c+25793,(((((((vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5932 
+        vcdp->chgQuad(c+25601,(((((((vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_5932 
                                      | (QData)((IData)(
                                                        ((0x340U 
                                                          == 
@@ -13664,10 +13589,10 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                               << 2U) 
                                                              | (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_dcsr_prv)))))
                                                     : 0U))))),64);
-        vcdp->chgBus(c+25809,(((IData)(vlSymsp->TOP__Rocket.io_fpu_fcsr_flags_valid)
+        vcdp->chgBus(c+25617,(((IData)(vlSymsp->TOP__Rocket.io_fpu_fcsr_flags_valid)
                                 ? (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_6036)
                                 : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_fflags))),5);
-        vcdp->chgBit(c+25817,((1U & ((~ (IData)(vlSymsp->TOP__Rocket.reset)) 
+        vcdp->chgBit(c+25625,((1U & ((~ (IData)(vlSymsp->TOP__Rocket.reset)) 
                                      & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__wen)
                                          ? ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_6341)
                                              ? ((0x7a1U 
@@ -13687,7 +13612,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                  : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action))
                                              : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action))
                                          : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_action))))));
-        vcdp->chgBit(c+25825,((1U & ((~ (IData)(vlSymsp->TOP__Rocket.reset)) 
+        vcdp->chgBit(c+25633,((1U & ((~ (IData)(vlSymsp->TOP__Rocket.reset)) 
                                      & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__wen)
                                          ? ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_6341)
                                              ? ((0x7a1U 
@@ -13707,7 +13632,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                  : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_dmode))
                                              : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_dmode))
                                          : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_dmode))))));
-        vcdp->chgBit(c+25833,((1U & ((~ (IData)(vlSymsp->TOP__Rocket.reset)) 
+        vcdp->chgBit(c+25641,((1U & ((~ (IData)(vlSymsp->TOP__Rocket.reset)) 
                                      & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__wen)
                                          ? ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_6341)
                                              ? ((0x7a1U 
@@ -13722,7 +13647,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                  : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_r))
                                              : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_r))
                                          : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_r))))));
-        vcdp->chgBit(c+25841,((1U & ((~ (IData)(vlSymsp->TOP__Rocket.reset)) 
+        vcdp->chgBit(c+25649,((1U & ((~ (IData)(vlSymsp->TOP__Rocket.reset)) 
                                      & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__wen)
                                          ? ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_6341)
                                              ? ((0x7a1U 
@@ -13739,7 +13664,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                  : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_w))
                                              : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_w))
                                          : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_w))))));
-        vcdp->chgBit(c+25849,((1U & ((~ (IData)(vlSymsp->TOP__Rocket.reset)) 
+        vcdp->chgBit(c+25657,((1U & ((~ (IData)(vlSymsp->TOP__Rocket.reset)) 
                                      & ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__wen)
                                          ? ((IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__T_6341)
                                              ? ((0x7a1U 
@@ -13756,188 +13681,212 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                                  : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_x))
                                              : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_x))
                                          : (IData)(vlSymsp->TOP__Rocket.__PVT__csr__DOT__reg_bp_0_control_x))))));
-        vcdp->chgBus(c+25857,(((0x10U <= (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1635))
+        vcdp->chgBus(c+25665,(((0x10U <= (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1635))
                                 ? ((8U <= (0xfU & (IData)(vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1635)))
                                     ? vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.io_in
                                     : vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1778_bits)
                                 : vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.__PVT__T_1934_bits)),32);
-        vcdp->chgBit(c+25865,((1U & (vlTOPp->io_imem_resp_bits_pc 
+        vcdp->chgBit(c+25673,(vlSymsp->TOP__Rocket__ibuf.nBufValid));
+        vcdp->chgBit(c+25681,((1U & (vlTOPp->io_imem_resp_bits_pc 
                                      >> 1U))));
-        vcdp->chgBit(c+25873,(((IData)(vlTOPp->io_imem_resp_bits_btb_valid) 
+        vcdp->chgBit(c+25689,(((IData)(vlTOPp->io_imem_resp_bits_btb_valid) 
                                & (IData)(vlTOPp->io_imem_resp_bits_btb_bits_taken))));
-        vcdp->chgBus(c+25881,((3U & ((IData)(1U) + (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx)))),2);
-        vcdp->chgBus(c+25889,((((IData)(vlTOPp->io_imem_resp_bits_btb_valid) 
+        vcdp->chgBus(c+25697,((3U & ((IData)(1U) + (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx)))),2);
+        vcdp->chgBus(c+25705,((((IData)(vlTOPp->io_imem_resp_bits_btb_valid) 
                                 & (IData)(vlTOPp->io_imem_resp_bits_btb_bits_taken))
                                 ? (3U & ((IData)(1U) 
                                          + (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx)))
                                 : 2U)),2);
-        vcdp->chgBus(c+25897,((1U & (vlTOPp->io_imem_resp_bits_pc 
+        vcdp->chgBus(c+25713,((1U & (vlTOPp->io_imem_resp_bits_pc 
                                      >> 1U))),2);
-        vcdp->chgBus(c+25905,(((IData)(vlTOPp->io_imem_resp_valid)
+        vcdp->chgBus(c+25721,(vlSymsp->TOP__Rocket__ibuf.nBufValid),2);
+        vcdp->chgBus(c+25729,(((IData)(vlTOPp->io_imem_resp_valid)
                                 ? (3U & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_373))
                                 : 0U)),2);
-        vcdp->chgBit(c+25913,(((IData)(vlTOPp->io_imem_resp_valid) 
+        vcdp->chgBus(c+25737,((7U & ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid) 
+                                     - (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__GEN_30)))),3);
+        vcdp->chgBus(c+25745,((3U & ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid) 
+                                     - (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__GEN_30)))),2);
+        vcdp->chgBus(c+25753,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_378)
+                                ? 0U : (3U & ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid) 
+                                              - (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__GEN_30))))),2);
+        vcdp->chgBit(c+25761,(((IData)(vlTOPp->io_imem_resp_valid) 
                                & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_378))));
-        vcdp->chgBit(c+25921,((((IData)(vlTOPp->io_imem_resp_valid) 
+        vcdp->chgBit(c+25769,((((IData)(vlTOPp->io_imem_resp_valid) 
                                 & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_378)) 
                                & ((3U & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_374)) 
                                   < (3U & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_373))))));
-        vcdp->chgBus(c+25929,((7U & ((1U & (vlTOPp->io_imem_resp_bits_pc 
+        vcdp->chgBus(c+25777,((7U & ((1U & (vlTOPp->io_imem_resp_bits_pc 
                                             >> 1U)) 
                                      + (3U & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_374))))),3);
-        vcdp->chgBus(c+25937,((3U & ((1U & (vlTOPp->io_imem_resp_bits_pc 
+        vcdp->chgBus(c+25785,((3U & ((1U & (vlTOPp->io_imem_resp_bits_pc 
                                             >> 1U)) 
                                      + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_374)))),2);
-        vcdp->chgBus(c+25945,((0xffffU & (vlTOPp->io_imem_resp_bits_data 
+        vcdp->chgBus(c+25793,((0xffffU & (vlTOPp->io_imem_resp_bits_data 
                                           >> 0x10U))),16);
-        vcdp->chgBus(c+25953,(((0xffff0000U & vlTOPp->io_imem_resp_bits_data) 
+        vcdp->chgBus(c+25801,(((0xffff0000U & vlTOPp->io_imem_resp_bits_data) 
                                | (0xffffU & (vlTOPp->io_imem_resp_bits_data 
                                              >> 0x10U)))),32);
-        vcdp->chgQuad(c+25961,((((QData)((IData)(((0xffff0000U 
+        vcdp->chgQuad(c+25809,((((QData)((IData)(((0xffff0000U 
                                                    & vlTOPp->io_imem_resp_bits_data) 
                                                   | (0xffffU 
                                                      & (vlTOPp->io_imem_resp_bits_data 
                                                         >> 0x10U))))) 
                                  << 0x20U) | (QData)((IData)(vlTOPp->io_imem_resp_bits_data)))),64);
-        vcdp->chgBus(c+25977,((3U & ((1U & (vlTOPp->io_imem_resp_bits_pc 
+        vcdp->chgBus(c+25825,((3U & ((1U & (vlTOPp->io_imem_resp_bits_pc 
                                             >> 1U)) 
                                      + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_374)))),6);
-        vcdp->chgBus(c+25985,((0x30U & (((1U & (vlTOPp->io_imem_resp_bits_pc 
+        vcdp->chgBus(c+25833,((0x30U & (((1U & (vlTOPp->io_imem_resp_bits_pc 
                                                 >> 1U)) 
                                          + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_374)) 
                                         << 4U))),6);
-        vcdp->chgBus(c+25993,((0xfffffffcU & vlTOPp->io_imem_resp_bits_pc)),32);
-        vcdp->chgQuad(c+26001,((VL_ULL(0x1ffffffff) 
+        vcdp->chgBus(c+25841,((0xfffffffcU & vlTOPp->io_imem_resp_bits_pc)),32);
+        vcdp->chgQuad(c+25849,((VL_ULL(0x1ffffffff) 
                                 & ((QData)((IData)(vlTOPp->io_imem_resp_bits_pc)) 
                                    + (QData)((IData)(
                                                      (6U 
                                                       & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_374) 
                                                          << 1U))))))),33);
-        vcdp->chgBus(c+26017,((vlTOPp->io_imem_resp_bits_pc 
+        vcdp->chgBus(c+25865,((vlTOPp->io_imem_resp_bits_pc 
                                + (IData)((QData)((IData)(
                                                          (6U 
                                                           & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_374) 
                                                              << 1U))))))),32);
-        vcdp->chgBus(c+26025,((3U & (vlTOPp->io_imem_resp_bits_pc 
+        vcdp->chgBus(c+25873,((3U & (vlTOPp->io_imem_resp_bits_pc 
                                      + (IData)((QData)((IData)(
                                                                (6U 
                                                                 & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_374) 
                                                                    << 1U)))))))),32);
-        vcdp->chgBus(c+26033,(vlTOPp->io_imem_resp_bits_btb_bits_bridx),2);
-        vcdp->chgBus(c+26041,((7U & ((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
+        vcdp->chgBus(c+25881,(vlTOPp->io_imem_resp_bits_btb_bits_bridx),2);
+        vcdp->chgBus(c+25889,((7U & ((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
                                      + (3U & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_374))))),3);
-        vcdp->chgBus(c+26049,((3U & ((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
+        vcdp->chgBus(c+25897,((3U & ((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
                                      + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_374)))),2);
-        vcdp->chgBit(c+26057,(((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
+        vcdp->chgBit(c+25905,(((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                                 ? (IData)(vlTOPp->io_imem_resp_bits_btb_bits_taken)
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_taken))));
-        vcdp->chgBus(c+26065,(((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
+        vcdp->chgBus(c+25913,(((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                                 ? (IData)(vlTOPp->io_imem_resp_bits_btb_bits_mask)
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_mask))),2);
-        vcdp->chgBus(c+26073,((3U & ((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
+        vcdp->chgBus(c+25921,((3U & ((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                                       ? ((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
                                          + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_374))
                                       : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bridx)))),2);
-        vcdp->chgBus(c+26081,(((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
+        vcdp->chgBus(c+25929,(((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                                 ? vlTOPp->io_imem_resp_bits_btb_bits_target
                                 : vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_target)),32);
-        vcdp->chgBit(c+26089,(((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
+        vcdp->chgBit(c+25937,(((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                                 ? (IData)(vlTOPp->io_imem_resp_bits_btb_bits_entry)
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_entry))));
-        vcdp->chgBit(c+26097,(((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
+        vcdp->chgBit(c+25945,(((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                                 ? (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bht_history)
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bht_history))));
-        vcdp->chgBus(c+26105,(((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
+        vcdp->chgBus(c+25953,(((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                                 ? (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bht_value)
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bht_value))),2);
-        vcdp->chgBit(c+26113,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBus(c+25961,((3U & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+                                      ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_381)
+                                      : ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_378)
+                                          ? 0U : ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid) 
+                                                  - (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__GEN_30)))))),2);
+        vcdp->chgBit(c+25969,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                 ? (IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_valid))));
-        vcdp->chgBit(c+26121,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBit(c+25977,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                 ? (IData)(vlTOPp->io_imem_resp_bits_btb_bits_taken)
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_taken))));
-        vcdp->chgBus(c+26129,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBus(c+25985,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                 ? (IData)(vlTOPp->io_imem_resp_bits_btb_bits_mask)
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_mask))),2);
-        vcdp->chgBit(c+26137,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBit(c+25993,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                 ? (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx)
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_bridx))));
-        vcdp->chgBus(c+26145,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBus(c+26001,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                 ? vlTOPp->io_imem_resp_bits_btb_bits_target
                                 : vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_target)),32);
-        vcdp->chgBit(c+26153,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBit(c+26009,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                 ? (IData)(vlTOPp->io_imem_resp_bits_btb_bits_entry)
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_entry))));
-        vcdp->chgBit(c+26161,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBit(c+26017,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                 ? (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bht_history)
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_bht_history))));
-        vcdp->chgBus(c+26169,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBus(c+26025,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                 ? (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bht_value)
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_btb_bits_bht_value))),2);
-        vcdp->chgBus(c+26177,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBus(c+26033,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                 ? (IData)(vlSymsp->TOP__Rocket.ibuf_io_imem_bits_mask)
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_mask))),2);
-        vcdp->chgBit(c+26185,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBit(c+26041,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                 ? (IData)(vlSymsp->TOP__Rocket.ibuf_io_imem_bits_xcpt_if)
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_xcpt_if))));
-        vcdp->chgBit(c+26193,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBit(c+26049,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                 ? (IData)(vlTOPp->io_imem_resp_bits_replay)
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_replay))));
-        vcdp->chgBit(c+26201,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBit(c+26057,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                 ? (IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBHit))));
-        vcdp->chgBit(c+26209,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBit(c+26065,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                 ? ((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                                     ? (IData)(vlTOPp->io_imem_resp_bits_btb_bits_taken)
                                     : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_taken))
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_taken))));
-        vcdp->chgBus(c+26217,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBus(c+26073,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                 ? ((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                                     ? (IData)(vlTOPp->io_imem_resp_bits_btb_bits_mask)
                                     : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_mask))
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_mask))),2);
-        vcdp->chgBus(c+26225,((3U & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBus(c+26081,((3U & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                       ? ((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                                           ? ((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
                                              + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_374))
                                           : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bridx))
                                       : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bridx)))),2);
-        vcdp->chgBus(c+26233,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBus(c+26089,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                 ? ((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                                     ? vlTOPp->io_imem_resp_bits_btb_bits_target
                                     : vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_target)
                                 : vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_target)),32);
-        vcdp->chgBit(c+26241,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBit(c+26097,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                 ? ((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                                     ? (IData)(vlTOPp->io_imem_resp_bits_btb_bits_entry)
                                     : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_entry))
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_entry))));
-        vcdp->chgBit(c+26249,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBit(c+26105,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                 ? ((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                                     ? (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bht_history)
                                     : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bht_history))
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bht_history))));
-        vcdp->chgBus(c+26257,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+        vcdp->chgBus(c+26113,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
                                 ? ((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                                     ? (IData)(vlTOPp->io_imem_resp_bits_btb_bits_bht_value)
                                     : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bht_value))
                                 : (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bht_value))),2);
-        vcdp->chgBus(c+26265,((7U & ((3U & ((IData)(2U) 
-                                            + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid))) 
+        vcdp->chgBus(c+26121,(((IData)(vlSymsp->TOP__Rocket.__PVT__take_pc_mem_wb)
+                                ? 0U : (3U & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_399)
+                                               ? (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_381)
+                                               : ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_378)
+                                                   ? 0U
+                                                   : 
+                                                  ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid) 
+                                                   - (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__GEN_30))))))),2);
+        vcdp->chgBus(c+26129,((7U & ((IData)(2U) + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)))),3);
+        vcdp->chgBus(c+26137,((3U & ((IData)(2U) + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)))),2);
+        vcdp->chgBus(c+26145,((7U & ((3U & ((IData)(2U) 
+                                            + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid))) 
                                      - (1U & (vlTOPp->io_imem_resp_bits_pc 
                                               >> 1U))))),3);
-        vcdp->chgBus(c+26273,((3U & (((IData)(2U) + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+        vcdp->chgBus(c+26153,((3U & (((IData)(2U) + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                      - (1U & (vlTOPp->io_imem_resp_bits_pc 
                                               >> 1U))))),2);
-        vcdp->chgBus(c+26281,((0xffffU & vlTOPp->io_imem_resp_bits_data)),16);
-        vcdp->chgBus(c+26289,(((0xffff0000U & (vlTOPp->io_imem_resp_bits_data 
+        vcdp->chgBus(c+26161,((0xffffU & vlTOPp->io_imem_resp_bits_data)),16);
+        vcdp->chgBus(c+26169,(((0xffff0000U & (vlTOPp->io_imem_resp_bits_data 
                                                << 0x10U)) 
                                | (0xffffU & vlTOPp->io_imem_resp_bits_data))),32);
-        vcdp->chgBus(c+26297,((3U & (((IData)(2U) + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+        vcdp->chgBus(c+26177,((3U & (((IData)(2U) + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                      - (1U & (vlTOPp->io_imem_resp_bits_pc 
                                               >> 1U))))),6);
-        vcdp->chgBus(c+26305,((0x30U & ((((IData)(2U) 
-                                          + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+        vcdp->chgBus(c+26185,((0x30U & ((((IData)(2U) 
+                                          + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                          - (1U & (vlTOPp->io_imem_resp_bits_pc 
                                                   >> 1U))) 
                                         << 4U))),6);
@@ -13991,7 +13940,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                   >> 0x20U));
         VL_EXTEND_WW(191,128, __Vtemp232, __Vtemp231);
         VL_SHIFTL_WWI(191,191,6, __Vtemp233, __Vtemp232, 
-                      (0x30U & ((((IData)(2U) + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                      (0x30U & ((((IData)(2U) + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                  - (1U & (vlTOPp->io_imem_resp_bits_pc 
                                           >> 1U))) 
                                 << 4U)));
@@ -14001,7 +13950,7 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
         __Vtemp234[3U] = __Vtemp233[3U];
         __Vtemp234[4U] = __Vtemp233[4U];
         __Vtemp234[5U] = (0x7fffffffU & __Vtemp233[5U]);
-        vcdp->chgArray(c+26313,(__Vtemp234),191);
+        vcdp->chgArray(c+26193,(__Vtemp234),191);
         __Vtemp236[0U] = (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_427);
         __Vtemp236[1U] = (IData)((vlSymsp->TOP__Rocket__ibuf.__PVT__T_427 
                                   >> 0x20U));
@@ -14052,11 +14001,23 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                   >> 0x20U));
         VL_EXTEND_WW(191,128, __Vtemp237, __Vtemp236);
         VL_SHIFTL_WWI(191,191,6, __Vtemp238, __Vtemp237, 
-                      (0x30U & ((((IData)(2U) + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                      (0x30U & ((((IData)(2U) + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                  - (1U & (vlTOPp->io_imem_resp_bits_pc 
                                           >> 1U))) 
                                 << 4U)));
-        vcdp->chgBus(c+26361,(__Vtemp238[2U]),32);
+        vcdp->chgBus(c+26241,(__Vtemp238[2U]),32);
+        vcdp->chgBus(c+26249,(vlSymsp->TOP__Rocket__ibuf.nBufValid),5);
+        vcdp->chgBus(c+26257,((0x1fU & ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid) 
+                                        << 4U))),5);
+        vcdp->chgQuad(c+26265,((VL_ULL(0x7fffffffffffffff) 
+                                & (VL_ULL(0xffffffff) 
+                                   << (0x1fU & ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid) 
+                                                << 4U))))),63);
+        vcdp->chgBus(c+26281,((IData)((VL_ULL(0x7fffffffffffffff) 
+                                       & (VL_ULL(0xffffffff) 
+                                          << (0x1fU 
+                                              & ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid) 
+                                                 << 4U)))))),32);
         __Vtemp241[0U] = (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_427);
         __Vtemp241[1U] = (IData)((vlSymsp->TOP__Rocket__ibuf.__PVT__T_427 
                                   >> 0x20U));
@@ -14107,17 +14068,29 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                   >> 0x20U));
         VL_EXTEND_WW(191,128, __Vtemp242, __Vtemp241);
         VL_SHIFTL_WWI(191,191,6, __Vtemp243, __Vtemp242, 
-                      (0x30U & ((((IData)(2U) + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                      (0x30U & ((((IData)(2U) + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                  - (1U & (vlTOPp->io_imem_resp_bits_pc 
                                           >> 1U))) 
                                 << 4U)));
-        vcdp->chgBus(c+26369,((__Vtemp243[2U] & (IData)(
+        vcdp->chgBus(c+26289,((__Vtemp243[2U] & (IData)(
                                                         (VL_ULL(0x7fffffffffffffff) 
                                                          & (VL_ULL(0xffffffff) 
                                                             << 
                                                             (0x1fU 
-                                                             & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid) 
+                                                             & ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid) 
                                                                 << 4U))))))),32);
+        vcdp->chgBus(c+26297,((~ (IData)((VL_ULL(0x7fffffffffffffff) 
+                                          & (VL_ULL(0xffffffff) 
+                                             << (0x1fU 
+                                                 & ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid) 
+                                                    << 4U))))))),32);
+        vcdp->chgBus(c+26305,((vlSymsp->TOP__Rocket__ibuf.__PVT__buf_data 
+                               & (~ (IData)((VL_ULL(0x7fffffffffffffff) 
+                                             & (VL_ULL(0xffffffff) 
+                                                << 
+                                                (0x1fU 
+                                                 & ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid) 
+                                                    << 4U)))))))),32);
         __Vtemp246[0U] = (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_427);
         __Vtemp246[1U] = (IData)((vlSymsp->TOP__Rocket__ibuf.__PVT__T_427 
                                   >> 0x20U));
@@ -14168,94 +14141,117 @@ void VRocket::traceChgThis__6(VRocket__Syms* __restrict vlSymsp, VerilatedVcd* v
                                   >> 0x20U));
         VL_EXTEND_WW(191,128, __Vtemp247, __Vtemp246);
         VL_SHIFTL_WWI(191,191,6, __Vtemp248, __Vtemp247, 
-                      (0x30U & ((((IData)(2U) + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                      (0x30U & ((((IData)(2U) + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                  - (1U & (vlTOPp->io_imem_resp_bits_pc 
                                           >> 1U))) 
                                 << 4U)));
-        vcdp->chgBus(c+26377,(((__Vtemp248[2U] & (IData)(
+        vcdp->chgBus(c+26313,(((__Vtemp248[2U] & (IData)(
                                                          (VL_ULL(0x7fffffffffffffff) 
                                                           & (VL_ULL(0xffffffff) 
                                                              << 
                                                              (0x1fU 
-                                                              & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid) 
+                                                              & ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid) 
                                                                  << 4U)))))) 
                                | (vlSymsp->TOP__Rocket__ibuf.__PVT__buf_data 
                                   & (~ (IData)((VL_ULL(0x7fffffffffffffff) 
                                                 & (VL_ULL(0xffffffff) 
                                                    << 
                                                    (0x1fU 
-                                                    & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid) 
+                                                    & ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid) 
                                                        << 4U))))))))),32);
-        vcdp->chgBus(c+26385,(((IData)(vlSymsp->TOP__Rocket.ibuf_io_imem_bits_xcpt_if)
+        vcdp->chgBus(c+26321,((3U & ((IData)(1U) << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)))),2);
+        vcdp->chgBus(c+26329,((7U & ((3U & ((IData)(1U) 
+                                            << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid))) 
+                                     - (IData)(1U)))),3);
+        vcdp->chgBus(c+26337,((3U & (((IData)(1U) << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
+                                     - (IData)(1U)))),2);
+        vcdp->chgBus(c+26345,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_xcpt_if)
+                                ? (3U & (((IData)(1U) 
+                                          << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
+                                         - (IData)(1U)))
+                                : 0U)),2);
+        vcdp->chgBus(c+26353,((3U & (~ (((IData)(1U) 
+                                         << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
+                                        - (IData)(1U))))),2);
+        vcdp->chgBus(c+26361,(((IData)(vlSymsp->TOP__Rocket.ibuf_io_imem_bits_xcpt_if)
                                 ? (3U & (~ (((IData)(1U) 
-                                             << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                             << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                             - (IData)(1U))))
                                 : 0U)),2);
-        vcdp->chgBus(c+26393,((3U & (((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_xcpt_if)
+        vcdp->chgBus(c+26369,((3U & (((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_xcpt_if)
                                        ? (((IData)(1U) 
-                                           << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                           << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                           - (IData)(1U))
                                        : 0U) | ((IData)(vlSymsp->TOP__Rocket.ibuf_io_imem_bits_xcpt_if)
                                                  ? 
                                                 (~ 
                                                  (((IData)(1U) 
-                                                   << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                                   << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                                   - (IData)(1U)))
                                                  : 0U)))),2);
-        vcdp->chgBus(c+26401,(((IData)(vlTOPp->io_imem_resp_bits_replay)
+        vcdp->chgBus(c+26377,(((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_replay)
+                                ? (3U & (((IData)(1U) 
+                                          << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
+                                         - (IData)(1U)))
+                                : 0U)),2);
+        vcdp->chgBus(c+26385,(((IData)(vlTOPp->io_imem_resp_bits_replay)
                                 ? (3U & (~ (((IData)(1U) 
-                                             << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                             << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                             - (IData)(1U))))
                                 : 0U)),2);
-        vcdp->chgBus(c+26409,((3U & (((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_replay)
+        vcdp->chgBus(c+26393,((3U & (((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_replay)
                                        ? (((IData)(1U) 
-                                           << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                           << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                           - (IData)(1U))
                                        : 0U) | ((IData)(vlTOPp->io_imem_resp_bits_replay)
                                                  ? 
                                                 (~ 
                                                  (((IData)(1U) 
-                                                   << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                                   << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                                   - (IData)(1U)))
                                                  : 0U)))),2);
-        vcdp->chgBus(c+26417,((3U & ((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
-                                     + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)))),2);
-        vcdp->chgBus(c+26425,((7U & ((3U & ((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
-                                            + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid))) 
+        vcdp->chgBus(c+26401,((3U & ((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
+                                     + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)))),2);
+        vcdp->chgBus(c+26409,((7U & ((3U & ((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
+                                            + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid))) 
                                      - (1U & (vlTOPp->io_imem_resp_bits_pc 
                                               >> 1U))))),3);
-        vcdp->chgBus(c+26433,((3U & (((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
-                                      + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+        vcdp->chgBus(c+26417,((3U & (((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
+                                      + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                      - (1U & (vlTOPp->io_imem_resp_bits_pc 
                                               >> 1U))))),2);
-        vcdp->chgBus(c+26441,((0xfU & ((IData)(1U) 
+        vcdp->chgBus(c+26425,((0xfU & ((IData)(1U) 
                                        << (3U & (((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
-                                                  + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                                  + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                                  - 
                                                  (1U 
                                                   & (vlTOPp->io_imem_resp_bits_pc 
                                                      >> 1U))))))),4);
-        vcdp->chgBus(c+26449,(((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
+        vcdp->chgBus(c+26433,(((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                                 ? (0xfU & ((IData)(1U) 
                                            << (3U & 
                                                (((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
-                                                 + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                                 + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                                 - (1U 
                                                    & (vlTOPp->io_imem_resp_bits_pc 
                                                       >> 1U))))))
                                 : 0U)),4);
-        vcdp->chgBus(c+26457,((3U & (((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
+        vcdp->chgBus(c+26441,((3U & (~ (((IData)(1U) 
+                                         << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
+                                        - (IData)(1U))))),4);
+        vcdp->chgBus(c+26449,((3U & (((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                                        ? ((IData)(1U) 
                                           << (3U & 
                                               (((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
-                                                + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                                + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                                - (1U 
                                                   & (vlTOPp->io_imem_resp_bits_pc 
                                                      >> 1U)))))
                                        : 0U) & (~ (
                                                    ((IData)(1U) 
-                                                    << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                                    << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                                    - (IData)(1U)))))),4);
+        vcdp->chgBit(c+26457,(vlSymsp->TOP__Rocket__ibuf.nBufValid));
         vcdp->chgBit(c+26465,((3U == (3U & vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.io_in))));
         vcdp->chgBit(c+26473,(((3U == (3U & vlSymsp->TOP__Rocket__ibuf__RVCExpander_1.io_in)) 
                                & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__btbHitMask) 

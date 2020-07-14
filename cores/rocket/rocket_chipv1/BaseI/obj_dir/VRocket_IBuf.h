@@ -65,7 +65,7 @@ VL_MODULE(VRocket_IBuf) {
     // LOCAL SIGNALS
     // Anonymous structures to workaround compiler member-count bugs
     struct {
-        CData/*0:0*/ __PVT__nBufValid;
+        CData/*0:0*/ nBufValid;
         CData/*0:0*/ __PVT__buf_btb_valid;
         CData/*0:0*/ __PVT__buf_btb_bits_taken;
         CData/*1:0*/ __PVT__buf_btb_bits_mask;

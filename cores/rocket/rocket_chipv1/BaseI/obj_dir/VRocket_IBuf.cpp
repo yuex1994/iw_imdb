@@ -58,9 +58,9 @@ void VRocket_IBuf::_settle__TOP__Rocket__ibuf__1(VRocket__Syms* __restrict vlSym
                                                   << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bridx))
                                                   : 0U) 
                                                 & (((IData)(1U) 
-                                                    << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                                    << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                                    - (IData)(1U))));
-    vlSymsp->TOP__Rocket__ibuf.__PVT__T_488 = ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)
+    vlSymsp->TOP__Rocket__ibuf.__PVT__T_488 = ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)
                                                 ? vlSymsp->TOP__Rocket__ibuf.__PVT__buf_pc
                                                 : vlTOPp->io_imem_resp_bits_pc);
     vlSymsp->TOP__Rocket__ibuf.__PVT__T_377 = (7U & 
@@ -69,7 +69,7 @@ void VRocket_IBuf::_settle__TOP__Rocket__ibuf__1(VRocket__Syms* __restrict vlSym
                                                  (3U 
                                                   & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_373))
                                                   : 0U) 
-                                                + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)));
+                                                + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)));
     __Vtemp2[0U] = (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_427);
     __Vtemp2[1U] = (IData)((vlSymsp->TOP__Rocket__ibuf.__PVT__T_427 
                             >> 0x20U));
@@ -119,7 +119,7 @@ void VRocket_IBuf::_settle__TOP__Rocket__ibuf__1(VRocket__Syms* __restrict vlSym
     VL_EXTEND_WW(191,128, __Vtemp3, __Vtemp2);
     VL_SHIFTL_WWI(191,191,6, __Vtemp4, __Vtemp3, (0x30U 
                                                   & ((((IData)(2U) 
-                                                       + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                                       + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                                       - 
                                                       (1U 
                                                        & (vlTOPp->io_imem_resp_bits_pc 
@@ -129,22 +129,22 @@ void VRocket_IBuf::_settle__TOP__Rocket__ibuf__1(VRocket__Syms* __restrict vlSym
         = ((__Vtemp4[2U] & (IData)((VL_ULL(0x7fffffffffffffff) 
                                     & (VL_ULL(0xffffffff) 
                                        << (0x1fU & 
-                                           ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid) 
+                                           ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid) 
                                             << 4U)))))) 
            | (vlSymsp->TOP__Rocket__ibuf.__PVT__buf_data 
               & (~ (IData)((VL_ULL(0x7fffffffffffffff) 
                             & (VL_ULL(0xffffffff) << 
-                               (0x1fU & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid) 
+                               (0x1fU & ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid) 
                                          << 4U))))))));
     vlSymsp->TOP__Rocket__ibuf.__PVT__btbHitMask = 
         ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471) 
          | (3U & (((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                     ? ((IData)(1U) << (3U & (((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
-                                              + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                              + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                              - (1U 
                                                 & (vlTOPp->io_imem_resp_bits_pc 
                                                    >> 1U)))))
-                    : 0U) & (~ (((IData)(1U) << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                    : 0U) & (~ (((IData)(1U) << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                 - (IData)(1U))))));
     vlSymsp->TOP__Rocket__ibuf.__PVT__xcpt_if = (3U 
                                                  & (((0xfU 
@@ -156,14 +156,14 @@ void VRocket_IBuf::_settle__TOP__Rocket__ibuf__1(VRocket__Syms* __restrict vlSym
                                                     & (((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_xcpt_if)
                                                          ? 
                                                         (((IData)(1U) 
-                                                          << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                                          << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                                          - (IData)(1U))
                                                          : 0U) 
                                                        | ((IData)(vlSymsp->TOP__Rocket.ibuf_io_imem_bits_xcpt_if)
                                                            ? 
                                                           (~ 
                                                            (((IData)(1U) 
-                                                             << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                                             << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                                             - (IData)(1U)))
                                                            : 0U))));
     vlSymsp->TOP__Rocket__ibuf.__PVT__ic_replay = (3U 
@@ -176,14 +176,14 @@ void VRocket_IBuf::_settle__TOP__Rocket__ibuf__1(VRocket__Syms* __restrict vlSym
                                                       & (((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_replay)
                                                            ? 
                                                           (((IData)(1U) 
-                                                            << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                                            << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                                            - (IData)(1U))
                                                            : 0U) 
                                                          | ((IData)(vlTOPp->io_imem_resp_bits_replay)
                                                              ? 
                                                             (~ 
                                                              (((IData)(1U) 
-                                                               << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                                               << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                                               - (IData)(1U)))
                                                              : 0U))));
     vlSymsp->TOP__Rocket__ibuf.__PVT__T_540 = (1U & 
@@ -253,10 +253,10 @@ VL_INLINE_OPT void VRocket_IBuf::_settle__TOP__Rocket__ibuf__2(VRocket__Syms* __
                                                   : 2U)
                                                  : 0U);
     vlSymsp->TOP__Rocket__ibuf.__PVT__T_378 = ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__GEN_30) 
-                                               >= (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid));
+                                               >= (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid));
     vlSymsp->TOP__Rocket__ibuf.__PVT__T_374 = (7U & 
                                                ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__GEN_30) 
-                                                - (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)));
+                                                - (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)));
     vlSymsp->TOP__Rocket__ibuf.__PVT__T_416 = ((0xfffffffcU 
                                                 & vlTOPp->io_imem_resp_bits_pc) 
                                                | (3U 
@@ -314,7 +314,7 @@ VL_INLINE_OPT void VRocket_IBuf::_settle__TOP__Rocket__ibuf__2(VRocket__Syms* __
                                                     ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_378)
                                                       ? 0U
                                                       : 
-                                                     ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid) 
+                                                     ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid) 
                                                       - (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__GEN_30))))));
 }
 
@@ -440,9 +440,8 @@ VL_INLINE_OPT void VRocket_IBuf::_sequent__TOP__Rocket__ibuf__4(VRocket__Syms* _
         vlSymsp->TOP__Rocket__ibuf.__PVT__buf_data 
             = (0xffffU & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_408));
     }
-    vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid = (1U 
-                                                   & ((~ (IData)(vlSymsp->TOP__Rocket.reset)) 
-                                                      & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__GEN_29)));
+    vlSymsp->TOP__Rocket__ibuf.nBufValid = (1U & ((~ (IData)(vlSymsp->TOP__Rocket.reset)) 
+                                                  & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__GEN_29)));
     vlSymsp->TOP__Rocket__ibuf.__PVT__T_471 = (3U & 
                                                (((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBHit)
                                                   ? 
@@ -450,7 +449,7 @@ VL_INLINE_OPT void VRocket_IBuf::_sequent__TOP__Rocket__ibuf__4(VRocket__Syms* _
                                                   << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__ibufBTBResp_bridx))
                                                   : 0U) 
                                                 & (((IData)(1U) 
-                                                    << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                                    << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                                    - (IData)(1U))));
 }
 
@@ -468,7 +467,7 @@ VL_INLINE_OPT void VRocket_IBuf::_combo__TOP__Rocket__ibuf__5(VRocket__Syms* __r
                                                  (3U 
                                                   & (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_373))
                                                   : 0U) 
-                                                + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)));
+                                                + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)));
     __Vtemp7[0U] = (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_427);
     __Vtemp7[1U] = (IData)((vlSymsp->TOP__Rocket__ibuf.__PVT__T_427 
                             >> 0x20U));
@@ -518,7 +517,7 @@ VL_INLINE_OPT void VRocket_IBuf::_combo__TOP__Rocket__ibuf__5(VRocket__Syms* __r
     VL_EXTEND_WW(191,128, __Vtemp8, __Vtemp7);
     VL_SHIFTL_WWI(191,191,6, __Vtemp9, __Vtemp8, (0x30U 
                                                   & ((((IData)(2U) 
-                                                       + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                                       + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                                       - 
                                                       (1U 
                                                        & (vlTOPp->io_imem_resp_bits_pc 
@@ -528,25 +527,25 @@ VL_INLINE_OPT void VRocket_IBuf::_combo__TOP__Rocket__ibuf__5(VRocket__Syms* __r
         = ((__Vtemp9[2U] & (IData)((VL_ULL(0x7fffffffffffffff) 
                                     & (VL_ULL(0xffffffff) 
                                        << (0x1fU & 
-                                           ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid) 
+                                           ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid) 
                                             << 4U)))))) 
            | (vlSymsp->TOP__Rocket__ibuf.__PVT__buf_data 
               & (~ (IData)((VL_ULL(0x7fffffffffffffff) 
                             & (VL_ULL(0xffffffff) << 
-                               (0x1fU & ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid) 
+                               (0x1fU & ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid) 
                                          << 4U))))))));
-    vlSymsp->TOP__Rocket__ibuf.__PVT__T_488 = ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)
+    vlSymsp->TOP__Rocket__ibuf.__PVT__T_488 = ((IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)
                                                 ? vlSymsp->TOP__Rocket__ibuf.__PVT__buf_pc
                                                 : vlTOPp->io_imem_resp_bits_pc);
     vlSymsp->TOP__Rocket__ibuf.__PVT__btbHitMask = 
         ((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__T_471) 
          | (3U & (((IData)(vlTOPp->io_imem_resp_bits_btb_valid)
                     ? ((IData)(1U) << (3U & (((IData)(vlTOPp->io_imem_resp_bits_btb_bits_bridx) 
-                                              + (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                              + (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                              - (1U 
                                                 & (vlTOPp->io_imem_resp_bits_pc 
                                                    >> 1U)))))
-                    : 0U) & (~ (((IData)(1U) << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                    : 0U) & (~ (((IData)(1U) << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                 - (IData)(1U))))));
     vlSymsp->TOP__Rocket__ibuf.__PVT__xcpt_if = (3U 
                                                  & (((0xfU 
@@ -558,14 +557,14 @@ VL_INLINE_OPT void VRocket_IBuf::_combo__TOP__Rocket__ibuf__5(VRocket__Syms* __r
                                                     & (((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_xcpt_if)
                                                          ? 
                                                         (((IData)(1U) 
-                                                          << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                                          << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                                          - (IData)(1U))
                                                          : 0U) 
                                                        | ((IData)(vlSymsp->TOP__Rocket.ibuf_io_imem_bits_xcpt_if)
                                                            ? 
                                                           (~ 
                                                            (((IData)(1U) 
-                                                             << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                                             << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                                             - (IData)(1U)))
                                                            : 0U))));
     vlSymsp->TOP__Rocket__ibuf.__PVT__ic_replay = (3U 
@@ -578,14 +577,14 @@ VL_INLINE_OPT void VRocket_IBuf::_combo__TOP__Rocket__ibuf__5(VRocket__Syms* __r
                                                       & (((IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__buf_replay)
                                                            ? 
                                                           (((IData)(1U) 
-                                                            << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                                            << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                                            - (IData)(1U))
                                                            : 0U) 
                                                          | ((IData)(vlTOPp->io_imem_resp_bits_replay)
                                                              ? 
                                                             (~ 
                                                              (((IData)(1U) 
-                                                               << (IData)(vlSymsp->TOP__Rocket__ibuf.__PVT__nBufValid)) 
+                                                               << (IData)(vlSymsp->TOP__Rocket__ibuf.nBufValid)) 
                                                               - (IData)(1U)))
                                                              : 0U))));
     vlSymsp->TOP__Rocket__ibuf.__PVT__T_540 = (1U & 
@@ -680,7 +679,7 @@ void VRocket_IBuf::_ctor_var_reset() {
     __PVT__io_inst_0_bits_inst_rs1 = VL_RAND_RESET_I(5);
     __PVT__io_inst_0_bits_inst_rs2 = VL_RAND_RESET_I(5);
     __PVT__io_inst_0_bits_inst_rs3 = VL_RAND_RESET_I(5);
-    __PVT__nBufValid = VL_RAND_RESET_I(1);
+    nBufValid = VL_RAND_RESET_I(1);
     __PVT__GEN_33 = VL_RAND_RESET_I(32);
     __PVT__buf_btb_valid = VL_RAND_RESET_I(1);
     __PVT__GEN_34 = VL_RAND_RESET_I(32);

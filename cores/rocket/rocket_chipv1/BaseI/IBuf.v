@@ -38,7 +38,7 @@ module IBuf(
   output [4:0] io_inst_0_bits_inst_rs2,
   output [4:0] io_inst_0_bits_inst_rs3
 );
-  reg  nBufValid;
+  reg  nBufValid /*verilator public*/;
   reg [31:0] GEN_33;
   reg  buf_btb_valid;
   reg [31:0] GEN_34;

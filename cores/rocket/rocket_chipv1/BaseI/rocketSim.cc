@@ -4,6 +4,8 @@
 #include <iostream>
 #include <ctime>
 #include "VRocket.h"
+#include "VRocket_IBuf.h"
+#include "VRocket_RVCExpander.h"
 #include "VRocket_Rocket.h"
 #include "VRocket__Dpi.h"
 #include "VRocket__Syms.h"
@@ -143,7 +145,7 @@ int main(int argc, char **argv) {
         tb->io_fpu_fcsr_flags_bits = 0;
         tb->io_fpu_toint_data = 0;
 
-        tb->ibuf->RVCExpander_1->io_in = 0x00100113;
+        tb->Rocket->ibuf->RVCExpander_1->io_in = 0x00100113;
         for (int i = 0; i < 100; i++) {
             next_time_frame(tb, time, tfp);
         }

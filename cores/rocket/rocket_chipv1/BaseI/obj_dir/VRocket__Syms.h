@@ -35,6 +35,7 @@ class VRocket__Syms : public VerilatedSyms {
     // SCOPE NAMES
     VerilatedScope __Vscope_Rocket;
     VerilatedScope __Vscope_Rocket__csr;
+    VerilatedScope __Vscope_Rocket__ibuf;
     VerilatedScope __Vscope_Rocket__ibuf__RVCExpander_1;
     VerilatedScope __Vscope_TOP;
     
