@@ -1,16 +1,16 @@
-module Queue_46( // @[:freechips.rocketchip.system.DefaultRV32Config.fir@232723.2]
-  input         clock, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@232724.4]
-  input         reset, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@232725.4]
-  output        io_enq_ready, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@232726.4]
-  input         io_enq_valid, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@232726.4]
-  input  [3:0]  io_enq_bits_id, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@232726.4]
-  input  [11:0] io_enq_bits_addr, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@232726.4]
-  input         io_enq_bits_echo_real_last, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@232726.4]
-  input         io_deq_ready, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@232726.4]
-  output        io_deq_valid, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@232726.4]
-  output [3:0]  io_deq_bits_id, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@232726.4]
-  output [11:0] io_deq_bits_addr, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@232726.4]
-  output        io_deq_bits_echo_real_last // @[:freechips.rocketchip.system.DefaultRV32Config.fir@232726.4]
+module Queue_46( // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231544.2]
+  input         clock, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231545.4]
+  input         reset, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231546.4]
+  output        io_enq_ready, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231547.4]
+  input         io_enq_valid, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231547.4]
+  input  [3:0]  io_enq_bits_id, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231547.4]
+  input  [11:0] io_enq_bits_addr, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231547.4]
+  input         io_enq_bits_echo_real_last, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231547.4]
+  input         io_deq_ready, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231547.4]
+  output        io_deq_valid, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231547.4]
+  output [3:0]  io_deq_bits_id, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231547.4]
+  output [11:0] io_deq_bits_addr, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231547.4]
+  output        io_deq_bits_echo_real_last // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231547.4]
 );
 `ifdef RANDOMIZE_MEM_INIT
   reg [31:0] _RAND_0;
@@ -22,71 +22,71 @@ module Queue_46( // @[:freechips.rocketchip.system.DefaultRV32Config.fir@232723.
   reg [31:0] _RAND_4;
   reg [31:0] _RAND_5;
 `endif // RANDOMIZE_REG_INIT
-  reg [3:0] ram_id [0:1]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  wire [3:0] ram_id__T_15_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  wire  ram_id__T_15_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  wire [3:0] ram_id__T_5_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  wire  ram_id__T_5_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  wire  ram_id__T_5_mask; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  wire  ram_id__T_5_en; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  reg [11:0] ram_addr [0:1]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  wire [11:0] ram_addr__T_15_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  wire  ram_addr__T_15_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  wire [11:0] ram_addr__T_5_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  wire  ram_addr__T_5_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  wire  ram_addr__T_5_mask; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  wire  ram_addr__T_5_en; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  reg  ram_echo_real_last [0:1]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  wire  ram_echo_real_last__T_15_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  wire  ram_echo_real_last__T_15_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  wire  ram_echo_real_last__T_5_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  wire  ram_echo_real_last__T_5_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  wire  ram_echo_real_last__T_5_mask; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  wire  ram_echo_real_last__T_5_en; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
-  reg  _T; // @[Counter.scala 29:33:freechips.rocketchip.system.DefaultRV32Config.fir@232729.4]
-  reg  _T_1; // @[Counter.scala 29:33:freechips.rocketchip.system.DefaultRV32Config.fir@232730.4]
-  reg  maybe_full; // @[Decoupled.scala 212:27:freechips.rocketchip.system.DefaultRV32Config.fir@232731.4]
-  wire  ptr_match; // @[Decoupled.scala 214:33:freechips.rocketchip.system.DefaultRV32Config.fir@232732.4]
-  wire  _T_2; // @[Decoupled.scala 215:28:freechips.rocketchip.system.DefaultRV32Config.fir@232733.4]
-  wire  empty; // @[Decoupled.scala 215:25:freechips.rocketchip.system.DefaultRV32Config.fir@232734.4]
-  wire  full; // @[Decoupled.scala 216:24:freechips.rocketchip.system.DefaultRV32Config.fir@232735.4]
-  wire  do_enq; // @[Decoupled.scala 40:37:freechips.rocketchip.system.DefaultRV32Config.fir@232736.4]
-  wire  do_deq; // @[Decoupled.scala 40:37:freechips.rocketchip.system.DefaultRV32Config.fir@232739.4]
-  wire  _T_8; // @[Counter.scala 39:22:freechips.rocketchip.system.DefaultRV32Config.fir@232756.6]
-  wire  _T_11; // @[Counter.scala 39:22:freechips.rocketchip.system.DefaultRV32Config.fir@232762.6]
-  wire  _T_12; // @[Decoupled.scala 227:16:freechips.rocketchip.system.DefaultRV32Config.fir@232765.4]
+  reg [3:0] ram_id [0:1]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  wire [3:0] ram_id__T_15_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  wire  ram_id__T_15_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  wire [3:0] ram_id__T_5_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  wire  ram_id__T_5_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  wire  ram_id__T_5_mask; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  wire  ram_id__T_5_en; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  reg [11:0] ram_addr [0:1]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  wire [11:0] ram_addr__T_15_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  wire  ram_addr__T_15_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  wire [11:0] ram_addr__T_5_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  wire  ram_addr__T_5_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  wire  ram_addr__T_5_mask; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  wire  ram_addr__T_5_en; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  reg  ram_echo_real_last [0:1]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  wire  ram_echo_real_last__T_15_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  wire  ram_echo_real_last__T_15_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  wire  ram_echo_real_last__T_5_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  wire  ram_echo_real_last__T_5_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  wire  ram_echo_real_last__T_5_mask; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  wire  ram_echo_real_last__T_5_en; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
+  reg  _T; // @[Counter.scala 29:33:freechips.rocketchip.system.DefaultRV32Config.fir@231550.4]
+  reg  _T_1; // @[Counter.scala 29:33:freechips.rocketchip.system.DefaultRV32Config.fir@231551.4]
+  reg  maybe_full; // @[Decoupled.scala 212:27:freechips.rocketchip.system.DefaultRV32Config.fir@231552.4]
+  wire  ptr_match; // @[Decoupled.scala 214:33:freechips.rocketchip.system.DefaultRV32Config.fir@231553.4]
+  wire  _T_2; // @[Decoupled.scala 215:28:freechips.rocketchip.system.DefaultRV32Config.fir@231554.4]
+  wire  empty; // @[Decoupled.scala 215:25:freechips.rocketchip.system.DefaultRV32Config.fir@231555.4]
+  wire  full; // @[Decoupled.scala 216:24:freechips.rocketchip.system.DefaultRV32Config.fir@231556.4]
+  wire  do_enq; // @[Decoupled.scala 40:37:freechips.rocketchip.system.DefaultRV32Config.fir@231557.4]
+  wire  do_deq; // @[Decoupled.scala 40:37:freechips.rocketchip.system.DefaultRV32Config.fir@231560.4]
+  wire  _T_8; // @[Counter.scala 39:22:freechips.rocketchip.system.DefaultRV32Config.fir@231577.6]
+  wire  _T_11; // @[Counter.scala 39:22:freechips.rocketchip.system.DefaultRV32Config.fir@231583.6]
+  wire  _T_12; // @[Decoupled.scala 227:16:freechips.rocketchip.system.DefaultRV32Config.fir@231586.4]
   assign ram_id__T_15_addr = _T_1;
-  assign ram_id__T_15_data = ram_id[ram_id__T_15_addr]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
+  assign ram_id__T_15_data = ram_id[ram_id__T_15_addr]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
   assign ram_id__T_5_data = io_enq_bits_id;
   assign ram_id__T_5_addr = _T;
   assign ram_id__T_5_mask = 1'h1;
   assign ram_id__T_5_en = io_enq_ready & io_enq_valid;
   assign ram_addr__T_15_addr = _T_1;
-  assign ram_addr__T_15_data = ram_addr[ram_addr__T_15_addr]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
+  assign ram_addr__T_15_data = ram_addr[ram_addr__T_15_addr]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
   assign ram_addr__T_5_data = io_enq_bits_addr;
   assign ram_addr__T_5_addr = _T;
   assign ram_addr__T_5_mask = 1'h1;
   assign ram_addr__T_5_en = io_enq_ready & io_enq_valid;
   assign ram_echo_real_last__T_15_addr = _T_1;
-  assign ram_echo_real_last__T_15_data = ram_echo_real_last[ram_echo_real_last__T_15_addr]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
+  assign ram_echo_real_last__T_15_data = ram_echo_real_last[ram_echo_real_last__T_15_addr]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
   assign ram_echo_real_last__T_5_data = io_enq_bits_echo_real_last;
   assign ram_echo_real_last__T_5_addr = _T;
   assign ram_echo_real_last__T_5_mask = 1'h1;
   assign ram_echo_real_last__T_5_en = io_enq_ready & io_enq_valid;
-  assign ptr_match = _T == _T_1; // @[Decoupled.scala 214:33:freechips.rocketchip.system.DefaultRV32Config.fir@232732.4]
-  assign _T_2 = ~maybe_full; // @[Decoupled.scala 215:28:freechips.rocketchip.system.DefaultRV32Config.fir@232733.4]
-  assign empty = ptr_match & _T_2; // @[Decoupled.scala 215:25:freechips.rocketchip.system.DefaultRV32Config.fir@232734.4]
-  assign full = ptr_match & maybe_full; // @[Decoupled.scala 216:24:freechips.rocketchip.system.DefaultRV32Config.fir@232735.4]
-  assign do_enq = io_enq_ready & io_enq_valid; // @[Decoupled.scala 40:37:freechips.rocketchip.system.DefaultRV32Config.fir@232736.4]
-  assign do_deq = io_deq_ready & io_deq_valid; // @[Decoupled.scala 40:37:freechips.rocketchip.system.DefaultRV32Config.fir@232739.4]
-  assign _T_8 = _T + 1'h1; // @[Counter.scala 39:22:freechips.rocketchip.system.DefaultRV32Config.fir@232756.6]
-  assign _T_11 = _T_1 + 1'h1; // @[Counter.scala 39:22:freechips.rocketchip.system.DefaultRV32Config.fir@232762.6]
-  assign _T_12 = do_enq != do_deq; // @[Decoupled.scala 227:16:freechips.rocketchip.system.DefaultRV32Config.fir@232765.4]
-  assign io_enq_ready = ~full; // @[Decoupled.scala 232:16:freechips.rocketchip.system.DefaultRV32Config.fir@232772.4]
-  assign io_deq_valid = ~empty; // @[Decoupled.scala 231:16:freechips.rocketchip.system.DefaultRV32Config.fir@232770.4]
-  assign io_deq_bits_id = ram_id__T_15_data; // @[Decoupled.scala 233:15:freechips.rocketchip.system.DefaultRV32Config.fir@232783.4]
-  assign io_deq_bits_addr = ram_addr__T_15_data; // @[Decoupled.scala 233:15:freechips.rocketchip.system.DefaultRV32Config.fir@232782.4]
-  assign io_deq_bits_echo_real_last = ram_echo_real_last__T_15_data; // @[Decoupled.scala 233:15:freechips.rocketchip.system.DefaultRV32Config.fir@232774.4]
+  assign ptr_match = _T == _T_1; // @[Decoupled.scala 214:33:freechips.rocketchip.system.DefaultRV32Config.fir@231553.4]
+  assign _T_2 = ~maybe_full; // @[Decoupled.scala 215:28:freechips.rocketchip.system.DefaultRV32Config.fir@231554.4]
+  assign empty = ptr_match & _T_2; // @[Decoupled.scala 215:25:freechips.rocketchip.system.DefaultRV32Config.fir@231555.4]
+  assign full = ptr_match & maybe_full; // @[Decoupled.scala 216:24:freechips.rocketchip.system.DefaultRV32Config.fir@231556.4]
+  assign do_enq = io_enq_ready & io_enq_valid; // @[Decoupled.scala 40:37:freechips.rocketchip.system.DefaultRV32Config.fir@231557.4]
+  assign do_deq = io_deq_ready & io_deq_valid; // @[Decoupled.scala 40:37:freechips.rocketchip.system.DefaultRV32Config.fir@231560.4]
+  assign _T_8 = _T + 1'h1; // @[Counter.scala 39:22:freechips.rocketchip.system.DefaultRV32Config.fir@231577.6]
+  assign _T_11 = _T_1 + 1'h1; // @[Counter.scala 39:22:freechips.rocketchip.system.DefaultRV32Config.fir@231583.6]
+  assign _T_12 = do_enq != do_deq; // @[Decoupled.scala 227:16:freechips.rocketchip.system.DefaultRV32Config.fir@231586.4]
+  assign io_enq_ready = ~full; // @[Decoupled.scala 232:16:freechips.rocketchip.system.DefaultRV32Config.fir@231593.4]
+  assign io_deq_valid = ~empty; // @[Decoupled.scala 231:16:freechips.rocketchip.system.DefaultRV32Config.fir@231591.4]
+  assign io_deq_bits_id = ram_id__T_15_data; // @[Decoupled.scala 233:15:freechips.rocketchip.system.DefaultRV32Config.fir@231604.4]
+  assign io_deq_bits_addr = ram_addr__T_15_data; // @[Decoupled.scala 233:15:freechips.rocketchip.system.DefaultRV32Config.fir@231603.4]
+  assign io_deq_bits_echo_real_last = ram_echo_real_last__T_15_data; // @[Decoupled.scala 233:15:freechips.rocketchip.system.DefaultRV32Config.fir@231595.4]
 `ifdef RANDOMIZE_GARBAGE_ASSIGN
 `define RANDOMIZE
 `endif
@@ -148,13 +148,13 @@ end // initial
 `endif // SYNTHESIS
   always @(posedge clock) begin
     if(ram_id__T_5_en & ram_id__T_5_mask) begin
-      ram_id[ram_id__T_5_addr] <= ram_id__T_5_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
+      ram_id[ram_id__T_5_addr] <= ram_id__T_5_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
     end
     if(ram_addr__T_5_en & ram_addr__T_5_mask) begin
-      ram_addr[ram_addr__T_5_addr] <= ram_addr__T_5_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
+      ram_addr[ram_addr__T_5_addr] <= ram_addr__T_5_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
     end
     if(ram_echo_real_last__T_5_en & ram_echo_real_last__T_5_mask) begin
-      ram_echo_real_last[ram_echo_real_last__T_5_addr] <= ram_echo_real_last__T_5_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@232728.4]
+      ram_echo_real_last[ram_echo_real_last__T_5_addr] <= ram_echo_real_last__T_5_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231549.4]
     end
     if (reset) begin
       _T <= 1'h0;

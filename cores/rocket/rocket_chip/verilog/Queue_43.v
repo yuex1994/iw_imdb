@@ -1,20 +1,20 @@
-module Queue_43( // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231208.2]
-  input         clock, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231209.4]
-  input         reset, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231210.4]
-  output        io_enq_ready, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231211.4]
-  input         io_enq_valid, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231211.4]
-  input  [3:0]  io_enq_bits_id, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231211.4]
-  input  [27:0] io_enq_bits_addr, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231211.4]
-  input  [7:0]  io_enq_bits_len, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231211.4]
-  input  [2:0]  io_enq_bits_size, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231211.4]
-  input  [1:0]  io_enq_bits_burst, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231211.4]
-  input         io_deq_ready, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231211.4]
-  output        io_deq_valid, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231211.4]
-  output [3:0]  io_deq_bits_id, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231211.4]
-  output [27:0] io_deq_bits_addr, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231211.4]
-  output [7:0]  io_deq_bits_len, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231211.4]
-  output [2:0]  io_deq_bits_size, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231211.4]
-  output [1:0]  io_deq_bits_burst // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231211.4]
+module Queue_43( // @[:freechips.rocketchip.system.DefaultRV32Config.fir@230029.2]
+  input         clock, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@230030.4]
+  input         reset, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@230031.4]
+  output        io_enq_ready, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@230032.4]
+  input         io_enq_valid, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@230032.4]
+  input  [3:0]  io_enq_bits_id, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@230032.4]
+  input  [27:0] io_enq_bits_addr, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@230032.4]
+  input  [7:0]  io_enq_bits_len, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@230032.4]
+  input  [2:0]  io_enq_bits_size, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@230032.4]
+  input  [1:0]  io_enq_bits_burst, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@230032.4]
+  input         io_deq_ready, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@230032.4]
+  output        io_deq_valid, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@230032.4]
+  output [3:0]  io_deq_bits_id, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@230032.4]
+  output [27:0] io_deq_bits_addr, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@230032.4]
+  output [7:0]  io_deq_bits_len, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@230032.4]
+  output [2:0]  io_deq_bits_size, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@230032.4]
+  output [1:0]  io_deq_bits_burst // @[:freechips.rocketchip.system.DefaultRV32Config.fir@230032.4]
 );
 `ifdef RANDOMIZE_MEM_INIT
   reg [31:0] _RAND_0;
@@ -26,95 +26,95 @@ module Queue_43( // @[:freechips.rocketchip.system.DefaultRV32Config.fir@231208.
 `ifdef RANDOMIZE_REG_INIT
   reg [31:0] _RAND_5;
 `endif // RANDOMIZE_REG_INIT
-  reg [3:0] ram_id [0:0]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire [3:0] ram_id__T_7_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_id__T_7_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire [3:0] ram_id__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_id__T_3_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_id__T_3_mask; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_id__T_3_en; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  reg [27:0] ram_addr [0:0]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire [27:0] ram_addr__T_7_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_addr__T_7_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire [27:0] ram_addr__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_addr__T_3_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_addr__T_3_mask; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_addr__T_3_en; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  reg [7:0] ram_len [0:0]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire [7:0] ram_len__T_7_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_len__T_7_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire [7:0] ram_len__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_len__T_3_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_len__T_3_mask; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_len__T_3_en; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  reg [2:0] ram_size [0:0]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire [2:0] ram_size__T_7_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_size__T_7_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire [2:0] ram_size__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_size__T_3_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_size__T_3_mask; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_size__T_3_en; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  reg [1:0] ram_burst [0:0]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire [1:0] ram_burst__T_7_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_burst__T_7_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire [1:0] ram_burst__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_burst__T_3_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_burst__T_3_mask; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  wire  ram_burst__T_3_en; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
-  reg  maybe_full; // @[Decoupled.scala 212:27:freechips.rocketchip.system.DefaultRV32Config.fir@231214.4]
-  wire  empty; // @[Decoupled.scala 215:28:freechips.rocketchip.system.DefaultRV32Config.fir@231216.4]
-  wire  _T_1; // @[Decoupled.scala 40:37:freechips.rocketchip.system.DefaultRV32Config.fir@231219.4]
-  wire  _T_2; // @[Decoupled.scala 40:37:freechips.rocketchip.system.DefaultRV32Config.fir@231222.4]
-  wire  _GEN_15; // @[Decoupled.scala 240:27:freechips.rocketchip.system.DefaultRV32Config.fir@231271.6]
-  wire  do_enq; // @[Decoupled.scala 237:18:freechips.rocketchip.system.DefaultRV32Config.fir@231260.4]
-  wire  do_deq; // @[Decoupled.scala 237:18:freechips.rocketchip.system.DefaultRV32Config.fir@231260.4]
-  wire  _T_4; // @[Decoupled.scala 227:16:freechips.rocketchip.system.DefaultRV32Config.fir@231239.4]
-  wire  _T_5; // @[Decoupled.scala 231:19:freechips.rocketchip.system.DefaultRV32Config.fir@231243.4]
+  reg [3:0] ram_id [0:0]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire [3:0] ram_id__T_7_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_id__T_7_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire [3:0] ram_id__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_id__T_3_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_id__T_3_mask; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_id__T_3_en; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  reg [27:0] ram_addr [0:0]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire [27:0] ram_addr__T_7_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_addr__T_7_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire [27:0] ram_addr__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_addr__T_3_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_addr__T_3_mask; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_addr__T_3_en; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  reg [7:0] ram_len [0:0]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire [7:0] ram_len__T_7_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_len__T_7_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire [7:0] ram_len__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_len__T_3_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_len__T_3_mask; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_len__T_3_en; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  reg [2:0] ram_size [0:0]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire [2:0] ram_size__T_7_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_size__T_7_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire [2:0] ram_size__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_size__T_3_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_size__T_3_mask; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_size__T_3_en; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  reg [1:0] ram_burst [0:0]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire [1:0] ram_burst__T_7_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_burst__T_7_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire [1:0] ram_burst__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_burst__T_3_addr; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_burst__T_3_mask; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  wire  ram_burst__T_3_en; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
+  reg  maybe_full; // @[Decoupled.scala 212:27:freechips.rocketchip.system.DefaultRV32Config.fir@230035.4]
+  wire  empty; // @[Decoupled.scala 215:28:freechips.rocketchip.system.DefaultRV32Config.fir@230037.4]
+  wire  _T_1; // @[Decoupled.scala 40:37:freechips.rocketchip.system.DefaultRV32Config.fir@230040.4]
+  wire  _T_2; // @[Decoupled.scala 40:37:freechips.rocketchip.system.DefaultRV32Config.fir@230043.4]
+  wire  _GEN_15; // @[Decoupled.scala 240:27:freechips.rocketchip.system.DefaultRV32Config.fir@230092.6]
+  wire  do_enq; // @[Decoupled.scala 237:18:freechips.rocketchip.system.DefaultRV32Config.fir@230081.4]
+  wire  do_deq; // @[Decoupled.scala 237:18:freechips.rocketchip.system.DefaultRV32Config.fir@230081.4]
+  wire  _T_4; // @[Decoupled.scala 227:16:freechips.rocketchip.system.DefaultRV32Config.fir@230060.4]
+  wire  _T_5; // @[Decoupled.scala 231:19:freechips.rocketchip.system.DefaultRV32Config.fir@230064.4]
   assign ram_id__T_7_addr = 1'h0;
-  assign ram_id__T_7_data = ram_id[ram_id__T_7_addr]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
+  assign ram_id__T_7_data = ram_id[ram_id__T_7_addr]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
   assign ram_id__T_3_data = io_enq_bits_id;
   assign ram_id__T_3_addr = 1'h0;
   assign ram_id__T_3_mask = 1'h1;
   assign ram_id__T_3_en = empty ? _GEN_15 : _T_1;
   assign ram_addr__T_7_addr = 1'h0;
-  assign ram_addr__T_7_data = ram_addr[ram_addr__T_7_addr]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
+  assign ram_addr__T_7_data = ram_addr[ram_addr__T_7_addr]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
   assign ram_addr__T_3_data = io_enq_bits_addr;
   assign ram_addr__T_3_addr = 1'h0;
   assign ram_addr__T_3_mask = 1'h1;
   assign ram_addr__T_3_en = empty ? _GEN_15 : _T_1;
   assign ram_len__T_7_addr = 1'h0;
-  assign ram_len__T_7_data = ram_len[ram_len__T_7_addr]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
+  assign ram_len__T_7_data = ram_len[ram_len__T_7_addr]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
   assign ram_len__T_3_data = io_enq_bits_len;
   assign ram_len__T_3_addr = 1'h0;
   assign ram_len__T_3_mask = 1'h1;
   assign ram_len__T_3_en = empty ? _GEN_15 : _T_1;
   assign ram_size__T_7_addr = 1'h0;
-  assign ram_size__T_7_data = ram_size[ram_size__T_7_addr]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
+  assign ram_size__T_7_data = ram_size[ram_size__T_7_addr]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
   assign ram_size__T_3_data = io_enq_bits_size;
   assign ram_size__T_3_addr = 1'h0;
   assign ram_size__T_3_mask = 1'h1;
   assign ram_size__T_3_en = empty ? _GEN_15 : _T_1;
   assign ram_burst__T_7_addr = 1'h0;
-  assign ram_burst__T_7_data = ram_burst[ram_burst__T_7_addr]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
+  assign ram_burst__T_7_data = ram_burst[ram_burst__T_7_addr]; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
   assign ram_burst__T_3_data = io_enq_bits_burst;
   assign ram_burst__T_3_addr = 1'h0;
   assign ram_burst__T_3_mask = 1'h1;
   assign ram_burst__T_3_en = empty ? _GEN_15 : _T_1;
-  assign empty = ~maybe_full; // @[Decoupled.scala 215:28:freechips.rocketchip.system.DefaultRV32Config.fir@231216.4]
-  assign _T_1 = io_enq_ready & io_enq_valid; // @[Decoupled.scala 40:37:freechips.rocketchip.system.DefaultRV32Config.fir@231219.4]
-  assign _T_2 = io_deq_ready & io_deq_valid; // @[Decoupled.scala 40:37:freechips.rocketchip.system.DefaultRV32Config.fir@231222.4]
-  assign _GEN_15 = io_deq_ready ? 1'h0 : _T_1; // @[Decoupled.scala 240:27:freechips.rocketchip.system.DefaultRV32Config.fir@231271.6]
-  assign do_enq = empty ? _GEN_15 : _T_1; // @[Decoupled.scala 237:18:freechips.rocketchip.system.DefaultRV32Config.fir@231260.4]
-  assign do_deq = empty ? 1'h0 : _T_2; // @[Decoupled.scala 237:18:freechips.rocketchip.system.DefaultRV32Config.fir@231260.4]
-  assign _T_4 = do_enq != do_deq; // @[Decoupled.scala 227:16:freechips.rocketchip.system.DefaultRV32Config.fir@231239.4]
-  assign _T_5 = ~empty; // @[Decoupled.scala 231:19:freechips.rocketchip.system.DefaultRV32Config.fir@231243.4]
-  assign io_enq_ready = ~maybe_full; // @[Decoupled.scala 232:16:freechips.rocketchip.system.DefaultRV32Config.fir@231246.4]
-  assign io_deq_valid = io_enq_valid | _T_5; // @[Decoupled.scala 231:16:freechips.rocketchip.system.DefaultRV32Config.fir@231244.4 Decoupled.scala 236:40:freechips.rocketchip.system.DefaultRV32Config.fir@231258.6]
-  assign io_deq_bits_id = empty ? io_enq_bits_id : ram_id__T_7_data; // @[Decoupled.scala 233:15:freechips.rocketchip.system.DefaultRV32Config.fir@231256.4 Decoupled.scala 238:19:freechips.rocketchip.system.DefaultRV32Config.fir@231269.6]
-  assign io_deq_bits_addr = empty ? io_enq_bits_addr : ram_addr__T_7_data; // @[Decoupled.scala 233:15:freechips.rocketchip.system.DefaultRV32Config.fir@231255.4 Decoupled.scala 238:19:freechips.rocketchip.system.DefaultRV32Config.fir@231268.6]
-  assign io_deq_bits_len = empty ? io_enq_bits_len : ram_len__T_7_data; // @[Decoupled.scala 233:15:freechips.rocketchip.system.DefaultRV32Config.fir@231254.4 Decoupled.scala 238:19:freechips.rocketchip.system.DefaultRV32Config.fir@231267.6]
-  assign io_deq_bits_size = empty ? io_enq_bits_size : ram_size__T_7_data; // @[Decoupled.scala 233:15:freechips.rocketchip.system.DefaultRV32Config.fir@231253.4 Decoupled.scala 238:19:freechips.rocketchip.system.DefaultRV32Config.fir@231266.6]
-  assign io_deq_bits_burst = empty ? io_enq_bits_burst : ram_burst__T_7_data; // @[Decoupled.scala 233:15:freechips.rocketchip.system.DefaultRV32Config.fir@231252.4 Decoupled.scala 238:19:freechips.rocketchip.system.DefaultRV32Config.fir@231265.6]
+  assign empty = ~maybe_full; // @[Decoupled.scala 215:28:freechips.rocketchip.system.DefaultRV32Config.fir@230037.4]
+  assign _T_1 = io_enq_ready & io_enq_valid; // @[Decoupled.scala 40:37:freechips.rocketchip.system.DefaultRV32Config.fir@230040.4]
+  assign _T_2 = io_deq_ready & io_deq_valid; // @[Decoupled.scala 40:37:freechips.rocketchip.system.DefaultRV32Config.fir@230043.4]
+  assign _GEN_15 = io_deq_ready ? 1'h0 : _T_1; // @[Decoupled.scala 240:27:freechips.rocketchip.system.DefaultRV32Config.fir@230092.6]
+  assign do_enq = empty ? _GEN_15 : _T_1; // @[Decoupled.scala 237:18:freechips.rocketchip.system.DefaultRV32Config.fir@230081.4]
+  assign do_deq = empty ? 1'h0 : _T_2; // @[Decoupled.scala 237:18:freechips.rocketchip.system.DefaultRV32Config.fir@230081.4]
+  assign _T_4 = do_enq != do_deq; // @[Decoupled.scala 227:16:freechips.rocketchip.system.DefaultRV32Config.fir@230060.4]
+  assign _T_5 = ~empty; // @[Decoupled.scala 231:19:freechips.rocketchip.system.DefaultRV32Config.fir@230064.4]
+  assign io_enq_ready = ~maybe_full; // @[Decoupled.scala 232:16:freechips.rocketchip.system.DefaultRV32Config.fir@230067.4]
+  assign io_deq_valid = io_enq_valid | _T_5; // @[Decoupled.scala 231:16:freechips.rocketchip.system.DefaultRV32Config.fir@230065.4 Decoupled.scala 236:40:freechips.rocketchip.system.DefaultRV32Config.fir@230079.6]
+  assign io_deq_bits_id = empty ? io_enq_bits_id : ram_id__T_7_data; // @[Decoupled.scala 233:15:freechips.rocketchip.system.DefaultRV32Config.fir@230077.4 Decoupled.scala 238:19:freechips.rocketchip.system.DefaultRV32Config.fir@230090.6]
+  assign io_deq_bits_addr = empty ? io_enq_bits_addr : ram_addr__T_7_data; // @[Decoupled.scala 233:15:freechips.rocketchip.system.DefaultRV32Config.fir@230076.4 Decoupled.scala 238:19:freechips.rocketchip.system.DefaultRV32Config.fir@230089.6]
+  assign io_deq_bits_len = empty ? io_enq_bits_len : ram_len__T_7_data; // @[Decoupled.scala 233:15:freechips.rocketchip.system.DefaultRV32Config.fir@230075.4 Decoupled.scala 238:19:freechips.rocketchip.system.DefaultRV32Config.fir@230088.6]
+  assign io_deq_bits_size = empty ? io_enq_bits_size : ram_size__T_7_data; // @[Decoupled.scala 233:15:freechips.rocketchip.system.DefaultRV32Config.fir@230074.4 Decoupled.scala 238:19:freechips.rocketchip.system.DefaultRV32Config.fir@230087.6]
+  assign io_deq_bits_burst = empty ? io_enq_bits_burst : ram_burst__T_7_data; // @[Decoupled.scala 233:15:freechips.rocketchip.system.DefaultRV32Config.fir@230073.4 Decoupled.scala 238:19:freechips.rocketchip.system.DefaultRV32Config.fir@230086.6]
 `ifdef RANDOMIZE_GARBAGE_ASSIGN
 `define RANDOMIZE
 `endif
@@ -178,19 +178,19 @@ end // initial
 `endif // SYNTHESIS
   always @(posedge clock) begin
     if(ram_id__T_3_en & ram_id__T_3_mask) begin
-      ram_id[ram_id__T_3_addr] <= ram_id__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
+      ram_id[ram_id__T_3_addr] <= ram_id__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
     end
     if(ram_addr__T_3_en & ram_addr__T_3_mask) begin
-      ram_addr[ram_addr__T_3_addr] <= ram_addr__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
+      ram_addr[ram_addr__T_3_addr] <= ram_addr__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
     end
     if(ram_len__T_3_en & ram_len__T_3_mask) begin
-      ram_len[ram_len__T_3_addr] <= ram_len__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
+      ram_len[ram_len__T_3_addr] <= ram_len__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
     end
     if(ram_size__T_3_en & ram_size__T_3_mask) begin
-      ram_size[ram_size__T_3_addr] <= ram_size__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
+      ram_size[ram_size__T_3_addr] <= ram_size__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
     end
     if(ram_burst__T_3_en & ram_burst__T_3_mask) begin
-      ram_burst[ram_burst__T_3_addr] <= ram_burst__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@231213.4]
+      ram_burst[ram_burst__T_3_addr] <= ram_burst__T_3_data; // @[Decoupled.scala 209:16:freechips.rocketchip.system.DefaultRV32Config.fir@230034.4]
     end
     if (reset) begin
       maybe_full <= 1'h0;

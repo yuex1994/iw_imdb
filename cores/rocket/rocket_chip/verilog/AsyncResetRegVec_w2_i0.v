@@ -1,14 +1,14 @@
-module AsyncResetRegVec_w2_i0( // @[:freechips.rocketchip.system.DefaultRV32Config.fir@227153.2]
-  input        clock, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@227154.4]
-  input        reset, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@227155.4]
-  input  [1:0] io_d, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@227156.4]
-  output [1:0] io_q // @[:freechips.rocketchip.system.DefaultRV32Config.fir@227156.4]
+module AsyncResetRegVec_w2_i0( // @[:freechips.rocketchip.system.DefaultRV32Config.fir@225974.2]
+  input        clock, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@225975.4]
+  input        reset, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@225976.4]
+  input  [1:0] io_d, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@225977.4]
+  output [1:0] io_q // @[:freechips.rocketchip.system.DefaultRV32Config.fir@225977.4]
 );
 `ifdef RANDOMIZE_REG_INIT
   reg [31:0] _RAND_0;
 `endif // RANDOMIZE_REG_INIT
-  reg [1:0] reg_; // @[AsyncResetReg.scala 64:50:freechips.rocketchip.system.DefaultRV32Config.fir@227162.4]
-  assign io_q = reg_; // @[AsyncResetReg.scala 68:8:freechips.rocketchip.system.DefaultRV32Config.fir@227166.4]
+  reg [1:0] reg_; // @[AsyncResetReg.scala 64:50:freechips.rocketchip.system.DefaultRV32Config.fir@225983.4]
+  assign io_q = reg_; // @[AsyncResetReg.scala 68:8:freechips.rocketchip.system.DefaultRV32Config.fir@225987.4]
 `ifdef RANDOMIZE_GARBAGE_ASSIGN
 `define RANDOMIZE
 `endif
