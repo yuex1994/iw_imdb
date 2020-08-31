@@ -224,8 +224,12 @@ module IBuf(
   wire [31:0] T_488;
   wire  RVCExpander_1_clock;
   wire  RVCExpander_1_reset;
-  wire [31:0] RVCExpander_1_io_in;
+  wire [31:0] RVCExpander_1_io_in_yxdbg;
   wire [31:0] RVCExpander_1_io_out_bits;
+  wire [4:0] RVCExpander_1_io_out_rd_yxdbg /*verilator public*/;
+  wire [4:0] RVCExpander_1_io_out_rs1_yxdbg /*verilator public*/;
+  wire [4:0] RVCExpander_1_io_out_rs2_yxdbg /*verilator public*/;
+  wire [4:0] RVCExpander_1_io_out_rs3_yxdbg /*verilator public*/;
   wire [4:0] RVCExpander_1_io_out_rd;
   wire [4:0] RVCExpander_1_io_out_rs1;
   wire [4:0] RVCExpander_1_io_out_rs2;
@@ -292,10 +296,10 @@ module IBuf(
   assign io_inst_0_bits_btb_hit = T_540;
   assign io_inst_0_bits_rvc = RVCExpander_1_io_rvc;
   assign io_inst_0_bits_inst_bits = RVCExpander_1_io_out_bits;
-  assign io_inst_0_bits_inst_rd = RVCExpander_1_io_out_rd;
-  assign io_inst_0_bits_inst_rs1 = RVCExpander_1_io_out_rs1;
-  assign io_inst_0_bits_inst_rs2 = RVCExpander_1_io_out_rs2;
-  assign io_inst_0_bits_inst_rs3 = RVCExpander_1_io_out_rs3;
+  assign io_inst_0_bits_inst_rd = RVCExpander_1_io_out_rd_yxdbg;
+  assign io_inst_0_bits_inst_rs1 = RVCExpander_1_io_out_rs1_yxdbg;
+  assign io_inst_0_bits_inst_rs2 = RVCExpander_1_io_out_rs2_yxdbg;
+  assign io_inst_0_bits_inst_rs3 = RVCExpander_1_io_out_rs3_yxdbg;
   assign pcWordBits = io_imem_bits_pc[1];
   assign nReady = GEN_30;
   assign T_368 = io_imem_bits_btb_valid & io_imem_bits_btb_bits_taken;
@@ -438,7 +442,9 @@ module IBuf(
   assign T_488 = T_487 ? buf_pc : io_imem_bits_pc;
   assign RVCExpander_1_clock = clock;
   assign RVCExpander_1_reset = reset;
-  assign RVCExpander_1_io_in = inst;
+  assign RVCExpander_1_io_in_yxdbg = inst;
+
+  wire[31:0] RVCExpander_1_io_in /*verilator public*/;
   assign T_490 = ic_replay >> 1'h0;
   assign T_491 = T_490[0];
   assign T_493 = RVCExpander_1_io_rvc == 1'h0;

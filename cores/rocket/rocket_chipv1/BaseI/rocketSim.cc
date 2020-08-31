@@ -145,8 +145,15 @@ int main(int argc, char **argv) {
         tb->io_fpu_fcsr_flags_bits = 0;
         tb->io_fpu_toint_data = 0;
 
-        tb->Rocket->ibuf->RVCExpander_1->io_in = 0x00100113;
-        for (int i = 0; i < 100; i++) {
+	// tb->Rocket->ibuf->RVCExpander_1_io_in = 0x00100133;
+        tb->Rocket->ibuf_io_inst_0_bits_inst_bits = 0x00100113;
+	tb->Rocket->ibuf->RVCExpander_1_io_out_rd_yxdbg = 2; 
+
+	tb->Rocket->ibuf->RVCExpander_1_io_out_rs1_yxdbg = 0; 
+	tb->Rocket->ibuf->RVCExpander_1_io_out_rs2_yxdbg = 0; 
+	tb->Rocket->ibuf->RVCExpander_1_io_out_rs3_yxdbg = 0; 
+        tb->io_imem_resp_valid = 1;
+        for (int i = 0; i < 1000; i++) {
             next_time_frame(tb, time, tfp);
         }
         

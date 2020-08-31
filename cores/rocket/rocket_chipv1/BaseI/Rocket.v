@@ -10,7 +10,7 @@ module Rocket(
   output [31:0] io_imem_req_bits_pc,
   output  io_imem_req_bits_speculative,
   output  io_imem_resp_ready,
-  input   io_imem_resp_valid,
+  input   io_imem_resp_valid /*verilator public*/,
   input   io_imem_resp_bits_btb_valid,
   input   io_imem_resp_bits_btb_bits_taken,
   input  [1:0] io_imem_resp_bits_btb_bits_mask,
@@ -668,6 +668,7 @@ module Rocket(
   wire  ibuf_io_inst_0_bits_replay;
   wire  ibuf_io_inst_0_bits_btb_hit;
   wire  ibuf_io_inst_0_bits_rvc;
+  wire [31:0] ibuf_io_inst_0_bits_inst_bits_yxdbg;
   wire [31:0] ibuf_io_inst_0_bits_inst_bits /*verilator public*/;
   wire [4:0] ibuf_io_inst_0_bits_inst_rd;
   wire [4:0] ibuf_io_inst_0_bits_inst_rs1;
@@ -2283,7 +2284,7 @@ module Rocket(
     .io_inst_0_bits_replay(ibuf_io_inst_0_bits_replay),
     .io_inst_0_bits_btb_hit(ibuf_io_inst_0_bits_btb_hit),
     .io_inst_0_bits_rvc(ibuf_io_inst_0_bits_rvc),
-    .io_inst_0_bits_inst_bits(ibuf_io_inst_0_bits_inst_bits),
+    .io_inst_0_bits_inst_bits(ibuf_io_inst_0_bits_inst_bits_yxdbg),
     .io_inst_0_bits_inst_rd(ibuf_io_inst_0_bits_inst_rd),
     .io_inst_0_bits_inst_rs1(ibuf_io_inst_0_bits_inst_rs1),
     .io_inst_0_bits_inst_rs2(ibuf_io_inst_0_bits_inst_rs2),
