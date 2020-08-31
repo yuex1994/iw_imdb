@@ -1,0 +1,18 @@
+module IntXbar_4( // @[:freechips.rocketchip.system.DefaultRV32Config.fir@175544.2]
+  input   auto_int_in_3_0, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@175547.4]
+  input   auto_int_in_2_0, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@175547.4]
+  input   auto_int_in_1_0, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@175547.4]
+  input   auto_int_in_1_1, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@175547.4]
+  input   auto_int_in_0_0, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@175547.4]
+  output  auto_int_out_0, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@175547.4]
+  output  auto_int_out_1, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@175547.4]
+  output  auto_int_out_2, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@175547.4]
+  output  auto_int_out_3, // @[:freechips.rocketchip.system.DefaultRV32Config.fir@175547.4]
+  output  auto_int_out_4 // @[:freechips.rocketchip.system.DefaultRV32Config.fir@175547.4]
+);
+  assign auto_int_out_0 = auto_int_in_0_0; // @[LazyModule.scala 305:12:freechips.rocketchip.system.DefaultRV32Config.fir@175562.4]
+  assign auto_int_out_1 = auto_int_in_1_0; // @[LazyModule.scala 305:12:freechips.rocketchip.system.DefaultRV32Config.fir@175562.4]
+  assign auto_int_out_2 = auto_int_in_1_1; // @[LazyModule.scala 305:12:freechips.rocketchip.system.DefaultRV32Config.fir@175562.4]
+  assign auto_int_out_3 = auto_int_in_2_0; // @[LazyModule.scala 305:12:freechips.rocketchip.system.DefaultRV32Config.fir@175562.4]
+  assign auto_int_out_4 = auto_int_in_3_0; // @[LazyModule.scala 305:12:freechips.rocketchip.system.DefaultRV32Config.fir@175562.4]
+endmodule
