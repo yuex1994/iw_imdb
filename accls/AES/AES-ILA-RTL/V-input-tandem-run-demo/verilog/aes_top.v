@@ -55,24 +55,24 @@ always @(posedge clk) begin
   end
 end
 
-assign xram_data_in = xram[xram_addr];
-/*
+//assign xram_data_in = xram[xram_addr];
+
 always @(posedge clk) begin
   if ((!xram_wr) && xram_stb) begin
     xram_data_in <= xram[xram_addr];
   end
 end
-*/
 
-assign xram_ack = xram_stb;
-/*
+
+// assign xram_ack = xram_stb;
+
 always @(posedge clk) begin
   if (xram_stb)
     xram_ack <= 1;
   else
     xram_ack <= 0;
 end
-*/
+
 
 //
 // This is the exact same interface as oc8051_xram.
