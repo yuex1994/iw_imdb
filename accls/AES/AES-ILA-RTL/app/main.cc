@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
   AES aes_ila_model;
   IlaSim ila_sim;
   ila_sim.set_instr_lvl_abs(aes_ila_model.model.get());
-  ila_sim.sim_gen("./sim/", false, true, true);
+  ila_sim.sim_gen("./sim/", false, true, true, true, true, "../refinement/ref-rel-var-map.json");
   // build the aes128 model
   // verify separately the hierarchical ILA
   // from IO level down to the AES 128 function

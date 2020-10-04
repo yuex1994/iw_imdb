@@ -1,13 +1,13 @@
 {
   "models": { "ILA":"m0" , "VERILOG": "m1" },
   "state mapping": { 
-    "aes_address"        : "m1.aes_reg_opaddr_i.reg_out",
-    "aes_length"         : "m1.aes_reg_oplen_i.reg_out",
-    "aes_key"            : "m1.aes_reg_key0_i.reg_out",
-    "aes_counter"        : "m1.aes_reg_ctr_i.reg_out",
-    "aes_status"         : "m1.aes_reg_state",
+    "aes_address"        : "aes_top.aes_reg_opaddr_i.reg_out",
+    "aes_length"         : "aes_top.aes_reg_oplen_i.reg_out",
+    "aes_key"            : "aes_top.aes_reg_key0_i.reg_out",
+    "aes_counter"        : "aes_top.aes_reg_ctr_i.reg_out",
+    "aes_status"         : "aes_top.aes_reg_state",
     "XRAM"               : "**MEM**XRAM",
-    "outdata"            : "m1.data_out_reg"
+    "outdata"            : "aes_top.data_out_reg"
   },
 
   "interface mapping": {
