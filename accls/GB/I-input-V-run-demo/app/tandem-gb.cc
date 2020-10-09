@@ -102,92 +102,92 @@ int main(int argc, char** argv) {
     auto t = tv_v[v->v_top->hls_target->GB_pc];
     v_input(v, t);
     next_cycle(v);
-    std::cout << "pc:" << v->v_top->hls_target->GB_pc << std::endl;
-    std::cout << "ap_start:" << (uint32_t)v->v_top->hls_target->ap_start
-              << std::endl;
-    std::cout << "arg_1_TREADY: " << (uint32_t)v->v_top->arg_1_TREADY
-              << std::endl;
-    std::cout << "arg_1_TVALID: " << (uint32_t)v->v_top->arg_1_TVALID
-              << std::endl;
-    std::cout << "arg_1_TDATA: " << (uint32_t)v->v_top->arg_1_TDATA
-              << std::endl;
-    std::cout << "arg_0_TVALID: " << (uint32_t)v->v_top->arg_0_TVALID
-              << std::endl;
-    std::cout << "arg_0_TREADY: " << (uint32_t)v->v_top->arg_0_TREADY
-              << std::endl;
-    std::cout << "arg_0_TDATA: " << (uint32_t)v->v_top->arg_0_TDATA
-              << std::endl;
-    std::cout << "hls_lb2d_proc_x: "
-              << v->v_top->hls_target->hls_target_linebuffer_1_U0
-                     ->hls_target_linebuffer_U0->hls_target_call_U0
-                     ->hls_target_call_Loop_LB2D_buf_proc_U0->col_reg_349;
-    std::cout << "hls_lb2d_proc_y: "
-              << v->v_top->hls_target->hls_target_linebuffer_1_U0
-                     ->hls_target_linebuffer_U0->hls_target_call_U0
-                     ->hls_target_call_Loop_LB2D_buf_proc_U0->row_1_reg_693;
-    std::cout
-        << "hls_lb2d_p: "
-        << v->v_top->hls_target->hls_target_linebuffer_1_U0
-               ->hls_target_linebuffer_Loop_1_proc_U0->indvar_flatten_reg_61;
+    // std::cout << "pc:" << v->v_top->hls_target->GB_pc << std::endl;
+    // std::cout << "ap_start:" << (uint32_t)v->v_top->hls_target->ap_start
+    //           << std::endl;
+    // std::cout << "arg_1_TREADY: " << (uint32_t)v->v_top->arg_1_TREADY
+    //           << std::endl;
+    // std::cout << "arg_1_TVALID: " << (uint32_t)v->v_top->arg_1_TVALID
+    //           << std::endl;
+    // std::cout << "arg_1_TDATA: " << (uint32_t)v->v_top->arg_1_TDATA
+    //           << std::endl;
+    // std::cout << "arg_0_TVALID: " << (uint32_t)v->v_top->arg_0_TVALID
+    //           << std::endl;
+    // std::cout << "arg_0_TREADY: " << (uint32_t)v->v_top->arg_0_TREADY
+    //           << std::endl;
+    // std::cout << "arg_0_TDATA: " << (uint32_t)v->v_top->arg_0_TDATA
+    //           << std::endl;
+    // std::cout << "hls_lb2d_proc_x: "
+    //           << v->v_top->hls_target->hls_target_linebuffer_1_U0
+    //                  ->hls_target_linebuffer_U0->hls_target_call_U0
+    //                  ->hls_target_call_Loop_LB2D_buf_proc_U0->col_reg_349;
+    // std::cout << "hls_lb2d_proc_y: "
+    //           << v->v_top->hls_target->hls_target_linebuffer_1_U0
+    //                  ->hls_target_linebuffer_U0->hls_target_call_U0
+    //                  ->hls_target_call_Loop_LB2D_buf_proc_U0->row_1_reg_693;
+    // std::cout
+    //     << "hls_lb2d_p: "
+    //     << v->v_top->hls_target->hls_target_linebuffer_1_U0
+    //            ->hls_target_linebuffer_Loop_1_proc_U0->indvar_flatten_reg_61;
 
-    std::cout << std::hex << "stencil_0: ";
-    for (int i = 2; i >= 0; i--)
-      std::cout << v->v_top->hls_target->hls_target_linebuffer_1_U0
-                       ->hls_target_linebuffer_U0->hls_target_call_U0
-                       ->hls_target_call_Loop_LB2D_shift_proc_U0
-                       ->buffer_0_value_V_fu_100[i];
-    std::cout << std::endl;
-    std::cout << "stencil_1: ";
-    for (int i = 2; i >= 0; i--)
-      std::cout << v->v_top->hls_target->hls_target_linebuffer_1_U0
-                       ->hls_target_linebuffer_U0->hls_target_call_U0
-                       ->hls_target_call_Loop_LB2D_shift_proc_U0
-                       ->buffer_1_value_V_fu_104[i];
-    std::cout << std::endl;
-    std::cout << "stencil_2: ";
-    for (int i = 2; i >= 0; i--)
-      std::cout << v->v_top->hls_target->hls_target_linebuffer_1_U0
-                       ->hls_target_linebuffer_U0->hls_target_call_U0
-                       ->hls_target_call_Loop_LB2D_shift_proc_U0
-                       ->buffer_2_value_V_fu_108[i];
-    std::cout << std::endl;
-    std::cout << "stencil_3: ";
-    for (int i = 2; i >= 0; i--)
-      std::cout << v->v_top->hls_target->hls_target_linebuffer_1_U0
-                       ->hls_target_linebuffer_U0->hls_target_call_U0
-                       ->hls_target_call_Loop_LB2D_shift_proc_U0
-                       ->buffer_3_value_V_fu_112[i];
-    std::cout << std::endl;
-    std::cout << "stencil_4: ";
-    for (int i = 2; i >= 0; i--)
-      std::cout << v->v_top->hls_target->hls_target_linebuffer_1_U0
-                       ->hls_target_linebuffer_U0->hls_target_call_U0
-                       ->hls_target_call_Loop_LB2D_shift_proc_U0
-                       ->buffer_4_value_V_fu_116[i];
-    std::cout << std::endl;
-    std::cout << "stencil_5: ";
-    for (int i = 2; i >= 0; i--)
-      std::cout << v->v_top->hls_target->hls_target_linebuffer_1_U0
-                       ->hls_target_linebuffer_U0->hls_target_call_U0
-                       ->hls_target_call_Loop_LB2D_shift_proc_U0
-                       ->buffer_5_value_V_fu_120[i];
-    std::cout << std::endl;
-    std::cout << "stencil_6: ";
-    for (int i = 2; i >= 0; i--)
-      std::cout << v->v_top->hls_target->hls_target_linebuffer_1_U0
-                       ->hls_target_linebuffer_U0->hls_target_call_U0
-                       ->hls_target_call_Loop_LB2D_shift_proc_U0
-                       ->buffer_6_value_V_fu_124[i];
-    std::cout << std::endl;
-    std::cout << "stencil_7: ";
-    for (int i = 2; i >= 0; i--)
-      std::cout << v->v_top->hls_target->hls_target_linebuffer_1_U0
-                       ->hls_target_linebuffer_U0->hls_target_call_U0
-                       ->hls_target_call_Loop_LB2D_shift_proc_U0
-                       ->buffer_7_value_V_fu_96[i];
-    std::cout << std::dec << std::endl;
-    std::cout << "cur_pix: " 
-        << (uint32_t) v->v_top->hls_target->hls_target_linebuffer_1_U0->hls_target_linebuffer_Loop_1_proc_U0->empty_18_reg_97_0 << std::endl;
+    // std::cout << std::hex << "stencil_0: ";
+    // for (int i = 2; i >= 0; i--)
+    //   std::cout << v->v_top->hls_target->hls_target_linebuffer_1_U0
+    //                    ->hls_target_linebuffer_U0->hls_target_call_U0
+    //                    ->hls_target_call_Loop_LB2D_shift_proc_U0
+    //                    ->buffer_0_value_V_fu_100[i];
+    // std::cout << std::endl;
+    // std::cout << "stencil_1: ";
+    // for (int i = 2; i >= 0; i--)
+    //   std::cout << v->v_top->hls_target->hls_target_linebuffer_1_U0
+    //                    ->hls_target_linebuffer_U0->hls_target_call_U0
+    //                    ->hls_target_call_Loop_LB2D_shift_proc_U0
+    //                    ->buffer_1_value_V_fu_104[i];
+    // std::cout << std::endl;
+    // std::cout << "stencil_2: ";
+    // for (int i = 2; i >= 0; i--)
+    //   std::cout << v->v_top->hls_target->hls_target_linebuffer_1_U0
+    //                    ->hls_target_linebuffer_U0->hls_target_call_U0
+    //                    ->hls_target_call_Loop_LB2D_shift_proc_U0
+    //                    ->buffer_2_value_V_fu_108[i];
+    // std::cout << std::endl;
+    // std::cout << "stencil_3: ";
+    // for (int i = 2; i >= 0; i--)
+    //   std::cout << v->v_top->hls_target->hls_target_linebuffer_1_U0
+    //                    ->hls_target_linebuffer_U0->hls_target_call_U0
+    //                    ->hls_target_call_Loop_LB2D_shift_proc_U0
+    //                    ->buffer_3_value_V_fu_112[i];
+    // std::cout << std::endl;
+    // std::cout << "stencil_4: ";
+    // for (int i = 2; i >= 0; i--)
+    //   std::cout << v->v_top->hls_target->hls_target_linebuffer_1_U0
+    //                    ->hls_target_linebuffer_U0->hls_target_call_U0
+    //                    ->hls_target_call_Loop_LB2D_shift_proc_U0
+    //                    ->buffer_4_value_V_fu_116[i];
+    // std::cout << std::endl;
+    // std::cout << "stencil_5: ";
+    // for (int i = 2; i >= 0; i--)
+    //   std::cout << v->v_top->hls_target->hls_target_linebuffer_1_U0
+    //                    ->hls_target_linebuffer_U0->hls_target_call_U0
+    //                    ->hls_target_call_Loop_LB2D_shift_proc_U0
+    //                    ->buffer_5_value_V_fu_120[i];
+    // std::cout << std::endl;
+    // std::cout << "stencil_6: ";
+    // for (int i = 2; i >= 0; i--)
+    //   std::cout << v->v_top->hls_target->hls_target_linebuffer_1_U0
+    //                    ->hls_target_linebuffer_U0->hls_target_call_U0
+    //                    ->hls_target_call_Loop_LB2D_shift_proc_U0
+    //                    ->buffer_6_value_V_fu_124[i];
+    // std::cout << std::endl;
+    // std::cout << "stencil_7: ";
+    // for (int i = 2; i >= 0; i--)
+    //   std::cout << v->v_top->hls_target->hls_target_linebuffer_1_U0
+    //                    ->hls_target_linebuffer_U0->hls_target_call_U0
+    //                    ->hls_target_call_Loop_LB2D_shift_proc_U0
+    //                    ->buffer_7_value_V_fu_96[i];
+    // std::cout << std::dec << std::endl;
+    // std::cout << "cur_pix: " 
+    //     << (uint32_t) v->v_top->hls_target->hls_target_linebuffer_1_U0->hls_target_linebuffer_Loop_1_proc_U0->empty_18_reg_97_0 << std::endl;
 
     /*
     std::cout << "RAM_0: ";

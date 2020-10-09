@@ -37,7 +37,7 @@ void next_instr(Ilated* i) {
 
 int main(int argc, char **argv) {
   // Instantiate Model -- i
-  Ilated* i = new Ilated;
+  // Ilated* i = new Ilated;
   // Initialize Model -- i 
 
   // Instantiate Implementation -- v
@@ -62,7 +62,7 @@ int main(int argc, char **argv) {
   // verilog tv
   std::ifstream tv_file;
   tv_file.open(argv[1]);
-  
+
   int j = 0;
   while (getline(tv_file, t_input)) {
     i_in t_in;
@@ -80,6 +80,9 @@ int main(int argc, char **argv) {
     tv_v.push_back(t_in);
   }
   
+  for (int m = 0; m < 1; m++) {
+      Ilated* i = new Ilated;
+
   // ila tv  
   uint32_t i_lock_cycle = 0;
   while (i->i_top->GB_pc < tv_v.size()) {
@@ -145,6 +148,7 @@ int main(int argc, char **argv) {
     // std::cout << "pc: " << i->i_top->GB_pc << std::endl;
 
   } 
+  }
 
    
 }  
