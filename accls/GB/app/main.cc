@@ -40,6 +40,5 @@ int main() {
   ila_sim.set_instr_lvl_abs(gb_high.get());
   ila_sim.sim_gen("./sim/", false, true, true);
 
-
   return 0;
 }

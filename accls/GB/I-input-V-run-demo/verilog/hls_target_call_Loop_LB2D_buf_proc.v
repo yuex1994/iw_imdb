@@ -83,12 +83,12 @@ reg   [3:0] ap_CS_fsm = 4'b1; // XXX
 reg    ap_sig_cseq_ST_st1_fsm_0;
 reg    ap_sig_bdd_23;
 reg   [63:0] write_idx_1_1_reg_338;
-reg   [8:0] col_reg_349;
+reg   [8:0] col_reg_349 /*verilator public*/;
 wire   [0:0] exitcond2_fu_360_p2;
 reg    ap_sig_cseq_ST_st2_fsm_1;
 reg    ap_sig_bdd_49;
 wire   [9:0] row_1_fu_366_p2;
-reg   [9:0] row_1_reg_693;
+reg   [9:0] row_1_reg_693 /*verilator public*/;
 wire   [0:0] icmp_fu_382_p2;
 reg   [0:0] icmp_reg_698;
 wire   [0:0] exitcond3_fu_388_p2;

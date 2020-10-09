@@ -223,9 +223,15 @@ Ila GbHigh::DefineChildPropagate() {
     auto end_pixel = (ram_x == ram_x_max - 1) & (ram_y == ram_y_max - 1);
     auto rel_pixel = (ram_x == 1) & (ram_y == ram_y_max);
 
+    for (auto i = 0; i < GB_STENCIL_SIZE - 1; i++) {
+      instr.SetUpdate(stencil[i],
+                      Ite(ram_y < GB_RAM_SIZE, stencil[i], stencil[i + 1]));
+    }
+    instr.SetUpdate(stencil.back(), stencil.back());
+
     auto stencil_rows = std::vector<ExprRef>();
     for (auto i = GB_STENCIL_SIZE - 1; i >= 0; i--) {
-      stencil_rows.push_back(GenRows(i));
+      stencil_rows.push_back(GenRows(instr, i));
     }
     auto concat_stencil_rows = stencil_rows[0];
     for (auto i = 1; i < stencil_rows.size(); i++) {
@@ -260,12 +266,6 @@ Ila GbHigh::DefineChildPropagate() {
       instr.SetUpdate(m, m);
     }
 
-    for (auto i = 0; i < GB_STENCIL_SIZE - 1; i++) {
-      instr.SetUpdate(stencil[i],
-                      Ite(ram_y < GB_RAM_SIZE, stencil[i], stencil[i + 1]));
-    }
-    instr.SetUpdate(stencil.back(), stencil.back());
-
     instr.SetUpdate(st_ready, ready_t);
   }
 
@@ -295,13 +295,13 @@ ExprRef GbHigh::SliceSelectOne(const int& mod_case, const ExprRef& start,
   }
 }
 
-ExprRef GbHigh::GenRows(const int& idx) {
+ExprRef GbHigh::GenRows(InstrRef& instr, const int& idx) {
   auto l = GB_DATA_SIZE * idx;
   auto h = l + GB_DATA_SIZE - 1;
 
-  auto res = Extract(stencil.front(), h, l);
+  auto res = Extract(instr.GetUpdate(stencil.front()), h, l);
   for (auto i = 1; i < GB_STENCIL_SIZE; i++) {
-    res = Concat(Extract(stencil[i], h, l), res);
+    res = Concat(Extract(instr.GetUpdate(stencil[i]), h, l), res);
   }
   return res;
 }

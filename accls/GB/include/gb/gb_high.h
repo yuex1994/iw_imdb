@@ -140,7 +140,7 @@ private:
   ExprRef SliceSelect(const ExprRef& start, std::vector<int> seqs);
   ExprRef SliceSelectOne(const int& mod_case, const ExprRef& start,
                          std::vector<int> seqs);
-  ExprRef GenRows(const int& idx);
+  ExprRef GenRows(InstrRef& instr, const int& idx);
 
 }; // class GbHigh
 

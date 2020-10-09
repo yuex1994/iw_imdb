@@ -1,7 +1,7 @@
 #include "GBHigh.h"
 void GBHigh::compute() {
   if (decode_GBHigh_Write()) {
-    GB_pc += 1;
+    GB_pc ++;
     decode_GBHigh_Write_update();
     GBHigh_arg_0_TVALID = GBHigh_arg_0_TVALID_next;
     GBHigh_arg_1_TREADY = GBHigh_arg_1_TREADY_next;
@@ -72,4 +72,12 @@ void GBHigh::compute() {
     if (schedule_counter == 0) 
       break;
   }
+ #ifdef TANDEM_VERIFICATION
+if ((tandem_f_ptr >= 0) && (tandem_f_ptr < 2)) {
+  (this->*(tandem_f[tandem_f_ptr]))(v);
+}
+else {
+  throw GBHighException("Ran unspecified function!");
+}
+#endif
 };
